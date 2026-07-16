@@ -266,3 +266,14 @@ button {
   white-space: nowrap;
   border: 0;
 }
+
+/* Mobile-only clearance so the fixed WhatsApp sticky bar (visible <768px)
+   doesn't overlap the last content on every page — Footer's copyright
+   line, or PageStub's "coming soon" text. Scoped to match the sticky
+   bar's own breakpoint exactly (WhatsAppStickyBar.module.css hides it
+   at 768px+), so desktop is untouched. */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 64px;
+  }
+}
