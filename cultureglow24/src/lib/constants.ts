@@ -15,17 +15,20 @@ export type NavLink = {
 };
 
 /**
- * Main navigation. About/Shop/Menu/Catering/Contact are in-page anchor
- * sections on the Home page itself (matching index.html's single-page
- * structure). Gallery is the one real separate route.
+ * Main navigation. Every item is now a real routed page (not an in-page
+ * anchor) — About/Shop/Menu/Catering/Contact each got their own stub
+ * route, following the same pattern Gallery already used. The Home page
+ * itself still contains all of index.html's sections inline (Story,
+ * Featured Products, Kitchen, etc.) — this change only affects where the
+ * site-wide nav sends you, not Home's own internal structure.
  */
 export const NAV_LINKS: NavLink[] = [
-  { href: "#about", label: "About" },
-  { href: "#shop", label: "Shop" },
-  { href: "#menu", label: "Menu" },
-  { href: "#catering", label: "Catering" },
+  { href: "/about", label: "About" },
+  { href: "/shop", label: "Shop" },
+  { href: "/menu", label: "Menu" },
+  { href: "/catering", label: "Catering" },
   { href: "/gallery", label: "Gallery" },
-  { href: "#contact", label: "Contact" },
+  { href: "/contact", label: "Contact" },
 ];
 
 /**

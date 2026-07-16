@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import type { NavLink } from "@/lib/constants";
 import styles from "./MobileNav.module.css";
 
@@ -27,9 +28,9 @@ export function MobileNav({ isOpen, onClose, links }: MobileNavProps) {
       </button>
 
       {links.map((link) => (
-        <a key={link.href} href={link.href} onClick={onClose}>
+        <Link key={link.href} href={link.href} onClick={onClose}>
           {link.label}
-        </a>
+        </Link>
       ))}
     </div>
   );

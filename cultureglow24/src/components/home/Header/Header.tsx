@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { NAV_LINKS, buildWhatsAppLink } from "@/lib/constants";
 import { useScrolledHeader } from "@/hooks/useScrolledHeader";
 import { useMobileNav } from "@/hooks/useMobileNav";
@@ -16,19 +17,19 @@ export function Header() {
         className={`${styles.siteHeader} ${scrolled ? styles.scrolled : ""}`}
       >
         <div className={styles.headerLogo}>
-          <a href="#top">
+          <Link href="/">
             <img
               src="/assets/images/lgoo-1783945739982.jpg"
               alt="CultureGlow24"
             />
-          </a>
+          </Link>
         </div>
 
         <nav aria-label="Main navigation">
           <ul className={styles.headerNav}>
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
-                <a href={link.href}>{link.label}</a>
+                <Link href={link.href}>{link.label}</Link>
               </li>
             ))}
           </ul>
