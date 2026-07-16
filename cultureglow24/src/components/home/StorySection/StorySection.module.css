@@ -1,0 +1,118 @@
+.storySection {
+  padding: calc(var(--cg-u) * 10) 0;
+}
+
+.storyInner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: calc(var(--cg-u) * 6);
+  align-items: center;
+}
+
+.storyEyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cg-gold);
+  margin-bottom: calc(var(--cg-u) * 2);
+}
+
+.storyH2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--cg-charcoal);
+  margin-bottom: calc(var(--cg-u) * 3);
+}
+
+.storyH2 em {
+  font-style: italic;
+  color: var(--cg-gold);
+}
+
+.storyBody {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--cg-text);
+  max-width: 540px;
+  margin-bottom: calc(var(--cg-u) * 4);
+}
+
+.storyAmharic {
+  font-size: 18px;
+  color: var(--cg-text);
+  line-height: 1.8;
+  border-left: 3px solid var(--cg-gold);
+  padding-left: calc(var(--cg-u) * 2);
+  margin-bottom: calc(var(--cg-u) * 4);
+}
+
+.storyStats {
+  display: flex;
+  gap: calc(var(--cg-u) * 5);
+  flex-wrap: wrap;
+}
+
+.statNum {
+  font-family: "Playfair Display", serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--cg-charcoal);
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cg-text);
+  margin-top: 4px;
+}
+
+.storyVisual {
+  position: relative;
+}
+
+.storyImgMain {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.storyImgAccent {
+  position: absolute;
+  bottom: -32px;
+  left: -24px;
+  width: 48%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 6px solid var(--cg-cream);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.storyBadge {
+  position: absolute;
+  top: 24px;
+  right: -16px;
+  background: var(--cg-gold);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 10px 16px;
+  border-radius: 8px;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+@media (min-width: 768px) {
+  .storyInner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
