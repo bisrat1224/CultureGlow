@@ -12,15 +12,6 @@
   gap: calc(var(--cg-u) * 3);
 }
 
-.sectionEyebrow {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--cg-gold);
-  margin-bottom: calc(var(--cg-u) * 1.5);
-}
-
 .sectionH2Light {
   font-family: "Playfair Display", serif;
   font-size: clamp(28px, 3.5vw, 42px);

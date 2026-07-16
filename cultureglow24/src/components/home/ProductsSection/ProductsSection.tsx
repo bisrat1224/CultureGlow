@@ -1,6 +1,7 @@
 import { buildWhatsAppLink } from "@/lib/constants";
 import { ProductCard, type Product } from "./ProductCard";
 import styles from "./ProductsSection.module.css";
+import shared from "../shared.module.css";
 
 // The 4 featured products, in index.html's exact order. Products (up to 20)
 // is a Pending item on the Developer Brief's Content Checklist — these are
@@ -53,7 +54,7 @@ export function ProductsSection() {
       <div className="wrap">
         <div className={styles.productsHeader}>
           <div className={`${styles.productsHeaderLeft} reveal`}>
-            <p className={styles.sectionEyebrow}>Featured Products</p>
+            <p className={shared.sectionEyebrow}>Featured Products</p>
             <h2 className={styles.sectionH2Light} id="products-h2">
               Handpicked <em>Favourites</em>
             </h2>

@@ -1,0 +1,146 @@
+.socialSection {
+  padding: calc(var(--cg-u) * 10) 0;
+  background: var(--cg-charcoal);
+}
+
+.socialHeader {
+  margin-bottom: calc(var(--cg-u) * 6);
+}
+
+/* .sectionH2Light is kept scoped here (not in shared.module.css) —
+   same "no premature abstraction" reasoning ProductsSection used:
+   every section's h2 has its own scoped variant (dark/light) even
+   when the declaration is identical, since sections evolve
+   independently. */
+.sectionH2Light {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--cg-cream);
+}
+
+.sectionH2Light em {
+  font-style: italic;
+  color: var(--cg-gold);
+}
+
+.socialRow + .socialRow {
+  margin-top: calc(var(--cg-u) * 6);
+}
+
+.socialRowLabel {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(250, 246, 240, 0.5);
+  text-align: center;
+  margin-bottom: calc(var(--cg-u) * 2);
+}
+
+/* Flex + fixed tile width + horizontal scroll (not a wrapping grid) so
+   each row stays a single line at every viewport, matching index.html's
+   one-row-per-platform layout exactly. */
+.socialGrid {
+  display: flex;
+  justify-content: center;
+  gap: calc(var(--cg-u) * 2);
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+}
+
+.socialGrid::-webkit-scrollbar {
+  display: none;
+}
+
+.socialTile {
+  flex: 0 0 168px;
+  background: rgba(250, 246, 240, 0.04);
+  border: 1px solid rgba(221, 217, 210, 0.12);
+  border-radius: 12px;
+  overflow: hidden;
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.3s ease;
+}
+
+.socialTile:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+}
+
+/* Fixed 9:16 vertical ratio on every tile, feed and reel alike — the
+   "all placeholders the same size" rule from index.html's own comment. */
+.socialTileMedia {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.socialColorA {
+  background: var(--cg-gold);
+}
+
+.socialColorB {
+  background: var(--cg-green);
+}
+
+.socialColorC {
+  background: rgba(250, 246, 240, 0.08);
+}
+
+.socialPlay {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(26, 26, 26, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.socialBadge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border-radius: 6px;
+  color: #fff;
+}
+
+.socialBadgeTiktok {
+  background: rgba(26, 26, 26, 0.75);
+}
+
+.socialBadgeReels {
+  background: rgba(200, 151, 58, 0.9);
+}
+
+.socialCaption {
+  padding: calc(var(--cg-u) * 2);
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(250, 246, 240, 0.65);
+}
+
+@media (min-width: 640px) {
+  .socialTile {
+    flex: 0 0 200px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .socialTile {
+    flex: 0 0 240px;
+  }
+}

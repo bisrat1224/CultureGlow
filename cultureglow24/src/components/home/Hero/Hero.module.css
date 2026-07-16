@@ -75,50 +75,6 @@
   flex-wrap: wrap;
 }
 
-.btnPrimary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--cg-gold);
-  color: #fff;
-  font-size: 15px;
-  font-weight: 600;
-  padding: 14px 28px;
-  border-radius: 8px;
-  transition: background 0.2s, transform 0.2s;
-  min-height: 44px;
-}
-
-.btnPrimary:hover {
-  background: #b08634;
-  transform: translateY(-2px);
-}
-
-.btnPrimary img {
-  width: 18px;
-  height: 18px;
-}
-
-.btnGhost {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: transparent;
-  color: var(--cg-cream);
-  font-size: 15px;
-  font-weight: 600;
-  padding: 14px 28px;
-  border-radius: 8px;
-  border: 1.5px solid rgba(250, 246, 240, 0.35);
-  transition: border-color 0.2s, background 0.2s;
-  min-height: 44px;
-}
-
-.btnGhost:hover {
-  border-color: var(--cg-cream);
-  background: rgba(250, 246, 240, 0.08);
-}
-
 .heroScroll {
   position: absolute;
   bottom: calc(var(--cg-u) * 4);

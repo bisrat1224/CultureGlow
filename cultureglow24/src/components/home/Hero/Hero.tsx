@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { buildWhatsAppLink } from "@/lib/constants";
 import styles from "./Hero.module.css";
+import shared from "../shared.module.css";
 
 // Matches index.html's <section class="hero"> exactly. Note: the original
 // markup only ever uses the static fallback image (no <video> element is
@@ -30,7 +31,7 @@ export function Hero() {
         <div className={styles.heroActions}>
           <a
             href={buildWhatsAppLink()}
-            className={styles.btnPrimary}
+            className={shared.btnPrimary}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -40,7 +41,7 @@ export function Hero() {
           {/* index.html points this at the in-page #menu anchor; per the
               Chunk 3b decision, internal nav now goes to real routes, so
               this goes to /menu instead. */}
-          <Link href="/menu" className={styles.btnGhost}>
+          <Link href="/menu" className={shared.btnGhost}>
             Explore the Menu
           </Link>
         </div>
