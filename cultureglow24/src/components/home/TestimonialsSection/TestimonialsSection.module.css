@@ -1,0 +1,111 @@
+.testimonialsSection {
+  padding: calc(var(--cg-u) * 10) 0;
+  background: var(--cg-gold-light);
+}
+
+.testimonialsHeader {
+  text-align: center;
+  margin-bottom: calc(var(--cg-u) * 6);
+}
+
+/* Scoped locally (not shared) — centered text-align and margin-top set it
+   apart from the dark/light h2 variants used elsewhere, consistent with
+   the "h2 variants stay local" pattern from prior chunks. */
+.testimonialsH2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 700;
+  color: var(--cg-charcoal);
+  margin-top: calc(var(--cg-u) * 1.5);
+}
+
+.testimonialsH2 em {
+  font-style: italic;
+  color: var(--cg-gold);
+}
+
+.testimonialsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: calc(var(--cg-u) * 3);
+}
+
+.tcard {
+  background: #fff;
+  border: 1px solid var(--cg-border);
+  border-radius: 12px;
+  padding: calc(var(--cg-u) * 4);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.3s;
+}
+
+.tcard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+.tcardStars {
+  display: flex;
+  gap: 3px;
+  margin-bottom: calc(var(--cg-u) * 2);
+}
+
+.tcardStars span {
+  color: var(--cg-gold);
+  font-size: 16px;
+}
+
+.tcardQuote {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--cg-text);
+  margin-bottom: calc(var(--cg-u) * 3);
+  font-style: italic;
+}
+
+.tcardAuthor {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--cg-u) * 1.5);
+}
+
+.tcardAvatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--cg-gold-light);
+  border: 2px solid var(--cg-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--cg-gold);
+  flex-shrink: 0;
+}
+
+.tcardName {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--cg-charcoal);
+}
+
+.tcardLoc {
+  font-size: 13px;
+  color: var(--cg-text);
+}
+
+@media (min-width: 640px) {
+  .testimonialsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .testimonialsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+} 

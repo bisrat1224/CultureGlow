@@ -6,6 +6,8 @@ import { ProductsSection } from "@/components/home/ProductsSection/ProductsSecti
 import { AccentBand } from "@/components/home/AccentBand/AccentBand";
 import { KitchenSection } from "@/components/home/KitchenSection/KitchenSection";
 import { SocialSection } from "@/components/home/SocialSection/SocialSection";
+import { CateringSection } from "@/components/home/CateringSection/CateringSection";
+import { TestimonialsSection } from "@/components/home/TestimonialsSection/TestimonialsSection";
 import { WhatsAppStickyBar } from "@/components/home/WhatsAppStickyBar/WhatsAppStickyBar";
 
 export default function Home() {
@@ -20,8 +22,9 @@ export default function Home() {
         <AccentBand />
         <KitchenSection />
         <SocialSection />
-        {/* Catering, Testimonials, Newsletter, and Contact sections
-            are added in Chunks 9-10. */}
+        <CateringSection />
+        <TestimonialsSection />
+        {/* Newsletter and Contact sections are added in Chunk 10. */}
       </main>
       <WhatsAppStickyBar />
     </>
