@@ -1,0 +1,101 @@
+.siteHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  padding: calc(var(--cg-u) * 2.5) calc(var(--cg-u) * 3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition:
+    background 0.4s ease,
+    backdrop-filter 0.4s ease;
+}
+
+.scrolled {
+  background: rgba(26, 26, 26, 0.92);
+  backdrop-filter: blur(12px);
+}
+
+.headerLogo {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--cg-u) * 1.5);
+}
+
+.headerLogo img {
+  height: 48px;
+  width: auto;
+}
+
+.headerNav {
+  display: none;
+  gap: calc(var(--cg-u) * 4);
+  list-style: none;
+}
+
+.headerNav a {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(250, 246, 240, 0.75);
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+
+.headerNav a:hover {
+  color: var(--cg-gold);
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--cg-u) * 2);
+}
+
+.btnWaHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--cg-gold);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+  min-height: 44px;
+}
+
+.btnWaHeader:hover {
+  background: #b08634;
+  transform: translateY(-1px);
+}
+
+.btnWaHeader img {
+  width: 16px;
+  height: 16px;
+}
+
+.hamburger {
+  background: none;
+  color: var(--cg-gold);
+  font-size: 22px;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .headerNav {
+    display: flex;
+  }
+
+  .hamburger {
+    display: none;
+  }
+}
