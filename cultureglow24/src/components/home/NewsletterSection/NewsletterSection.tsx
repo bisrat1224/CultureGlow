@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./NewsletterSection.module.css";
 import shared from "../shared.module.css";
 

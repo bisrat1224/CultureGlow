@@ -38,7 +38,7 @@ export function Footer() {
             rel="noopener noreferrer"
           >
             <img src="/assets/images/img_whatsappicon.svg" alt="" />
-            Order via WhatsApp
+            Order
           </a>
         </div>
 
