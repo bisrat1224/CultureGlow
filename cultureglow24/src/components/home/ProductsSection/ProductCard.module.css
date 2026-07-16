@@ -1,0 +1,80 @@
+.bentoCard {
+  background: rgba(250, 246, 240, 0.04);
+  border: 1px solid rgba(221, 217, 210, 0.12);
+  border-radius: 12px;
+  overflow: hidden;
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.3s ease;
+}
+
+.bentoCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+}
+
+.bentoCardImg {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.bentoCard:hover .bentoCardImg {
+  transform: scale(1.04);
+}
+
+.bentoCardBody {
+  padding: calc(var(--cg-u) * 2.5) calc(var(--cg-u) * 2.5) calc(var(--cg-u) * 3);
+}
+
+.bentoCardCat {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cg-gold);
+  margin-bottom: var(--cg-u);
+}
+
+.bentoCardName {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--cg-cream);
+  margin-bottom: var(--cg-u);
+  line-height: 1.2;
+}
+
+.bentoCardPrice {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--cg-gold);
+  margin-bottom: calc(var(--cg-u) * 2);
+}
+
+.btnWaCard {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--cg-gold);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+  min-height: 44px;
+}
+
+.btnWaCard:hover {
+  background: #b08634;
+  transform: translateY(-1px);
+}
+
+.btnWaCard img {
+  width: 16px;
+  height: 16px;
+}

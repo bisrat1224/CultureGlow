@@ -1,0 +1,76 @@
+.productsSection {
+  padding: calc(var(--cg-u) * 10) 0;
+  background: var(--cg-charcoal);
+}
+
+.productsHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: calc(var(--cg-u) * 6);
+  flex-wrap: wrap;
+  gap: calc(var(--cg-u) * 3);
+}
+
+.sectionEyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cg-gold);
+  margin-bottom: calc(var(--cg-u) * 1.5);
+}
+
+.sectionH2Light {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--cg-cream);
+}
+
+.sectionH2Light em {
+  font-style: italic;
+  color: var(--cg-gold);
+}
+
+.btnOutlineGold {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--cg-gold);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: 1.5px solid var(--cg-gold);
+  transition:
+    background 0.2s,
+    color 0.2s;
+  min-height: 44px;
+  white-space: nowrap;
+}
+
+.btnOutlineGold:hover {
+  background: var(--cg-gold);
+  color: #fff;
+}
+
+.bentoGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: calc(var(--cg-u) * 2);
+}
+
+@media (min-width: 640px) {
+  .bentoGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .bentoGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
