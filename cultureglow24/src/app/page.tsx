@@ -4,6 +4,7 @@ import { MarqueeBand } from "@/components/home/MarqueeBand/MarqueeBand";
 import { StorySection } from "@/components/home/StorySection/StorySection";
 import { ProductsSection } from "@/components/home/ProductsSection/ProductsSection";
 import { AccentBand } from "@/components/home/AccentBand/AccentBand";
+import { KitchenSection } from "@/components/home/KitchenSection/KitchenSection";
 import { WhatsAppStickyBar } from "@/components/home/WhatsAppStickyBar/WhatsAppStickyBar";
 
 export default function Home() {
@@ -16,8 +17,9 @@ export default function Home() {
         <StorySection />
         <ProductsSection />
         <AccentBand />
-        {/* Kitchen (Menu), Social, Catering, Testimonials, Newsletter, and
-            Contact sections are added in Chunks 7-10. */}
+        <KitchenSection />
+        {/* Social, Catering, Testimonials, Newsletter, and Contact sections
+            are added in Chunks 8-10. */}
       </main>
       <WhatsAppStickyBar />
     </>

@@ -1,0 +1,79 @@
+.menuRow {
+  display: flex;
+  gap: calc(var(--cg-u) * 2.5);
+  align-items: center;
+  background: var(--cg-gold-light);
+  border: 1px solid var(--cg-border);
+  border-radius: 12px;
+  padding: calc(var(--cg-u) * 2);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.menuRow:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transform: translateX(4px);
+}
+
+.menuRowImg {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.menuRowInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.menuRowName {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--cg-charcoal);
+  margin-bottom: 4px;
+}
+
+.menuRowDesc {
+  font-size: 14px;
+  color: var(--cg-text);
+  line-height: 1.5;
+}
+
+.menuRowRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.menuRowPrice {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--cg-gold);
+}
+
+.menuRowBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--cg-gold);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: background 0.2s;
+  min-height: 44px;
+}
+
+.menuRowBtn:hover {
+  background: #b08634;
+}
+
+.menuRowBtn img {
+  width: 14px;
+  height: 14px;
+}

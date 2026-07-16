@@ -1,0 +1,61 @@
+.kitchenSection {
+  padding: calc(var(--cg-u) * 10) 0;
+}
+
+.kitchenLayout {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--cg-u) * 6);
+}
+
+.kitchenHeaderCol {
+  flex: 1 1 auto;
+}
+
+.kitchenItemsCol {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.sectionH2Dark {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--cg-charcoal);
+  margin-top: calc(var(--cg-u) * 1.5);
+  margin-bottom: calc(var(--cg-u) * 3);
+}
+
+.sectionH2Dark em {
+  font-style: italic;
+  color: var(--cg-gold);
+}
+
+.kitchenDesc {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--cg-text);
+  margin-bottom: calc(var(--cg-u) * 4);
+}
+
+.menuList {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--cg-u) * 2);
+}
+
+@media (min-width: 768px) {
+  .kitchenLayout {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .kitchenHeaderCol {
+    flex: 0 0 38%;
+  }
+
+  .kitchenItemsCol {
+    flex: 0 0 62%;
+  }
+}
