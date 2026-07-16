@@ -35,17 +35,20 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #25d366;
+  background: var(--cg-gold);
   color: #fff;
   font-size: 14px;
   font-weight: 600;
   padding: 10px 20px;
   border-radius: 8px;
   min-height: 44px;
-  transition: transform 0.2s;
+  transition:
+    background 0.2s,
+    transform 0.2s;
 }
 
 .footerWaBtn:hover {
+  background: #b08634;
   transform: translateY(-1px);
 }
 
