@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { buildWhatsAppLink } from "@/lib/constants";
 import styles from "./Hero.module.css";
@@ -10,9 +11,12 @@ import shared from "../shared.module.css";
 export function Hero() {
   return (
     <section className={styles.hero} aria-label="Hero">
-      <img
+      <Image
         src="/assets/images/pexels-berlinerlights-23858842.jpg"
         alt="Traditional Habesha stews"
+        fill
+        sizes="100vw"
+        priority
         className={styles.heroImgFallback}
       />
       <div className={styles.heroGrain} />

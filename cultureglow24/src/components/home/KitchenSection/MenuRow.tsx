@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { buildWhatsAppLink } from "@/lib/constants";
 import styles from "./MenuRow.module.css";
 
@@ -15,15 +16,18 @@ interface MenuRowProps {
   revealDelayClass?: string;
 }
 
-// Matches index.html's <article class="menu-row"> exactly — dish photo,
-// name, description, price, and a WhatsApp order button pre-filled with
-// "I'd like to order [dish name]", same wa.me format ProductCard uses.
 export function MenuRow({ item, revealDelayClass }: MenuRowProps) {
   const { name, description, price, image, alt } = item;
 
   return (
     <article className={`${styles.menuRow} reveal ${revealDelayClass ?? ""}`}>
-      <img src={image} alt={alt} className={styles.menuRowImg} />
+      <Image
+        src={image}
+        alt={alt}
+        width={80}
+        height={80}
+        className={styles.menuRowImg}
+      />
       <div className={styles.menuRowInfo}>
         <h3 className={styles.menuRowName}>{name}</h3>
         <p className={styles.menuRowDesc}>{description}</p>

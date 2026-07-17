@@ -1,10 +1,6 @@
+import Image from "next/image";
 import styles from "./StorySection.module.css";
 
-// Matches index.html's <section class="story-section" id="about"> exactly.
-// This is the site-wide nav's "About" anchor target — the Header/MobileNav
-// links to this section by scrolling here on Home, while the separate
-// /about route (PageStub) remains the future full standalone page per the
-// Chunk 3b decision.
 const STORY_STATS = [
   { value: "500+", label: "Orders Delivered" },
   { value: "12+", label: "Menu Items" },
@@ -47,16 +43,24 @@ export function StorySection() {
           </div>
 
           <div className={`${styles.storyVisual} reveal reveal-delay-2`}>
-            <img
-              src="/assets/images/pexels-berlinerlights-23858842.jpg"
-              alt="Traditional Habesha stews in dark pans"
-              className={styles.storyImgMain}
-            />
-            <img
-              src="/assets/images/pexels-dbaler-17486836.jpg"
-              alt="Injera platter"
-              className={styles.storyImgAccent}
-            />
+            <div className={styles.storyImgMainWrap}>
+              <Image
+                src="/assets/images/pexels-berlinerlights-23858842.jpg"
+                alt="Traditional Habesha stews in dark pans"
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className={styles.storyImgMainEl}
+              />
+            </div>
+            <div className={styles.storyImgAccentWrap}>
+              <Image
+                src="/assets/images/pexels-dbaler-17486836.jpg"
+                alt="Injera platter"
+                fill
+                sizes="(min-width: 768px) 24vw, 48vw"
+                className={styles.storyImgAccentEl}
+              />
+            </div>
             <span className={styles.storyBadge}>Since 2024</span>
           </div>
         </div>

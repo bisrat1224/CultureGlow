@@ -13,14 +13,18 @@
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
 }
 
-.bentoCardImg {
+.bentoCardImgWrap {
+  position: relative;
   width: 100%;
   aspect-ratio: 4 / 3;
+}
+
+.bentoCardImgEl {
   object-fit: cover;
   transition: transform 0.5s ease;
 }
 
-.bentoCard:hover .bentoCardImg {
+.bentoCard:hover .bentoCardImgEl {
   transform: scale(1.04);
 }
 

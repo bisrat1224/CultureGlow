@@ -1,11 +1,7 @@
+import Image from "next/image";
 import { buildWhatsAppLink } from "@/lib/constants";
 import styles from "./CateringSection.module.css";
 
-// Matches index.html's <section class="catering-section" id="catering"> exactly —
-// green band, eyebrow/h2/desc/CTA on one side, a 3-image bento visual (one tall
-// image spanning 2 rows + two square images) on the other. This is the site-wide
-// nav's "Catering" anchor target on Home — the future standalone /catering page
-// (currently a PageStub) is separate scope per the Chunk 3b decision.
 export function CateringSection() {
   return (
     <section
@@ -38,21 +34,33 @@ export function CateringSection() {
           </div>
 
           <div className={`${styles.cateringVisual} reveal reveal-delay-2`}>
-            <img
-              src="/assets/images/pexels-berlinerlights-23858842.jpg"
-              alt="Traditional stews for catering"
-              className={`${styles.cateringImg} ${styles.cateringImgTall}`}
-            />
-            <img
-              src="/assets/images/istockphoto-452732099-612x612.jpg"
-              alt="Injera platter"
-              className={`${styles.cateringImg} ${styles.cateringImgSq}`}
-            />
-            <img
-              src="/assets/images/istockphoto-908729848-612x612.jpg"
-              alt="Family sharing"
-              className={`${styles.cateringImg} ${styles.cateringImgSq}`}
-            />
+            <div className={`${styles.cateringImgWrap} ${styles.cateringImgTallWrap}`}>
+              <Image
+                src="/assets/images/pexels-berlinerlights-23858842.jpg"
+                alt="Traditional stews for catering"
+                fill
+                sizes="(min-width: 768px) 25vw, 50vw"
+                className={styles.cateringImgEl}
+              />
+            </div>
+            <div className={`${styles.cateringImgWrap} ${styles.cateringImgSqWrap}`}>
+              <Image
+                src="/assets/images/istockphoto-452732099-612x612.jpg"
+                alt="Injera platter"
+                fill
+                sizes="(min-width: 768px) 25vw, 50vw"
+                className={styles.cateringImgEl}
+              />
+            </div>
+            <div className={`${styles.cateringImgWrap} ${styles.cateringImgSqWrap}`}>
+              <Image
+                src="/assets/images/istockphoto-908729848-612x612.jpg"
+                alt="Family sharing"
+                fill
+                sizes="(min-width: 768px) 25vw, 50vw"
+                className={styles.cateringImgEl}
+              />
+            </div>
           </div>
         </div>
       </div>

@@ -1,3 +1,4 @@
+
 .cateringSection {
   background: var(--cg-green);
   padding: calc(var(--cg-u) * 10) 0;
@@ -5,8 +6,6 @@
   overflow: hidden;
 }
 
-/* Decorative soft circle in the top-right corner, matching index.html's
-   .catering-section::before exactly. */
 .cateringSection::before {
   content: "";
   position: absolute;
@@ -26,9 +25,6 @@
   align-items: center;
 }
 
-/* Scoped locally rather than reusing shared.sectionEyebrow — this variant
-   uses translucent cream-on-green (rgba(251,243,226,0.7)), not the shared
-   gold-on-light color, since it sits on the dark green band. */
 .cateringEyebrow {
   font-size: 12px;
   font-weight: 700;
@@ -60,10 +56,6 @@
   margin-bottom: calc(var(--cg-u) * 4);
 }
 
-/* Named after index.html's .btn-green-cta class, but its actual fill is
-   gold (not green) — kept scoped locally rather than merged into
-   shared.btnPrimary since the sizing differs (16px/32px padding here vs
-   14px/28px for the shared button). */
 .btnGreenCta {
   display: inline-flex;
   align-items: center;
@@ -91,18 +83,23 @@
   gap: calc(var(--cg-u) * 2);
 }
 
-.cateringImg {
+.cateringImgWrap {
+  position: relative;
   border-radius: 12px;
-  object-fit: cover;
+  overflow: hidden;
   width: 100%;
 }
 
-.cateringImgTall {
+.cateringImgEl {
+  object-fit: cover;
+}
+
+.cateringImgTallWrap {
   aspect-ratio: 3 / 4;
   grid-row: span 2;
 }
 
-.cateringImgSq {
+.cateringImgSqWrap {
   aspect-ratio: 1;
 }
 

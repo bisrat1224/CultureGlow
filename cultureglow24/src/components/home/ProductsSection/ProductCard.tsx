@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { buildWhatsAppLink } from "@/lib/constants";
 import styles from "./ProductCard.module.css";
 
@@ -24,7 +25,15 @@ export function ProductCard({ product, revealDelayClass }: ProductCardProps) {
 
   return (
     <article className={`${styles.bentoCard} reveal ${revealDelayClass ?? ""}`}>
-      <img src={image} alt={alt} className={styles.bentoCardImg} />
+      <div className={styles.bentoCardImgWrap}>
+        <Image
+          src={image}
+          alt={alt}
+          fill
+          sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+          className={styles.bentoCardImgEl}
+        />
+      </div>
       <div className={styles.bentoCardBody}>
         <p className={styles.bentoCardCat}>{category}</p>
         <h3 className={styles.bentoCardName}>{name}</h3>

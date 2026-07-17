@@ -76,23 +76,32 @@
   position: relative;
 }
 
-.storyImgMain {
+.storyImgMainWrap {
+  position: relative;
   width: 100%;
   aspect-ratio: 4 / 5;
-  object-fit: cover;
   border-radius: 12px;
+  overflow: hidden;
 }
 
-.storyImgAccent {
+.storyImgMainEl {
+  object-fit: cover;
+}
+
+.storyImgAccentWrap {
   position: absolute;
   bottom: -32px;
   left: -24px;
   width: 48%;
   aspect-ratio: 1;
-  object-fit: cover;
   border-radius: 12px;
   border: 6px solid var(--cg-cream);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.storyImgAccentEl {
+  object-fit: cover;
 }
 
 .storyBadge {
