@@ -1,17 +1,6 @@
 import type { Product } from "@/components/home/ProductsSection/ProductCard";
 
-/**
- * Full product catalogue — single source of truth (Chunk 8, Stage 0).
- * Previously a local array inside ProductsSection.tsx; extracted so both
- * Home's featured subset and the full /shop page (Chunk 12) can import
- * from one place, per the Developer Brief's Section 18 data-note.
- *
- * The first 4 entries are index.html's original products, kept verbatim.
- * Entries 5–8 are Lorem Ipsum placeholders padding the catalogue to a
- * representative count until real products (up to 20, Pending on the
- * Content Checklist) arrive. Placeholder entries reuse existing image
- * assets already in /public/assets/images — no new assets were added.
- */
+
 export const PRODUCTS: Product[] = [
   {
     id: "injera-platter",

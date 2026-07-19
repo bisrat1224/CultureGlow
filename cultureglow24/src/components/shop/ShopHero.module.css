@@ -1,0 +1,37 @@
+.shopHero {
+  background-image: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.85)),
+    url("/assets/images/pexels-berlinerlights-23858842.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 100px 24px 80px;
+  text-align: center;
+}
+
+.shopHeroLabel {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--cg-gold);
+  text-transform: uppercase;
+  margin-bottom: calc(var(--cg-u) * 2);
+}
+
+.shopHeroTitle {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(36px, 5vw, 48px);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--cg-cream);
+  margin-bottom: calc(var(--cg-u) * 2);
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.shopHeroDesc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(250, 246, 240, 0.8);
+  max-width: 600px;
+  margin: 0 auto;
+}

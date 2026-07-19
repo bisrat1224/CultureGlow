@@ -1,0 +1,30 @@
+.scrollingBanner {
+  background-color: var(--cg-red);
+  padding: var(--cg-u) 0;
+  overflow: hidden;
+}
+
+.bannerContent {
+  display: flex;
+  gap: calc(var(--cg-u) * 10);
+  white-space: nowrap;
+  animation: scrollBanner 20s linear infinite;
+  width: max-content;
+}
+
+.bannerText {
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--cg-gold-light);
+}
+
+@keyframes scrollBanner {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
