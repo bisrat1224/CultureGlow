@@ -1,6 +1,5 @@
 import type { Product } from "@/components/home/ProductsSection/ProductCard";
 
-
 export const PRODUCTS: Product[] = [
   {
     id: "injera-platter",
