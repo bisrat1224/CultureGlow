@@ -216,3 +216,11 @@ export const DIET_LEGEND: { flag: DietFlag; label: string; chipLabel: string }[]
   { flag: "gf", label: "Gluten-Free", chipLabel: "GF" },
   { flag: "spicy", label: "Spicy", chipLabel: "🌶" },
 ];
+
+/** Home's "Signature Dishes" preview — 4 picks from the full menu. */
+export const FEATURED_MENU_ITEMS: MenuItem[] = [
+  STARTERS_ITEMS[0],   // Sambusa
+  MAINS_ITEMS[0],      // Doro Wat
+  MAINS_ITEMS[2],      // Injera Platter
+  VEG_VEGAN_ITEMS[0],  // Beyaynetu
+];

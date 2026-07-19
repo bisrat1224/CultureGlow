@@ -1,0 +1,39 @@
+.masonry {
+  columns: 1;
+  column-gap: calc(var(--cg-u) * 2);
+}
+
+.masonryItem {
+  break-inside: avoid;
+  margin-bottom: calc(var(--cg-u) * 2);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  display: block;
+  width: 100%;
+  background: var(--cg-gold-light);
+}
+
+.masonryItem img {
+  width: 100%;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.masonryItem:hover img {
+  transform: scale(1.04);
+}
+
+@media (min-width: 640px) {
+  .masonry {
+    columns: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .masonry {
+    columns: 3;
+  }
+}

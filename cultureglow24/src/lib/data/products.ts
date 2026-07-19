@@ -1,5 +1,16 @@
 import type { Product } from "@/components/home/ProductsSection/ProductCard";
 
+export type { Product };
+
+export type ProductCategory = "HABESHA FOOD" | "LIFESTYLE" | "BEAUTY";
+
+export const SHOP_FILTERS: { value: ProductCategory | "all"; label: string }[] = [
+  { value: "all", label: "All" },
+  { value: "HABESHA FOOD", label: "Habesha Food" },
+  { value: "LIFESTYLE", label: "Lifestyle" },
+  { value: "BEAUTY", label: "Beauty" },
+];
+
 export const PRODUCTS: Product[] = [
   {
     id: "injera-platter",
