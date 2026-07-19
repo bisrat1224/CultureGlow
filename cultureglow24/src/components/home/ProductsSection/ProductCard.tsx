@@ -16,10 +16,7 @@ interface ProductCardProps {
   revealDelayClass?: string;
 }
 
-// Matches index.html's <article class="bento-card"> exactly — image,
-// category label, name, price, and a WhatsApp order button pre-filled
-// with "I'd like to order [product name]", per the Developer Brief's
-// wa.me URL format.
+
 export function ProductCard({ product, revealDelayClass }: ProductCardProps) {
   const { category, name, price, image, alt } = product;
 

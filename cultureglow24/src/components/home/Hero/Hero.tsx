@@ -4,10 +4,6 @@ import { buildWhatsAppLink } from "@/lib/constants";
 import styles from "./Hero.module.css";
 import shared from "../shared.module.css";
 
-// Matches index.html's <section class="hero"> exactly. Note: the original
-// markup only ever uses the static fallback image (no <video> element is
-// present, even though a .hero-video CSS rule exists in the source file) —
-// so we replicate that as-is: image + grain overlay, no video.
 export function Hero() {
   return (
     <section className={styles.hero} aria-label="Hero">
@@ -42,9 +38,7 @@ export function Hero() {
             <img src="/assets/images/img_whatsappicon.svg" alt="" />
             Order
           </a>
-          {/* index.html points this at the in-page #menu anchor; per the
-              Chunk 3b decision, internal nav now goes to real routes, so
-              this goes to /menu instead. */}
+          
           <Link href="/menu" className={shared.btnGhost}>
             Explore the Menu
           </Link>

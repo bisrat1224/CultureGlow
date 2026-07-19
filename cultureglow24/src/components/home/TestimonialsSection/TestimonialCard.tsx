@@ -13,9 +13,6 @@ interface TestimonialCardProps {
   revealDelayClass?: string;
 }
 
-// Matches index.html's <article class="tcard"> exactly — 5 gold stars
-// (static, not a rating input), italicized quote, and an author row with
-// a letter-avatar circle (no real photo) plus name + occasion/location.
 export function TestimonialCard({ testimonial, revealDelayClass }: TestimonialCardProps) {
   const { quote, initial, name, location } = testimonial;
 

@@ -39,9 +39,6 @@
   margin-bottom: calc(var(--cg-u) * 2);
 }
 
-/* Flex + fixed tile width + horizontal scroll (not a wrapping grid) so
-   each row stays a single line at every viewport, matching index.html's
-   one-row-per-platform layout exactly. */
 .socialGrid {
   display: flex;
   justify-content: center;
@@ -71,8 +68,6 @@
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
 }
 
-/* Fixed 9:16 vertical ratio on every tile, feed and reel alike — the
-   "all placeholders the same size" rule from index.html's own comment. */
 .socialTileMedia {
   position: relative;
   width: 100%;

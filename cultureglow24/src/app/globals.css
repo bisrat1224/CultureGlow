@@ -7,8 +7,7 @@
 /* ─── CULTUREGLOW24 BRAND TOKENS ──────────────────────────
    Prefixed --cg- so these never collide with shadcn/ui's own
    semantic tokens (--border, --background, --primary, etc.),
-   which shadcn components like Button rely on internally.
-   Values match index.html's :root tokens exactly. */
+   which shadcn components like Button rely on internally. */
 :root {
   --cg-cream:      #FAF6F0;
   --cg-charcoal:   #1A1A1A;
@@ -156,12 +155,7 @@
   }
 }
 
-/* ─── RESET & BASE (matches index.html exactly) ───────────
-   Deliberately unlayered (outside @layer) so these win over
-   shadcn's @layer base rules regardless of file order — CSS
-   cascade layers give unlayered styles higher priority. This
-   guarantees the brand look matches index.html pixel-for-pixel
-   without having to fight shadcn's defaults. */
+
 *,
 *::before,
 *::after {
@@ -222,7 +216,8 @@ button {
    (crawlers, no-JS fallback, print). The animated hide-then-reveal
    behavior only switches on once JS confirms it can run the
    IntersectionObserver, via the .js-armed class added on <html>
-   (wired up in the Assembly chunk alongside the reveal-on-scroll hook). */
+
+*/
 .reveal {
   opacity: 1;
   transform: none;

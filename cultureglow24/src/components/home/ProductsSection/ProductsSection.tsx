@@ -1,6 +1,3 @@
-// PLACE AT: cultureglow24/src/components/home/ProductsSection/ProductsSection.tsx
-// (REPLACES the existing file)
-
 import { buildWhatsAppLink } from "@/lib/constants";
 import { FEATURED_PRODUCTS } from "@/lib/data/products";
 import { ProductCard } from "./ProductCard";
@@ -9,9 +6,6 @@ import shared from "../shared.module.css";
 
 const REVEAL_DELAYS = ["reveal-delay-1", "reveal-delay-2", "reveal-delay-3", "reveal-delay-4"];
 
-// Chunk 8: featured products now come from src/lib/data/products.ts
-// (single source of truth for both this Home subset and the full /shop
-// page in Chunk 12) instead of a local hardcoded array.
 export function ProductsSection() {
   return (
     <section

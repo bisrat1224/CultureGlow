@@ -31,12 +31,6 @@ const PLATFORM_BADGE_CLASS: Record<SocialPlatform, string> = {
   reels: styles.socialBadgeReels,
 };
 
-// Matches index.html's <article class="social-tile"> exactly. Per the
-// source file's own comment, this is a static placeholder mockup (solid
-// color block + play icon + platform badge) standing in for a real
-// TikTok oEmbed / Behold.so Instagram embed — the Developer Brief's
-// TikTok video URLs and Instagram handle are both still "Pending" on the
-// Content Checklist, so there's nothing real to embed yet.
 export function SocialTile({ tile, revealDelayClass }: SocialTileProps) {
   const { color, platform, caption } = tile;
 

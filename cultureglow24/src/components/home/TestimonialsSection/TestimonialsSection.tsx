@@ -2,10 +2,6 @@ import { TestimonialCard, type Testimonial } from "./TestimonialCard";
 import styles from "./TestimonialsSection.module.css";
 import shared from "../shared.module.css";
 
-// The 3 reviews, in index.html's exact order. Testimonials (3 quotes with
-// name/occasion, written permission to publish) is a Pending item on the
-// Developer Brief's Content Checklist — these are the specific 3
-// index.html already ships with, kept verbatim.
 const TESTIMONIALS: Testimonial[] = [
   {
     id: "liya-t",

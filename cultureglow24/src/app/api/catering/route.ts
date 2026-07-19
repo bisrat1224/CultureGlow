@@ -1,13 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-/**
- * POST /api/catering — Chunk 9, Stage 0 (resolves Open Decision D1).
- * Same pattern as /api/contact, different fields/recipient — matches
- * the Developer Brief's own note ("shares implementation with Contact's
- * form, different recipient/fields"). Consumed by the Catering enquiry
- * form (Chunk 17).
- */
+
 
 interface CateringPayload {
   name: string;

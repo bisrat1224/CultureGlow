@@ -6,9 +6,6 @@ import shared from "../shared.module.css";
 
 const REVEAL_DELAYS = ["reveal-delay-1", "reveal-delay-2", "reveal-delay-3", "reveal-delay-4"];
 
-// Chunk 8: menu preview items now come from src/lib/data/menu.ts (single
-// source of truth for this Home preview and the full /menu page, Chunk 14)
-// instead of a local hardcoded array.
 export function KitchenSection() {
   return (
     <section

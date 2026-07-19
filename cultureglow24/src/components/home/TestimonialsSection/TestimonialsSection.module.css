@@ -8,9 +8,6 @@
   margin-bottom: calc(var(--cg-u) * 6);
 }
 
-/* Scoped locally (not shared) — centered text-align and margin-top set it
-   apart from the dark/light h2 variants used elsewhere, consistent with
-   the "h2 variants stay local" pattern from prior chunks. */
 .testimonialsH2 {
   font-family: "Playfair Display", serif;
   font-size: clamp(28px, 3.5vw, 42px);

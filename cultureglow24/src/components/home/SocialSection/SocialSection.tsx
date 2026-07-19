@@ -2,11 +2,7 @@ import { SocialTile, type SocialTileData } from "./SocialTile";
 import styles from "./SocialSection.module.css";
 import shared from "../shared.module.css";
 
-// The 3 TikTok + 3 Reels placeholder tiles, in index.html's exact order
-// and colors (a/b/c cycling per row). Real TikTok video URLs (4–6) and
-// the Instagram handle for Behold.so are both "Pending" on the Developer
-// Brief's Content Checklist — these placeholder tiles are what
-// index.html itself ships with while that content is outstanding.
+
 const TIKTOK_TILES: SocialTileData[] = [
   { id: "tiktok-1", color: "a", platform: "tiktok", caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod." },
   { id: "tiktok-2", color: "b", platform: "tiktok", caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod." },

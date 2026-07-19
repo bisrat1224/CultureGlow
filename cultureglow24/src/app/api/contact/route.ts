@@ -1,12 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-/**
- * POST /api/contact — Chunk 9, Stage 0 (resolves Open Decision D1).
- * Validates the Contact page's form fields server-side and sends a
- * notification email via Resend to CONTACT_FORM_RECIPIENT_EMAIL.
- * Consumed by ContactForm.tsx (Chunk 20).
- */
+
 
 interface ContactPayload {
   name: string;

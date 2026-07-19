@@ -2,21 +2,7 @@
 
 import { useEffect } from "react";
 
-/**
- * Arms the CSS scroll-reveal system defined in globals.css
- * (.reveal / .js-armed / .reveal.visible) and observes every .reveal
- * element currently in the DOM, adding .visible once it scrolls into view.
- *
- * Without this hook, .reveal elements stay permanently hidden — the CSS
- * itself only hides them once .js-armed is present on <html>, and only
- * JS can add that class + toggle .visible per-element. This was missing
- * since Chunk 2 introduced the CSS; every section's `reveal` classNames
- * (Hero, StorySection, ProductsSection, etc.) have had nothing driving
- * them until now.
- *
- * Mounted once, sitewide, via ScrollRevealInit in layout.tsx — so it
- * covers Home and every stub page without each page having to opt in.
- */
+
 export function useScrollReveal() {
   useEffect(() => {
     document.documentElement.classList.add("js-armed");

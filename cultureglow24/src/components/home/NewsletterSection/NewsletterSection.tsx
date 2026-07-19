@@ -3,14 +3,7 @@
 import styles from "./NewsletterSection.module.css";
 import shared from "../shared.module.css";
 
-// Matches the Developer Brief's Home page "email sign-up strip" section.
-// The real signup mechanism is an HTML embed snippet from Mailchimp or
-// MailerLite, pasted directly once the client sets up an account (Brief
-// section 4: "Paste HTML embed directly — do not use a plugin"). "Newsletter
-// embed code" is a Pending item on the Content Checklist, so this ships as
-// a static placeholder form matching the embed's expected shape (email
-// input + submit button) — swap the <form> below for the real snippet once
-// it arrives from the PM.
+
 export function NewsletterSection() {
   return (
     <section

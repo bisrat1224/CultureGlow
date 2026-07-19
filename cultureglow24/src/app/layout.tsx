@@ -2,10 +2,6 @@ import type { Metadata } from "next";
 import { ScrollRevealInit } from "@/components/ScrollRevealInit";
 import "./globals.css";
 
-// Font loading (Playfair Display, Inter, Noto Serif Ethiopic) is wired up
-// via <link> tags below, matching index.html's own approach exactly
-// (rather than next/font/google, which self-hosts fonts downloaded at
-// build time).
 
 export const metadata: Metadata = {
   title: "CultureGlow24 — Ethiopian & Eritrean Food, Beauty & Lifestyle",

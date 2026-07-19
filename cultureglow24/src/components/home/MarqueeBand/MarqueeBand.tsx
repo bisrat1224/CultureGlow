@@ -1,8 +1,5 @@
 import styles from "./MarqueeBand.module.css";
 
-// The 5 phrases, listed twice back-to-back — matches index.html exactly.
-// Duplicating the list is what makes the CSS animation (translateX(-50%))
-// loop seamlessly with no visible seam/jump.
 const MARQUEE_ITEMS = [
   "CultureGlow24",
   "Authentic Habesha Cuisine",
