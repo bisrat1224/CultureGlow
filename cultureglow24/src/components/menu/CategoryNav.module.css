@@ -1,0 +1,45 @@
+.categoryNav {
+  position: sticky;
+  top: 0;
+  z-index: 700;
+  background: var(--cg-charcoal);
+  border-bottom: 1px solid rgba(200, 151, 58, 0.2);
+  padding: calc(var(--cg-u) * 2) 0;
+}
+
+.categoryNavScroll {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.categoryNavScroll::-webkit-scrollbar {
+  display: none;
+}
+
+.categoryNavBtn {
+  background-color: rgba(250, 246, 240, 0.06);
+  color: rgba(250, 246, 240, 0.75);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 999px;
+  white-space: nowrap;
+  border: 1.5px solid rgba(250, 246, 240, 0.12);
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+}
+
+.categoryNavBtn:hover {
+  border-color: var(--cg-gold);
+  color: var(--cg-gold);
+}
+
+.categoryNavBtnActive {
+  background-color: var(--cg-gold);
+  border-color: var(--cg-gold);
+  color: #fff;
+}

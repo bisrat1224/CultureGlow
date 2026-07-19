@@ -1,88 +1,218 @@
-import type { MenuItem } from "@/components/home/KitchenSection/MenuRow";
+export type DietFlag = "veg" | "vegan" | "gf" | "spicy";
 
-/**
- * Full menu catalogue — single source of truth (Chunk 8, Stage 0),
- * mirroring products.ts. First 4 entries are index.html's original
- * dishes, kept verbatim. Entries 5–8 are Lorem Ipsum placeholders,
- * reusing existing image assets, padding the list until real menu
- * items (up to 30, Pending on the Content Checklist) arrive.
- */
-export const MENU_ITEMS: MenuItem[] = [
+export interface MenuItem {
+  id: string;
+  name: string;
+  description: string;
+  price: string;
+  image: string;
+  alt: string;
+  diet?: DietFlag[];
+  tag?: string; // e.g. "Popular" — the small green corner tag on menu-row
+}
+
+export interface MainsItem extends MenuItem {
+  ribbon?: string; 
+}
+
+export interface CategoryMeta {
+  id: string; // anchor id, matches category-nav-btn's data-cat
+  navLabel: string;
+  eyebrow: string;
+  titleBeforeEm: string;
+  titleEm: string;
+  variant: "cream" | "dark";
+  countLabel: string;
+}
+
+
+export const CATEGORIES: CategoryMeta[] = [
   {
-    id: "injera-tibs",
-    name: "Injera with Tibs",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
-    price: "ETB 380",
-    image: "/assets/images/pexels-dbaler-17486836.jpg",
-    alt: "Injera with stews",
+    id: "starters",
+    navLabel: "Starters",
+    eyebrow: "Begin the Meal",
+    titleBeforeEm: "Start",
+    titleEm: "ers",
+    variant: "cream",
+    countLabel: "2 dishes",
   },
+  {
+    id: "mains",
+    navLabel: "Mains",
+    eyebrow: "The Signature Selection",
+    titleBeforeEm: "Main ",
+    titleEm: "Dishes",
+    variant: "dark",
+    countLabel: "5 dishes",
+  },
+  {
+    id: "veg-vegan",
+    navLabel: "Veg & Vegan",
+    eyebrow: "Plant-Forward Favourites",
+    titleBeforeEm: "Veg & ",
+    titleEm: "Vegan",
+    variant: "cream",
+    countLabel: "2 dishes",
+  },
+  {
+    id: "desserts",
+    navLabel: "Desserts",
+    eyebrow: "Something Sweet",
+    titleBeforeEm: "",
+    titleEm: "Desserts",
+    variant: "dark",
+    countLabel: "2 dishes",
+  },
+  {
+    id: "drinks",
+    navLabel: "Drinks",
+    eyebrow: "To Sip & Savour",
+    titleBeforeEm: "",
+    titleEm: "Drinks",
+    variant: "cream",
+    countLabel: "2 drinks",
+  },
+];
+
+export const STARTERS_ITEMS: MenuItem[] = [
+  {
+    id: "sambusa",
+    name: "Sambusa",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
+    price: "ETB 180",
+    image: "/assets/images/pexels-dbaler-17486836.jpg",
+    alt: "Sambusa",
+    diet: ["veg", "vegan"],
+    tag: "Popular",
+  },
+  {
+    id: "kategna",
+    name: "Kategna",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
+    price: "ETB 150",
+    image: "/assets/images/istockphoto-452732099-612x612.jpg",
+    alt: "Kategna",
+    diet: ["veg", "spicy"],
+  },
+];
+
+export const MAINS_ITEMS: MainsItem[] = [
   {
     id: "doro-wat",
     name: "Doro Wat",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.",
     price: "ETB 520",
-    image: "/assets/images/pexels-dbaler-17486836.jpg",
+    image: "/assets/images/pexels-berlinerlights-23858842.jpg",
     alt: "Doro Wat",
+    diet: ["spicy"],
   },
   {
-    id: "beyaynetu",
-    name: "Beyaynetu",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
-    price: "ETB 340",
-    image: "/assets/images/istockphoto-452732099-612x612.jpg",
-    alt: "Beyaynetu",
+    id: "injera-with-tibs-main",
+    name: "Injera with Tibs",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.",
+    price: "ETB 450",
+    image: "/assets/images/pexels-dbaler-17486836.jpg",
+    alt: "Injera with Tibs",
+    diet: ["spicy"],
   },
   {
-    id: "family-sharing-platter",
+    id: "injera-platter-main",
+    name: "Injera Platter",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.",
+    price: "ETB 450",
+    image: "/assets/images/pexels-dbaler-17486836.jpg",
+    alt: "Injera Platter",
+    diet: ["gf", "veg"],
+  },
+  {
+    id: "family-sharing-platter-main",
     name: "Family Sharing Platter",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.",
     price: "ETB 460",
     image: "/assets/images/istockphoto-908729848-612x612.jpg",
-    alt: "Family sharing platter",
-  },
-  // --- Lorem Ipsum placeholders (pad to 8) ---
-  {
-    id: "menu-item-5",
-    name: "Lorem Ipsum Dish 5",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
-    price: "ETB 000",
-    image: "/assets/images/pexels-berlinerlights-23858842.jpg",
-    alt: "Lorem ipsum placeholder dish photo",
+    alt: "Family Sharing Platter",
+    diet: ["spicy"],
   },
   {
-    id: "menu-item-6",
-    name: "Lorem Ipsum Dish 6",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
-    price: "ETB 000",
-    image: "/assets/images/pexels-dbaler-17486836.jpg",
-    alt: "Lorem ipsum placeholder dish photo",
-  },
-  {
-    id: "menu-item-7",
-    name: "Lorem Ipsum Dish 7",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
-    price: "ETB 000",
-    image: "/assets/images/istockphoto-452732099-612x612.jpg",
-    alt: "Lorem ipsum placeholder dish photo",
-  },
-  {
-    id: "menu-item-8",
-    name: "Lorem Ipsum Dish 8",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
-    price: "ETB 000",
+    id: "habesha-feast-platter-main",
+    name: "Habesha Feast Platter",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.",
+    price: "ETB 3,200",
     image: "/assets/images/istockphoto-908729848-612x612.jpg",
-    alt: "Lorem ipsum placeholder dish photo",
+    alt: "Habesha Feast Platter",
+    diet: ["spicy", "gf"],
+    ribbon: "Chef's Special",
   },
 ];
 
-/** IDs shown in Home's "From the Kitchen" preview — the original 4. */
-const FEATURED_MENU_ITEM_IDS = [
-  "injera-tibs",
-  "doro-wat",
-  "beyaynetu",
-  "family-sharing-platter",
+export const VEG_VEGAN_ITEMS: MenuItem[] = [
+  {
+    id: "beyaynetu-menu",
+    name: "Beyaynetu",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
+    price: "ETB 620",
+    image: "/assets/images/istockphoto-452732099-612x612.jpg",
+    alt: "Beyaynetu",
+    diet: ["veg", "vegan", "gf"],
+  },
+  {
+    id: "shiro-wat",
+    name: "Shiro Wat",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
+    price: "ETB 360",
+    image: "/assets/images/pexels-berlinerlights-23858842.jpg",
+    alt: "Shiro Wat",
+    diet: ["veg", "vegan", "gf", "spicy"],
+    tag: "Popular",
+  },
 ];
 
-export const FEATURED_MENU_ITEMS = MENU_ITEMS.filter((item) =>
-  FEATURED_MENU_ITEM_IDS.includes(item.id)
-);
+export const DESSERTS_ITEMS: MenuItem[] = [
+  {
+    id: "himbasha",
+    name: "Himbasha",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
+    price: "ETB 220",
+    image: "/assets/images/879d4f180b0382a039490cefec95d4e2.jpg",
+    alt: "Himbasha",
+    diet: ["veg"],
+  },
+  {
+    id: "dabo-kolo-sweet-bites",
+    name: "Dabo Kolo Sweet Bites",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
+    price: "ETB 160",
+    image: "/assets/images/147f32aef0aacd3cb17eb003475d052b.jpg",
+    alt: "Dabo Kolo Sweet Bites",
+    diet: ["veg", "vegan"],
+  },
+];
+
+export const DRINKS_ITEMS: MenuItem[] = [
+  {
+    id: "tej-honey-wine-menu",
+    name: "Tej Honey Wine",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
+    price: "ETB 620",
+    image: "/assets/images/istockphoto-452732099-612x612.jpg",
+    alt: "Tej Honey Wine",
+  },
+  {
+    id: "ethiopian-coffee-ceremony",
+    name: "Ethiopian Coffee Ceremony",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
+    price: "ETB 250",
+    image: "/assets/images/pexels-berlinerlights-23858842.jpg",
+    alt: "Ethiopian Coffee Ceremony",
+    diet: ["veg", "vegan"],
+    tag: "Popular",
+  },
+];
+
+
+export const DIET_LEGEND: { flag: DietFlag; label: string; chipLabel: string }[] = [
+  { flag: "veg", label: "Vegetarian", chipLabel: "V" },
+  { flag: "vegan", label: "Vegan", chipLabel: "VG" },
+  { flag: "gf", label: "Gluten-Free", chipLabel: "GF" },
+  { flag: "spicy", label: "Spicy", chipLabel: "🌶" },
+];

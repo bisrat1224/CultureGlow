@@ -1,0 +1,29 @@
+.dietChip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.dietVeg {
+  background: var(--cg-green);
+}
+
+.dietVegan {
+  background: #4c8c6e;
+}
+
+.dietGf {
+  background: var(--cg-gold);
+  color: var(--cg-charcoal);
+}
+
+.dietSpicy {
+  background: var(--cg-red);
+}

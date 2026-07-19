@@ -1,0 +1,16 @@
+.dietLegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--cg-u) * 3);
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--cg-u) * 3) 0;
+}
+
+.dietLegendItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--cg-text);
+}
