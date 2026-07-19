@@ -1,0 +1,64 @@
+.socialGrid {
+  display: flex;
+  justify-content: center;
+  gap: calc(var(--cg-u) * 2);
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+}
+
+.socialGrid::-webkit-scrollbar {
+  display: none;
+}
+
+.socialTile {
+  flex: 0 0 168px;
+  background: rgba(250, 246, 240, 0.04);
+  border: 1px solid rgba(221, 217, 210, 0.12);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.socialTileThumb {
+  aspect-ratio: 9 / 14;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.socialTileThumb svg {
+  width: 40px;
+  height: 40px;
+  opacity: 0.85;
+}
+
+.socialTileBadge {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(250, 246, 240, 0.85);
+  background: rgba(26, 26, 26, 0.55);
+  padding: 4px 8px;
+  border-radius: 5px;
+}
+
+.socialTileMeta {
+  padding: 10px 12px;
+}
+
+.socialTileMeta p {
+  font-size: 12px;
+  color: rgba(250, 246, 240, 0.45);
+  line-height: 1.4;
+}
+
+@media (min-width: 640px) {
+  .socialTile {
+    flex: 0 0 200px;
+  }
+}

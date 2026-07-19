@@ -1,0 +1,71 @@
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(26, 26, 26, 0.94);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--cg-u) * 3);
+}
+
+.lightboxImg {
+  max-width: 100%;
+  max-height: 82vh;
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+.lightboxClose {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: var(--cg-cream);
+  font-size: 26px;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightboxPrev,
+.lightboxNext {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--cg-cream);
+  font-size: 30px;
+  min-width: 48px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(250, 246, 240, 0.08);
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.lightboxPrev:hover,
+.lightboxNext:hover {
+  background: rgba(250, 246, 240, 0.18);
+}
+
+.lightboxPrev {
+  left: 16px;
+}
+
+.lightboxNext {
+  right: 16px;
+}
+
+.lightboxCount {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(250, 246, 240, 0.6);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
