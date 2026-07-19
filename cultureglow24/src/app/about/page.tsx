@@ -1,5 +1,26 @@
-import { PageStub } from "@/components/PageStub/PageStub";
+
+import { Header } from "@/components/Header/Header";
+import { Footer } from "@/components/Footer/Footer";
+import { WhatsAppStickyBar } from "@/components/home/WhatsAppStickyBar/WhatsAppStickyBar";
+import { AboutStory } from "@/components/about/AboutStory/AboutStory";
+import { MissionValues } from "@/components/about/MissionValues/MissionValues";
+import { MilestonesTimeline } from "@/components/about/MilestonesTimeline/MilestonesTimeline";
+import { AboutGallery } from "@/components/about/AboutGallery/AboutGallery";
+import { AboutSocialLinks } from "@/components/about/AboutSocialLinks/AboutSocialLinks";
 
 export default function AboutPage() {
-  return <PageStub title="About" />;
+  return (
+    <>
+      <Header />
+      <main>
+        <AboutStory />
+        <MissionValues />
+        <MilestonesTimeline />
+        <AboutGallery />
+        <AboutSocialLinks />
+      </main>
+      <Footer />
+      <WhatsAppStickyBar />
+    </>
+  );
 }

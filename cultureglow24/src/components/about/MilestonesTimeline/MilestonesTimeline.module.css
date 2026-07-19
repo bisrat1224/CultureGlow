@@ -1,0 +1,69 @@
+
+
+.milestonesSection {
+  padding: calc(var(--cg-u) * 10) 0;
+  background: var(--cg-gold-light);
+}
+
+.milestonesHeader {
+  text-align: center;
+  margin-bottom: calc(var(--cg-u) * 6);
+}
+
+.milestonesH2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 700;
+  color: var(--cg-charcoal);
+  margin-top: calc(var(--cg-u) * 1.5);
+}
+
+.milestonesH2 em {
+  font-style: italic;
+  color: var(--cg-gold);
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--cg-u) * 4);
+}
+
+.timelineItem {
+  padding: calc(var(--cg-u) * 3) 0;
+  border-left: 3px solid var(--cg-gold);
+  padding-left: calc(var(--cg-u) * 3);
+  text-align: left;
+}
+
+.timelineYear {
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--cg-charcoal);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.timelineLabel {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cg-text);
+}
+
+@media (min-width: 768px) {
+  .timeline {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .timelineItem {
+    flex: 1;
+    border-left: none;
+    border-top: 3px solid var(--cg-gold);
+    padding: calc(var(--cg-u) * 3) calc(var(--cg-u) * 2) 0;
+    text-align: center;
+  }
+}

@@ -1,19 +1,7 @@
 import Link from "next/link";
-import { NAV_LINKS, buildWhatsAppLink } from "@/lib/constants";
+import { NAV_LINKS, SOCIAL_LINKS, buildWhatsAppLink } from "@/lib/constants";
 import styles from "./Footer.module.css";
 
-// Sitewide footer — carries the "business info block, social links" pieces
-// the Developer Brief calls for on the standalone Contact page (section 2),
-// surfaced globally since every page benefits from a way back to WhatsApp,
-// the social accounts, and the nav, not just /contact itself. The real
-// WhatsApp number, delivery area / hours, and TikTok + Instagram handles
-// are all Pending items on the Content Checklist — placeholders below
-// follow the same convention as WHATSAPP_NUMBER in constants.ts, swapped
-// for real values once the PM delivers them.
-const SOCIAL_LINKS = [
-  { label: "TikTok", href: "#" },
-  { label: "Instagram", href: "#" },
-];
 
 export function Footer() {
   const year = new Date().getFullYear();
