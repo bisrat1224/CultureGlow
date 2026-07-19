@@ -9,6 +9,7 @@ export interface Product {
   price: string;
   image: string;
   alt: string;
+  description?: string;
   badge?: "Best Seller" | "Popular" | "Gift" | "New";
 }
 

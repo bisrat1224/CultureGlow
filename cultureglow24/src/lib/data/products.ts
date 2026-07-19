@@ -19,6 +19,7 @@ export const PRODUCTS: Product[] = [
     price: "ETB 450",
     image: "/assets/images/pexels-dbaler-17486836.jpg",
     alt: "Traditional injera platter with assorted stews",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
   },
   {
     id: "habesha-kemis",
@@ -27,6 +28,7 @@ export const PRODUCTS: Product[] = [
     price: "ETB 3,200",
     image: "/assets/images/879d4f180b0382a039490cefec95d4e2.jpg",
     alt: "Traditional Habesha dress with intricate embroidery",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
   },
   {
     id: "netela-dress",
@@ -35,6 +37,7 @@ export const PRODUCTS: Product[] = [
     price: "ETB 2,850",
     image: "/assets/images/147f32aef0aacd3cb17eb003475d052b.jpg",
     alt: "Elegant Habesha cultural dress",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
   },
   {
     id: "beyaynetu-platter",
@@ -43,6 +46,7 @@ export const PRODUCTS: Product[] = [
     price: "ETB 620",
     image: "/assets/images/istockphoto-452732099-612x612.jpg",
     alt: "Beyaynetu vegetarian platter",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
   },
   // --- Lorem Ipsum placeholders (pad to 8) ---
   {
@@ -52,6 +56,7 @@ export const PRODUCTS: Product[] = [
     price: "ETB 000",
     image: "/assets/images/pexels-berlinerlights-23858842.jpg",
     alt: "Lorem ipsum placeholder dish photo",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
   },
   {
     id: "product-6",
@@ -60,6 +65,7 @@ export const PRODUCTS: Product[] = [
     price: "ETB 000",
     image: "/assets/images/istockphoto-908729848-612x612.jpg",
     alt: "Lorem ipsum placeholder garment photo",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
   },
   {
     id: "product-7",
@@ -68,6 +74,7 @@ export const PRODUCTS: Product[] = [
     price: "ETB 000",
     image: "/assets/images/istockphoto-908729848-612x612.jpg",
     alt: "Lorem ipsum placeholder beauty product photo",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
   },
   {
     id: "product-8",
@@ -76,6 +83,7 @@ export const PRODUCTS: Product[] = [
     price: "ETB 000",
     image: "/assets/images/istockphoto-452732099-612x612.jpg",
     alt: "Lorem ipsum placeholder platter photo",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
   },
 ];
 
