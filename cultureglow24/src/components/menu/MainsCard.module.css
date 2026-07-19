@@ -1,0 +1,132 @@
+.mainsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.mainsCard {
+  position: relative;
+  background: rgba(250, 246, 240, 0.04);
+  border: 1px solid rgba(221, 217, 210, 0.14);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.mainsCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
+}
+
+.mainsCardImage {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  position: relative;
+}
+
+.mainsCardImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.mainsCard:hover .mainsCardImage img {
+  transform: scale(1.06);
+}
+
+.mainsRibbon {
+  position: absolute;
+  top: 14px;
+  left: 0;
+  z-index: 1;
+  background: var(--cg-red);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 14px 6px 12px;
+  border-radius: 0 999px 999px 0;
+}
+
+.mainsCardBody {
+  padding: calc(var(--cg-u) * 2.5);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.mainsCardName {
+  font-family: "Playfair Display", serif;
+  font-size: 21px;
+  font-weight: 600;
+  color: var(--cg-cream);
+  margin-bottom: 6px;
+}
+
+.mainsCardDesc {
+  font-size: 13px;
+  color: rgba(250, 246, 240, 0.6);
+  line-height: 1.55;
+  margin-bottom: 12px;
+  flex: 1;
+}
+
+.mainsCardDiet {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.mainsCardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.mainsCardPrice {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--cg-gold);
+}
+
+.mainsCardBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--cg-gold);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 9px 16px;
+  border-radius: 6px;
+  transition: background 0.2s;
+  min-height: 44px;
+}
+
+.mainsCardBtn:hover {
+  background: #b08634;
+}
+
+.mainsCardBtn img {
+  width: 14px;
+  height: 14px;
+}
+
+@media (min-width: 640px) {
+  .mainsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .mainsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

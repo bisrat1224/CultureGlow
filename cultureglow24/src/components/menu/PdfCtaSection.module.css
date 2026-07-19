@@ -1,0 +1,68 @@
+.pdfCta {
+  position: relative;
+  background: var(--cg-charcoal);
+  padding: calc(var(--cg-u) * 10) 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+.pdfCta::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200, 151, 58, 0.14) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.pdfCtaInner {
+  position: relative;
+  z-index: 1;
+}
+
+.pdfCtaEyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cg-gold);
+  margin-bottom: calc(var(--cg-u) * 2);
+}
+
+.pdfCtaH2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(26px, 3.5vw, 38px);
+  font-weight: 700;
+  color: var(--cg-cream);
+  margin-bottom: calc(var(--cg-u) * 2);
+}
+
+.pdfCtaDesc {
+  font-size: 15px;
+  color: rgba(250, 246, 240, 0.65);
+  max-width: 440px;
+  margin: 0 auto calc(var(--cg-u) * 4);
+}
+
+.btnPdf {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--cg-gold);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: 8px;
+  transition: background 0.2s, transform 0.2s;
+  min-height: 44px;
+}
+
+.btnPdf:hover {
+  background: #b08634;
+  transform: translateY(-2px);
+}
