@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { NAV_LINKS, buildWhatsAppLink } from "@/lib/constants";
 import { useScrolledHeader } from "@/hooks/useScrolledHeader";
 import { useMobileNav } from "@/hooks/useMobileNav";
@@ -10,6 +11,7 @@ import styles from "./Header.module.css";
 export function Header() {
   const scrolled = useScrolledHeader();
   const { isOpen, open, close } = useMobileNav();
+  const pathname = usePathname();
 
   return (
     <>
@@ -29,7 +31,13 @@ export function Header() {
           <ul className={styles.headerNav}>
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
-                <Link href={link.href}>{link.label}</Link>
+                <Link
+                  href={link.href}
+                  className={pathname === link.href ? styles.active : ""}
+                  aria-current={pathname === link.href ? "page" : undefined}
+                >
+                  {link.label}
+                </Link>
               </li>
             ))}
           </ul>

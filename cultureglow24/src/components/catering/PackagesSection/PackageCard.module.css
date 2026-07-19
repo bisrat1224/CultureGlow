@@ -1,0 +1,121 @@
+.packageCard {
+  position: relative;
+  background: rgba(250, 246, 240, 0.04);
+  border: 1px solid rgba(221, 217, 210, 0.14);
+  border-radius: 14px;
+  padding: calc(var(--cg-u) * 4);
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.packageCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(200, 151, 58, 0.4);
+}
+
+.packageCardFeatured {
+  background: rgba(200, 151, 58, 0.08);
+  border: 1.5px solid var(--cg-gold);
+}
+
+.packageFeaturedBadge {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--cg-gold);
+  color: var(--cg-charcoal);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.packageName {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--cg-cream);
+  margin-bottom: 6px;
+}
+
+.packageGuests {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgba(250, 246, 240, 0.5);
+  text-transform: uppercase;
+  margin-bottom: calc(var(--cg-u) * 2);
+}
+
+.packagePrice {
+  font-size: 15px;
+  color: var(--cg-gold);
+  font-weight: 700;
+  margin-bottom: calc(var(--cg-u) * 3);
+}
+
+.packagePrice span {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(250, 246, 240, 0.5);
+}
+
+.packageList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: calc(var(--cg-u) * 3);
+  flex: 1;
+}
+
+.packageList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: rgba(250, 246, 240, 0.75);
+  line-height: 1.4;
+}
+
+.packageList svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.packageBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--cg-gold);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 8px;
+  transition: background 0.2s;
+  min-height: 44px;
+}
+
+.packageBtn:hover {
+  background: #b08634;
+}
+
+.packageBtnGhost {
+  background: transparent;
+  border: 1.5px solid rgba(250, 246, 240, 0.3);
+  color: var(--cg-cream);
+}
+
+.packageBtnGhost:hover {
+  border-color: var(--cg-gold);
+  color: var(--cg-gold);
+}

@@ -1,0 +1,11 @@
+.testimonialsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: calc(var(--cg-u) * 3);
+}
+
+@media (min-width: 768px) {
+  .testimonialsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
