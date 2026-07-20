@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ScrollRevealInit } from "@/components/ScrollRevealInit";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import "./globals.css";
 
 
@@ -45,6 +46,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         {children}
         <ScrollRevealInit />
+        <GoogleAnalytics />
       </body>
     </html>
   );
