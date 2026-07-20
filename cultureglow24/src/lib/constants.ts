@@ -1,13 +1,5 @@
-/**
- * CultureGlow24 site-wide constants.
- *
- * WHATSAPP_NUMBER is a placeholder. Per the Developer Brief's Content
- * Checklist, the real business WhatsApp number comes from the client via
- * the PM — swap it in here once received, and every button across the
- * site (header, hero, product cards, menu rows, sticky bar) updates at
- * once since they all read from this file.
- */
-export const WHATSAPP_NUMBER = "251900000000";
+export const WHATSAPP_NUMBER =
+  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "251900000000";
 
 export type NavLink = {
   href: string;
