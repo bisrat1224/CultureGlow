@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./EventTypeCard.module.css";
 
 export interface EventType {
@@ -18,7 +19,13 @@ export function EventTypeCard({ eventType }: EventTypeCardProps) {
 
   return (
     <article className={`${styles.eventCard} reveal`}>
-      <img src={image} alt={alt} className={styles.eventCardImg} />
+      <Image
+        src={image}
+        alt={alt}
+        fill
+        sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+        className={styles.eventCardImg}
+      />
       <div className={styles.eventCardOverlay}>
         <span className={styles.eventCardTag}>{tag}</span>
         <h3 className={styles.eventCardTitle}>{title}</h3>

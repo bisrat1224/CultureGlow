@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { NAV_LINKS, SOCIAL_LINKS, buildWhatsAppLink } from "@/lib/constants";
 import styles from "./Footer.module.css";
@@ -10,9 +11,11 @@ export function Footer() {
     <footer className={styles.footer}>
       <div className={`${styles.footerInner} wrap`}>
         <div className={styles.footerBrand}>
-          <img
+          <Image
             src="/assets/images/lgoo-1783945739982.jpg"
             alt="CultureGlow24"
+            width={160}
+            height={40}
             className={styles.footerLogo}
           />
           <p className={styles.footerTagline}>

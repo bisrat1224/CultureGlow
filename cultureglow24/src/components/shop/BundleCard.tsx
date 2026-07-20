@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { buildWhatsAppLink } from "@/lib/constants";
 import styles from "./BundlesSection.module.css";
 
@@ -19,7 +20,13 @@ export function BundleCard({ bundle }: BundleCardProps) {
 
   return (
     <div className={styles.bundleCard}>
-      <img src={image} alt={alt} loading="lazy" />
+      <Image
+        src={image}
+        alt={alt}
+        fill
+        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+        style={{ objectFit: "cover" }}
+      />
       <div className={styles.bundleOverlay}>
         <p className={styles.bundleLabel}>{label}</p>
         <h3 className={styles.bundleTitle}>{title}</h3>

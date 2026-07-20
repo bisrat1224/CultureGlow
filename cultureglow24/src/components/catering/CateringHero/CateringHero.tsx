@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { buildWhatsAppLink } from "@/lib/constants";
 import styles from "./CateringHero.module.css";
 import shared from "../shared.module.css";
@@ -6,9 +7,12 @@ import shared from "../shared.module.css";
 export function CateringHero() {
   return (
     <section className={styles.catHero} aria-label="Catering hero">
-      <img
+      <Image
         src="https://images.pexels.com/photos/3376765/pexels-photo-3376765.jpeg?auto=compress&cs=tinysrgb&w=1600"
         alt="Elegant banquet hall set up for a large catered event"
+        fill
+        sizes="100vw"
+        priority
         className={styles.catHeroImg}
       />
 

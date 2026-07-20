@@ -1,12 +1,16 @@
+import Image from "next/image";
 import { buildWhatsAppLink } from "@/lib/constants";
 import styles from "./MenuHero.module.css";
 
 export function MenuHero() {
   return (
     <section className={styles.menuHero} aria-label="Menu hero">
-      <img
+      <Image
         src="/assets/images/pexels-dbaler-17486836.jpg"
         alt="Injera platter with assorted stews"
+        fill
+        sizes="100vw"
+        priority
         className={styles.menuHeroImg}
       />
       <div className={`${styles.menuHeroBody} wrap`}>

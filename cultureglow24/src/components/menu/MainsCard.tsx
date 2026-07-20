@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { buildWhatsAppLink } from "@/lib/constants";
 import type { MainsItem } from "@/lib/data/menu";
 import { DIET_LEGEND } from "@/lib/data/menu";
@@ -15,7 +16,12 @@ export function MainsCard({ item }: MainsCardProps) {
     <article className={styles.mainsCard}>
       <div className={styles.mainsCardImage}>
         {ribbon && <span className={styles.mainsRibbon}>{ribbon}</span>}
-        <img src={image} alt={alt} loading="lazy" />
+        <Image
+          src={image}
+          alt={alt}
+          fill
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+        />
       </div>
       <div className={styles.mainsCardBody}>
         <h3 className={styles.mainsCardName}>{name}</h3>

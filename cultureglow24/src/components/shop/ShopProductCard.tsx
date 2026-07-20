@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { buildWhatsAppLink } from "@/lib/constants";
 import type { Product } from "@/lib/data/products";
 import styles from "./ShopProductCard.module.css";
@@ -20,7 +21,12 @@ export function ShopProductCard({ product }: ShopProductCardProps) {
   return (
     <article className={styles.productCard} data-category={product.category}>
       <div className={styles.productImage}>
-        <img src={image} alt={alt} loading="lazy" />
+        <Image
+          src={image}
+          alt={alt}
+          fill
+          sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 100vw"
+        />
         {badge && (
           <span className={`${styles.productBadge} ${BADGE_CLASS[badge]}`}>
             {badge}

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./GalleryHero.module.css";
 
 // Content/copy (eyebrow, headline, description, hero image choice) is
@@ -11,9 +12,12 @@ import styles from "./GalleryHero.module.css";
 export function GalleryHero() {
   return (
     <section className={styles.galleryHero} aria-label="Gallery hero">
-      <img
+      <Image
         src="/assets/images/platter-big.jpg"
         alt="Colourful injera platter with many stews"
+        fill
+        sizes="100vw"
+        priority
         className={styles.galleryHeroImg}
       />
 

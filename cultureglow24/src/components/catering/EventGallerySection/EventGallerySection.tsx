@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./EventGallerySection.module.css";
 import shared from "../shared.module.css";
 
@@ -127,7 +128,13 @@ export function EventGallerySection() {
               key={item.id}
               className={`${styles.galleryItem} ${item.tall ? styles.galleryItemTall : ""} reveal`}
             >
-              <img src={item.image} alt={item.alt} />
+              <Image
+                src={item.image}
+                alt={item.alt}
+                fill
+                sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+                style={{ objectFit: "cover" }}
+              />
               <span className={styles.galleryItemCap}>{item.caption}</span>
             </div>
           ))}

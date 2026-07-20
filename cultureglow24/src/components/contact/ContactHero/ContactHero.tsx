@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { buildWhatsAppLink } from "@/lib/constants";
 import styles from "./ContactHero.module.css";
 import shared from "../shared.module.css";
@@ -16,9 +17,12 @@ import shared from "../shared.module.css";
 export function ContactHero() {
   return (
     <section className={styles.contactHero} aria-label="Contact hero">
-      <img
+      <Image
         src="/assets/images/sharing-hands.jpg"
         alt="Hands sharing an injera platter"
+        fill
+        sizes="100vw"
+        priority
         className={styles.contactHeroImg}
       />
 

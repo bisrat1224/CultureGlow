@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useState } from "react";
+import Image from "next/image";
 import { PhotoLightbox } from "./PhotoLightbox";
 import styles from "./GalleryPhotoGrid.module.css";
 import shared from "../shared.module.css";
@@ -116,16 +117,18 @@ export function GalleryPhotoGrid() {
               className={`${styles.masonryItem} reveal`}
               onClick={() => setLightboxIndex(i)}
               aria-label={`Open photo: ${photo.alt}`}
+              style={{
+                position: "relative",
+                width: "100%",
+                aspectRatio: photo.ratio ?? "4/3",
+              }}
             >
-              <img
+              <Image
                 src={photo.image}
                 alt={photo.alt}
-                loading="lazy"
-                style={
-                  photo.ratio
-                    ? { aspectRatio: photo.ratio, objectFit: "cover" }
-                    : undefined
-                }
+                fill
+                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                style={{ objectFit: "cover" }}
               />
             </button>
           ))}

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NAV_LINKS, buildWhatsAppLink } from "@/lib/constants";
@@ -20,9 +21,11 @@ export function Header() {
       >
         <div className={styles.headerLogo}>
           <Link href="/">
-            <img
+            <Image
               src="/assets/images/lgoo-1783945739982.jpg"
               alt="CultureGlow24"
+              width={48}
+              height={48}
             />
           </Link>
         </div>
