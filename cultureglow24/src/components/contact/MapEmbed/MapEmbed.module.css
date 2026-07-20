@@ -1,0 +1,13 @@
+.mapEmbed {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--cg-border);
+  margin-top: calc(var(--cg-u) * 4);
+}
+
+.mapEmbed iframe {
+  width: 100%;
+  height: 320px;
+  border: 0;
+  display: block;
+}

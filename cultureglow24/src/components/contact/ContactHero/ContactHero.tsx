@@ -1,0 +1,52 @@
+import { buildWhatsAppLink } from "@/lib/constants";
+import styles from "./ContactHero.module.css";
+import shared from "../shared.module.css";
+
+// Copy, eyebrow ("Get in Touch"), headline ("Let's Talk"), and hero image
+// choice (hands sharing an injera platter) are ported one-for-one from the
+// Kimi Agent reference build's ContactPage.tsx, which builds its hero via
+// a shared <PageHero> component. This project doesn't have a shared
+// PageHero — CateringHero, GalleryHero, and MenuHero each already
+// established the precedent of "one hero component per page" instead
+// (see GalleryHero.tsx's own note on this same convention) — so this
+// follows suit rather than introducing a cross-page shared component.
+// Real asset already migrated into this project at the same path the
+// reference used (src/assets/images/sharing-hands.jpg → this project's
+// public/assets/images/sharing-hands.jpg).
+export function ContactHero() {
+  return (
+    <section className={styles.contactHero} aria-label="Contact hero">
+      <img
+        src="/assets/images/sharing-hands.jpg"
+        alt="Hands sharing an injera platter"
+        className={styles.contactHeroImg}
+      />
+
+      <div className={`${styles.contactHeroBody} wrap`}>
+        <p className={styles.contactHeroEyebrow}>Get in Touch</p>
+        <h1 className={styles.contactHeroH1}>
+          Let&rsquo;s <em>Talk</em>
+        </h1>
+        <p className={styles.contactHeroDesc}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <div className={styles.contactHeroActions}>
+          <a
+            href={buildWhatsAppLink()}
+            className={shared.btnPrimary}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="/assets/images/img_whatsappicon.svg"
+              alt=""
+              style={{ width: 16, height: 16 }}
+            />
+            Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}

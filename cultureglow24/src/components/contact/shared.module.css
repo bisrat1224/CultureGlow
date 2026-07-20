@@ -1,0 +1,118 @@
+/* Shared building blocks for the Contact page's sections — mirrors the
+   pattern established in catering/shared.module.css and gallery/
+   shared.module.css: scoped to this page's own component domain rather
+   than importing across domains, consistent with the "sections evolve
+   independently" precedent set by SocialSection. */
+
+.sectionEyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cg-gold);
+  margin-bottom: 8px;
+}
+
+.sectionHead {
+  max-width: 620px;
+  margin-bottom: calc(var(--cg-u) * 6);
+}
+
+.sectionHeadCentered {
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 700;
+  line-height: 1.08;
+}
+
+.sectionTitle em {
+  font-style: italic;
+  color: var(--cg-gold);
+}
+
+.sectionTitleLight {
+  color: var(--cg-charcoal);
+}
+
+.sectionTitleDark {
+  color: var(--cg-cream);
+}
+
+.sectionDesc {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-top: calc(var(--cg-u) * 2);
+}
+
+.sectionDescLight {
+  color: var(--cg-text);
+}
+
+.sectionDescDark {
+  color: rgba(250, 246, 240, 0.68);
+}
+
+.sectionOnCream {
+  background: var(--cg-cream);
+  padding: calc(var(--cg-u) * 10) 0;
+}
+
+.sectionOnDark {
+  background: var(--cg-charcoal);
+  padding: calc(var(--cg-u) * 10) 0;
+}
+
+/* Button styles duplicated from home/shared.module.css / CateringHero's
+   own usage — same "no premature abstraction" reasoning: every page
+   domain keeps its own copy of these rather than importing across
+   domains, even though the declarations are identical. */
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--cg-gold);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: 8px;
+  transition: background 0.2s, transform 0.2s;
+  min-height: 44px;
+}
+
+.btnPrimary:hover {
+  background: #b08634;
+  transform: translateY(-2px);
+}
+
+.btnPrimary img {
+  width: 16px;
+  height: 16px;
+}
+
+.btnGhostLight {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--cg-cream);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: 8px;
+  border: 1.5px solid rgba(250, 246, 240, 0.35);
+  transition: border-color 0.2s, background 0.2s;
+  min-height: 44px;
+}
+
+.btnGhostLight:hover {
+  border-color: var(--cg-cream);
+  background: rgba(250, 246, 240, 0.08);
+}

@@ -1,0 +1,126 @@
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: calc(var(--cg-u) * 6);
+  align-items: start;
+}
+
+.contactForm {
+  background: #fff;
+  border: 1px solid var(--cg-border);
+  border-radius: 12px;
+  padding: calc(var(--cg-u) * 4);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.formRow {
+  margin-bottom: calc(var(--cg-u) * 2);
+}
+
+.formLabel {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cg-charcoal);
+  margin-bottom: 6px;
+}
+
+.formInput {
+  width: 100%;
+  font-size: 15px;
+  font-family: "Inter", sans-serif;
+  color: var(--cg-charcoal);
+  background: var(--cg-cream);
+  border: 1px solid var(--cg-border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  min-height: 44px;
+}
+
+.formInput:focus {
+  border-color: var(--cg-gold);
+  box-shadow: 0 0 0 3px rgba(200, 151, 58, 0.18);
+}
+
+.formTextarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.formStatusSuccess {
+  margin-top: calc(var(--cg-u) * 2);
+  font-size: 13px;
+  color: var(--cg-green);
+  font-weight: 600;
+}
+
+.formStatusError {
+  margin-top: calc(var(--cg-u) * 2);
+  font-size: 13px;
+  color: var(--cg-red);
+  font-weight: 600;
+}
+
+.contactAside {
+  display: flex;
+  flex-direction: column;
+}
+
+.contactInfoBlock {
+  background: var(--cg-charcoal);
+  border-radius: 12px;
+  padding: calc(var(--cg-u) * 4);
+}
+
+.contactInfoList {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--cg-u) * 2.5);
+}
+
+.contactInfoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.contactInfoLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(250, 246, 240, 0.45);
+}
+
+.contactInfoValue {
+  font-size: 15px;
+  color: var(--cg-cream);
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+a.contactInfoValue:hover {
+  color: var(--cg-gold);
+}
+
+.contactSocialList {
+  display: flex;
+  gap: calc(var(--cg-u) * 2);
+  list-style: none;
+  margin-top: 4px;
+}
+
+.contactSocialList a {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 1024px) {
+  .contactGrid {
+    grid-template-columns: 1.1fr 1fr;
+  }
+}
