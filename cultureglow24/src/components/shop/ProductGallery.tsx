@@ -47,11 +47,15 @@ export function ProductGallery({ images, alt }: ProductGalleryProps) {
         onClick={() => setLightboxOpen(true)}
         aria-label="Open full-size image"
       >
+        {/* priority + loading="lazy" were set together here, which is a
+            contradiction Next.js can't resolve consistently — priority
+            is meant to eager-load this LCP-candidate image ahead of
+            everything else on the product page, so the lazy flag is
+            dropped rather than the priority flag. */}
         <Image
           src={images[activeIndex]}
           alt={alt}
           fill
-          loading="lazy"
           sizes="(min-width: 1024px) 50vw, 100vw"
           style={{ objectFit: "cover" }}
           priority
@@ -85,10 +89,15 @@ export function ProductGallery({ images, alt }: ProductGalleryProps) {
           aria-label={`Photo: ${alt}`}
           onClick={() => setLightboxOpen(false)}
         >
+          {/* Raw <img>, not next/image, matching the pattern set by
+              Gallery's PhotoLightbox.tsx (see that file's note for why).
+              decoding="async" keeps the full-res decode off the main
+              thread so opening the lightbox doesn't stutter the click. */}
           <img
             src={images[activeIndex]}
             alt={alt}
             className={styles.lightboxImg}
+            decoding="async"
             onClick={(e) => e.stopPropagation()}
           />
           <button

@@ -51,10 +51,16 @@ export function PhotoLightbox({
       aria-label={`Photo: ${photo.alt}`}
       onClick={onClose}
     >
+      {/* decoding="async" added — offloads full-res decode from the main
+          thread so the open animation doesn't stutter. Not switched to
+          next/image: this is a raw <img> by design (see comment above),
+          and fill/Image needs a sized relative wrapper this modal doesn't
+          have. */}
       <img
         src={photo.image}
         alt={photo.alt}
         className={styles.lightboxImg}
+        decoding="async"
         onClick={(e) => e.stopPropagation()}
       />
       <button

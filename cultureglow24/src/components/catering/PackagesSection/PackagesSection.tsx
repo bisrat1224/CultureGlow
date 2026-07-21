@@ -8,7 +8,7 @@ const PACKAGES: Package[] = [
     id: "essential",
     name: "Essential",
     guests: "Up to 30 guests",
-    priceFrom: "ETB 15,000",
+    priceFrom: "£1,500",
     features: [
       "Choice of two main dishes",
       "Traditional injera and sides included",
@@ -20,7 +20,7 @@ const PACKAGES: Package[] = [
     id: "signature",
     name: "Signature",
     guests: "Up to 80 guests",
-    priceFrom: "ETB 38,000",
+    priceFrom: "£3,800",
     featured: true,
     features: [
       "Choice of four main dishes",
@@ -34,7 +34,7 @@ const PACKAGES: Package[] = [
     id: "grand-feast",
     name: "Grand Feast",
     guests: "80+ guests",
-    priceFrom: "ETB 75,000",
+    priceFrom: "£7500",
     features: [
       "Full menu customization",
       "Multi-course appetizer, main, and dessert service",
