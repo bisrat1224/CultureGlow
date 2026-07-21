@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { Header } from "@/components/Header/Header";
-import { Footer } from "@/components/Footer/Footer";
-import { WhatsAppStickyBar } from "@/components/home/WhatsAppStickyBar/WhatsAppStickyBar";
 import { ShopProductCard } from "@/components/shop/ShopProductCard";
 import { ProductGallery } from "@/components/shop/ProductGallery";
 import { buildWhatsAppLink } from "@/lib/constants";
@@ -55,8 +52,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   return (
     <>
-      <Header />
-      <main>
         <div className="wrap" style={{ paddingTop: "calc(96px + var(--cg-u) * 4)" }}>
           <nav aria-label="Breadcrumb" className={styles.breadcrumb}>
             <Link href="/shop">Shop</Link>
@@ -109,9 +104,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
             </section>
           )}
         </div>
-      </main>
-      <Footer />
-      <WhatsAppStickyBar />
     </>
+    
   );
 }

@@ -1,4 +1,3 @@
-import { Header } from "@/components/Header/Header";
 import { Hero } from "@/components/home/Hero/Hero";
 import { MarqueeBand } from "@/components/home/MarqueeBand/MarqueeBand";
 import { StorySection } from "@/components/home/StorySection/StorySection";
@@ -9,27 +8,20 @@ import { SocialSection } from "@/components/home/SocialSection/SocialSection";
 import { CateringSection } from "@/components/home/CateringSection/CateringSection";
 import { TestimonialsSection } from "@/components/home/TestimonialsSection/TestimonialsSection";
 import { NewsletterSection } from "@/components/home/NewsletterSection/NewsletterSection";
-import { WhatsAppStickyBar } from "@/components/home/WhatsAppStickyBar/WhatsAppStickyBar";
-import { Footer } from "@/components/Footer/Footer";
 
 export default function Home() {
   return (
     <>
-      <Header />
-      <main id="top">
-        <Hero />
-        <MarqueeBand />
-        <StorySection />
-        <ProductsSection />
-        <AccentBand />
-        <KitchenSection />
-        <SocialSection />
-        <CateringSection />
-        <TestimonialsSection />
-        <NewsletterSection />
-      </main>
-      <Footer />
-      <WhatsAppStickyBar />
+      <Hero />
+      <MarqueeBand />
+      <StorySection />
+      <ProductsSection />
+      <AccentBand />
+      <KitchenSection />
+      <SocialSection />
+      <CateringSection />
+      <TestimonialsSection />
+      <NewsletterSection />
     </>
   );
 }
