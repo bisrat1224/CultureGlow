@@ -1,8 +1,12 @@
 import Image from "next/image";
 import { buildWhatsAppLink } from "@/lib/constants";
+import { menuContent } from "@/lib/content/content.menu";
 import styles from "./MenuHero.module.css";
 
 export function MenuHero() {
+  const { eyebrow, headingBeforeEm, headingEm, headingAfterEm, desc, primaryCta, secondaryCta } =
+    menuContent.hero;
+
   return (
     <section className={styles.menuHero} aria-label="Menu hero">
       <Image
@@ -14,14 +18,13 @@ export function MenuHero() {
         className={styles.menuHeroImg}
       />
       <div className={`${styles.menuHeroBody} wrap`}>
-        <p className={styles.menuHeroEyebrow}>The Full Menu</p>
+        <p className={styles.menuHeroEyebrow}>{eyebrow}</p>
         <h1 className={styles.menuHeroH1}>
-          Every <em>Dish</em>, Every Category
+          {headingBeforeEm}
+          <em>{headingEm}</em>
+          {headingAfterEm}
         </h1>
-        <p className={styles.menuHeroDesc}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
+        <p className={styles.menuHeroDesc}>{desc}</p>
         <div className={styles.menuHeroActions}>
           <a
             href={buildWhatsAppLink()}
@@ -30,10 +33,10 @@ export function MenuHero() {
             rel="noopener noreferrer"
           >
             <img src="/assets/images/img_whatsappicon.svg" alt="" />
-            Order
+            {primaryCta}
           </a>
           <a href="#mains" className={styles.btnGhostLight}>
-            See Signature Dishes
+            {secondaryCta}
           </a>
         </div>
       </div>
