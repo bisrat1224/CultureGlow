@@ -11,6 +11,18 @@ export interface Product {
   alt: string;
   description?: string;
   badge?: "Best Seller" | "Popular" | "Gift" | "New";
+  /**
+   * Optional second/third photo for the single-product gallery
+   * (src/app/shop/[slug]/page.tsx). Falls back to just `image` if omitted —
+   * most placeholder products only have one real photo right now.
+   */
+  gallery?: string[];
+  /**
+   * Allergen/dietary flags shown on the single-product page. Lorem Ipsum
+   * placeholders until the client supplies real allergen info via the
+   * Content Checklist (Developer Brief Section 13).
+   */
+  allergens?: string[];
 }
 
 interface ProductCardProps {

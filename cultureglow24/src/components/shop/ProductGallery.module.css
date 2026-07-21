@@ -1,0 +1,124 @@
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--cg-u) * 2);
+}
+
+.mainImageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  overflow: hidden;
+  border: none;
+  padding: 0;
+  cursor: zoom-in;
+  background: var(--cg-gold-light);
+}
+
+.thumbRow {
+  display: flex;
+  gap: calc(var(--cg-u) * 1.5);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.thumbRow::-webkit-scrollbar {
+  display: none;
+}
+
+.thumbBtn {
+  position: relative;
+  flex: 0 0 80px;
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.thumbBtn:hover {
+  border-color: rgba(200, 151, 58, 0.4);
+}
+
+.thumbBtnActive {
+  border-color: var(--cg-gold);
+}
+
+/* Lightbox — deliberately mirrors
+   gallery/GalleryPhotoGrid/PhotoLightbox.module.css's values exactly,
+   for visual consistency between the two lightbox instances sitewide. */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(26, 26, 26, 0.94);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--cg-u) * 3);
+}
+
+.lightboxImg {
+  max-width: 100%;
+  max-height: 82vh;
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+.lightboxClose {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: var(--cg-cream);
+  font-size: 26px;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightboxPrev,
+.lightboxNext {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--cg-cream);
+  font-size: 30px;
+  min-width: 48px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(250, 246, 240, 0.08);
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.lightboxPrev:hover,
+.lightboxNext:hover {
+  background: rgba(250, 246, 240, 0.18);
+}
+
+.lightboxPrev {
+  left: 16px;
+}
+
+.lightboxNext {
+  right: 16px;
+}
+
+.lightboxCount {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(250, 246, 240, 0.6);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
