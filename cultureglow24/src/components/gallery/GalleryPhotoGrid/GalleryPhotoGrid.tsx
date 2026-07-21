@@ -2,6 +2,7 @@
 
 import { useCallback, useState } from "react";
 import Image from "next/image";
+import { galleryContent } from "@/lib/content/content.gallery";
 import { PhotoLightbox } from "./PhotoLightbox";
 import styles from "./GalleryPhotoGrid.module.css";
 import shared from "../shared.module.css";
@@ -73,6 +74,7 @@ const PHOTOS: GalleryPhoto[] = [
 
 export function GalleryPhotoGrid() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const { eyebrow, headingBeforeEm, headingEm, headingAfterEm, desc } = galleryContent.photoGrid;
 
   const close = useCallback(() => setLightboxIndex(null), []);
   const prev = useCallback(
@@ -96,18 +98,16 @@ export function GalleryPhotoGrid() {
     >
       <div className="wrap">
         <div className={`${shared.sectionHead} reveal`}>
-          <p className={shared.sectionEyebrow}>Photos</p>
+          <p className={shared.sectionEyebrow}>{eyebrow}</p>
           <h2
             className={`${shared.sectionTitle} ${shared.sectionTitleLight}`}
             id="masonry-h2"
           >
-            Food, Fashion &amp; <em>Festivity</em>
+            {headingBeforeEm}
+            <em>{headingEm}</em>
+            {headingAfterEm}
           </h2>
-          <p className={`${shared.sectionDesc} ${shared.sectionDescLight}`}>
-            Real photos below — the Content Checklist calls for a minimum of
-            15; more will be added here as the client supplies them via the
-            PM.
-          </p>
+          <p className={`${shared.sectionDesc} ${shared.sectionDescLight}`}>{desc}</p>
         </div>
 
         <div className={styles.masonry}>
