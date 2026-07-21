@@ -17,12 +17,12 @@
  *
  * Lorem Ipsum is left as Lorem Ipsum on purpose, replacing it with real
  * client copy is a content task for the owner once they have admin
- * access (CMS_ADMIN_SCOPING.md §6, Chunk B4), not a code task now.
+ * access (CMS_ADMIN_SCOPING.md Â§6, Chunk B4), not a code task now.
  */
 
 export const homeContent = {
   hero: {
-    eyebrow: "Habesha Food · Beauty · Lifestyle",
+    eyebrow: "Habesha Food Â· Beauty Â· Lifestyle",
     headingBeforeEm: "Taste the ",
     headingEm: "Soul",
     headingAfterEm: " of Ethiopia",
@@ -69,7 +69,7 @@ export const homeContent = {
     items: [
       "CULTUREGLOW24",
       "AUTHENTIC HABESHA EXPERIENCE",
-      "FOOD · FASHION · CULTURE",
+      "FOOD Â· FASHION Â· CULTURE",
     ],
   },
 

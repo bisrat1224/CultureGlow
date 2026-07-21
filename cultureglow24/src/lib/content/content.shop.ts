@@ -8,7 +8,7 @@
 
 export const shopContent = {
   hero: {
-    label: "Habesha Food · Beauty · Lifestyle",
+    label: "Habesha Food Â· Beauty Â· Lifestyle",
     title: "Everything Habesha, Delivered to Your Door",
     desc: "Browse our curated collection of Ethiopian and Eritrean food, beauty, and lifestyle products, order in seconds over WhatsApp, no account or checkout required.",
   },
