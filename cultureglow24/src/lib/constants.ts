@@ -1,7 +1,7 @@
 /**
  * CultureGlow24 site-wide constants.
  *
- * WHATSAPP_NUMBER now reads from NEXT_PUBLIC_WHATSAPP_NUMBER (see
+ * WHATSAPP_NUMBER reads from NEXT_PUBLIC_WHATSAPP_NUMBER (see
  * .env.example / Developer Brief Section 12), falling back to the
  * existing placeholder if the env var isn't set. Must stay prefixed
  * with NEXT_PUBLIC_ — this constant is read from both Server Components
@@ -15,6 +15,9 @@
  */
 export const WHATSAPP_NUMBER =
   process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "251900000000";
+
+
+export const CONTACT_EMAIL = "hello@cultureglow24.com";
 
 export type NavLink = {
   href: string;

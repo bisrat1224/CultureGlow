@@ -1,5 +1,5 @@
 import { MessageCircle, Phone, Mail } from "lucide-react";
-import { SOCIAL_LINKS, buildWhatsAppLink } from "@/lib/constants";
+import { SOCIAL_LINKS, CONTACT_EMAIL, buildWhatsAppLink } from "@/lib/constants";
 import styles from "./ContactSection.module.css";
 import shared from "../shared.module.css";
 
@@ -11,12 +11,17 @@ import shared from "../shared.module.css";
 //
 // Only four contact methods are shown, per instruction: WhatsApp, a UK
 // phone number, email, and social links. No map, no form, nothing else.
-// UK phone number is a placeholder (+44 20 7123 4567) pending the real
-// number from the client via the PM, same placeholder-until-real-content
-// pattern used everywhere else in this project (WHATSAPP_NUMBER, etc.).
-const UK_PHONE_DISPLAY = "+44 20 7123 4567";
-const UK_PHONE_TEL = "+442071234567";
-const CONTACT_EMAIL = "hello@cultureglow24.com";
+//
+// UK_PHONE uses Ofcom's officially reserved fictitious-number block for
+// London (020 7946 0000-0999) — these numbers are permanently set aside
+// by the regulator and guaranteed to never be allocated to a real
+// subscriber, unlike an arbitrary-looking placeholder such as
+// "020 7123 4567" which could coincidentally be, or become, a real
+// number. Swap for the client's real number once supplied via the PM.
+// Email now reads from the centralized CONTACT_EMAIL constant
+// (lib/constants.ts) instead of a local duplicate literal.
+const UK_PHONE_DISPLAY = "+44 20 7946 0321";
+const UK_PHONE_TEL = "+442079460321";
 
 export function ContactSection() {
   return (
