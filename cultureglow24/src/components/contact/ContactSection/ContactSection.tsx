@@ -1,5 +1,6 @@
 import { MessageCircle, Phone, Mail } from "lucide-react";
 import { SOCIAL_LINKS, CONTACT_EMAIL, buildWhatsAppLink } from "@/lib/constants";
+import { contactContent } from "@/lib/content/content.contact";
 import styles from "./ContactSection.module.css";
 import shared from "../shared.module.css";
 
@@ -24,6 +25,9 @@ const UK_PHONE_DISPLAY = "+44 20 7946 0321";
 const UK_PHONE_TEL = "+442079460321";
 
 export function ContactSection() {
+  const { eyebrow, headingBeforeEm, headingEm, headingAfterEm, desc, whatsapp, phone, email, social } =
+    contactContent.methods;
+
   return (
     <section
       className={shared.sectionOnCream}
@@ -32,16 +36,16 @@ export function ContactSection() {
     >
       <div className="wrap">
         <div className={`${shared.sectionHeadCentered} reveal`}>
-          <p className={shared.sectionEyebrow}>Get in Touch</p>
+          <p className={shared.sectionEyebrow}>{eyebrow}</p>
           <h2
             className={`${shared.sectionTitle} ${shared.sectionTitleLight}`}
             id="contact-h2"
           >
-            Ways to <em>Reach Us</em>
+            {headingBeforeEm}
+            <em>{headingEm}</em>
+            {headingAfterEm}
           </h2>
-          <p className={`${shared.sectionDesc} ${shared.sectionDescLight}`}>
-            No forms to fill out — pick whichever way suits you best.
-          </p>
+          <p className={`${shared.sectionDesc} ${shared.sectionDescLight}`}>{desc}</p>
         </div>
 
         <div className={styles.methodsGrid}>
@@ -54,15 +58,15 @@ export function ContactSection() {
             <span className={styles.methodIcon} aria-hidden="true">
               <MessageCircle size={22} strokeWidth={1.75} />
             </span>
-            <span className={styles.methodLabel}>WhatsApp</span>
-            <span className={styles.methodValue}>Chat with us instantly</span>
+            <span className={styles.methodLabel}>{whatsapp.label}</span>
+            <span className={styles.methodValue}>{whatsapp.value}</span>
           </a>
 
           <a href={`tel:${UK_PHONE_TEL}`} className={styles.methodCard}>
             <span className={styles.methodIcon} aria-hidden="true">
               <Phone size={22} strokeWidth={1.75} />
             </span>
-            <span className={styles.methodLabel}>Phone</span>
+            <span className={styles.methodLabel}>{phone.label}</span>
             <span className={styles.methodValue}>{UK_PHONE_DISPLAY}</span>
           </a>
 
@@ -73,21 +77,21 @@ export function ContactSection() {
             <span className={styles.methodIcon} aria-hidden="true">
               <Mail size={22} strokeWidth={1.75} />
             </span>
-            <span className={styles.methodLabel}>Email</span>
+            <span className={styles.methodLabel}>{email.label}</span>
             <span className={styles.methodValue}>{CONTACT_EMAIL}</span>
           </a>
 
           <div className={styles.methodCard}>
-            <span className={styles.methodLabel}>Follow Us</span>
+            <span className={styles.methodLabel}>{social.label}</span>
             <ul className={styles.socialList}>
-              {SOCIAL_LINKS.map((social) => (
-                <li key={social.label}>
+              {SOCIAL_LINKS.map((s) => (
+                <li key={s.label}>
                   <a
-                    href={social.href}
+                    href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {social.label}
+                    {s.label}
                   </a>
                 </li>
               ))}

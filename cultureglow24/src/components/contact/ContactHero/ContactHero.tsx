@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { buildWhatsAppLink } from "@/lib/constants";
+import { contactContent } from "@/lib/content/content.contact";
 import styles from "./ContactHero.module.css";
 import shared from "../shared.module.css";
 
@@ -15,6 +16,8 @@ import shared from "../shared.module.css";
 // reference used (src/assets/images/sharing-hands.jpg → this project's
 // public/assets/images/sharing-hands.jpg).
 export function ContactHero() {
+  const { eyebrow, headingBeforeEm, headingEm, headingAfterEm, desc, cta } = contactContent.hero;
+
   return (
     <section className={styles.contactHero} aria-label="Contact hero">
       <Image
@@ -27,14 +30,13 @@ export function ContactHero() {
       />
 
       <div className={`${styles.contactHeroBody} wrap`}>
-        <p className={styles.contactHeroEyebrow}>Get in Touch</p>
+        <p className={styles.contactHeroEyebrow}>{eyebrow}</p>
         <h1 className={styles.contactHeroH1}>
-          Let&rsquo;s <em>Talk</em>
+          {headingBeforeEm}
+          <em>{headingEm}</em>
+          {headingAfterEm}
         </h1>
-        <p className={styles.contactHeroDesc}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
+        <p className={styles.contactHeroDesc}>{desc}</p>
         <div className={styles.contactHeroActions}>
           <a
             href={buildWhatsAppLink()}
@@ -47,7 +49,7 @@ export function ContactHero() {
               alt=""
               style={{ width: 16, height: 16 }}
             />
-            Chat on WhatsApp
+            {cta}
           </a>
         </div>
       </div>

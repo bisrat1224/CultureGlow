@@ -1,3 +1,4 @@
+import { contactContent } from "@/lib/content/content.contact";
 import styles from "./MapEmbed.module.css";
 
 /**
@@ -13,7 +14,7 @@ export function MapEmbed() {
   return (
     <div className={styles.mapEmbed}>
       <iframe
-        title="CultureGlow24 delivery area map"
+        title={contactContent.map.title}
         src="https://www.google.com/maps?q=Addis%20Ababa%2C%20Ethiopia&output=embed"
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
