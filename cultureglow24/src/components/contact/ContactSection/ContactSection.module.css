@@ -1,126 +1,82 @@
-.contactGrid {
+.methodsGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: calc(var(--cg-u) * 6);
-  align-items: start;
+  gap: calc(var(--cg-u) * 3);
 }
 
-.contactForm {
+.methodCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
   background: #fff;
   border: 1px solid var(--cg-border);
   border-radius: 12px;
-  padding: calc(var(--cg-u) * 4);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  padding: calc(var(--cg-u) * 4) calc(var(--cg-u) * 3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.formRow {
-  margin-bottom: calc(var(--cg-u) * 2);
-}
-
-.formLabel {
-  display: block;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--cg-charcoal);
-  margin-bottom: 6px;
-}
-
-.formInput {
-  width: 100%;
-  font-size: 15px;
-  font-family: "Inter", sans-serif;
-  color: var(--cg-charcoal);
-  background: var(--cg-cream);
-  border: 1px solid var(--cg-border);
-  border-radius: 8px;
-  padding: 12px 14px;
-  outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  min-height: 44px;
-}
-
-.formInput:focus {
+a.methodCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
   border-color: var(--cg-gold);
-  box-shadow: 0 0 0 3px rgba(200, 151, 58, 0.18);
 }
 
-.formTextarea {
-  resize: vertical;
-  min-height: 110px;
-}
-
-.formStatusSuccess {
-  margin-top: calc(var(--cg-u) * 2);
-  font-size: 13px;
-  color: var(--cg-green);
-  font-weight: 600;
-}
-
-.formStatusError {
-  margin-top: calc(var(--cg-u) * 2);
-  font-size: 13px;
-  color: var(--cg-red);
-  font-weight: 600;
-}
-
-.contactAside {
+.methodIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--cg-gold-light);
+  color: var(--cg-gold);
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
 }
 
-.contactInfoBlock {
-  background: var(--cg-charcoal);
-  border-radius: 12px;
-  padding: calc(var(--cg-u) * 4);
-}
-
-.contactInfoList {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--cg-u) * 2.5);
-}
-
-.contactInfoItem {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.contactInfoLabel {
-  font-size: 11px;
+.methodLabel {
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(250, 246, 240, 0.45);
-}
-
-.contactInfoValue {
-  font-size: 15px;
-  color: var(--cg-cream);
-  font-weight: 500;
-  transition: color 0.2s;
-}
-
-a.contactInfoValue:hover {
   color: var(--cg-gold);
 }
 
-.contactSocialList {
+.methodValue {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--cg-charcoal);
+}
+
+.socialList {
   display: flex;
-  gap: calc(var(--cg-u) * 2);
+  gap: calc(var(--cg-u) * 3);
   list-style: none;
   margin-top: 4px;
 }
 
-.contactSocialList a {
-  font-size: 13px;
+.socialList a {
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  color: var(--cg-charcoal);
+  transition: color 0.2s;
+}
+
+.socialList a:hover {
+  color: var(--cg-gold);
+}
+
+@media (min-width: 640px) {
+  .methodsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (min-width: 1024px) {
-  .contactGrid {
-    grid-template-columns: 1.1fr 1fr;
+  .methodsGrid {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
