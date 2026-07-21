@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { buildWhatsAppLink } from "@/lib/constants";
 import { shopContent } from "@/lib/content/content.shop";
 import styles from "./FeatureBanner.module.css";
@@ -12,8 +13,9 @@ export function FeatureBanner() {
           <p className={styles.sectionLabel}>{label}</p>
           <h2 className={styles.featureTitle}>{title}</h2>
           <p className={styles.featureDesc}>{desc}</p>
-          
-           <a href={buildWhatsAppLink("I would like to enquire about catering")}
+
+          <a
+            href={buildWhatsAppLink("I would like to enquire about catering")}
             className={styles.btnPrimary}
             target="_blank"
             rel="noopener noreferrer"
@@ -23,10 +25,13 @@ export function FeatureBanner() {
           </a>
         </div>
         <div className={styles.featureBannerImage}>
-          <img
+          <Image
             src="/assets/images/istockphoto-908729848-612x612.jpg"
             alt="Habesha catering event"
+            fill
             loading="lazy"
+            sizes="(min-width: 768px) 50vw, 100vw"
+            style={{ objectFit: "cover" }}
           />
         </div>
       </div>

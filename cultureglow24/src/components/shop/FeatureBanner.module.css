@@ -65,6 +65,7 @@
 }
 
 .featureBannerImage {
+  position: relative; /* added: required for next/image fill */
   width: 100%;
   max-width: 440px;
   height: 280px;

@@ -8,8 +8,8 @@ export function AboutHero() {
         src="/assets/images/platter-big.jpg"
         alt="Colourful injera platter with many stews"
         fill
-        loading="lazy"
         sizes="100vw"
+        quality={70}
         priority
         className={styles.aboutHeroImg}
       />

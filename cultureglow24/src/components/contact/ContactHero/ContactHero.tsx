@@ -24,8 +24,8 @@ export function ContactHero() {
         src="/assets/images/sharing-hands.jpg"
         alt="Hands sharing an injera platter"
         fill
-        loading="lazy"
         sizes="100vw"
+        quality={70}
         priority
         className={styles.contactHeroImg}
       />
