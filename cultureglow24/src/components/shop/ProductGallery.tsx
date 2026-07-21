@@ -51,6 +51,7 @@ export function ProductGallery({ images, alt }: ProductGalleryProps) {
           src={images[activeIndex]}
           alt={alt}
           fill
+          loading="lazy"
           sizes="(min-width: 1024px) 50vw, 100vw"
           style={{ objectFit: "cover" }}
           priority
@@ -70,7 +71,7 @@ export function ProductGallery({ images, alt }: ProductGalleryProps) {
               aria-label={`View photo ${i + 1}`}
               aria-pressed={i === activeIndex}
             >
-              <Image src={img} alt="" fill sizes="80px" style={{ objectFit: "cover" }} />
+              <Image src={img} alt="" fill sizes="80px" style={{ objectFit: "cover" }} loading="lazy" />
             </button>
           ))}
         </div>

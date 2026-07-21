@@ -1,4 +1,4 @@
-.gallery {
+﻿.gallery {
   display: flex;
   flex-direction: column;
   gap: calc(var(--cg-u) * 2);
@@ -48,7 +48,7 @@
   border-color: var(--cg-gold);
 }
 
-/* Lightbox — deliberately mirrors
+/* Lightbox - deliberately mirrors
    gallery/GalleryPhotoGrid/PhotoLightbox.module.css's values exactly,
    for visual consistency between the two lightbox instances sitewide. */
 .lightbox {

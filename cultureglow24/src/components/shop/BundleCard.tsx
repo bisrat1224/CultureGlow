@@ -24,6 +24,7 @@ export function BundleCard({ bundle }: BundleCardProps) {
         src={image}
         alt={alt}
         fill
+        loading="lazy"
         sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
         style={{ objectFit: "cover" }}
       />

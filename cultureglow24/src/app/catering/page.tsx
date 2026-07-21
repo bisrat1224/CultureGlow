@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Header } from "@/components/Header/Header";
 import { Footer } from "@/components/Footer/Footer";
 import { WhatsAppStickyBar } from "@/components/home/WhatsAppStickyBar/WhatsAppStickyBar";
@@ -12,9 +12,9 @@ import { CateringTestimonialsSection } from "@/components/catering/CateringTermi
 import { CateringEnquirySection } from "@/components/catering/CateringEnquirySection/CateringEnquirySection";
 
 export const metadata: Metadata = {
-  title: "Catering & Events | CultureGlow24 — Authentic Habesha Catering",
+  title: "Catering & Events | CultureGlow24, Authentic Habesha Catering",
   description:
-    "Bring authentic Habesha catering to your wedding, corporate event, birthday, or cultural ceremony. Packages, galleries, and enquiries — CultureGlow24.",
+    "Bring authentic Habesha catering to your wedding, corporate event, birthday, or cultural ceremony. Packages, galleries, and enquiries - CultureGlow24.",
 };
 
 

@@ -14,26 +14,25 @@
   display: block;
   width: 100%;
   background: var(--cg-gold-light);
+  position: relative;
 }
 
-.masonryItem img {
+.masonryImg {
   width: 100%;
+  height: auto;
   display: block;
-  transition: transform 0.5s ease;
+  transition: transform 0.4s ease;
+  will-change: transform;
 }
 
-.masonryItem:hover img {
-  transform: scale(1.04);
+.masonryItem:hover .masonryImg {
+  transform: scale(1.03);
 }
 
 @media (min-width: 640px) {
-  .masonry {
-    columns: 2;
-  }
+  .masonry { columns: 2; }
 }
 
 @media (min-width: 1024px) {
-  .masonry {
-    columns: 3;
-  }
+  .masonry { columns: 3; }
 }

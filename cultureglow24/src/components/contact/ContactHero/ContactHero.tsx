@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import { buildWhatsAppLink } from "@/lib/constants";
 import { contactContent } from "@/lib/content/content.contact";
 import styles from "./ContactHero.module.css";
@@ -8,9 +8,9 @@ import shared from "../shared.module.css";
 // choice (hands sharing an injera platter) are ported one-for-one from the
 // Kimi Agent reference build's ContactPage.tsx, which builds its hero via
 // a shared <PageHero> component. This project doesn't have a shared
-// PageHero — CateringHero, GalleryHero, and MenuHero each already
+// PageHero - CateringHero, GalleryHero, and MenuHero each already
 // established the precedent of "one hero component per page" instead
-// (see GalleryHero.tsx's own note on this same convention) — so this
+// (see GalleryHero.tsx's own note on this same convention) - so this
 // follows suit rather than introducing a cross-page shared component.
 // Real asset already migrated into this project at the same path the
 // reference used (src/assets/images/sharing-hands.jpg → this project's
@@ -24,6 +24,7 @@ export function ContactHero() {
         src="/assets/images/sharing-hands.jpg"
         alt="Hands sharing an injera platter"
         fill
+        loading="lazy"
         sizes="100vw"
         priority
         className={styles.contactHeroImg}

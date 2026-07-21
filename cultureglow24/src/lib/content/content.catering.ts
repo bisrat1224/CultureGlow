@@ -1,6 +1,6 @@
 /**
- * Centralized sitewide copy — CATERING & EVENTS PAGE.
- * Mirrors content.home.ts's shape/rationale. Copy only — EVENT_TYPES,
+ * Centralized sitewide copy, CATERING & EVENTS PAGE.
+ * Mirrors content.home.ts's shape/rationale. Copy only, EVENT_TYPES,
  * PACKAGES, GALLERY_ITEMS, and TESTIMONIALS arrays stay inline in their
  * respective component files; those are repeatable structured data, not
  * one-off sitewide copy, per the CMS scoping doc's Initiative A boundary.
@@ -12,7 +12,7 @@ export const cateringContent = {
     headingBeforeEm: "Bring the ",
     headingEm: "Feast",
     headingAfterEm: " to Your Occasion",
-    desc: "Weddings, corporate gatherings, birthdays, or cultural ceremonies — our catering team brings authentic Habesha flavor and presentation to every table.",
+    desc: "Weddings, corporate gatherings, birthdays, or cultural ceremonies, our catering team brings authentic Habesha flavor and presentation to every table.",
     primaryCta: "Enquire on WhatsApp",
     secondaryCta: "See Packages",
   },
@@ -30,7 +30,7 @@ export const cateringContent = {
     headingBeforeEm: "Find Your ",
     headingEm: "Fit",
     headingAfterEm: "",
-    desc: "Starting prices below give you a sense of scale — every package is customized to your guest count and menu preferences once you reach out.",
+    desc: "Starting prices below give you a sense of scale, every package is customized to your guest count and menu preferences once you reach out.",
   },
 
   gallery: {
@@ -53,11 +53,12 @@ export const cateringContent = {
     headingBeforeEm: "Send a Catering ",
     headingEm: "Enquiry",
     headingAfterEm: "",
-    desc: "Tell us a bit about your event and we'll get back to you with a tailored package and quote — usually within 24 hours.",
+    desc: "Tell us a bit about your event and we'll get back to you with a tailored package and quote, usually within 24 hours.",
     responseTime: "Typically within 24 hours",
-    successMessage: "Thanks — your enquiry has been sent. We'll be in touch soon.",
+    successMessage: "Thanks, your enquiry has been sent. We'll be in touch soon.",
     errorMessage: "Something went wrong sending your enquiry. Please try again, or reach us directly via WhatsApp or phone.",
   },
 } as const;
 
 export type CateringContent = typeof cateringContent;
+

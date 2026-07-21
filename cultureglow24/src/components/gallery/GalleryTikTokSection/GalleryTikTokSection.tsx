@@ -1,4 +1,4 @@
-import { galleryContent } from "@/lib/content/content.gallery";
+﻿import { galleryContent } from "@/lib/content/content.gallery";
 import styles from "./GalleryTikTokSection.module.css";
 import shared from "../shared.module.css";
 
@@ -8,14 +8,14 @@ interface TikTokTile {
   caption: string;
 }
 
-// 3 placeholder tiles standing in for real TikTok oEmbed integration —
+// 3 placeholder tiles standing in for real TikTok oEmbed integration -
 // blocked on the client's video URLs (Open Decision D4). Matches the Kimi
 // Agent reference build's GalleryPage exactly: solid play-icon tiles on a
 // brand-colored gradient, TikTok badge, one-line caption. Distinct from
-// Home's SocialSection (which shows both TikTok + Reels rows) — this is
+// Home's SocialSection (which shows both TikTok + Reels rows) - this is
 // TikTok-only, per that reference and per the Developer Brief's Section
 // 10 spec ("reuses the D4 TikTok oEmbed approach, placed below the photo
-// grid"). Captions are themed placeholders (not Lorem Ipsum) — still
+// grid"). Captions are themed placeholders (not Lorem Ipsum) - still
 // standing in for the client's real video URLs/captions per D4.
 const TIKTOK_TILES: TikTokTile[] = [
   { id: "tiktok-1", gradientFrom: "#2D6A4F", caption: "Behind the scenes: prepping today's injera" },

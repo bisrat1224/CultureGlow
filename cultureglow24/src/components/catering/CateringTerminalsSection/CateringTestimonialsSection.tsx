@@ -1,4 +1,4 @@
-import {
+﻿import {
   CateringTestimonialCard,
   type CateringTestimonial,
 } from "./CateringTestimonialCard";
@@ -18,7 +18,7 @@ const TESTIMONIALS: CateringTestimonial[] = [
   {
     id: "meron-a",
     quote:
-      "We booked them for a company retreat and the team handled everything — setup, service, cleanup. Zero stress and the spread was incredible.",
+      "We booked them for a company retreat and the team handled everything - setup, service, cleanup. Zero stress and the spread was incredible.",
     initial: "M",
     name: "Meron A.",
     location: "Corporate Retreat, Bole",

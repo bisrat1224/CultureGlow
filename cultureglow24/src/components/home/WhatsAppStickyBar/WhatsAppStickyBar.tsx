@@ -16,6 +16,7 @@ export function WhatsAppStickyBar() {
         src="/assets/images/img_whatsappbrandssolidfull_1.svg"
         alt=""
         width={22}
+        loading="lazy"
         height={22}
       />
       <span className={styles.waStickyText}>{homeContent.whatsAppStickyBar.label}</span>

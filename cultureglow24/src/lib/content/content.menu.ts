@@ -1,6 +1,6 @@
 /**
- * Centralized sitewide copy — MENU PAGE.
- * Mirrors content.home.ts's shape/rationale. Copy only — CATEGORIES and
+ * Centralized sitewide copy, MENU PAGE.
+ * Mirrors content.home.ts's shape/rationale. Copy only, CATEGORIES and
  * every *_ITEMS array plus DIET_LEGEND stay in lib/data/menu.ts; those
  * are repeatable structured data, not one-off sitewide copy, per the
  * CMS scoping doc's Initiative A boundary.
@@ -12,18 +12,18 @@ export const menuContent = {
     headingBeforeEm: "Every ",
     headingEm: "Dish",
     headingAfterEm: ", Every Category",
-    desc: "From sizzling tibs to slow-simmered wats, explore every dish we make — organized by course, so you can find your next favorite in seconds.",
+    desc: "From sizzling tibs to slow-simmered wats, explore every dish we make, organized by course, so you can find your next favorite in seconds.",
     primaryCta: "Order",
     secondaryCta: "See Signature Dishes",
   },
 
-  // FeatureBanner.tsx (menu-specific copy — separate from Shop's own
+  // FeatureBanner.tsx (menu-specific copy, separate from Shop's own
   // FeatureBanner content per the "keep duplicates separate, sections
   // evolve independently" convention already established sitewide)
   featureBanner: {
     label: "Catering & Events",
     title: "Bring This Menu to Your Next Event",
-    desc: "Everything on this menu can be scaled up for weddings, corporate gatherings, and family celebrations — ask us about full-service catering.",
+    desc: "Everything on this menu can be scaled up for weddings, corporate gatherings, and family celebrations, ask us about full-service catering.",
     cta: "Plan Your Event",
   },
 
@@ -58,9 +58,10 @@ export const menuContent = {
   pdfCta: {
     eyebrow: "Take It With You",
     title: "Download the Full Menu",
-    desc: "Prefer a printable copy? Grab the full CultureGlow24 menu as a PDF — perfect for sharing or keeping on hand.",
+    desc: "Prefer a printable copy? Grab the full CultureGlow24 menu as a PDF, perfect for sharing or keeping on hand.",
     cta: "Download Menu (PDF)",
   },
 } as const;
 
 export type MenuContent = typeof menuContent;
+

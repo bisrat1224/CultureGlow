@@ -39,16 +39,18 @@ export function CateringSection() {
                 src="/assets/images/pexels-berlinerlights-23858842.jpg"
                 alt="Traditional stews for catering"
                 fill
-                sizes="(min-width: 768px) 25vw, 50vw"
+                loading="lazy"
+                sizes="(min-width: 768px) 50vw, 100vw"
                 className={styles.cateringImgEl}
               />
             </div>
             <div className={`${styles.cateringImgWrap} ${styles.cateringImgSqWrap}`}>
               <Image
-                src="/assets/images/istockphoto-452732099-612x612.jpg"
-                alt="Injera platter"
+                src="/assets/images/pexels-dbaler-17486836.jpg"
+                alt="Injera platter for catering"
                 fill
-                sizes="(min-width: 768px) 25vw, 50vw"
+                loading="lazy"
+                sizes="(min-width: 768px) 50vw, 100vw"
                 className={styles.cateringImgEl}
               />
             </div>

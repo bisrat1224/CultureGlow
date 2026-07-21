@@ -1,4 +1,4 @@
-.socialSection {
+﻿.socialSection {
   padding: calc(var(--cg-u) * 10) 0;
   background: var(--cg-charcoal);
 }
@@ -7,7 +7,7 @@
   margin-bottom: calc(var(--cg-u) * 6);
 }
 
-/* .sectionH2Light is kept scoped here (not in shared.module.css) —
+/* .sectionH2Light is kept scoped here (not in shared.module.css) -
    same "no premature abstraction" reasoning ProductsSection used:
    every section's h2 has its own scoped variant (dark/light) even
    when the declaration is identical, since sections evolve

@@ -1,4 +1,4 @@
-/* Shared building blocks for the Gallery page's sections — mirrors the
+﻿/* Shared building blocks for the Gallery page's sections - mirrors the
    pattern established in catering/shared.module.css: scoped to this page's
    own component domain rather than importing across domains, consistent
    with the "sections evolve independently" precedent set by SocialSection. */

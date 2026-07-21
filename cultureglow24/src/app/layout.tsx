@@ -1,23 +1,22 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { ScrollRevealInit } from "@/components/ScrollRevealInit";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import "./globals.css";
 
 
 export const metadata: Metadata = {
-  title: "CultureGlow24 — Ethiopian & Eritrean Food, Beauty & Lifestyle",
+  title: "CultureGlow24 Habesha Food, Beauty & Lifestyle",
   description:
-    "Authentic Habesha food, beauty, and lifestyle products. Order via WhatsApp — Ethiopian and Eritrean culture, delivered.",
+    "Authentic Habesha food, beauty, and lifestyle products. Order via WhatsApp Habesha culture, delivered.",
   keywords: [
     "CultureGlow24",
-    "Ethiopian food",
-    "Eritrean food",
+    "Habesha food",
     "Habesha",
     "injera",
     "Addis Ababa",
   ],
   openGraph: {
-    title: "CultureGlow24 — Ethiopian & Eritrean Food, Beauty & Lifestyle",
+    title: "CultureGlow24 Habesha Food, Beauty & Lifestyle",
     description:
       "Authentic Habesha food, beauty, and lifestyle products. Order via WhatsApp.",
     type: "website",

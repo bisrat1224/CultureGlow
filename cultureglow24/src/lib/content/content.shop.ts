@@ -1,6 +1,6 @@
 /**
- * Centralized sitewide copy — SHOP PAGE.
- * Mirrors content.home.ts's shape/rationale. Copy only — the PRODUCTS,
+ * Centralized sitewide copy, SHOP PAGE.
+ * Mirrors content.home.ts's shape/rationale. Copy only, the PRODUCTS,
  * SHOP_FILTERS (lib/data/products.ts) and BUNDLES (BundlesSection.tsx)
  * arrays stay where they are; those are repeatable structured data, not
  * one-off sitewide copy, per the CMS scoping doc's Initiative A boundary.
@@ -8,9 +8,9 @@
 
 export const shopContent = {
   hero: {
-    label: "Habesha Food · Beauty · Lifestyle",
+    label: "Habesha Food � Beauty � Lifestyle",
     title: "Everything Habesha, Delivered to Your Door",
-    desc: "Browse our curated collection of Ethiopian and Eritrean food, beauty, and lifestyle products — order in seconds over WhatsApp, no account or checkout required.",
+    desc: "Browse our curated collection of Ethiopian and Eritrean food, beauty, and lifestyle products, order in seconds over WhatsApp, no account or checkout required.",
   },
 
   scrollingBanner: {
@@ -25,7 +25,7 @@ export const shopContent = {
   featureBanner: {
     label: "Catering & Events",
     title: "Let Us Cater Your Next Celebration",
-    desc: "From weddings to office parties, our catering team brings the full CultureGlow24 experience — authentic dishes, beautifully presented — to any gathering.",
+    desc: "From weddings to office parties, our catering team brings the full CultureGlow24 experience, authentic dishes, beautifully presented, to any gathering.",
     cta: "Plan Your Event",
   },
 
@@ -43,7 +43,7 @@ export const shopContent = {
   howToOrder: {
     label: "Simple Process",
     title: "Ordering Is Easy",
-    desc: "No app to download and no account to create — just four simple steps between you and your next Habesha favorite.",
+    desc: "No app to download and no account to create, just four simple steps between you and your next Habesha favorite.",
     steps: [
       {
         number: 1,
@@ -70,3 +70,4 @@ export const shopContent = {
 } as const;
 
 export type ShopContent = typeof shopContent;
+

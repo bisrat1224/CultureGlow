@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, type FormEvent } from "react";
 import { CONTACT_EMAIL } from "@/lib/constants";
@@ -189,7 +189,7 @@ export function CateringEnquirySection() {
                 name="message"
                 className={`${styles.formInput} ${styles.formTextarea}`}
                 rows={4}
-                placeholder="Tell us about your event — guest count, venue, and any dishes you'd love included."
+                placeholder="Tell us about your event - guest count, venue, and any dishes you'd love included."
               />
             </div>
 

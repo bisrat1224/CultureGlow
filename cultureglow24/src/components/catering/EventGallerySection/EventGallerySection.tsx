@@ -134,6 +134,7 @@ export function EventGallerySection() {
                 src={item.image}
                 alt={item.alt}
                 fill
+                loading="lazy"
                 sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
                 style={{ objectFit: "cover" }}
               />

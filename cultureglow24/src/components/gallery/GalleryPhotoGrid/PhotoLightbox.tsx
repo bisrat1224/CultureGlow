@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect } from "react";
 import styles from "./PhotoLightbox.module.css";
@@ -14,7 +14,7 @@ interface PhotoLightboxProps {
 
 // Hand-rolled rather than a lightbox dependency (the Developer Brief's
 // Section 10 recommendation was "a small dependency, e.g.
-// yet-another-react-lightbox, over hand-rolling one" — but package.json
+// yet-another-react-lightbox, over hand-rolling one" - but package.json
 // doesn't have one installed yet, and this behavior (Esc/←/→, click-outside
 // to close, prev/next buttons, counter) is a direct, working port of the
 // Kimi Agent reference build's own hand-rolled Lightbox, so there's no

@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import Link from "next/link";
 import { NAV_LINKS, SOCIAL_LINKS, CONTACT_EMAIL, buildWhatsAppLink } from "@/lib/constants";
 import styles from "./Footer.module.css";
@@ -16,11 +16,11 @@ export function Footer() {
             alt="CultureGlow24"
             width={160}
             height={40}
+            loading="lazy"
             className={styles.footerLogo}
           />
           <p className={styles.footerTagline}>
-            Ethiopian &amp; Eritrean food, beauty, and lifestyle — ordering
-            via WhatsApp only.
+            Habesha food, beauty, and lifestyle - ordering via WhatsApp only.
           </p>
           <a
             href={buildWhatsAppLink()}

@@ -11,6 +11,7 @@ export function GalleryHero() {
         src="/assets/images/platter-big.jpg"
         alt="Colourful injera platter with many stews"
         fill
+        loading="lazy"
         sizes="100vw"
         priority
         className={styles.galleryHeroImg}

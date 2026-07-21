@@ -26,6 +26,7 @@ export function MenuRow({ item, revealDelayClass }: MenuRowProps) {
         alt={alt}
         width={80}
         height={80}
+        loading="lazy"
         className={styles.menuRowImg}
       />
       <div className={styles.menuRowInfo}>
@@ -40,7 +41,7 @@ export function MenuRow({ item, revealDelayClass }: MenuRowProps) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src="/assets/images/img_whatsappicon.svg" alt="" />
+          <Image src="/assets/images/img_whatsappicon.svg" alt="" width={14} height={14} />
           Order
         </a>
       </div>

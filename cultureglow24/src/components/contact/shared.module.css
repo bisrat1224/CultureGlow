@@ -1,4 +1,4 @@
-/* Shared building blocks for the Contact page's sections — mirrors the
+﻿/* Shared building blocks for the Contact page's sections - mirrors the
    pattern established in catering/shared.module.css and gallery/
    shared.module.css: scoped to this page's own component domain rather
    than importing across domains, consistent with the "sections evolve
@@ -70,7 +70,7 @@
 }
 
 /* Button styles duplicated from home/shared.module.css / CateringHero's
-   own usage — same "no premature abstraction" reasoning: every page
+   own usage - same "no premature abstraction" reasoning: every page
    domain keeps its own copy of these rather than importing across
    domains, even though the declarations are identical. */
 .btnPrimary {

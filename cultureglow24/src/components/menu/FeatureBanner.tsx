@@ -19,7 +19,7 @@ export function FeatureBanner() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/assets/images/img_whatsappicon.svg" alt="" />
+            <Image src="/assets/images/img_whatsappicon.svg" alt="" width={14} height={14} />
             {cta}
           </a>
         </div>
@@ -28,8 +28,9 @@ export function FeatureBanner() {
             src="/assets/images/istockphoto-908729848-612x612.jpg"
             alt="Habesha catering event"
             fill
-            sizes="(min-width: 768px) 440px, 100vw"
-            style={{ objectFit: "cover" }}
+            loading="lazy"
+            sizes="(min-width: 768px) 50vw, 100vw"
+            className={styles.featureBannerImg}
           />
         </div>
       </div>

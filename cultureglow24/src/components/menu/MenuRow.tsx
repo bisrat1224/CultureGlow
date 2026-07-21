@@ -20,6 +20,7 @@ export function MenuRow({ item }: MenuRowProps) {
           alt={alt}
           width={88}
           height={88}
+          loading="lazy"
           className={styles.menuRowImg}
         />
         {tag && <span className={styles.menuRowTag}>{tag}</span>}
@@ -53,7 +54,7 @@ export function MenuRow({ item }: MenuRowProps) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src="/assets/images/img_whatsappicon.svg" alt="" />
+          <Image src="/assets/images/img_whatsappicon.svg" alt="" width={14} height={14} />
           Order
         </a>
       </div>

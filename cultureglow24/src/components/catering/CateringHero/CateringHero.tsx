@@ -14,6 +14,7 @@ export function CateringHero() {
         src="https://images.pexels.com/photos/3376765/pexels-photo-3376765.jpeg?auto=compress&cs=tinysrgb&w=1600"
         alt="Elegant banquet hall set up for a large catered event"
         fill
+        loading="lazy"
         sizes="100vw"
         priority
         className={styles.catHeroImg}

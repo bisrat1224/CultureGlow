@@ -1,4 +1,4 @@
-export type DietFlag = "veg" | "vegan" | "gf" | "spicy";
+﻿export type DietFlag = "veg" | "vegan" | "gf" | "spicy";
 
 export interface MenuItem {
   id: string;
@@ -8,7 +8,7 @@ export interface MenuItem {
   image: string;
   alt: string;
   diet?: DietFlag[];
-  tag?: string; // e.g. "Popular" — the small green corner tag on menu-row
+  tag?: string; // e.g. "Popular" - the small green corner tag on menu-row
 }
 
 export interface MainsItem extends MenuItem {
@@ -217,7 +217,7 @@ export const DIET_LEGEND: { flag: DietFlag; label: string; chipLabel: string }[]
   { flag: "spicy", label: "Spicy", chipLabel: "🌶" },
 ];
 
-/** Home's "Signature Dishes" preview — 4 picks from the full menu. */
+/** Home's "Signature Dishes" preview - 4 picks from the full menu. */
 export const FEATURED_MENU_ITEMS: MenuItem[] = [
   STARTERS_ITEMS[0],   // Sambusa
   MAINS_ITEMS[0],      // Doro Wat

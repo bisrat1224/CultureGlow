@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import { buildWhatsAppLink } from "@/lib/constants";
 import styles from "./ProductCard.module.css";
 
@@ -13,7 +13,7 @@ export interface Product {
   badge?: "Best Seller" | "Popular" | "Gift" | "New";
   /**
    * Optional second/third photo for the single-product gallery
-   * (src/app/shop/[slug]/page.tsx). Falls back to just `image` if omitted —
+   * (src/app/shop/[slug]/page.tsx). Falls back to just `image` if omitted -
    * most placeholder products only have one real photo right now.
    */
   gallery?: string[];
@@ -41,8 +41,9 @@ export function ProductCard({ product, revealDelayClass }: ProductCardProps) {
           src={image}
           alt={alt}
           fill
-          sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-          className={styles.bentoCardImgEl}
+          loading="lazy"
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          className={styles.bentoCardImg}
         />
       </div>
       <div className={styles.bentoCardBody}>
@@ -55,7 +56,7 @@ export function ProductCard({ product, revealDelayClass }: ProductCardProps) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src="/assets/images/img_whatsappicon.svg" alt="" />
+          <Image src="/assets/images/img_whatsappicon.svg" alt="" width={14} height={14} />
           Order
         </a>
       </div>

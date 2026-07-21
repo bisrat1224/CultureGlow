@@ -15,6 +15,7 @@ export function Hero() {
         src="/assets/images/pexels-berlinerlights-23858842.jpg"
         alt="Traditional Habesha stews"
         fill
+        loading="lazy"
         sizes="100vw"
         priority
         className={styles.heroImgFallback}

@@ -24,8 +24,9 @@ export function BundleCard({ bundle }: BundleCardProps) {
         src={image}
         alt={alt}
         fill
+        loading="lazy"
         sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-        style={{ objectFit: "cover" }}
+        className={styles.bundleCardImg}
       />
       <div className={styles.bundleOverlay}>
         <p className={styles.bundleLabel}>{label}</p>
@@ -37,7 +38,7 @@ export function BundleCard({ bundle }: BundleCardProps) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src="/assets/images/img_whatsappicon.svg" alt="" />
+          <Image src="/assets/images/img_whatsappicon.svg" alt="" width={14} height={14} />
           Order
         </a>
       </div>

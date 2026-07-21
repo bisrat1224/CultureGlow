@@ -13,6 +13,7 @@ export function MenuHero() {
         src="/assets/images/pexels-dbaler-17486836.jpg"
         alt="Injera platter with assorted stews"
         fill
+        loading="lazy"
         sizes="100vw"
         priority
         className={styles.menuHeroImg}

@@ -24,6 +24,7 @@ export function Header() {
             <Image
               src="/assets/images/lgoo-1783945739982.jpg"
               alt="CultureGlow24"
+              loading="lazy"
               width={48}
               height={48}
             />

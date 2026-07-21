@@ -40,6 +40,7 @@ export function StorySection() {
                 src="/assets/images/pexels-berlinerlights-23858842.jpg"
                 alt="Traditional Habesha stews in dark pans"
                 fill
+                loading="lazy"
                 sizes="(min-width: 768px) 50vw, 100vw"
                 className={styles.storyImgMainEl}
               />
@@ -49,6 +50,7 @@ export function StorySection() {
                 src="/assets/images/pexels-dbaler-17486836.jpg"
                 alt="Injera platter"
                 fill
+                loading="lazy"
                 sizes="(min-width: 768px) 24vw, 48vw"
                 className={styles.storyImgAccentEl}
               />

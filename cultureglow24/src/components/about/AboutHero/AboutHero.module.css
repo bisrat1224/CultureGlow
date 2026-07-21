@@ -1,0 +1,50 @@
+.aboutHero {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: calc(var(--cg-u) * 6);
+  overflow: hidden;
+}
+
+.aboutHeroImg {
+  object-fit: cover;
+  z-index: 0;
+}
+
+.aboutHeroBody {
+  position: relative;
+  z-index: 1;
+}
+
+.aboutHeroEyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cg-gold);
+  margin-bottom: calc(var(--cg-u) * 1.5);
+}
+
+.aboutHeroH1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 700;
+  line-height: 1.05;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.45);
+  margin-bottom: calc(var(--cg-u) * 2);
+}
+
+.aboutHeroH1 em {
+  font-style: italic;
+  color: var(--cg-gold);
+}
+
+.aboutHeroDesc {
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.92);
+  max-width: 520px;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.35);
+}

@@ -1,4 +1,4 @@
-import { MessageCircle, Phone, Mail } from "lucide-react";
+﻿import { MessageCircle, Phone, Mail } from "lucide-react";
 import { SOCIAL_LINKS, CONTACT_EMAIL, buildWhatsAppLink } from "@/lib/constants";
 import { contactContent } from "@/lib/content/content.contact";
 import styles from "./ContactSection.module.css";
@@ -7,14 +7,14 @@ import shared from "../shared.module.css";
 // Per explicit direction: Contact is a hub of ways to reach the business,
 // not a form to fill out. Supersedes the earlier /api/contact-backed
 // ContactForm approach (Chunk 9 / Open Decision D1) for this page
-// specifically — Catering's enquiry form (CateringEnquirySection.tsx,
+// specifically - Catering's enquiry form (CateringEnquirySection.tsx,
 // still posting to /api/catering) is unaffected and unchanged.
 //
 // Only four contact methods are shown, per instruction: WhatsApp, a UK
 // phone number, email, and social links. No map, no form, nothing else.
 //
 // UK_PHONE uses Ofcom's officially reserved fictitious-number block for
-// London (020 7946 0000-0999) — these numbers are permanently set aside
+// London (020 7946 0000-0999) - these numbers are permanently set aside
 // by the regulator and guaranteed to never be allocated to a real
 // subscriber, unlike an arbitrary-looking placeholder such as
 // "020 7123 4567" which could coincidentally be, or become, a real

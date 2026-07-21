@@ -1,4 +1,4 @@
-import { EventTypeCard, type EventType } from "./EventTypeCard";
+﻿import { EventTypeCard, type EventType } from "./EventTypeCard";
 import { cateringContent } from "@/lib/content/content.catering";
 import styles from "./EventTypesSection.module.css";
 import shared from "../shared.module.css";
@@ -8,7 +8,7 @@ const EVENT_TYPES: EventType[] = [
     id: "weddings",
     tag: "Weddings",
     title: "Weddings",
-    desc: "Full-service catering for your big day — from intimate ceremonies to large receptions, plated or buffet-style.",
+    desc: "Full-service catering for your big day - from intimate ceremonies to large receptions, plated or buffet-style.",
     image:
       "https://images.pexels.com/photos/35976293/pexels-photo-35976293.png?auto=compress&cs=tinysrgb&w=800",
     alt: "Ethiopian wedding celebration at night",
@@ -17,7 +17,7 @@ const EVENT_TYPES: EventType[] = [
     id: "corporate",
     tag: "Corporate",
     title: "Corporate",
-    desc: "Team lunches, client dinners, and company celebrations — professional service with authentic Habesha flavor.",
+    desc: "Team lunches, client dinners, and company celebrations - professional service with authentic Habesha flavor.",
     image:
       "https://images.pexels.com/photos/6405661/pexels-photo-6405661.jpeg?auto=compress&cs=tinysrgb&w=800",
     alt: "Colleagues celebrating together at a corporate event",
@@ -35,7 +35,7 @@ const EVENT_TYPES: EventType[] = [
     id: "ceremonies",
     tag: "Cultural & Religious",
     title: "Ceremonies",
-    desc: "Timkat, weddings, holidays, and other cultural or religious ceremonies — catered with the respect and detail they deserve.",
+    desc: "Timkat, weddings, holidays, and other cultural or religious ceremonies - catered with the respect and detail they deserve.",
     image:
       "https://images.pexels.com/photos/20865956/pexels-photo-20865956.jpeg?auto=compress&cs=tinysrgb&w=800",
     alt: "Women in traditional dress celebrating a cultural festival in Addis Ababa",

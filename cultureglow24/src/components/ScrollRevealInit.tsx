@@ -1,15 +1,38 @@
 "use client";
 
-import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useEffect } from "react";
 
-/**
- * Renders nothing — exists purely to call useScrollReveal() from a Client
- * Component, since layout.tsx itself stays a Server Component (it exports
- * `metadata`, which Client Components can't do). Mounted once in
- * layout.tsx's <body>, so every route (Home + all stub pages) gets the
- * same scroll-reveal behavior without each page wiring it up separately.
- */
 export function ScrollRevealInit() {
-  useScrollReveal();
+  useEffect(() => {
+    document.documentElement.classList.add("js-armed");
+
+    const reveals = document.querySelectorAll<HTMLElement>(".reveal");
+    if (!reveals.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.05, rootMargin: "0px 0px -40px 0px" }
+    );
+
+    reveals.forEach((el) => observer.observe(el));
+
+    // SAFETY NET: if IO never fires (hydration race), reveal everything after 2s
+    const timer = setTimeout(() => {
+      reveals.forEach((el) => el.classList.add("visible"));
+    }, 2000);
+
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
+  }, []);
+
   return null;
 }

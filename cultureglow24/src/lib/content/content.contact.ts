@@ -1,5 +1,5 @@
 /**
- * Centralized sitewide copy — CONTACT PAGE.
+ * Centralized sitewide copy, CONTACT PAGE.
  * Mirrors content.home.ts's shape/rationale. Copy only.
  */
 
@@ -9,7 +9,7 @@ export const contactContent = {
     headingBeforeEm: "Let's ",
     headingEm: "Talk",
     headingAfterEm: "",
-    desc: "Questions about an order, a catering enquiry, or just want to say hello — we're easiest to reach on WhatsApp, but every channel below works too.",
+    desc: "Questions about an order, a catering enquiry, or just want to say hello, we're easiest to reach on WhatsApp, but every channel below works too.",
     cta: "Chat on WhatsApp",
   },
 
@@ -18,7 +18,7 @@ export const contactContent = {
     headingBeforeEm: "Ways to ",
     headingEm: "Reach Us",
     headingAfterEm: "",
-    desc: "No forms to fill out — pick whichever way suits you best.",
+    desc: "No forms to fill out, pick whichever way suits you best.",
     whatsapp: {
       label: "WhatsApp",
       value: "Chat with us instantly",
@@ -40,3 +40,4 @@ export const contactContent = {
 } as const;
 
 export type ContactContent = typeof contactContent;
+

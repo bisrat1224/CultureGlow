@@ -1,6 +1,6 @@
 /**
- * Centralized sitewide copy — GALLERY PAGE.
- * Mirrors content.home.ts's shape/rationale. Copy only — the PHOTOS
+ * Centralized sitewide copy, GALLERY PAGE.
+ * Mirrors content.home.ts's shape/rationale. Copy only, the PHOTOS
  * array (GalleryPhotoGrid.tsx) and TIKTOK_TILES array
  * (GalleryTikTokSection.tsx) stay inline in their components; those are
  * repeatable structured data, not one-off sitewide copy, per the CMS
@@ -13,7 +13,7 @@ export const galleryContent = {
     headingBeforeEm: "Moments in ",
     headingEm: "Frame",
     headingAfterEm: "",
-    desc: "A window into CultureGlow24 — the dishes we cook, the garments we love, and the celebrations we're honored to be part of.",
+    desc: "A window into CultureGlow24, the dishes we cook, the garments we love, and the celebrations we're honored to be part of.",
   },
 
   photoGrid: {
@@ -21,7 +21,7 @@ export const galleryContent = {
     headingBeforeEm: "Food, Fashion & ",
     headingEm: "Festivity",
     headingAfterEm: "",
-    desc: "A growing collection of real moments from our kitchen, our fittings, and the events we've catered — more added as they come in.",
+    desc: "A growing collection of real moments from our kitchen, our fittings, and the events we've catered, more added as they come in.",
   },
 
   tiktok: {
@@ -34,3 +34,4 @@ export const galleryContent = {
 } as const;
 
 export type GalleryContent = typeof galleryContent;
+

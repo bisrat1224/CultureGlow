@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Header } from "@/components/Header/Header";
 import { Footer } from "@/components/Footer/Footer";
 import { WhatsAppStickyBar } from "@/components/home/WhatsAppStickyBar/WhatsAppStickyBar";
@@ -7,9 +7,9 @@ import { GalleryPhotoGrid } from "@/components/gallery/GalleryPhotoGrid/GalleryP
 import { GalleryTikTokSection } from "@/components/gallery/GalleryTikTokSection/GalleryTikTokSection";
 
 export const metadata: Metadata = {
-  title: "Gallery | CultureGlow24 — Photos & Videos",
+  title: "Gallery | CultureGlow24 - Photos & Videos",
   description:
-    "Food, fashion, and festivity from CultureGlow24 — photo gallery and the latest from TikTok.",
+    "Food, fashion, and festivity from CultureGlow24 - photo gallery and the latest from TikTok.",
 };
 
 // Real content for /gallery (Stage 5, Chunks 18-19), replacing PageStub.

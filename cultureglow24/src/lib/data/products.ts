@@ -1,4 +1,4 @@
-import type { Product } from "@/components/home/ProductsSection/ProductCard";
+﻿import type { Product } from "@/components/home/ProductsSection/ProductCard";
 
 export type { Product };
 
@@ -38,7 +38,7 @@ export const PRODUCTS: Product[] = [
       "/assets/images/879d4f180b0382a039490cefec95d4e2.jpg",
       "/assets/images/147f32aef0aacd3cb17eb003475d052b.jpg",
     ],
-    allergens: ["Not applicable — clothing item"],
+    allergens: ["Not applicable - clothing item"],
   },
   {
     id: "netela-dress",
@@ -52,7 +52,7 @@ export const PRODUCTS: Product[] = [
       "/assets/images/147f32aef0aacd3cb17eb003475d052b.jpg",
       "/assets/images/879d4f180b0382a039490cefec95d4e2.jpg",
     ],
-    allergens: ["Not applicable — clothing item"],
+    allergens: ["Not applicable - clothing item"],
   },
   {
     id: "beyaynetu-platter",
@@ -89,7 +89,7 @@ export const PRODUCTS: Product[] = [
     alt: "Lorem ipsum placeholder garment photo",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
     gallery: ["/assets/images/istockphoto-908729848-612x612.jpg"],
-    allergens: ["Not applicable — clothing item"],
+    allergens: ["Not applicable - clothing item"],
   },
   {
     id: "product-7",
@@ -115,7 +115,7 @@ export const PRODUCTS: Product[] = [
   },
 ];
 
-/** IDs shown in Home's "Featured Products" section — the original 4. */
+/** IDs shown in Home's "Featured Products" section - the original 4. */
 const FEATURED_PRODUCT_IDS = [
   "injera-platter",
   "habesha-kemis",
@@ -127,7 +127,7 @@ export const FEATURED_PRODUCTS = PRODUCTS.filter((p) =>
   FEATURED_PRODUCT_IDS.includes(p.id)
 );
 
-/** Looks up a single product by its id/slug — used by the single-product page. */
+/** Looks up a single product by its id/slug - used by the single-product page. */
 export function getProductBySlug(slug: string): Product | undefined {
   return PRODUCTS.find((p) => p.id === slug);
 }

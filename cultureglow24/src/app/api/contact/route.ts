@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+﻿import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
 
@@ -56,7 +56,7 @@ export async function POST(request: Request) {
 
   try {
     await resend.emails.send({
-      // NOTE: replace with a verified sending domain once one exists —
+      // NOTE: replace with a verified sending domain once one exists -
       // resend.dev's onboarding address is a placeholder for local/dev use.
       from: "CultureGlow24 Website <onboarding@resend.dev>",
       to: recipient,
