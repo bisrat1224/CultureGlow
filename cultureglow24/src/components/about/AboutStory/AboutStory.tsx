@@ -1,34 +1,26 @@
 import Image from "next/image";
+import { aboutContent } from "@/lib/content/content.about";
 import styles from "./AboutStory.module.css";
 
-const ABOUT_STATS = [
-  { value: "500+", label: "Orders Delivered" },
-  { value: "12+", label: "Menu Items" },
-  { value: "100%", label: "Authentic" },
-] as const;
-
 export function AboutStory() {
+  const { eyebrow, headingBeforeEm, headingEm, headingAfterEm, body, amharic, badge, stats } =
+    aboutContent.story;
+
   return (
     <section className={styles.storySection} aria-labelledby="about-story-h2">
       <div className="wrap">
         <div className={styles.storyInner}>
           <div className={`${styles.storyTextCol} reveal`}>
-            <p className={styles.storyEyebrow}>Our Story</p>
+            <p className={styles.storyEyebrow}>{eyebrow}</p>
             <h2 className={styles.storyH2} id="about-story-h2">
-              About <em>CultureGlow24</em>
+              {headingBeforeEm}
+              <em>{headingEm}</em>
+              {headingAfterEm}
             </h2>
-            <p className={styles.storyBody}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-              in reprehenderit in voluptate velit esse cillum dolore.
-            </p>
-            <p className={`${styles.storyAmharic} font-ethiopic`}>
-              ባህላችን ኩራታችን ነው — ምግብ፣ ልብስ፣ ሕይወት።
-            </p>
+            <p className={styles.storyBody}>{body}</p>
+            <p className={`${styles.storyAmharic} font-ethiopic`}>{amharic}</p>
             <div className={styles.storyStats}>
-              {ABOUT_STATS.map((stat) => (
+              {stats.map((stat) => (
                 <div key={stat.label} className={styles.statItem}>
                   <p className={styles.statNum}>{stat.value}</p>
                   <p className={styles.statLabel}>{stat.label}</p>
@@ -56,7 +48,7 @@ export function AboutStory() {
                 className={styles.storyImgAccentEl}
               />
             </div>
-            <span className={styles.storyBadge}>Est. 2024</span>
+            <span className={styles.storyBadge}>{badge}</span>
           </div>
         </div>
       </div>
