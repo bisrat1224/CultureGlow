@@ -1,4 +1,5 @@
 import { PackageCard, type Package } from "./PackageCard";
+import { cateringContent } from "@/lib/content/content.catering";
 import styles from "./PackagesSection.module.css";
 import shared from "../shared.module.css";
 
@@ -9,10 +10,10 @@ const PACKAGES: Package[] = [
     guests: "Up to 30 guests",
     priceFrom: "ETB 15,000",
     features: [
-      "Lorem ipsum dolor sit amet",
-      "Consectetur adipiscing elit",
-      "Sed do eiusmod tempor",
-      "Incididunt ut labore",
+      "Choice of two main dishes",
+      "Traditional injera and sides included",
+      "Setup and serving staff included",
+      "Basic table settings provided",
     ],
   },
   {
@@ -22,11 +23,11 @@ const PACKAGES: Package[] = [
     priceFrom: "ETB 38,000",
     featured: true,
     features: [
-      "Lorem ipsum dolor sit amet",
-      "Consectetur adipiscing elit",
-      "Sed do eiusmod tempor",
-      "Incididunt ut labore",
-      "Et dolore magna aliqua",
+      "Choice of four main dishes",
+      "Full appetizer and dessert course",
+      "Setup, serving staff, and cleanup included",
+      "Elevated table settings and centerpieces",
+      "Ethiopian coffee ceremony station",
     ],
   },
   {
@@ -35,17 +36,19 @@ const PACKAGES: Package[] = [
     guests: "80+ guests",
     priceFrom: "ETB 75,000",
     features: [
-      "Lorem ipsum dolor sit amet",
-      "Consectetur adipiscing elit",
-      "Sed do eiusmod tempor",
-      "Incididunt ut labore",
-      "Et dolore magna aliqua",
-      "Ut enim ad minim veniam",
+      "Full menu customization",
+      "Multi-course appetizer, main, and dessert service",
+      "Dedicated event coordinator",
+      "Premium table settings and decor",
+      "Ethiopian coffee ceremony station",
+      "Live cooking station on request",
     ],
   },
 ];
 
 export function PackagesSection() {
+  const { eyebrow, headingBeforeEm, headingEm, headingAfterEm, desc } = cateringContent.packages;
+
   return (
     <section
       className={shared.sectionOnDark}
@@ -54,17 +57,16 @@ export function PackagesSection() {
     >
       <div className="wrap">
         <div className={`${shared.sectionHead} reveal`}>
-          <p className={shared.sectionEyebrow}>Packages</p>
+          <p className={shared.sectionEyebrow}>{eyebrow}</p>
           <h2
             className={`${shared.sectionTitle} ${shared.sectionTitleDark}`}
             id="packages-h2"
           >
-            Find Your <em>Fit</em>
+            {headingBeforeEm}
+            <em>{headingEm}</em>
+            {headingAfterEm}
           </h2>
-          <p className={`${shared.sectionDesc} ${shared.sectionDescDark}`}>
-            Placeholder tiers below — real packages, inclusions, and starting
-            prices come from the client via the PM.
-          </p>
+          <p className={`${shared.sectionDesc} ${shared.sectionDescDark}`}>{desc}</p>
         </div>
 
         <div className={styles.packagesGrid}>

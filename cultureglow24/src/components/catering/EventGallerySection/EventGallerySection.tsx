@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { cateringContent } from "@/lib/content/content.catering";
 import styles from "./EventGallerySection.module.css";
 import shared from "../shared.module.css";
 
@@ -101,6 +102,8 @@ const GALLERY_ITEMS: GalleryItem[] = [
 ];
 
 export function EventGallerySection() {
+  const { eyebrow, headingBeforeEm, headingEm, headingAfterEm, desc } = cateringContent.gallery;
+
   return (
     <section
       className={shared.sectionOnCream}
@@ -109,17 +112,16 @@ export function EventGallerySection() {
     >
       <div className="wrap">
         <div className={`${shared.sectionHead} reveal`}>
-          <p className={shared.sectionEyebrow}>From Past Events</p>
+          <p className={shared.sectionEyebrow}>{eyebrow}</p>
           <h2
             className={`${shared.sectionTitle} ${shared.sectionTitleLight}`}
             id="gallery-h2"
           >
-            Moments We&rsquo;ve <em>Catered</em>
+            {headingBeforeEm}
+            <em>{headingEm}</em>
+            {headingAfterEm}
           </h2>
-          <p className={`${shared.sectionDesc} ${shared.sectionDescLight}`}>
-            Placeholder gallery — real event photography comes from the
-            client via the PM once available.
-          </p>
+          <p className={`${shared.sectionDesc} ${shared.sectionDescLight}`}>{desc}</p>
         </div>
 
         <div className={styles.galleryGrid}>

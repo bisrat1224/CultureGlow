@@ -1,10 +1,13 @@
 import Image from "next/image";
 import { buildWhatsAppLink } from "@/lib/constants";
+import { cateringContent } from "@/lib/content/content.catering";
 import styles from "./CateringHero.module.css";
 import shared from "../shared.module.css";
 
-
 export function CateringHero() {
+  const { eyebrow, headingBeforeEm, headingEm, headingAfterEm, desc, primaryCta, secondaryCta } =
+    cateringContent.hero;
+
   return (
     <section className={styles.catHero} aria-label="Catering hero">
       <Image
@@ -17,17 +20,16 @@ export function CateringHero() {
       />
 
       <div className={`${styles.catHeroBody} wrap`}>
-        <p className={styles.catHeroEyebrow}>Catering &amp; Events</p>
+        <p className={styles.catHeroEyebrow}>{eyebrow}</p>
         <h1 className={styles.catHeroH1}>
-          Bring the <em>Feast</em> to Your Occasion
+          {headingBeforeEm}
+          <em>{headingEm}</em>
+          {headingAfterEm}
         </h1>
-        <p className={styles.catHeroDesc}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
+        <p className={styles.catHeroDesc}>{desc}</p>
         <div className={styles.catHeroActions}>
           <a
-            href={buildWhatsAppLink("I'd like to enquire about catering")}
+            href={buildWhatsAppLink("I would like to enquire about catering")}
             className={shared.btnPrimary}
             target="_blank"
             rel="noopener noreferrer"
@@ -37,10 +39,10 @@ export function CateringHero() {
               alt=""
               style={{ width: 16, height: 16 }}
             />
-            Enquire on WhatsApp
+            {primaryCta}
           </a>
           <a href="#packages" className={shared.btnGhostLight}>
-            See Packages
+            {secondaryCta}
           </a>
         </div>
       </div>

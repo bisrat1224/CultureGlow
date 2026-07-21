@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { CONTACT_EMAIL } from "@/lib/constants";
+import { cateringContent } from "@/lib/content/content.catering";
 import styles from "./CateringEnquirySection.module.css";
 import shared from "../shared.module.css";
 
@@ -15,9 +16,10 @@ const EVENT_TYPE_OPTIONS = [
   "Other",
 ];
 
-
 export function CateringEnquirySection() {
   const [status, setStatus] = useState<SubmitStatus>("idle");
+  const { eyebrow, headingBeforeEm, headingEm, headingAfterEm, desc, responseTime, successMessage, errorMessage } =
+    cateringContent.enquiry;
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -52,17 +54,16 @@ export function CateringEnquirySection() {
       <div className="wrap">
         <div className={styles.enquiryInner}>
           <div>
-            <p className={shared.sectionEyebrow}>Plan Your Event</p>
+            <p className={shared.sectionEyebrow}>{eyebrow}</p>
             <h2
               className={`${shared.sectionTitle} ${shared.sectionTitleLight}`}
               id="enquiry-h2"
             >
-              Send a Catering <em>Enquiry</em>
+              {headingBeforeEm}
+              <em>{headingEm}</em>
+              {headingAfterEm}
             </h2>
-            <p className={`${shared.sectionDesc} ${shared.sectionDescLight}`}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore.
-            </p>
+            <p className={`${shared.sectionDesc} ${shared.sectionDescLight}`}>{desc}</p>
 
             <div className={styles.enquiryInfoList}>
               <div className={styles.enquiryInfoItem}>
@@ -84,9 +85,7 @@ export function CateringEnquirySection() {
                 <span className={styles.enquiryInfoLabel}>
                   Response Time
                 </span>
-                <span className={styles.enquiryInfoValue}>
-                  Lorem ipsum, within 24 hours
-                </span>
+                <span className={styles.enquiryInfoValue}>{responseTime}</span>
               </div>
             </div>
           </div>
@@ -106,7 +105,7 @@ export function CateringEnquirySection() {
                   id="cat-name"
                   name="name"
                   className={styles.formInput}
-                  placeholder="Lorem Ipsum"
+                  placeholder="Sara Bekele"
                   required
                 />
               </div>
@@ -134,7 +133,7 @@ export function CateringEnquirySection() {
                 id="cat-email"
                 name="email"
                 className={styles.formInput}
-                placeholder="lorem@ipsum.com"
+                placeholder="sara@example.com"
                 required
               />
             </div>
@@ -190,7 +189,7 @@ export function CateringEnquirySection() {
                 name="message"
                 className={`${styles.formInput} ${styles.formTextarea}`}
                 rows={4}
-                placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                placeholder="Tell us about your event — guest count, venue, and any dishes you'd love included."
               />
             </div>
 
@@ -207,8 +206,7 @@ export function CateringEnquirySection() {
                 className={`${styles.formStatus} ${styles.formStatusSuccess}`}
                 role="status"
               >
-                Thanks — your enquiry has been sent. We&rsquo;ll be in touch
-                soon.
+                {successMessage}
               </p>
             )}
             {status === "error" && (
@@ -216,8 +214,7 @@ export function CateringEnquirySection() {
                 className={`${styles.formStatus} ${styles.formStatusError}`}
                 role="alert"
               >
-                Something went wrong sending your enquiry. Please try again,
-                or reach us directly via WhatsApp or phone.
+                {errorMessage}
               </p>
             )}
           </form>

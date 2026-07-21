@@ -2,6 +2,7 @@ import {
   CateringTestimonialCard,
   type CateringTestimonial,
 } from "./CateringTestimonialCard";
+import { cateringContent } from "@/lib/content/content.catering";
 import styles from "./CateringTestimonialsSection.module.css";
 import shared from "../shared.module.css";
 
@@ -9,7 +10,7 @@ const TESTIMONIALS: CateringTestimonial[] = [
   {
     id: "liya-t",
     quote:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "CultureGlow24 catered our wedding and every single guest asked where the food was from. The doro wat was better than my grandmother's, and that's saying a lot.",
     initial: "L",
     name: "Liya T.",
     location: "Wedding, Addis Ababa",
@@ -17,7 +18,7 @@ const TESTIMONIALS: CateringTestimonial[] = [
   {
     id: "meron-a",
     quote:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "We booked them for a company retreat and the team handled everything — setup, service, cleanup. Zero stress and the spread was incredible.",
     initial: "M",
     name: "Meron A.",
     location: "Corporate Retreat, Bole",
@@ -25,7 +26,7 @@ const TESTIMONIALS: CateringTestimonial[] = [
   {
     id: "dawit-s",
     quote:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "They understood exactly what our Timkat celebration needed. Authentic, generous portions, and served with real care for the tradition.",
     initial: "D",
     name: "Dawit S.",
     location: "Timkat Celebration, Piassa",
@@ -33,6 +34,8 @@ const TESTIMONIALS: CateringTestimonial[] = [
 ];
 
 export function CateringTestimonialsSection() {
+  const { eyebrow, headingBeforeEm, headingEm, headingAfterEm } = cateringContent.testimonials;
+
   return (
     <section
       className={shared.sectionOnDark}
@@ -41,12 +44,14 @@ export function CateringTestimonialsSection() {
     >
       <div className="wrap">
         <div className={`${shared.sectionHeadCentered} reveal`}>
-          <p className={shared.sectionEyebrow}>Kind Words</p>
+          <p className={shared.sectionEyebrow}>{eyebrow}</p>
           <h2
             className={`${shared.sectionTitle} ${shared.sectionTitleDark}`}
             id="cat-testimonials-h2"
           >
-            What Our <em>Clients</em> Say
+            {headingBeforeEm}
+            <em>{headingEm}</em>
+            {headingAfterEm}
           </h2>
         </div>
 
