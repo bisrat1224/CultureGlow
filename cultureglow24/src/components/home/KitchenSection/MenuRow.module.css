@@ -14,12 +14,32 @@
   transform: translateX(4px);
 }
 
+.menuRowImgWrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
 .menuRowImg {
-  width: 80px;
-  height: 80px;
+  width: 88px;
+  height: 88px;
   border-radius: 8px;
   object-fit: cover;
   flex-shrink: 0;
+}
+
+.menuRowTag {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  background: var(--cg-green);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 100px;
+  white-space: nowrap;
 }
 
 .menuRowInfo {
@@ -39,6 +59,13 @@
   font-size: 14px;
   color: var(--cg-text);
   line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.menuRowDiet {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
 }
 
 .menuRowRight {
@@ -76,4 +103,10 @@
 .menuRowBtn img {
   width: 14px;
   height: 14px;
+}
+
+@media (min-width: 640px) {
+  .menuRow {
+    align-items: flex-start;
+  }
 }
