@@ -1,0 +1,77 @@
+/* ─── CULTUREGLOW24 SHARED UTILITIES ──────────────────────────
+   Consolidated from home/, contact/, and gallery/ shared.module.css
+   Use for section eyebrows, titles, descriptions, and common buttons. */
+
+.sectionEyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--cg-gold);
+  margin-bottom: calc(var(--cg-u) * 1.5);
+}
+
+.sectionTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--cg-charcoal);
+  margin-bottom: calc(var(--cg-u) * 2);
+}
+
+.sectionTitle em {
+  font-style: italic;
+  color: var(--cg-gold);
+}
+
+.sectionDesc {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--cg-text);
+  max-width: 60ch;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 8px;
+  background: var(--cg-gold);
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btnPrimary:hover {
+  background: #b0852e;
+  transform: translateY(-1px);
+}
+
+.btnGhost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--cg-charcoal);
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  border: 1.5px solid var(--cg-border);
+  transition: border-color 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+}
+
+.btnGhost:hover {
+  border-color: var(--cg-gold);
+  color: var(--cg-gold);
+}

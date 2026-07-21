@@ -1,3 +1,4 @@
+"use server";
 /**
  * Structured logger for API routes.
  * In development: logs to console.
