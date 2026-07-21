@@ -1,13 +1,11 @@
 import Image from "next/image";
+import { homeContent } from "@/lib/content/content.home";
 import styles from "./StorySection.module.css";
 
-const STORY_STATS = [
-  { value: "500+", label: "Orders Delivered" },
-  { value: "12+", label: "Menu Items" },
-  { value: "100%", label: "Authentic" },
-] as const;
-
 export function StorySection() {
+  const { eyebrow, headingBeforeEm, headingEm, headingSecondLine, body, amharic, badge, stats } =
+    homeContent.story;
+
   return (
     <section
       className={styles.storySection}
@@ -17,23 +15,17 @@ export function StorySection() {
       <div className="wrap">
         <div className={styles.storyInner}>
           <div className={`${styles.storyTextCol} reveal`}>
-            <p className={styles.storyEyebrow}>Our Story</p>
+            <p className={styles.storyEyebrow}>{eyebrow}</p>
             <h2 className={styles.storyH2} id="story-h2">
-              Where <em>Culture</em>
+              {headingBeforeEm}
+              <em>{headingEm}</em>
               <br />
-              Meets the Table
+              {headingSecondLine}
             </h2>
-            <p className={styles.storyBody}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </p>
-            <p className={`${styles.storyAmharic} font-ethiopic`}>
-              ባህላችን ኩራታችን ነው — ምግብ፣ ልብስ፣ ሕይወት።
-            </p>
+            <p className={styles.storyBody}>{body}</p>
+            <p className={`${styles.storyAmharic} font-ethiopic`}>{amharic}</p>
             <div className={styles.storyStats}>
-              {STORY_STATS.map((stat) => (
+              {stats.map((stat) => (
                 <div key={stat.label} className={styles.statItem}>
                   <p className={styles.statNum}>{stat.value}</p>
                   <p className={styles.statLabel}>{stat.label}</p>
@@ -61,7 +53,7 @@ export function StorySection() {
                 className={styles.storyImgAccentEl}
               />
             </div>
-            <span className={styles.storyBadge}>Since 2024</span>
+            <span className={styles.storyBadge}>{badge}</span>
           </div>
         </div>
       </div>

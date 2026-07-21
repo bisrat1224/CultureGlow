@@ -1,5 +1,6 @@
 import { buildWhatsAppLink } from "@/lib/constants";
 import { FEATURED_MENU_ITEMS } from "@/lib/data/menu";
+import { homeContent } from "@/lib/content/content.home";
 import { MenuRow } from "./MenuRow";
 import styles from "./KitchenSection.module.css";
 import shared from "../shared.module.css";
@@ -7,6 +8,8 @@ import shared from "../shared.module.css";
 const REVEAL_DELAYS = ["reveal-delay-1", "reveal-delay-2", "reveal-delay-3", "reveal-delay-4"];
 
 export function KitchenSection() {
+  const { eyebrow, headingBeforeEm, headingEm, headingSecondLine, body, cta } = homeContent.kitchen;
+
   return (
     <section
       className={styles.kitchenSection}
@@ -16,17 +19,14 @@ export function KitchenSection() {
       <div className="wrap">
         <div className={styles.kitchenLayout}>
           <div className={`${styles.kitchenHeaderCol} reveal`}>
-            <p className={shared.sectionEyebrow}>From the Kitchen</p>
+            <p className={shared.sectionEyebrow}>{eyebrow}</p>
             <h2 className={styles.sectionH2Dark} id="kitchen-h2">
-              Our <em>Signature</em>
+              {headingBeforeEm}
+              <em>{headingEm}</em>
               <br />
-              Dishes
+              {headingSecondLine}
             </h2>
-            <p className={styles.kitchenDesc}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam quis nostrud exercitation.
-            </p>
+            <p className={styles.kitchenDesc}>{body}</p>
             <a
               href={buildWhatsAppLink()}
               className={shared.btnPrimary}
@@ -35,7 +35,7 @@ export function KitchenSection() {
               rel="noopener noreferrer"
             >
               <img src="/assets/images/img_whatsappicon.svg" alt="" />
-              Order
+              {cta}
             </a>
           </div>
 

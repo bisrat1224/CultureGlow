@@ -1,10 +1,13 @@
 "use client";
 
+import { homeContent } from "@/lib/content/content.home";
 import styles from "./NewsletterSection.module.css";
 import shared from "../shared.module.css";
 
-
 export function NewsletterSection() {
+  const { eyebrow, headingBeforeEm, headingEm, headingAfterEm, body, inputPlaceholder, submitCta, note } =
+    homeContent.newsletter;
+
   return (
     <section
       className={styles.newsletterSection}
@@ -13,15 +16,13 @@ export function NewsletterSection() {
     >
       <div className={`${styles.newsletterInner} wrap reveal`}>
         <div className={styles.newsletterText}>
-          <p className={shared.sectionEyebrow}>Stay in Touch</p>
+          <p className={shared.sectionEyebrow}>{eyebrow}</p>
           <h2 className={styles.newsletterH2} id="newsletter-h2">
-            Join the <em>Table</em>
+            {headingBeforeEm}
+            <em>{headingEm}</em>
+            {headingAfterEm}
           </h2>
-          <p className={styles.newsletterDesc}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. New
-            dishes, catering offers, and cultural events — straight to your
-            inbox.
-          </p>
+          <p className={styles.newsletterDesc}>{body}</p>
         </div>
 
         <form
@@ -35,16 +36,16 @@ export function NewsletterSection() {
             id="newsletter-email"
             type="email"
             name="email"
-            placeholder="Your email address"
+            placeholder={inputPlaceholder}
             required
             className={styles.newsletterInput}
           />
           <button type="submit" className={styles.newsletterBtn}>
-            Subscribe
+            {submitCta}
           </button>
         </form>
 
-        <p className={styles.newsletterNote}>No spam. Unsubscribe anytime.</p>
+        <p className={styles.newsletterNote}>{note}</p>
       </div>
     </section>
   );

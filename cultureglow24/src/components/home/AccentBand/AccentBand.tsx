@@ -1,14 +1,9 @@
 import { Fragment } from "react";
+import { homeContent } from "@/lib/content/content.home";
 import styles from "./AccentBand.module.css";
 
-const ACCENT_ITEMS = [
-  "CULTUREGLOW24",
-  "AUTHENTIC HABESHA EXPERIENCE",
-  "FOOD · FASHION · CULTURE",
-];
-
 export function AccentBand() {
-  const items = [...ACCENT_ITEMS, ...ACCENT_ITEMS];
+  const items = [...homeContent.accentBand.items, ...homeContent.accentBand.items];
 
   return (
     <div className={styles.accentBand} aria-hidden="true">

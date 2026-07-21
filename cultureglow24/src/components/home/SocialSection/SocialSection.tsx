@@ -1,7 +1,7 @@
 import { SocialTile, type SocialTileData } from "./SocialTile";
+import { homeContent } from "@/lib/content/content.home";
 import styles from "./SocialSection.module.css";
 import shared from "../shared.module.css";
-
 
 const TIKTOK_TILES: SocialTileData[] = [
   { id: "tiktok-1", color: "a", platform: "tiktok", caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod." },
@@ -18,6 +18,9 @@ const REELS_TILES: SocialTileData[] = [
 const REVEAL_DELAYS = ["reveal-delay-1", "reveal-delay-2", "reveal-delay-3"];
 
 export function SocialSection() {
+  const { eyebrow, headingBeforeEm, headingEm, headingAfterEm, tiktokLabel, reelsLabel } =
+    homeContent.social;
+
   return (
     <section
       className={styles.socialSection}
@@ -26,14 +29,16 @@ export function SocialSection() {
     >
       <div className="wrap">
         <div className={`${styles.socialHeader} reveal`}>
-          <p className={shared.sectionEyebrow}>On Social</p>
+          <p className={shared.sectionEyebrow}>{eyebrow}</p>
           <h2 className={styles.sectionH2Light} id="social-h2">
-            Follow the <em>Feed</em>
+            {headingBeforeEm}
+            <em>{headingEm}</em>
+            {headingAfterEm}
           </h2>
         </div>
 
         <div className={`${styles.socialRow} reveal`}>
-          <p className={styles.socialRowLabel}>TikTok</p>
+          <p className={styles.socialRowLabel}>{tiktokLabel}</p>
           <div className={styles.socialGrid}>
             {TIKTOK_TILES.map((tile, i) => (
               <SocialTile key={tile.id} tile={tile} revealDelayClass={REVEAL_DELAYS[i]} />
@@ -42,7 +47,7 @@ export function SocialSection() {
         </div>
 
         <div className={`${styles.socialRow} reveal reveal-delay-2`}>
-          <p className={styles.socialRowLabel}>Reels</p>
+          <p className={styles.socialRowLabel}>{reelsLabel}</p>
           <div className={styles.socialGrid}>
             {REELS_TILES.map((tile, i) => (
               <SocialTile key={tile.id} tile={tile} revealDelayClass={REVEAL_DELAYS[i]} />

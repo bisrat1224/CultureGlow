@@ -1,10 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { buildWhatsAppLink } from "@/lib/constants";
+import { homeContent } from "@/lib/content/content.home";
 import styles from "./Hero.module.css";
 import shared from "../shared.module.css";
 
 export function Hero() {
+  const { eyebrow, headingBeforeEm, headingEm, headingAfterEm, body, primaryCta, secondaryCta } =
+    homeContent.hero;
+
   return (
     <section className={styles.hero} aria-label="Hero">
       <Image
@@ -18,16 +22,13 @@ export function Hero() {
       <div className={styles.heroGrain} />
 
       <div className={`${styles.heroBody} wrap`}>
-        <p className={styles.heroEyebrow}>Habesha Food · Beauty · Lifestyle</p>
+        <p className={styles.heroEyebrow}>{eyebrow}</p>
         <h1 className={styles.heroH1}>
-          Taste the <em>Soul</em>
-          <br />
-          of Ethiopia
+          {headingBeforeEm}
+          <em>{headingEm}</em>
+          {headingAfterEm}
         </h1>
-        <p className={styles.heroSub}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim.
-        </p>
+        <p className={styles.heroSub}>{body}</p>
         <div className={styles.heroActions}>
           <a
             href={buildWhatsAppLink()}
@@ -36,11 +37,11 @@ export function Hero() {
             rel="noopener noreferrer"
           >
             <img src="/assets/images/img_whatsappicon.svg" alt="" />
-            Order
+            {primaryCta}
           </a>
-          
+
           <Link href="/menu" className={shared.btnGhost}>
-            Explore the Menu
+            {secondaryCta}
           </Link>
         </div>
       </div>

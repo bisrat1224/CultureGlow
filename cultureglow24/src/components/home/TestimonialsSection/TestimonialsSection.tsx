@@ -1,4 +1,5 @@
 import { TestimonialCard, type Testimonial } from "./TestimonialCard";
+import { homeContent } from "@/lib/content/content.home";
 import styles from "./TestimonialsSection.module.css";
 import shared from "../shared.module.css";
 
@@ -32,6 +33,8 @@ const TESTIMONIALS: Testimonial[] = [
 const REVEAL_DELAYS = ["reveal-delay-1", "reveal-delay-2", "reveal-delay-3"];
 
 export function TestimonialsSection() {
+  const { eyebrow, headingBeforeEm, headingEm, headingAfterEm } = homeContent.testimonials;
+
   return (
     <section
       className={styles.testimonialsSection}
@@ -40,9 +43,11 @@ export function TestimonialsSection() {
     >
       <div className="wrap">
         <div className={`${styles.testimonialsHeader} reveal`}>
-          <p className={shared.sectionEyebrow}>Kind Words</p>
+          <p className={shared.sectionEyebrow}>{eyebrow}</p>
           <h2 className={styles.testimonialsH2} id="testimonials-h2">
-            What Our <em>Guests</em> Say
+            {headingBeforeEm}
+            <em>{headingEm}</em>
+            {headingAfterEm}
           </h2>
         </div>
 

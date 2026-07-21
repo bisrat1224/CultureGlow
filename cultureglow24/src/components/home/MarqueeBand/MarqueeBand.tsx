@@ -1,15 +1,8 @@
+import { homeContent } from "@/lib/content/content.home";
 import styles from "./MarqueeBand.module.css";
 
-const MARQUEE_ITEMS = [
-  "CultureGlow24",
-  "Authentic Habesha Cuisine",
-  "Traditional Clothing",
-  "Cultural Events",
-  "Catering Services",
-];
-
 export function MarqueeBand() {
-  const items = [...MARQUEE_ITEMS, ...MARQUEE_ITEMS];
+  const items = [...homeContent.marquee.items, ...homeContent.marquee.items];
 
   return (
     <div className={styles.marqueeBand} aria-hidden="true">

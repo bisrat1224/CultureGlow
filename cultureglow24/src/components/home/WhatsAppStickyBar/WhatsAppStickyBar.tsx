@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { buildWhatsAppLink } from "@/lib/constants";
+import { homeContent } from "@/lib/content/content.home";
 import styles from "./WhatsAppStickyBar.module.css";
 
 export function WhatsAppStickyBar() {
@@ -17,7 +18,7 @@ export function WhatsAppStickyBar() {
         width={22}
         height={22}
       />
-      <span className={styles.waStickyText}>Order</span>
+      <span className={styles.waStickyText}>{homeContent.whatsAppStickyBar.label}</span>
     </a>
   );
 }

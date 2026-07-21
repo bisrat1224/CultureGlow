@@ -1,8 +1,11 @@
 import Image from "next/image";
 import { buildWhatsAppLink } from "@/lib/constants";
+import { homeContent } from "@/lib/content/content.home";
 import styles from "./CateringSection.module.css";
 
 export function CateringSection() {
+  const { eyebrow, headingBeforeEm, headingEm, headingSecondLine, body, cta } = homeContent.catering;
+
   return (
     <section
       className={styles.cateringSection}
@@ -12,24 +15,21 @@ export function CateringSection() {
       <div className="wrap">
         <div className={styles.cateringInner}>
           <div className={`${styles.cateringText} reveal`}>
-            <p className={styles.cateringEyebrow}>Catering &amp; Events</p>
+            <p className={styles.cateringEyebrow}>{eyebrow}</p>
             <h2 className={styles.cateringH2} id="catering-h2">
-              Bring the <em>Feast</em>
+              {headingBeforeEm}
+              <em>{headingEm}</em>
               <br />
-              to Your Event
+              {headingSecondLine}
             </h2>
-            <p className={styles.cateringDesc}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua ut
-              enim ad minim veniam.
-            </p>
+            <p className={styles.cateringDesc}>{body}</p>
             <a
               href={buildWhatsAppLink()}
               className={styles.btnGreenCta}
               target="_blank"
               rel="noopener noreferrer"
             >
-              Plan Your Event →
+              {cta}
             </a>
           </div>
 
