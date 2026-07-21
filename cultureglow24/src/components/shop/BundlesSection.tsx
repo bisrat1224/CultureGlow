@@ -1,3 +1,4 @@
+import { shopContent } from "@/lib/content/content.shop";
 import { BundleCard, type Bundle } from "./BundleCard";
 import styles from "./BundlesSection.module.css";
 
@@ -29,15 +30,14 @@ const BUNDLES: Bundle[] = [
 ];
 
 export function BundlesSection() {
+  const { label, title, desc } = shopContent.bundles;
+
   return (
     <section className={styles.bundlesSection}>
       <div className={styles.bundlesHeader}>
-        <p className={styles.sectionLabel}>Gift Bundles</p>
-        <h2 className={styles.sectionTitle}>Lorem ipsum dolor sit</h2>
-        <p className={styles.bundlesDesc}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do
-          eiusmod tempor incididunt.
-        </p>
+        <p className={styles.sectionLabel}>{label}</p>
+        <h2 className={styles.sectionTitle}>{title}</h2>
+        <p className={styles.bundlesDesc}>{desc}</p>
       </div>
 
       <div className={styles.bundlesGrid}>

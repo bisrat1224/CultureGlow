@@ -1,14 +1,8 @@
+import { shopContent } from "@/lib/content/content.shop";
 import styles from "./ScrollingBanner.module.css";
 
-const BANNER_ITEMS = [
-  "CULTUREGLOW24",
-  "LOREM IPSUM DOLOR",
-  "SIT AMET CONSECTETUR",
-  "ADIPISCING ELIT",
-];
-
 export function ScrollingBanner() {
-  const items = [...BANNER_ITEMS, ...BANNER_ITEMS];
+  const items = [...shopContent.scrollingBanner.items, ...shopContent.scrollingBanner.items];
 
   return (
     <div className={styles.scrollingBanner} aria-hidden="true">

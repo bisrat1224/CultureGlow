@@ -1,16 +1,14 @@
+import { shopContent } from "@/lib/content/content.shop";
 import styles from "./ShopHero.module.css";
 
 export function ShopHero() {
+  const { label, title, desc } = shopContent.hero;
+
   return (
     <section className={styles.shopHero} aria-label="Shop hero">
-      <p className={styles.shopHeroLabel}>Habesha Food · Beauty · Lifestyle</p>
-      <h1 className={styles.shopHeroTitle}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing
-      </h1>
-      <p className={styles.shopHeroDesc}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim.
-      </p>
+      <p className={styles.shopHeroLabel}>{label}</p>
+      <h1 className={styles.shopHeroTitle}>{title}</h1>
+      <p className={styles.shopHeroDesc}>{desc}</p>
     </section>
   );
 }

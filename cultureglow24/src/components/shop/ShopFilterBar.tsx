@@ -2,12 +2,14 @@
 
 import { useMemo, useState } from "react";
 import { PRODUCTS, SHOP_FILTERS, type ProductCategory } from "@/lib/data/products";
+import { shopContent } from "@/lib/content/content.shop";
 import { ShopProductCard } from "./ShopProductCard";
 import styles from "./ShopFilterBar.module.css";
 
 
 export function ShopFilterBar() {
   const [activeFilter, setActiveFilter] = useState<ProductCategory | "all">("all");
+  const { label, title } = shopContent.productsSection;
 
   const filtered = useMemo(
     () =>
@@ -43,8 +45,8 @@ export function ShopFilterBar() {
 
       <section className={styles.productsSection}>
         <div className={styles.productsHeader}>
-          <p className={styles.sectionLabel}>Our Products</p>
-          <h2 className={styles.sectionTitle}>Lorem ipsum dolor sit amet</h2>
+          <p className={styles.sectionLabel}>{label}</p>
+          <h2 className={styles.sectionTitle}>{title}</h2>
         </div>
 
         <div className={styles.productsGrid}>
