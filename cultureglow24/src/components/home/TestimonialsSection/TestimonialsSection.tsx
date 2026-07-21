@@ -7,7 +7,7 @@ const TESTIMONIALS: Testimonial[] = [
   {
     id: "liya-t",
     quote:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "I ordered a family platter for a small get-together and it disappeared in minutes, the doro wat tasted just like my grandmother's.",
     initial: "L",
     name: "Liya T.",
     location: "Wedding, Ethiopia",
@@ -15,7 +15,7 @@ const TESTIMONIALS: Testimonial[] = [
   {
     id: "meron-a",
     quote:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "WhatsApp ordering made it so easy. I messaged, confirmed, and had authentic Habesha food at my door within the hour.",
     initial: "M",
     name: "Meron A.",
     location: "Graduation, Bole",
@@ -23,7 +23,7 @@ const TESTIMONIALS: Testimonial[] = [
   {
     id: "dawit-s",
     quote:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Every dish felt homemade. The injera was fresh and the portions were generous enough for the whole family.",
     initial: "D",
     name: "Dawit S.",
     location: "Family Reunion, Piassa",

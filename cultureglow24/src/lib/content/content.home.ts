@@ -15,9 +15,9 @@
  * Payload *collections*, not part of this *copy* file. This file is only
  * for one-off sitewide strings: headings, eyebrows, descriptions, CTAs.
  *
- * Lorem Ipsum is left as Lorem Ipsum on purpose, replacing it with real
- * client copy is a content task for the owner once they have admin
- * access (CMS_ADMIN_SCOPING.md §6, Chunk B4), not a code task now.
+ * Body copy below is placeholder marketing copy written to match brand
+ * voice, not final client-approved copy, that still comes from the PM
+ * per the Content Checklist (Developer Brief §5, "Brand story" - Pending).
  */
 
 export const homeContent = {
@@ -26,7 +26,7 @@ export const homeContent = {
     headingBeforeEm: "Taste the ",
     headingEm: "Soul",
     headingAfterEm: " of Ethiopia",
-    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim.",
+    body: "Handcrafted Habesha stews, warm spice blends, and everyday essentials, made the traditional way and delivered straight to your door.",
     primaryCta: "Order",
     secondaryCta: "Explore the Menu",
   },
@@ -47,7 +47,7 @@ export const homeContent = {
     headingEm: "Culture",
     headingAfterEm: "",
     headingSecondLine: "Meets the Table",
-    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    body: "What started as home-cooked meals shared between neighbours has grown into a full celebration of Habesha food, beauty, and lifestyle. Every dish, garment, and gift we offer carries the same care we'd bring to our own family table.",
     amharic: "????? ????? ??, ???? ???? ?????",
     badge: "Since 2024",
     stats: [
@@ -78,7 +78,7 @@ export const homeContent = {
     headingBeforeEm: "Our ",
     headingEm: "Signature",
     headingSecondLine: "Dishes",
-    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation.",
+    body: "Every dish is simmered, spiced, and plated the way it's always been done, slow-cooked stews, fresh injera, and recipes passed down rather than shortcuts taken.",
     cta: "Order",
   },
 
@@ -96,7 +96,7 @@ export const homeContent = {
     headingBeforeEm: "Bring the ",
     headingEm: "Feast",
     headingSecondLine: "to Your Event",
-    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.",
+    body: "From intimate family gatherings to full wedding receptions, our catering team brings the same authentic flavor and warm hospitality to every table we serve.",
     cta: "Plan Your Event ?",
   },
 
@@ -112,7 +112,7 @@ export const homeContent = {
     headingBeforeEm: "Join the ",
     headingEm: "Table",
     headingAfterEm: "",
-    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. New dishes, catering offers, and cultural events, straight to your inbox.",
+    body: "Be the first to hear about new dishes, catering offers, and cultural events, straight to your inbox.",
     inputPlaceholder: "Your email address",
     submitCta: "Subscribe",
     note: "No spam. Unsubscribe anytime.",
@@ -124,4 +124,3 @@ export const homeContent = {
 } as const;
 
 export type HomeContent = typeof homeContent;
-
