@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { CONTACT_EMAIL } from "@/lib/constants";
 import styles from "./CateringEnquirySection.module.css";
 import shared from "../shared.module.css";
 
@@ -67,10 +68,10 @@ export function CateringEnquirySection() {
               <div className={styles.enquiryInfoItem}>
                 <span className={styles.enquiryInfoLabel}>Email</span>
                 <a
-                  href="mailto:hello@cultureglow24.com"
+                  href={`mailto:${CONTACT_EMAIL}`}
                   className={styles.enquiryInfoValue}
                 >
-                  hello@cultureglow24.com
+                  {CONTACT_EMAIL}
                 </a>
               </div>
               <div className={styles.enquiryInfoItem}>

@@ -1,114 +1,83 @@
-.menuList {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--cg-u) * 2);
+.featureBanner {
+  background-color: var(--cg-green);
+  padding: 60px 24px;
 }
 
-.menuRow {
-  position: relative;
+.featureBannerInner {
   display: flex;
-  gap: calc(var(--cg-u) * 2.5);
+  flex-direction: column;
+  gap: 32px;
   align-items: center;
-  background: #fff;
-  border: 1px solid var(--cg-border);
-  border-radius: 12px;
-  padding: calc(var(--cg-u) * 2);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-  transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
-  flex-wrap: wrap;
+  text-align: center;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
-.menuRow:hover {
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px);
-  border-color: var(--cg-gold);
-}
-
-.menuRowImgWrap {
-  position: relative;
-  flex-shrink: 0;
-}
-
-.menuRowImg {
-  width: 88px;
-  height: 88px;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-.menuRowTag {
-  position: absolute;
-  top: -6px;
-  left: -6px;
-  background: var(--cg-green);
-  color: #fff;
-  font-size: 9px;
+.sectionLabel {
+  font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 3px 7px;
-  border-radius: 999px;
-}
-
-.menuRowInfo {
-  flex: 1;
-  min-width: 180px;
-}
-
-.menuRowName {
-  font-family: "Playfair Display", serif;
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--cg-charcoal);
-  margin-bottom: 4px;
-}
-
-.menuRowDesc {
-  font-size: 14px;
-  color: var(--cg-text);
-  line-height: 1.5;
-  margin-bottom: 8px;
-}
-
-.menuRowDiet {
-  display: flex;
-  gap: 6px;
-}
-
-.menuRowRight {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 8px;
-  flex-shrink: 0;
-  margin-left: auto;
-}
-
-.menuRowPrice {
-  font-size: 17px;
-  font-weight: 700;
+  letter-spacing: 2px;
   color: var(--cg-gold);
+  text-transform: uppercase;
+  margin-bottom: 12px;
 }
 
-.menuRowBtn {
-  display: flex;
+.featureTitle {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--cg-cream);
+  margin-bottom: 12px;
+}
+
+.featureDesc {
+  font-size: 15px;
+  color: rgba(250, 246, 240, 0.8);
+  line-height: 1.6;
+  max-width: 480px;
+}
+
+.featureBannerImage {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  height: 280px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+.btnOnGreen {
+  background-color: var(--cg-gold);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 8px;
+  display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: var(--cg-gold);
-  color: #fff;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 8px 14px;
-  border-radius: 6px;
-  transition: background 0.2s;
+  transition: all 0.3s ease;
+  margin-top: 8px;
   min-height: 44px;
 }
 
-.menuRowBtn:hover {
-  background: #b08634;
+.btnOnGreen:hover {
+  background-color: #b08634;
+  transform: translateY(-2px);
 }
 
-.menuRowBtn img {
+.btnOnGreen img {
   width: 14px;
   height: 14px;
+  filter: brightness(0) invert(1);
+}
+
+@media (min-width: 768px) {
+  .featureBannerInner {
+    flex-direction: row;
+    text-align: left;
+    justify-content: space-between;
+  }
 }

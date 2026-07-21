@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { buildWhatsAppLink } from "@/lib/constants";
 import styles from "./FeatureBanner.module.css";
 
@@ -26,10 +27,12 @@ export function FeatureBanner() {
           </a>
         </div>
         <div className={styles.featureBannerImage}>
-          <img
+          <Image
             src="/assets/images/istockphoto-908729848-612x612.jpg"
             alt="Habesha catering event"
-            loading="lazy"
+            fill
+            sizes="(min-width: 768px) 440px, 100vw"
+            style={{ objectFit: "cover" }}
           />
         </div>
       </div>

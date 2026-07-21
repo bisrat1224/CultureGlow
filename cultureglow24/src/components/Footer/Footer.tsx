@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { NAV_LINKS, SOCIAL_LINKS, buildWhatsAppLink } from "@/lib/constants";
+import { NAV_LINKS, SOCIAL_LINKS, CONTACT_EMAIL, buildWhatsAppLink } from "@/lib/constants";
 import styles from "./Footer.module.css";
 
 
@@ -48,7 +48,7 @@ export function Footer() {
           <p className={styles.footerColTitle}>Contact</p>
           <ul className={styles.footerLinks}>
             <li>Delivering across Addis Ababa</li>
-            <li>hello@cultureglow24.com</li>
+            <li>{CONTACT_EMAIL}</li>
             <li>Mon–Sat, 9am–7pm</li>
           </ul>
         </div>

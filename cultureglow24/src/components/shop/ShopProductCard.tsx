@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { buildWhatsAppLink } from "@/lib/constants";
 import type { Product } from "@/lib/data/products";
 import styles from "./ShopProductCard.module.css";
@@ -16,11 +17,11 @@ const BADGE_CLASS: Record<NonNullable<Product["badge"]>, string> = {
 
 
 export function ShopProductCard({ product }: ShopProductCardProps) {
-  const { name, description, price, image, alt, badge } = product;
+  const { id, name, description, price, image, alt, badge } = product;
 
   return (
     <article className={styles.productCard} data-category={product.category}>
-      <div className={styles.productImage}>
+      <Link href={`/shop/${id}`} className={styles.productImage}>
         <Image
           src={image}
           alt={alt}
@@ -32,8 +33,10 @@ export function ShopProductCard({ product }: ShopProductCardProps) {
             {badge}
           </span>
         )}
-      </div>
-      <h3 className={styles.productTitle}>{name}</h3>
+      </Link>
+      <Link href={`/shop/${id}`}>
+        <h3 className={styles.productTitle}>{name}</h3>
+      </Link>
       <p className={styles.productDesc}>{description}</p>
       <div className={styles.productFooter}>
         <span className={styles.productPrice}>{price}</span>

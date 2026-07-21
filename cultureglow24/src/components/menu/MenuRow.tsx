@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { buildWhatsAppLink } from "@/lib/constants";
 import type { MenuItem } from "@/lib/data/menu";
 import { DIET_LEGEND } from "@/lib/data/menu";
@@ -14,7 +15,13 @@ export function MenuRow({ item }: MenuRowProps) {
   return (
     <article className={styles.menuRow}>
       <div className={styles.menuRowImgWrap}>
-        <img src={image} alt={alt} className={styles.menuRowImg} />
+        <Image
+          src={image}
+          alt={alt}
+          width={88}
+          height={88}
+          className={styles.menuRowImg}
+        />
         {tag && <span className={styles.menuRowTag}>{tag}</span>}
       </div>
 
