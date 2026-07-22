@@ -25,7 +25,7 @@ export function FeatureBanner() {
         </div>
         <div className={styles.featureBannerImage}>
           <Image
-            src="/assets/images/istockphoto-908729848-612x612.jpg"
+            src="/assets/images/sharing-hands.jpg"
             alt="Habesha catering event"
             fill
             loading="lazy"

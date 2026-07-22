@@ -59,27 +59,27 @@ export const aboutContent = {
     headingEm: "Cherish",
     images: [
       {
-        src: "/assets/images/pexels-berlinerlights-23858842.jpg",
+        src: "/assets/images/stew-pans.jpg",
         alt: "Traditional Habesha stews simmering in dark pans",
       },
       {
-        src: "/assets/images/pexels-dbaler-17486836.jpg",
+        src: "/assets/images/injera-place.jpg",
         alt: "Injera platter with assorted stews",
       },
       {
-        src: "/assets/images/879d4f180b0382a039490cefec95d4e2.jpg",
+        src: "/assets/images/dress-green.jpg",
         alt: "Habesha kemis dress with intricate embroidery",
       },
       {
-        src: "/assets/images/147f32aef0aacd3cb17eb003475d052b.jpg",
+        src: "/assets/images/dress-burgundy.jpg",
         alt: "Elegant Habesha cultural dress",
       },
       {
-        src: "/assets/images/istockphoto-452732099-612x612.jpg",
+        src: "/assets/images/platter-big.jpg",
         alt: "Ethiopian coffee ceremony setting",
       },
       {
-        src: "/assets/images/istockphoto-908729848-612x612.jpg",
+        src: "/assets/images/sharing-hands.jpg",
         alt: "Habesha catering spread for a family gathering",
       },
     ],

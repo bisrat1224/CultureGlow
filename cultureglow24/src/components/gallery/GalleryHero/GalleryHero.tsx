@@ -8,11 +8,11 @@ export function GalleryHero() {
   return (
     <section className={styles.galleryHero} aria-label="Gallery hero">
       <Image
-        src="/assets/images/platter-big.jpg"
-        alt="Colourful injera platter with many stews"
+        src="/assets/images/coffee-pot.jpg"  
+        alt="Habesha cultural gallery moments"
         fill
         sizes="100vw"
-        quality={70}
+        quality={85}
         priority
         className={styles.galleryHeroImg}
       />

@@ -22,7 +22,7 @@ export function Header() {
         <div className={styles.headerLogo}>
           <Link href="/">
             <Image
-              src="/assets/images/lgoo-1783945739982.jpg"
+              src="/assets/images/logo.png"
               alt="CultureGlow24"
               loading="lazy"
               width={48}

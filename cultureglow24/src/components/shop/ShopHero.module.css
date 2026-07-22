@@ -1,6 +1,6 @@
 .shopHero {
   background-image: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.85)),
-    url("/assets/images/pexels-berlinerlights-23858842.jpg");
+    url("/assets/images/stew-pans.jpg");
   background-size: cover;
   background-position: center;
   padding: calc(var(--cg-u) * 12.5) calc(var(--cg-u) * 3) calc(var(--cg-u) * 10);

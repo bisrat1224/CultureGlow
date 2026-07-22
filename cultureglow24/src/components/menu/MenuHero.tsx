@@ -10,7 +10,7 @@ export function MenuHero() {
   return (
     <section className={styles.menuHero} aria-label="Menu hero">
       <Image
-        src="/assets/images/pexels-dbaler-17486836.jpg"
+        src="/assets/images/injera-place.jpg"
         alt="Injera platter with assorted stews"
         fill
         sizes="100vw"

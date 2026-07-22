@@ -5,11 +5,11 @@ export function AboutHero() {
   return (
     <section className={styles.aboutHero} aria-label="About hero">
       <Image
-        src="/assets/images/platter-big.jpg"
-        alt="Colourful injera platter with many stews"
+        src="/assets/images/habesha-sefed.webp"
+        alt="Habesha cultural heritage and identity"
         fill
         sizes="100vw"
-        quality={70}
+        quality={85}
         priority
         className={styles.aboutHeroImg}
       />

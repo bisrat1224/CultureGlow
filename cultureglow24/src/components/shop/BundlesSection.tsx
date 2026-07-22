@@ -8,7 +8,7 @@ const BUNDLES: Bundle[] = [
     label: "For Coffee Lovers",
     title: "Yirgacheffe Ritual",
     priceFrom: "£180",
-    image: "/assets/images/pexels-berlinerlights-23858842.jpg",
+    image: "/assets/images/stew-pans.jpg",
     alt: "Coffee Lover Bundle",
   },
   {
@@ -16,7 +16,7 @@ const BUNDLES: Bundle[] = [
     label: "For Food Lovers",
     title: "The Habesha Feast",
     priceFrom: "£320",
-    image: "/assets/images/istockphoto-908729848-612x612.jpg",
+    image: "/assets/images/sharing-hands.jpg",
     alt: "Feast Bundle",
   },
   {
@@ -24,7 +24,7 @@ const BUNDLES: Bundle[] = [
     label: "For Style Lovers",
     title: "Habesha Style Edit",
     priceFrom: "£980",
-    image: "/assets/images/879d4f180b0382a039490cefec95d4e2.jpg",
+    image: "/assets/images/dress-green.jpg",
     alt: "Kemis Style Bundle",
   },
 ];

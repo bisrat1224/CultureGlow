@@ -36,7 +36,7 @@ export function CateringSection() {
           <div className={`${styles.cateringVisual} reveal reveal-delay-2`}>
             <div className={`${styles.cateringImgWrap} ${styles.cateringImgTallWrap}`}>
               <Image
-                src="/assets/images/pexels-berlinerlights-23858842.jpg"
+                src="/assets/images/stew-pans.jpg"
                 alt="Traditional stews for catering"
                 fill
                 loading="lazy"
@@ -46,7 +46,7 @@ export function CateringSection() {
             </div>
             <div className={`${styles.cateringImgWrap} ${styles.cateringImgSqWrap}`}>
               <Image
-                src="/assets/images/pexels-dbaler-17486836.jpg"
+                src="/assets/images/injera-place.jpg"
                 alt="Injera platter for catering"
                 fill
                 loading="lazy"
@@ -56,7 +56,7 @@ export function CateringSection() {
             </div>
             <div className={`${styles.cateringImgWrap} ${styles.cateringImgSqWrap}`}>
               <Image
-                src="/assets/images/istockphoto-908729848-612x612.jpg"
+                src="/assets/images/sharing-hands.jpg"
                 alt="Family sharing"
                 fill
                 sizes="(min-width: 768px) 25vw, 50vw"

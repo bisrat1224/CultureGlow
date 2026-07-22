@@ -37,7 +37,7 @@ export function StorySection() {
           <div className={`${styles.storyVisual} reveal reveal-delay-2`}>
             <div className={styles.storyImgMainWrap}>
               <Image
-                src="/assets/images/pexels-berlinerlights-23858842.jpg"
+                src="/assets/images/stew-pans.jpg"
                 alt="Traditional Habesha stews in dark pans"
                 fill
                 loading="lazy"
@@ -47,7 +47,7 @@ export function StorySection() {
             </div>
             <div className={styles.storyImgAccentWrap}>
               <Image
-                src="/assets/images/pexels-dbaler-17486836.jpg"
+                src="/assets/images/injera-place.jpg"
                 alt="Injera platter"
                 fill
                 loading="lazy"

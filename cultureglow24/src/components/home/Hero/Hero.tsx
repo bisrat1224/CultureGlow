@@ -12,7 +12,7 @@ export function Hero() {
   return (
     <section className={styles.hero} aria-label="Hero">
       <Image
-        src="/assets/images/pexels-berlinerlights-23858842.jpg"
+        src="/assets/images/stew-pans.jpg"
         alt="Traditional Habesha stews"
         fill
         sizes="100vw"

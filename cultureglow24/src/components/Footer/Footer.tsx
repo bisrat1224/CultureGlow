@@ -12,7 +12,7 @@ export function Footer() {
       <div className={`${styles.footerInner} wrap`}>
         <div className={styles.footerBrand}>
           <Image
-            src="/assets/images/lgoo-1783945739982.jpg"
+            src="/assets/images/logo.png"
             alt="CultureGlow24"
             width={160}
             height={40}
