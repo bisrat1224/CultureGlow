@@ -38,10 +38,10 @@ export function GalleryPhotoGrid() {
       <div className="wrap">
         <div className={`${shared.sectionHead} reveal`}>
           <p className={shared.sectionEyebrow}>{eyebrow}</p>
-          <h2 className={`${shared.sectionTitle} ${shared.onLightTitle}`} id="masonry-h2">
+          <h2 className={`${shared.sectionTitle} ${shared.sectionTitleLight}`} id="masonry-h2">
             {headingBeforeEm}<em>{headingEm}</em>{headingAfterEm}
           </h2>
-          <p className={shared.sectionDesc}>{desc}</p>
+          <p className={`${shared.sectionDesc} ${shared.sectionDescLight}`}>{desc}</p>
         </div>
 
         <div className={styles.masonry}>
