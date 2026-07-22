@@ -1,5 +1,6 @@
 .categoryBlock {
   padding: calc(var(--cg-u) * 10) 0;
+  scroll-margin-top: calc(96px + var(--cg-u) * 9);
 }
 
 .onCream {
@@ -17,8 +18,6 @@
   flex-wrap: wrap;
   gap: calc(var(--cg-u) * 2);
   margin-bottom: calc(var(--cg-u) * 5);
-
-  scroll-margin-top: 74px;
 }
 
 .categoryEyebrow {
