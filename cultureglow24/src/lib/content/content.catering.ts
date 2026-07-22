@@ -48,17 +48,13 @@ export const cateringContent = {
     headingAfterEm: " Say",
   },
 
-  enquiry: {
+  contactCta: {
     eyebrow: "Plan Your Event",
-    headingBeforeEm: "Send a Catering ",
-    headingEm: "Enquiry",
+    headingBeforeEm: "Let's Plan Your ",
+    headingEm: "Celebration",
     headingAfterEm: "",
-    desc: "Tell us a bit about your event and we'll get back to you with a tailored package and quote, usually within 24 hours.",
-    responseTime: "Typically within 24 hours",
-    successMessage: "Thanks, your enquiry has been sent. We'll be in touch soon.",
-    errorMessage: "Something went wrong sending your enquiry. Please try again, or reach us directly via WhatsApp or phone.",
+    desc: "Tell us about your event and we'll get back to you with a tailored package and quote. Reach out directly, whichever way suits you best.",
   },
 } as const;
 
 export type CateringContent = typeof cateringContent;
-

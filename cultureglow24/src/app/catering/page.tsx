@@ -4,7 +4,7 @@ import { EventTypesSection } from "@/components/catering/EventTypesSection/Event
 import { PackagesSection } from "@/components/catering/PackagesSection/PackagesSection";
 import { EventGallerySection } from "@/components/catering/EventGallerySection/EventGallerySection";
 import { CateringTestimonialsSection } from "@/components/catering/CateringTerminalsSection/CateringTestimonialsSection";
-import { CateringEnquirySection } from "@/components/catering/CateringEnquirySection/CateringEnquirySection";
+import { CateringContactCTA } from "@/components/catering/CateringContactCTA/CateringContactCTA";
 
 export const metadata: Metadata = {
   title: "Catering & Events | CultureGlow24, Authentic Habesha Catering",
@@ -20,7 +20,7 @@ export default function CateringPage() {
       <PackagesSection />
       <EventGallerySection />
       <CateringTestimonialsSection />
-      <CateringEnquirySection />
+      <CateringContactCTA />
     </>
   );
 }

@@ -1,0 +1,7 @@
+.ctaActions {
+  display: flex;
+  gap: calc(var(--cg-u) * 2);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: calc(var(--cg-u) * 4);
+}
