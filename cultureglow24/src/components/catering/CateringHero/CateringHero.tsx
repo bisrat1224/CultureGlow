@@ -20,31 +20,33 @@ export function CateringHero() {
         className={styles.catHeroImg}
       />
 
-      <div className={`${styles.catHeroBody} wrap`}>
-        <p className={styles.catHeroEyebrow}>{eyebrow}</p>
-        <h1 className={styles.catHeroH1}>
-          {headingBeforeEm}
-          <em>{headingEm}</em>
-          {headingAfterEm}
-        </h1>
-        <p className={styles.catHeroDesc}>{desc}</p>
-        <div className={styles.catHeroActions}>
-          <a
-            href={buildWhatsAppLink("I would like to enquire about catering")}
-            className={shared.btnPrimary}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="/assets/images/img_whatsappicon.svg"
-              alt=""
-              style={{ width: 16, height: 16 }}
-            />
-            {primaryCta}
-          </a>
-          <a href="#packages" className={shared.btnGhostLight}>
-            {secondaryCta}
-          </a>
+      <div className={styles.catHeroBody}>
+        <div className="wrap">
+          <p className={styles.catHeroEyebrow}>{eyebrow}</p>
+          <h1 className={styles.catHeroH1}>
+            {headingBeforeEm}
+            <em>{headingEm}</em>
+            {headingAfterEm}
+          </h1>
+          <p className={styles.catHeroDesc}>{desc}</p>
+          <div className={styles.catHeroActions}>
+            <a
+              href={buildWhatsAppLink("I would like to enquire about catering")}
+              className={shared.btnPrimary}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="/assets/images/img_whatsappicon.svg"
+                alt=""
+                style={{ width: 16, height: 16 }}
+              />
+              {primaryCta}
+            </a>
+            <a href="#packages" className={shared.btnGhostLight}>
+              {secondaryCta}
+            </a>
+          </div>
         </div>
       </div>
     </section>

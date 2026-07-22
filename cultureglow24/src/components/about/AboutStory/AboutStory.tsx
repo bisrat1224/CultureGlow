@@ -42,7 +42,7 @@ export function AboutStory() {
             </div>
             <div className={styles.storyImgAccentWrap}>
               <Image
-                src="/assets/images/injera-place.jpg"
+                src="/assets/images/injera-plate.jpg"
                 alt="Injera platter"
                 fill
                 loading="lazy"

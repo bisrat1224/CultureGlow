@@ -40,6 +40,15 @@
   margin: 0 auto;
 }
 
+.catHero {
+  position: relative;
+  height: 56svh;
+  min-height: 420px;
+  max-height: 620px;
+  overflow: hidden;
+  background: var(--cg-charcoal);
+}
+
 .catHeroEyebrow {
   font-size: 12px;
   font-weight: 700;

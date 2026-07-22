@@ -38,6 +38,19 @@
   padding-bottom: calc(var(--cg-u) * 6);
 }
 
+@media (max-width: 767px) {
+  .menuHero {
+    height: auto;
+    max-height: none;
+  }
+
+  .menuHeroBody {
+    justify-content: center;
+    padding-top: 96px;
+    padding-bottom: calc(var(--cg-u) * 4);
+  }
+}
+
 .menuHeroEyebrow {
   font-size: 12px;
   font-weight: 700;

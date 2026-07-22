@@ -10,7 +10,7 @@ export function MenuHero() {
   return (
     <section className={styles.menuHero} aria-label="Menu hero">
       <Image
-        src="/assets/images/injera-place.jpg"
+        src="/assets/images/injera-plate.jpg"
         alt="Injera platter with assorted stews"
         fill
         sizes="100vw"
@@ -18,27 +18,29 @@ export function MenuHero() {
         priority
         className={styles.menuHeroImg}
       />
-      <div className={`${styles.menuHeroBody} wrap`}>
-        <p className={styles.menuHeroEyebrow}>{eyebrow}</p>
-        <h1 className={styles.menuHeroH1}>
-          {headingBeforeEm}
-          <em>{headingEm}</em>
-          {headingAfterEm}
-        </h1>
-        <p className={styles.menuHeroDesc}>{desc}</p>
-        <div className={styles.menuHeroActions}>
-          <a
-            href={buildWhatsAppLink()}
-            className={styles.btnPrimary}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/assets/images/img_whatsappicon.svg" alt="" />
-            {primaryCta}
-          </a>
-          <a href="#mains" className={styles.btnGhostLight}>
-            {secondaryCta}
-          </a>
+      <div className={styles.menuHeroBody}>
+        <div className="wrap">
+          <p className={styles.menuHeroEyebrow}>{eyebrow}</p>
+          <h1 className={styles.menuHeroH1}>
+            {headingBeforeEm}
+            <em>{headingEm}</em>
+            {headingAfterEm}
+          </h1>
+          <p className={styles.menuHeroDesc}>{desc}</p>
+          <div className={styles.menuHeroActions}>
+            <a
+              href={buildWhatsAppLink()}
+              className={styles.btnPrimary}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="/assets/images/img_whatsappicon.svg" alt="" />
+              {primaryCta}
+            </a>
+            <a href="#mains" className={styles.btnGhostLight}>
+              {secondaryCta}
+            </a>
+          </div>
         </div>
       </div>
     </section>

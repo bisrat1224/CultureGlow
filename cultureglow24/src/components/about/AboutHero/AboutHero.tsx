@@ -13,6 +13,7 @@ export function AboutHero() {
         priority
         className={styles.aboutHeroImg}
       />
+      <div className={styles.aboutHeroOverlay} />
       <div className={`${styles.aboutHeroBody} wrap`}>
         <p className={styles.aboutHeroEyebrow}>About Us</p>
         <h1 className={styles.aboutHeroH1}>

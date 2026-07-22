@@ -46,7 +46,7 @@ export function CateringSection() {
             </div>
             <div className={`${styles.cateringImgWrap} ${styles.cateringImgSqWrap}`}>
               <Image
-                src="/assets/images/injera-place.jpg"
+                src="/assets/images/injera-plate.jpg"
                 alt="Injera platter for catering"
                 fill
                 loading="lazy"

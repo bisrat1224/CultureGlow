@@ -17,11 +17,11 @@ export const PRODUCTS: Product[] = [
     category: "HABESHA FOOD",
     name: "Injera Platter",
     price: "£450",
-    image: "/assets/images/injera-place.jpg",
+    image: "/assets/images/injera-plate.jpg",
     alt: "Traditional injera platter with assorted stews",
     description: "A generous injera platter with a rotating selection of stews, sized for one or shared as a starter.",
     gallery: [
-      "/assets/images/injera-place.jpg",
+      "/assets/images/injera-plate.jpg",
       "/assets/images/stew-pans.jpg",
     ],
     allergens: ["Contains gluten (teff and wheat blends vary by batch)", "May contain dairy from ghee-based sauces"],
@@ -64,7 +64,7 @@ export const PRODUCTS: Product[] = [
     description: "A vegan combination platter of lentils, split peas, and seasonal vegetables, generously portioned.",
     gallery: [
       "/assets/images/platter-big.jpg",
-      "/assets/images/injera-place.jpg",
+      "/assets/images/injera-plate.jpg",
     ],
     allergens: ["Contains legumes"],
   },

@@ -63,7 +63,7 @@ export const aboutContent = {
         alt: "Traditional Habesha stews simmering in dark pans",
       },
       {
-        src: "/assets/images/injera-place.jpg",
+        src: "/assets/images/injera-plate.jpg",
         alt: "Injera platter with assorted stews",
       },
       {
