@@ -1,7 +1,6 @@
 ﻿import type { Metadata } from "next";
 import { Header } from "@/components/Header/Header";
 import { Footer } from "@/components/Footer/Footer";
-import { WhatsAppStickyBar } from "@/components/WhatsAppStickyBar/WhatsAppStickyBar";
 import { ScrollRevealInit } from "@/components/ScrollRevealInit";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import "./globals.css";
@@ -63,7 +62,6 @@ export default function RootLayout({
         <Header />
         <main id="main-content">{children}</main>
         <Footer />
-        <WhatsAppStickyBar />
         <ScrollRevealInit />
         <GoogleAnalytics />
       </body>

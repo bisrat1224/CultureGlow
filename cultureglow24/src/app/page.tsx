@@ -7,7 +7,6 @@ import { KitchenSection } from "@/components/home/KitchenSection/KitchenSection"
 import { SocialSection } from "@/components/home/SocialSection/SocialSection";
 import { CateringSection } from "@/components/home/CateringSection/CateringSection";
 import { TestimonialsSection } from "@/components/home/TestimonialsSection/TestimonialsSection";
-import { NewsletterSection } from "@/components/home/NewsletterSection/NewsletterSection";
 
 export default function Home() {
   return (
@@ -21,7 +20,6 @@ export default function Home() {
       <SocialSection />
       <CateringSection />
       <TestimonialsSection />
-      <NewsletterSection />
     </>
   );
 }

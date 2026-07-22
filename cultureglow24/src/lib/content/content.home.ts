@@ -106,21 +106,6 @@ export const homeContent = {
     headingEm: "Guests",
     headingAfterEm: " Say",
   },
-
-  newsletter: {
-    eyebrow: "Stay in Touch",
-    headingBeforeEm: "Join the ",
-    headingEm: "Table",
-    headingAfterEm: "",
-    body: "Be the first to hear about new dishes, catering offers, and cultural events, straight to your inbox.",
-    inputPlaceholder: "Your email address",
-    submitCta: "Subscribe",
-    note: "No spam. Unsubscribe anytime.",
-  },
-
-  whatsAppStickyBar: {
-    label: "Order",
-  },
 } as const;
 
 export type HomeContent = typeof homeContent;
