@@ -93,9 +93,9 @@
 
 .storyImgAccentWrap {
   position: absolute;
-  bottom: -32px;
-  left: -24px;
-  width: 48%;
+  bottom: calc(var(--cg-u) * -2);
+  left: calc(var(--cg-u) * -1);
+  width: 44%;
   aspect-ratio: 1;
   border-radius: 12px;
   border: 6px solid var(--cg-cream);
@@ -110,7 +110,7 @@
 .storyBadge {
   position: absolute;
   top: 24px;
-  right: -16px;
+  right: calc(var(--cg-u) * -1);
   background: var(--cg-gold);
   color: #fff;
   font-size: 12px;
@@ -126,5 +126,15 @@
 @media (min-width: 768px) {
   .storyInner {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .storyImgAccentWrap {
+    bottom: calc(var(--cg-u) * -4);
+    left: calc(var(--cg-u) * -3);
+    width: 48%;
+  }
+
+  .storyBadge {
+    right: calc(var(--cg-u) * -2);
   }
 }
