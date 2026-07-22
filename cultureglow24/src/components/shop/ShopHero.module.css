@@ -3,7 +3,7 @@
     url("/assets/images/pexels-berlinerlights-23858842.jpg");
   background-size: cover;
   background-position: center;
-  padding: 100px 24px 80px;
+  padding: calc(var(--cg-u) * 12.5) calc(var(--cg-u) * 3) calc(var(--cg-u) * 10);
   text-align: center;
 }
 
