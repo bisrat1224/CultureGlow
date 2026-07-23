@@ -1,80 +1,58 @@
 "use client";
 
 import Link from "next/link";
-import type { NavLink } from "@/lib/constants";
-import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
+import { buildWhatsAppLink } from "@/lib/constants";
 import styles from "./MobileNav.module.css";
 
 interface MobileNavProps {
   isOpen: boolean;
   onClose: () => void;
-  links: NavLink[];
+  links: { href: string; label: string }[];
 }
 
 export function MobileNav({ isOpen, onClose, links }: MobileNavProps) {
-  const navRef = useRef<HTMLDivElement>(null);
-  const closeBtnRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    if (!isOpen) return;
-
-    // Focus the close button when menu opens
-    closeBtnRef.current?.focus();
-
-    // Trap focus and handle Escape
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        onClose();
-        return;
-      }
-      if (e.key !== "Tab") return;
-
-      const focusable = navRef.current?.querySelectorAll<HTMLElement>(
-        "a, button"
-      );
-      if (!focusable || focusable.length === 0) return;
-
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-
-      if (e.shiftKey && document.activeElement === first) {
-        e.preventDefault();
-        last.focus();
-      } else if (!e.shiftKey && document.activeElement === last) {
-        e.preventDefault();
-        first.focus();
-      }
-    };
-
-    document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen, onClose]);
+  const pathname = usePathname();
 
   if (!isOpen) return null;
 
   return (
-    <div
-      ref={navRef}
-      className={`${styles.mobileNav} ${isOpen ? styles.open : ""}`}
-      role="dialog"
-      aria-modal="true"
-      aria-label="Mobile navigation"
-    >
-      <button
-        ref={closeBtnRef}
-        type="button"
-        className={styles.mobileNavClose}
-        aria-label="Close menu"
-        onClick={onClose}
-      >
-        ✕
-      </button>
+    <div className={styles.mobileNavOverlay} onClick={onClose}>
+      <div className={styles.mobileNav} onClick={(e) => e.stopPropagation()}>
+        <button
+          className={styles.mobileNavClose}
+          onClick={onClose}
+          aria-label="Close menu"
+        >
+          ✕
+        </button>
 
-      {links.map((link) => (
-        <Link key={link.href} href={link.href} onClick={onClose}>
-          {link.label}
-        </Link>
-      ))}
+        <nav aria-label="Mobile navigation">
+          <ul className={styles.mobileNavLinks}>
+            {links.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={pathname === link.href ? styles.active : ""}
+                  onClick={onClose}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <a
+          href={buildWhatsAppLink()}
+          className={styles.mobileNavWaBtn}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src="/assets/images/img_whatsappicon.svg" alt="" />
+          Order on WhatsApp
+        </a>
+      </div>
     </div>
   );
 }

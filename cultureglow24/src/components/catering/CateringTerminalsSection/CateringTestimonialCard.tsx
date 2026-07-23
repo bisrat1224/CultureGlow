@@ -1,6 +1,6 @@
 import styles from "./CateringTestimonialCard.module.css";
 
-export interface CateringTestimonial {
+interface Testimonial {
   id: string;
   quote: string;
   initial: string;
@@ -8,35 +8,17 @@ export interface CateringTestimonial {
   location: string;
 }
 
-interface CateringTestimonialCardProps {
-  testimonial: CateringTestimonial;
-}
-
-
-export function CateringTestimonialCard({
-  testimonial,
-}: CateringTestimonialCardProps) {
-  const { quote, initial, name, location } = testimonial;
-
+export default function CateringTestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
-    <article className={`${styles.tcard} reveal`}>
-      <div className={styles.tcardStars} aria-hidden="true">
-        <span>★</span>
-        <span>★</span>
-        <span>★</span>
-        <span>★</span>
-        <span>★</span>
+    <div className={styles.card}>
+      <div className={styles.avatar}>
+        <span>{testimonial.initial}</span>
       </div>
-      <p className={styles.tcardQuote}>&quot;{quote}&quot;</p>
-      <div className={styles.tcardAuthor}>
-        <div className={styles.tcardAvatar} aria-hidden="true">
-          {initial}
-        </div>
-        <div>
-          <p className={styles.tcardName}>{name}</p>
-          <p className={styles.tcardLoc}>{location}</p>
-        </div>
+      <blockquote className={styles.quote}>{testimonial.quote}</blockquote>
+      <div className={styles.author}>
+        <span className={styles.name}>{testimonial.name}</span>
+        <span className={styles.location}>{testimonial.location}</span>
       </div>
-    </article>
+    </div>
   );
 }

@@ -27,6 +27,14 @@ export const CateringPackages: CollectionConfig = {
       admin: {
         position: "sidebar",
       },
+      hooks: {
+        beforeValidate: [
+          ({ value, data }) => {
+            if (value) return value;
+            return data?.name?.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "";
+          },
+        ],
+      },
     },
     {
       name: "guests",

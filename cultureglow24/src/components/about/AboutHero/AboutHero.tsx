@@ -1,27 +1,24 @@
-import Image from "next/image";
 import styles from "./AboutHero.module.css";
 
-export function AboutHero() {
+interface AboutHeroProps {
+  hero: {
+    eyebrow: string;
+    heading_before_em: string;
+    heading_em: string;
+    heading_after_em: string;
+  };
+}
+
+export default function AboutHero({ hero }: AboutHeroProps) {
   return (
     <section className={styles.aboutHero} aria-label="About hero">
-      <Image
-        src="/assets/images/habesha-sefed.webp"
-        alt="Habesha cultural heritage and identity"
-        fill
-        sizes="100vw"
-        quality={85}
-        priority
-        className={styles.aboutHeroImg}
-      />
-      <div className={styles.aboutHeroOverlay} />
-      <div className={`${styles.aboutHeroBody} wrap`}>
-        <p className={styles.aboutHeroEyebrow}>About Us</p>
+      <div className="wrap">
+        <p className={styles.aboutHeroEyebrow}>{hero.eyebrow}</p>
         <h1 className={styles.aboutHeroH1}>
-          Our <em>Story</em>
+          {hero.heading_before_em}
+          <em>{hero.heading_em}</em>
+          {hero.heading_after_em}
         </h1>
-        <p className={styles.aboutHeroDesc}>
-          Habesha food, beauty, and lifestyle delivered with care.
-        </p>
       </div>
     </section>
   );

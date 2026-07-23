@@ -1,31 +1,38 @@
-import { aboutContent } from "@/lib/content/content.about";
 import styles from "./MilestonesTimeline.module.css";
-import shared from "../../home/shared.module.css";
+import shared from "../shared.module.css";
 
-const REVEAL_DELAYS = ["reveal-delay-1", "reveal-delay-2", "reveal-delay-3", "reveal-delay-4"];
+interface MilestonesTimelineProps {
+  heading: {
+    eyebrow: string;
+    heading_before_em: string;
+    heading_em: string;
+  };
+  milestones: any[];
+}
 
-export function MilestonesTimeline() {
-  const { eyebrow, headingBeforeEm, headingEm, items } = aboutContent.milestones;
-
+export default function MilestonesTimeline({ heading, milestones }: MilestonesTimelineProps) {
   return (
-    <section className={styles.milestonesSection} aria-labelledby="milestones-h2">
+    <section className={shared.sectionOnCream} id="milestones" aria-labelledby="milestones-h2">
       <div className="wrap">
-        <div className={`${styles.milestonesHeader} reveal`}>
-          <p className={shared.sectionEyebrow}>{eyebrow}</p>
-          <h2 className={styles.milestonesH2} id="milestones-h2">
-            {headingBeforeEm}
-            <em>{headingEm}</em>
+        <div className={`${shared.sectionHead} reveal`}>
+          <p className={shared.sectionEyebrow}>{heading.eyebrow}</p>
+          <h2
+            className={`${shared.sectionTitle} ${shared.sectionTitleLight}`}
+            id="milestones-h2"
+          >
+            {heading.heading_before_em}
+            <em>{heading.heading_em}</em>
           </h2>
         </div>
 
         <div className={styles.timeline}>
-          {items.map((milestone, i) => (
+          {milestones.map((milestone, i) => (
             <div
-              key={`${milestone.year}-${milestone.label}`}
-              className={`${styles.timelineItem} reveal ${REVEAL_DELAYS[i]}`}
+              key={milestone.id}
+              className={`${styles.timelineItem} reveal reveal-delay-${Math.min(i + 1, 3)}`}
             >
-              <p className={styles.timelineYear}>{milestone.year}</p>
-              <p className={styles.timelineLabel}>{milestone.label}</p>
+              <span className={styles.timelineYear}>{milestone.year}</span>
+              <span className={styles.timelineLabel}>{milestone.label}</span>
             </div>
           ))}
         </div>

@@ -2,65 +2,61 @@
 
 import { useCallback, useState } from "react";
 import Image from "next/image";
-import { galleryContent } from "@/lib/content/content.gallery";
-import { PhotoLightbox } from "./PhotoLightbox";
-import styles from "./GalleryPhotoGrid.module.css";
-import shared from "../shared.module.css";
+import PhotoLightbox from "./PhotoLightbox";
 
-export interface GalleryPhoto {
-  id: string;
-  image: string;
-  alt: string;
-  ratio?: string;
+interface GalleryPhotoGridProps {
+  heading: {
+    eyebrow: string;
+    heading_before_em: string;
+    heading_em: string;
+    heading_after_em: string;
+    desc: string;
+  };
+  photos: any[];
 }
 
-const PHOTOS: GalleryPhoto[] = [
-  { id: "bride-henna", image: "/assets/images/bride-henna.jpg", alt: "Bride in gold-embroidered Habesha dress with henna", ratio: "3/4" },
-  { id: "platter-big", image: "/assets/images/platter-big.jpg", alt: "Large injera platter with assorted stews" },
-  { id: "dress-burgundy", image: "/assets/images/dress-burgundy.jpg", alt: "Habesha kemis with burgundy and gold tibeb embroidery", ratio: "3/4" },
-  { id: "stew-pans", image: "/assets/images/stew-pans.jpg", alt: "Rows of dark catering pans filled with Habesha stews" },
-  { id: "dress-green", image: "/assets/images/dress-green.jpg", alt: "Habesha dress with green and gold embroidery" },
-  { id: "sharing-hands", image: "/assets/images/sharing-hands.jpg", alt: "Many hands sharing a communal injera platter" },
-  { id: "tibs-skillet", image: "/assets/images/tibs-skillet.jpg", alt: "Sizzling beef tibs skillet with peppers", ratio: "3/4" },
-  { id: "injera-plate", image: "/assets/images/injera-plate.jpg", alt: "Injera rolls with misir, gomen, and lentils" },
-];
-
-export function GalleryPhotoGrid() {
+export default function GalleryPhotoGrid({ heading, photos }: GalleryPhotoGridProps) {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  const { eyebrow, headingBeforeEm, headingEm, headingAfterEm, desc } = galleryContent.photoGrid;
 
   const close = useCallback(() => setLightboxIndex(null), []);
-  const prev = useCallback(() => setLightboxIndex((i) => i === null ? null : (i - 1 + PHOTOS.length) % PHOTOS.length), []);
-  const next = useCallback(() => setLightboxIndex((i) => i === null ? null : (i + 1) % PHOTOS.length), []);
+  const prev = useCallback(
+    () => setLightboxIndex((i) => (i === null ? null : (i - 1 + photos.length) % photos.length)),
+    [photos.length]
+  );
+  const next = useCallback(
+    () => setLightboxIndex((i) => (i === null ? null : (i + 1) % photos.length)),
+    [photos.length]
+  );
 
   return (
-    <section className={shared.sectionOnCream} id="gallery-photos" aria-labelledby="masonry-h2">
+    <section className="section-on-cream" id="photos" aria-labelledby="gallery-photos-h2">
       <div className="wrap">
-        <div className={`${shared.sectionHead} reveal`}>
-          <p className={shared.sectionEyebrow}>{eyebrow}</p>
-          <h2 className={`${shared.sectionTitle} ${shared.sectionTitleLight}`} id="masonry-h2">
-            {headingBeforeEm}<em>{headingEm}</em>{headingAfterEm}
+        <div className="section-head reveal">
+          <p className="section-eyebrow">{heading.eyebrow}</p>
+          <h2 className="section-title section-title-light" id="gallery-photos-h2">
+            {heading.heading_before_em}
+            <em>{heading.heading_em}</em>
+            {heading.heading_after_em}
           </h2>
-          <p className={`${shared.sectionDesc} ${shared.sectionDescLight}`}>{desc}</p>
+          <p className="section-desc">{heading.desc}</p>
         </div>
 
-        <div className={styles.masonry}>
-          {PHOTOS.map((photo, idx) => (
+        <div className="photo-grid">
+          {photos.map((photo, i) => (
             <button
               key={photo.id}
-              className={styles.masonryItem}
-              onClick={() => setLightboxIndex(idx)}
-              aria-label={`Open lightbox: ${photo.alt}`}
-              style={{ aspectRatio: photo.ratio || "4/3" }}
+              className={`photo-item reveal reveal-delay-${Math.min(i + 1, 4)}`}
+              onClick={() => setLightboxIndex(i)}
+              aria-label={`View ${photo.alt}`}
+              style={{ aspectRatio: photo.ratio || "1/1" }}
             >
               <Image
                 src={photo.image}
                 alt={photo.alt}
-                width={600}
-                height={photo.ratio === "3/4" ? 800 : 450}
+                fill
                 loading="lazy"
-                className={styles.masonryImg}
-                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 100vw"
+                className="photo-img"
               />
             </button>
           ))}
@@ -69,8 +65,8 @@ export function GalleryPhotoGrid() {
 
       {lightboxIndex !== null && (
         <PhotoLightbox
-          photos={PHOTOS}
-          index={lightboxIndex}
+          photos={photos.map((p) => ({ src: p.image, alt: p.alt }))}
+          currentIndex={lightboxIndex}
           onClose={close}
           onPrev={prev}
           onNext={next}

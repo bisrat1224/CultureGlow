@@ -1,25 +1,22 @@
-import { SocialTile, type SocialTileData } from "./SocialTile";
-import { homeContent } from "@/lib/content/content.home";
+import SocialTile from "./SocialTile";
 import styles from "./SocialSection.module.css";
 import shared from "../shared.module.css";
 
-const TIKTOK_TILES: SocialTileData[] = [
-  { id: "tiktok-1", color: "a", platform: "tiktok", caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod." },
-  { id: "tiktok-2", color: "b", platform: "tiktok", caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod." },
-  { id: "tiktok-3", color: "c", platform: "tiktok", caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod." },
-];
+interface SocialSectionProps {
+  social: {
+    eyebrow: string;
+    heading_before_em: string;
+    heading_em: string;
+    heading_after_em: string;
+    tiktok_label: string;
+    reels_label: string;
+  };
+  tiles: any[];
+}
 
-const REELS_TILES: SocialTileData[] = [
-  { id: "reels-1", color: "b", platform: "reels", caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod." },
-  { id: "reels-2", color: "c", platform: "reels", caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod." },
-  { id: "reels-3", color: "a", platform: "reels", caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod." },
-];
-
-const REVEAL_DELAYS = ["reveal-delay-1", "reveal-delay-2", "reveal-delay-3"];
-
-export function SocialSection() {
-  const { eyebrow, headingBeforeEm, headingEm, headingAfterEm, tiktokLabel, reelsLabel } =
-    homeContent.social;
+export default function SocialSection({ social, tiles }: SocialSectionProps) {
+  const tiktokTiles = tiles.filter((t) => t.platform === "tiktok");
+  const reelsTiles = tiles.filter((t) => t.platform === "reels");
 
   return (
     <section
@@ -29,31 +26,53 @@ export function SocialSection() {
     >
       <div className="wrap">
         <div className={`${styles.socialHeader} reveal`}>
-          <p className={shared.sectionEyebrow}>{eyebrow}</p>
+          <p className={shared.sectionEyebrow}>{social.eyebrow}</p>
           <h2 className={styles.sectionH2Light} id="social-h2">
-            {headingBeforeEm}
-            <em>{headingEm}</em>
-            {headingAfterEm}
+            {social.heading_before_em}
+            <em>{social.heading_em}</em>
+            {social.heading_after_em}
           </h2>
         </div>
 
-        <div className={`${styles.socialRow} reveal`}>
-          <p className={styles.socialRowLabel}>{tiktokLabel}</p>
-          <div className={styles.socialGrid}>
-            {TIKTOK_TILES.map((tile, i) => (
-              <SocialTile key={tile.id} tile={tile} revealDelayClass={REVEAL_DELAYS[i]} />
-            ))}
+        {tiktokTiles.length > 0 && (
+          <div className={`${styles.socialRow} reveal`}>
+            <p className={styles.socialRowLabel}>{social.tiktok_label}</p>
+            <div className={styles.socialGrid}>
+              {tiktokTiles.map((tile, i) => (
+                <SocialTile
+                  key={tile.id}
+                  data={{
+                    id: tile.id,
+                    platform: tile.platform,
+                    color: tile.color,
+                    caption: tile.caption,
+                  }}
+                  revealDelayClass={`reveal-delay-${Math.min(i + 1, 3)}`}
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
-        <div className={`${styles.socialRow} reveal reveal-delay-2`}>
-          <p className={styles.socialRowLabel}>{reelsLabel}</p>
-          <div className={styles.socialGrid}>
-            {REELS_TILES.map((tile, i) => (
-              <SocialTile key={tile.id} tile={tile} revealDelayClass={REVEAL_DELAYS[i]} />
-            ))}
+        {reelsTiles.length > 0 && (
+          <div className={`${styles.socialRow} reveal`}>
+            <p className={styles.socialRowLabel}>{social.reels_label}</p>
+            <div className={styles.socialGrid}>
+              {reelsTiles.map((tile, i) => (
+                <SocialTile
+                  key={tile.id}
+                  data={{
+                    id: tile.id,
+                    platform: tile.platform,
+                    color: tile.color,
+                    caption: tile.caption,
+                  }}
+                  revealDelayClass={`reveal-delay-${Math.min(i + 1, 3)}`}
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );

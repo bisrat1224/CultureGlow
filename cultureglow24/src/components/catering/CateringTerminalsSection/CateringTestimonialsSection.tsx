@@ -1,63 +1,46 @@
-﻿import {
-  CateringTestimonialCard,
-  type CateringTestimonial,
-} from "./CateringTestimonialCard";
-import { cateringContent } from "@/lib/content/content.catering";
+import CateringTestimonialCard from "./CateringTestimonialCard";
 import styles from "./CateringTestimonialsSection.module.css";
 import shared from "../shared.module.css";
 
-const TESTIMONIALS: CateringTestimonial[] = [
-  {
-    id: "liya-t",
-    quote:
-      "CultureGlow24 catered our wedding and every single guest asked where the food was from. The doro wat was better than my grandmother's, and that's saying a lot.",
-    initial: "L",
-    name: "Liya T.",
-    location: "Wedding, Addis Ababa",
-  },
-  {
-    id: "meron-a",
-    quote:
-      "We booked them for a company retreat and the team handled everything - setup, service, cleanup. Zero stress and the spread was incredible.",
-    initial: "M",
-    name: "Meron A.",
-    location: "Corporate Retreat, Bole",
-  },
-  {
-    id: "dawit-s",
-    quote:
-      "They understood exactly what our Timkat celebration needed. Authentic, generous portions, and served with real care for the tradition.",
-    initial: "D",
-    name: "Dawit S.",
-    location: "Timkat Celebration, Piassa",
-  },
-];
+interface CateringTestimonialsSectionProps {
+  heading: {
+    eyebrow: string;
+    heading_before_em: string;
+    heading_em: string;
+    heading_after_em: string;
+  };
+  testimonials: any[];
+}
 
-export function CateringTestimonialsSection() {
-  const { eyebrow, headingBeforeEm, headingEm, headingAfterEm } = cateringContent.testimonials;
-
+export default function CateringTestimonialsSection({ heading, testimonials }: CateringTestimonialsSectionProps) {
   return (
-    <section
-      className={shared.sectionOnDark}
-      id="testimonials"
-      aria-labelledby="cat-testimonials-h2"
-    >
+    <section className={shared.sectionOnDark} id="testimonials" aria-labelledby="cat-testimonials-h2">
       <div className="wrap">
         <div className={`${shared.sectionHeadCentered} reveal`}>
-          <p className={shared.sectionEyebrow}>{eyebrow}</p>
+          <p className={shared.sectionEyebrow}>{heading.eyebrow}</p>
           <h2
             className={`${shared.sectionTitle} ${shared.sectionTitleDark}`}
             id="cat-testimonials-h2"
           >
-            {headingBeforeEm}
-            <em>{headingEm}</em>
-            {headingAfterEm}
+            {heading.heading_before_em}
+            <em>{heading.heading_em}</em>
+            {heading.heading_after_em}
           </h2>
         </div>
 
         <div className={styles.testimonialsGrid}>
-          {TESTIMONIALS.map((t) => (
-            <CateringTestimonialCard key={t.id} testimonial={t} />
+          {testimonials.map((t, i) => (
+            <CateringTestimonialCard
+              key={t.id}
+              testimonial={{
+                id: t.id,
+                quote: t.quote,
+                initial: t.initial,
+                name: t.name,
+                location: t.location,
+              }}
+              revealDelayClass={`reveal-delay-${Math.min(i + 1, 3)}`}
+            />
           ))}
         </div>
       </div>

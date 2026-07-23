@@ -1,20 +1,24 @@
-import { shopContent } from "@/lib/content/content.shop";
-import styles from "./HowToOrderSection.module.css";
+interface HowToOrderSectionProps {
+  section: {
+    label: string;
+    title: string;
+    desc: string;
+    steps: { number: number; title: string; desc: string }[];
+  };
+}
 
-export function HowToOrderSection() {
-  const { label, title, desc, steps } = shopContent.howToOrder;
-
+export default function HowToOrderSection({ section }: HowToOrderSectionProps) {
   return (
-    <section className={styles.howToOrder}>
-      <p className={styles.sectionLabel}>{label}</p>
-      <h2 className={styles.sectionTitle}>{title}</h2>
-      <p className={styles.howToOrderDesc}>{desc}</p>
-      <div className={styles.stepsRow}>
-        {steps.map((step) => (
-          <div key={step.number} className={styles.stepItem}>
-            <div className={styles.stepNumber}>{step.number}</div>
-            <p className={styles.stepTitle}>{step.title}</p>
-            <p className={styles.stepDesc}>{step.desc}</p>
+    <section className="how-to-order">
+      <p className="section-label">{section.label}</p>
+      <h2 className="section-title">{section.title}</h2>
+      <p className="how-to-order-desc">{section.desc}</p>
+      <div className="steps-row">
+        {section.steps.map((step) => (
+          <div key={step.number} className="step-item">
+            <div className="step-number">{step.number}</div>
+            <p className="step-title">{step.title}</p>
+            <p className="step-desc">{step.desc}</p>
           </div>
         ))}
       </div>

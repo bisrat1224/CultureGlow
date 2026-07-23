@@ -1,101 +1,85 @@
-﻿import { MessageCircle, Phone, Mail } from "lucide-react";
-import { SOCIAL_LINKS, CONTACT_EMAIL, buildWhatsAppLink } from "@/lib/constants";
-import { contactContent } from "@/lib/content/content.contact";
-import styles from "./ContactSection.module.css";
-import shared from "../shared.module.css";
+import { MessageCircle, Phone, Mail } from "lucide-react";
+import { buildWhatsAppLink } from "@/lib/constants";
 
-// Per explicit direction: Contact is a hub of ways to reach the business,
-// not a form to fill out. Supersedes the earlier /api/contact-backed
-// ContactForm approach (Chunk 9 / Open Decision D1) for this page
-// specifically - Catering's enquiry form (CateringEnquirySection.tsx,
-// still posting to /api/catering) is unaffected and unchanged.
-//
-// Only four contact methods are shown, per instruction: WhatsApp, a UK
-// phone number, email, and social links. No map, no form, nothing else.
-//
-// UK_PHONE uses Ofcom's officially reserved fictitious-number block for
-// London (020 7946 0000-0999) - these numbers are permanently set aside
-// by the regulator and guaranteed to never be allocated to a real
-// subscriber, unlike an arbitrary-looking placeholder such as
-// "020 7123 4567" which could coincidentally be, or become, a real
-// number. Swap for the client's real number once supplied via the PM.
-// Email now reads from the centralized CONTACT_EMAIL constant
-// (lib/constants.ts) instead of a local duplicate literal.
-const UK_PHONE_DISPLAY = "+44 20 7946 0321";
-const UK_PHONE_TEL = "+442079460321";
+interface ContactSectionProps {
+  methods: {
+    eyebrow: string;
+    heading_before_em: string;
+    heading_em: string;
+    heading_after_em: string;
+    desc: string;
+    whatsapp_label: string;
+    whatsapp_value: string;
+    phone_label: string;
+    email_label: string;
+    social_label: string;
+  };
+  siteSettings: {
+    whatsapp_number?: string;
+    contact_email?: string;
+    phone?: string;
+    phone_tel?: string;
+    social_links?: { label: string; href: string }[];
+  };
+}
 
-export function ContactSection() {
-  const { eyebrow, headingBeforeEm, headingEm, headingAfterEm, desc, whatsapp, phone, email, social } =
-    contactContent.methods;
+export default function ContactSection({ methods, siteSettings }: ContactSectionProps) {
+  const contactEmail = siteSettings.contact_email || "hello@cultureglow24.com";
+  const phoneDisplay = siteSettings.phone || "+44 20 7946 0321";
+  const phoneTel = siteSettings.phone_tel || "+442079460321";
 
   return (
-    <section
-      className={shared.sectionOnCream}
-      id="contact-hub"
-      aria-labelledby="contact-h2"
-    >
+    <section className="section-on-cream" id="contact-hub" aria-labelledby="contact-h2">
       <div className="wrap">
-        <div className={`${shared.sectionHeadCentered} reveal`}>
-          <p className={shared.sectionEyebrow}>{eyebrow}</p>
-          <h2
-            className={`${shared.sectionTitle} ${shared.sectionTitleLight}`}
-            id="contact-h2"
-          >
-            {headingBeforeEm}
-            <em>{headingEm}</em>
-            {headingAfterEm}
+        <div className="section-head-centered reveal">
+          <p className="section-eyebrow">{methods.eyebrow}</p>
+          <h2 className="section-title section-title-light" id="contact-h2">
+            {methods.heading_before_em}
+            <em>{methods.heading_em}</em>
+            {methods.heading_after_em}
           </h2>
-          <p className={`${shared.sectionDesc} ${shared.sectionDescLight}`}>{desc}</p>
+          <p className="section-desc">{methods.desc}</p>
         </div>
 
-        <div className={styles.methodsGrid}>
-          <a
-            href={buildWhatsAppLink()}
-            className={styles.methodCard}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span className={styles.methodIcon} aria-hidden="true">
-              <MessageCircle size={22} strokeWidth={1.75} />
-            </span>
-            <span className={styles.methodLabel}>{whatsapp.label}</span>
-            <span className={styles.methodValue}>{whatsapp.value}</span>
+        <div className="contact-methods">
+          <a href={buildWhatsAppLink()} className="contact-method reveal reveal-delay-1" target="_blank" rel="noopener noreferrer">
+            <MessageCircle className="contact-icon" />
+            <div>
+              <p className="contact-label">{methods.whatsapp_label}</p>
+              <p className="contact-value">{methods.whatsapp_value}</p>
+            </div>
           </a>
 
-          <a href={`tel:${UK_PHONE_TEL}`} className={styles.methodCard}>
-            <span className={styles.methodIcon} aria-hidden="true">
-              <Phone size={22} strokeWidth={1.75} />
-            </span>
-            <span className={styles.methodLabel}>{phone.label}</span>
-            <span className={styles.methodValue}>{UK_PHONE_DISPLAY}</span>
+          <a href={`tel:${phoneTel}`} className="contact-method reveal reveal-delay-2">
+            <Phone className="contact-icon" />
+            <div>
+              <p className="contact-label">{methods.phone_label}</p>
+              <p className="contact-value">{phoneDisplay}</p>
+            </div>
           </a>
 
-          <a
-            href={`mailto:${CONTACT_EMAIL}`}
-            className={styles.methodCard}
-          >
-            <span className={styles.methodIcon} aria-hidden="true">
-              <Mail size={22} strokeWidth={1.75} />
-            </span>
-            <span className={styles.methodLabel}>{email.label}</span>
-            <span className={styles.methodValue}>{CONTACT_EMAIL}</span>
+          <a href={`mailto:${contactEmail}`} className="contact-method reveal reveal-delay-3">
+            <Mail className="contact-icon" />
+            <div>
+              <p className="contact-label">{methods.email_label}</p>
+              <p className="contact-value">{contactEmail}</p>
+            </div>
           </a>
 
-          <div className={styles.methodCard}>
-            <span className={styles.methodLabel}>{social.label}</span>
-            <ul className={styles.socialList}>
-              {SOCIAL_LINKS.map((s) => (
-                <li key={s.label}>
-                  <a
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {s.label}
+          <div className="contact-method reveal reveal-delay-4">
+            <div className="contact-icon" style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <span style={{ fontSize: "1.5rem" }}>@</span>
+            </div>
+            <div>
+              <p className="contact-label">{methods.social_label}</p>
+              <div className="social-links">
+                {siteSettings.social_links?.map((link) => (
+                  <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="social-link">
+                    {link.label}
                   </a>
-                </li>
-              ))}
-            </ul>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

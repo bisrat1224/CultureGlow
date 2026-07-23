@@ -1,14 +1,23 @@
-import { shopContent } from "@/lib/content/content.shop";
-import styles from "./ScrollingBanner.module.css";
+interface ScrollingBannerProps {
+  items?: { text: string }[];
+}
 
-export function ScrollingBanner() {
-  const items = [...shopContent.scrollingBanner.items, ...shopContent.scrollingBanner.items];
+export default function ScrollingBanner({ items }: ScrollingBannerProps) {
+  const defaultItems = [
+    "CULTUREGLOW24",
+    "AUTHENTIC HABESHA FLAVORS",
+    "ORDER VIA WHATSAPP",
+    "DELIVERED FRESH",
+  ];
+
+  const texts = items?.map((i) => i.text) || defaultItems;
+  const doubled = [...texts, ...texts];
 
   return (
-    <div className={styles.scrollingBanner} aria-hidden="true">
-      <div className={styles.bannerContent}>
-        {items.map((item, i) => (
-          <span key={`${item}-${i}`} className={styles.bannerText}>
+    <div className="scrolling-banner" aria-hidden="true">
+      <div className="banner-content">
+        {doubled.map((item, i) => (
+          <span key={`${item}-${i}`} className="banner-text">
             {item}
           </span>
         ))}

@@ -3,16 +3,28 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { NAV_LINKS, buildWhatsAppLink } from "@/lib/constants";
+import { buildWhatsAppLink } from "@/lib/constants";
 import { useScrolledHeader } from "@/hooks/useScrolledHeader";
 import { useMobileNav } from "@/hooks/useMobileNav";
 import { MobileNav } from "./MobileNav";
 import styles from "./Header.module.css";
 
-export function Header() {
+interface HeaderProps {
+  logo?: any;
+  navLinks?: { label: string; href: string; sort_order?: number }[];
+  whatsappNumber?: string;
+}
+
+export function Header({ logo, navLinks, whatsappNumber }: HeaderProps) {
   const scrolled = useScrolledHeader();
   const { isOpen, open, close } = useMobileNav();
   const pathname = usePathname();
+
+  const links = navLinks
+    ?.sort((a, b) => (a.sort_order || 0) - (b.sort_order || 0))
+    .map((l) => ({ href: l.href, label: l.label })) || [];
+
+  const logoSrc = logo?.url || "/assets/images/logo.png";
 
   return (
     <>
@@ -22,7 +34,7 @@ export function Header() {
         <div className={styles.headerLogo}>
           <Link href="/">
             <Image
-              src="/assets/images/logo.png"
+              src={logoSrc}
               alt="CultureGlow24"
               loading="lazy"
               width={48}
@@ -33,7 +45,7 @@ export function Header() {
 
         <nav aria-label="Main navigation">
           <ul className={styles.headerNav}>
-            {NAV_LINKS.map((link) => (
+            {links.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
@@ -70,7 +82,7 @@ export function Header() {
         </div>
       </header>
 
-      <MobileNav isOpen={isOpen} onClose={close} links={NAV_LINKS} />
+      <MobileNav isOpen={isOpen} onClose={close} links={links} />
     </>
   );
 }

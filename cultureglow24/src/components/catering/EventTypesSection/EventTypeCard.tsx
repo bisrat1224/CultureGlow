@@ -1,37 +1,35 @@
 import Image from "next/image";
 import styles from "./EventTypeCard.module.css";
 
-export interface EventType {
+interface EventType {
   id: string;
-  tag: string;
   title: string;
-  desc: string;
-  image: string;
+  tag: string;
+  description: string;
+  image?: { url?: string } | null;
   alt: string;
 }
 
-interface EventTypeCardProps {
-  eventType: EventType;
-}
-
-export function EventTypeCard({ eventType }: EventTypeCardProps) {
-  const { tag, title, desc, image, alt } = eventType;
-
+export default function EventTypeCard({ eventType }: { eventType: EventType }) {
   return (
-    <article className={`${styles.eventCard} reveal`}>
-      <Image
-        src={image}
-        alt={alt}
-        fill
-        loading="lazy"
-        sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-        className={styles.eventCardImg}
-      />
-      <div className={styles.eventCardOverlay}>
-        <span className={styles.eventCardTag}>{tag}</span>
-        <h3 className={styles.eventCardTitle}>{title}</h3>
-        <p className={styles.eventCardDesc}>{desc}</p>
+    <div className={styles.card}>
+      <div className={styles.imageWrapper}>
+        {eventType.image?.url ? (
+          <Image
+            src={eventType.image.url}
+            alt={eventType.alt}
+            fill
+            className={styles.image}
+          />
+        ) : (
+          <div className={styles.placeholder} />
+        )}
+        <span className={styles.tag}>{eventType.tag}</span>
       </div>
-    </article>
+      <div className={styles.info}>
+        <h3 className={styles.title}>{eventType.title}</h3>
+        <p className={styles.description}>{eventType.description}</p>
+      </div>
+    </div>
   );
 }

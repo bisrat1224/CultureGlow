@@ -1,52 +1,42 @@
-import Image from "next/image";
 import { buildWhatsAppLink } from "@/lib/constants";
-import { cateringContent } from "@/lib/content/content.catering";
 import styles from "./CateringHero.module.css";
-import shared from "../shared.module.css";
 
-export function CateringHero() {
-  const { eyebrow, headingBeforeEm, headingEm, headingAfterEm, desc, primaryCta, secondaryCta } =
-    cateringContent.hero;
+interface CateringHeroProps {
+  hero: {
+    eyebrow: string;
+    heading_before_em: string;
+    heading_em: string;
+    heading_after_em: string;
+    desc: string;
+    primary_cta: string;
+    secondary_cta: string;
+  };
+}
 
+export default function CateringHero({ hero }: CateringHeroProps) {
   return (
-    <section className={styles.catHero} aria-label="Catering hero">
-      <Image
-        src="https://images.pexels.com/photos/3376765/pexels-photo-3376765.jpeg?auto=compress&cs=tinysrgb&w=1600"
-        alt="Elegant banquet hall set up for a large catered event"
-        fill
-        sizes="100vw"
-        quality={70}
-        priority
-        className={styles.catHeroImg}
-      />
-
-      <div className={styles.catHeroBody}>
-        <div className="wrap">
-          <p className={styles.catHeroEyebrow}>{eyebrow}</p>
-          <h1 className={styles.catHeroH1}>
-            {headingBeforeEm}
-            <em>{headingEm}</em>
-            {headingAfterEm}
-          </h1>
-          <p className={styles.catHeroDesc}>{desc}</p>
-          <div className={styles.catHeroActions}>
-            <a
-              href={buildWhatsAppLink("I would like to enquire about catering")}
-              className={shared.btnPrimary}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="/assets/images/img_whatsappicon.svg"
-                alt=""
-                style={{ width: 16, height: 16 }}
-              />
-              {primaryCta}
-            </a>
-            <a href="#packages" className={shared.btnGhostLight}>
-              {secondaryCta}
-            </a>
-          </div>
+    <section className={styles.cateringHero} aria-label="Catering hero">
+      <div className="wrap">
+        <p className={styles.cateringHeroEyebrow}>{hero.eyebrow}</p>
+        <h1 className={styles.cateringHeroH1}>
+          {hero.heading_before_em}
+          <em>{hero.heading_em}</em>
+          {hero.heading_after_em}
+        </h1>
+        <p className={styles.cateringHeroDesc}>{hero.desc}</p>
+        <div className={styles.cateringHeroActions}>
+          <a
+            href={buildWhatsAppLink("I would like to enquire about catering")}
+            className={styles.btnPrimary}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/assets/images/img_whatsappicon.svg" alt="" />
+            {hero.primary_cta}
+          </a>
+          <a href="#packages" className={styles.btnGhost}>
+            {hero.secondary_cta}
+          </a>
         </div>
       </div>
     </section>

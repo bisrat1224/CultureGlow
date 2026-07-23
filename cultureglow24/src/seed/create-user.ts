@@ -4,6 +4,7 @@ import config from "../../payload.config";
 async function createUser() {
   const payload = await getPayload({ config });
 
+  // Check if any users exist
   const existing = await payload.find({
     collection: "users",
     limit: 1,

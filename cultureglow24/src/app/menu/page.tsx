@@ -1,92 +1,72 @@
-import { MenuHero } from "@/components/menu/MenuHero";
-import { CategoryNav } from "@/components/menu/CategoryNav";
-import { DietLegend } from "@/components/menu/DietLegend";
-import { CategoryBlock } from "@/components/menu/CategoryBlock";
-import { MenuRowList } from "@/components/menu/MenuRowList";
-import { MainsGrid } from "@/components/menu/MainsGrid";
-import { FeatureBanner } from "@/components/menu/FeatureBanner";
-import { HowToOrderSection } from "@/components/menu/HowToOrderSection";
-import { PdfCtaSection } from "@/components/menu/PdfCtaSection";
-import {
-  CATEGORIES,
-  STARTERS_ITEMS,
-  VEG_VEGAN_ITEMS,
-  DESSERTS_ITEMS,
-  DRINKS_ITEMS,
-} from "@/lib/data/menu";
+import type { Metadata } from "next";
+import { getMenuPageData } from "@/lib/cms/menu";
+import { getPayloadClient } from "@/lib/payload";
 
-// Category order/metadata comes from CATEGORIES (lib/data/menu.ts) so the
-// CategoryNav pills and these section shells never drift out of sync.
-const [starters, mains, vegVegan, desserts, drinks] = CATEGORIES;
+import MenuHero from "@/components/menu/MenuHero";
+import CategoryNav from "@/components/menu/CategoryNav";
+import DietLegend from "@/components/menu/DietLegend";
+import CategoryBlock from "@/components/menu/CategoryBlock";
+import MenuRowList from "@/components/menu/MenuRowList";
+import MainsGrid from "@/components/menu/MainsGrid";
+import FeatureBanner from "@/components/menu/FeatureBanner";
+import HowToOrderSection from "@/components/menu/HowToOrderSection";
+import PdfCtaSection from "@/components/menu/PdfCtaSection";
 
-export default function MenuPage() {
+export async function generateMetadata(): Promise<Metadata> {
+  const payload = await getPayloadClient();
+  const seo = await payload.findGlobal({ slug: "seo_defaults" });
+
+  return {
+    title: `Menu | ${seo.default_title}`,
+    description: "Explore our authentic Habesha menu — starters, mains, vegan options, desserts, and drinks.",
+    metadataBase: new URL(seo.metadata_base || "https://cultureglow24.com"),
+  };
+}
+
+export default async function MenuPage() {
+  const data = await getMenuPageData();
+
+  const itemsByCategory = data.categories.map((cat) => ({
+    category: cat,
+    items: data.menuItems.filter((item) => {
+      const itemCategoryId = typeof item.category === "string" ? item.category : item.category?.id;
+      return itemCategoryId === cat.id;
+    }),
+  }));
+
+  const mainsCategory = data.categories.find((c) => c.slug === "mains");
+  const mainsItems = mainsCategory
+    ? data.menuItems.filter((item) => {
+        const itemCategoryId = typeof item.category === "string" ? item.category : item.category?.id;
+        return itemCategoryId === mainsCategory.id;
+      })
+    : [];
+
+  const rowCategories = itemsByCategory.filter(
+    (ic) => ic.category.slug !== "mains"
+  );
+
   return (
     <>
-      <MenuHero />
-      <CategoryNav />
+      <MenuHero hero={data.menuPage.hero} />
+      <CategoryNav categories={data.categories} />
+      <DietLegend />
 
-      <div className="wrap">
-        <DietLegend />
-      </div>
+      {rowCategories.map((ic) => (
+        <CategoryBlock key={ic.category.id} category={ic.category}>
+          <MenuRowList items={ic.items} />
+        </CategoryBlock>
+      ))}
 
-      <CategoryBlock
-        id={starters.id}
-        eyebrow={starters.eyebrow}
-        titleBeforeEm={starters.titleBeforeEm}
-        titleEm={starters.titleEm}
-        countLabel={starters.countLabel}
-        variant={starters.variant}
-      >
-        <MenuRowList items={STARTERS_ITEMS} />
-      </CategoryBlock>
+      {mainsCategory && (
+        <CategoryBlock category={mainsCategory}>
+          <MainsGrid items={mainsItems} />
+        </CategoryBlock>
+      )}
 
-      <CategoryBlock
-        id={mains.id}
-        eyebrow={mains.eyebrow}
-        titleBeforeEm={mains.titleBeforeEm}
-        titleEm={mains.titleEm}
-        countLabel={mains.countLabel}
-        variant={mains.variant}
-      >
-        <MainsGrid />
-      </CategoryBlock>
-
-      <CategoryBlock
-        id={vegVegan.id}
-        eyebrow={vegVegan.eyebrow}
-        titleBeforeEm={vegVegan.titleBeforeEm}
-        titleEm={vegVegan.titleEm}
-        countLabel={vegVegan.countLabel}
-        variant={vegVegan.variant}
-      >
-        <MenuRowList items={VEG_VEGAN_ITEMS} />
-      </CategoryBlock>
-
-      <CategoryBlock
-        id={desserts.id}
-        eyebrow={desserts.eyebrow}
-        titleBeforeEm={desserts.titleBeforeEm}
-        titleEm={desserts.titleEm}
-        countLabel={desserts.countLabel}
-        variant={desserts.variant}
-      >
-        <MenuRowList items={DESSERTS_ITEMS} />
-      </CategoryBlock>
-
-      <CategoryBlock
-        id={drinks.id}
-        eyebrow={drinks.eyebrow}
-        titleBeforeEm={drinks.titleBeforeEm}
-        titleEm={drinks.titleEm}
-        countLabel={drinks.countLabel}
-        variant={drinks.variant}
-      >
-        <MenuRowList items={DRINKS_ITEMS} />
-      </CategoryBlock>
-
-      <FeatureBanner />
-      <HowToOrderSection />
-      <PdfCtaSection />
+      <FeatureBanner banner={data.menuPage.feature_banner} />
+      <HowToOrderSection section={data.menuPage.how_to_order} />
+      <PdfCtaSection cta={data.menuPage.pdf_cta} />
     </>
   );
 }

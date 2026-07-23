@@ -1,11 +1,22 @@
 import Image from "next/image";
-import { homeContent } from "@/lib/content/content.home";
 import styles from "./StorySection.module.css";
 
-export function StorySection() {
-  const { eyebrow, headingBeforeEm, headingEm, headingSecondLine, body, amharic, badge, stats } =
-    homeContent.story;
+interface StorySectionProps {
+  story: {
+    eyebrow: string;
+    heading_before_em: string;
+    heading_em: string;
+    heading_second_line: string;
+    body: string;
+    amharic: string;
+    badge: string;
+    stats?: { value: string; label: string }[];
+    story_image_main?: any;
+    story_image_accent?: any;
+  };
+}
 
+export default function StorySection({ story }: StorySectionProps) {
   return (
     <section
       className={styles.storySection}
@@ -15,17 +26,17 @@ export function StorySection() {
       <div className="wrap">
         <div className={styles.storyInner}>
           <div className={`${styles.storyTextCol} reveal`}>
-            <p className={styles.storyEyebrow}>{eyebrow}</p>
+            <p className={styles.storyEyebrow}>{story.eyebrow}</p>
             <h2 className={styles.storyH2} id="story-h2">
-              {headingBeforeEm}
-              <em>{headingEm}</em>
+              {story.heading_before_em}
+              <em>{story.heading_em}</em>
               <br />
-              {headingSecondLine}
+              {story.heading_second_line}
             </h2>
-            <p className={styles.storyBody}>{body}</p>
-            <p className={`${styles.storyAmharic} font-ethiopic`}>{amharic}</p>
+            <p className={styles.storyBody}>{story.body}</p>
+            <p className={`${styles.storyAmharic} font-ethiopic`}>{story.amharic}</p>
             <div className={styles.storyStats}>
-              {stats.map((stat) => (
+              {story.stats?.map((stat) => (
                 <div key={stat.label} className={styles.statItem}>
                   <p className={styles.statNum}>{stat.value}</p>
                   <p className={styles.statLabel}>{stat.label}</p>
@@ -37,7 +48,7 @@ export function StorySection() {
           <div className={`${styles.storyVisual} reveal reveal-delay-2`}>
             <div className={styles.storyImgMainWrap}>
               <Image
-                src="/assets/images/stew-pans.jpg"
+                src={story.story_image_main?.url || "/assets/images/stew-pans.jpg"}
                 alt="Traditional Habesha stews in dark pans"
                 fill
                 loading="lazy"
@@ -47,15 +58,15 @@ export function StorySection() {
             </div>
             <div className={styles.storyImgAccentWrap}>
               <Image
-                src="/assets/images/injera-plate.jpg"
+                src={story.story_image_accent?.url || "/assets/images/injera-plate.jpg"}
                 alt="Injera platter"
                 fill
                 loading="lazy"
-                sizes="(min-width: 768px) 24vw, 48vw"
+                sizes="(min-width: 768px) 50vw, 100vw"
                 className={styles.storyImgAccentEl}
               />
             </div>
-            <span className={styles.storyBadge}>{badge}</span>
+            <span className={styles.storyBadge}>{story.badge}</span>
           </div>
         </div>
       </div>

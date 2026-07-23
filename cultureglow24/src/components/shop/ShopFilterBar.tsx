@@ -1,39 +1,43 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { PRODUCTS, SHOP_FILTERS, type ProductCategory } from "@/lib/data/products";
-import { shopContent } from "@/lib/content/content.shop";
-import { ShopProductCard } from "./ShopProductCard";
-import styles from "./ShopFilterBar.module.css";
+import ShopProductCard from "./ShopProductCard";
 
+const SHOP_FILTERS = [
+  { value: "all", label: "All" },
+  { value: "HABESHA FOOD", label: "Habesha Food" },
+  { value: "LIFESTYLE", label: "Lifestyle" },
+  { value: "BEAUTY", label: "Beauty" },
+];
 
-export function ShopFilterBar() {
-  const [activeFilter, setActiveFilter] = useState<ProductCategory | "all">("all");
-  const { label, title } = shopContent.productsSection;
+interface ShopFilterBarProps {
+  productsSection: {
+    label: string;
+    title: string;
+  };
+  products: any[];
+}
+
+export default function ShopFilterBar({ productsSection, products }: ShopFilterBarProps) {
+  const [activeFilter, setActiveFilter] = useState<string>("all");
 
   const filtered = useMemo(
     () =>
       activeFilter === "all"
-        ? PRODUCTS
-        : PRODUCTS.filter((p) => p.category === activeFilter),
-    [activeFilter]
+        ? products
+        : products.filter((p) => p.category === activeFilter),
+    [activeFilter, products]
   );
 
   return (
     <>
-      <section className={styles.filterBar}>
-        <div
-          className={styles.filterScroll}
-          role="group"
-          aria-label="Filter products by category"
-        >
+      <section className="filter-bar">
+        <div className="filter-scroll" role="group" aria-label="Filter products by category">
           {SHOP_FILTERS.map((filter) => (
             <button
               key={filter.value}
               type="button"
-              className={`${styles.filterBtn} ${
-                activeFilter === filter.value ? styles.filterBtnActive : ""
-              }`}
+              className={`filter-btn ${activeFilter === filter.value ? "filter-btn-active" : ""}`}
               aria-pressed={activeFilter === filter.value}
               onClick={() => setActiveFilter(filter.value)}
             >
@@ -43,15 +47,27 @@ export function ShopFilterBar() {
         </div>
       </section>
 
-      <section className={styles.productsSection}>
-        <div className={styles.productsHeader}>
-          <p className={styles.sectionLabel}>{label}</p>
-          <h2 className={styles.sectionTitle}>{title}</h2>
+      <section className="products-section">
+        <div className="products-header">
+          <p className="section-label">{productsSection.label}</p>
+          <h2 className="section-title">{productsSection.title}</h2>
         </div>
 
-        <div className={styles.productsGrid}>
+        <div className="products-grid">
           {filtered.map((product) => (
-            <ShopProductCard key={product.id} product={product} />
+            <ShopProductCard
+              key={product.id}
+              product={{
+                id: product.id,
+                name: product.name,
+                description: product.description,
+                price: product.price,
+                image: typeof product.image === "string" ? product.image : product.image?.url,
+                alt: product.alt || product.name,
+                badge: product.badge || undefined,
+                category: product.category,
+              }}
+            />
           ))}
         </div>
       </section>

@@ -2,6 +2,7 @@ import { buildConfig } from "payload";
 import { postgresAdapter } from "@payloadcms/db-postgres";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import path from "path";
+import { fileURLToPath } from "url";
 
 import { Users } from "./src/collections/Users";
 import { Media } from "./src/collections/Media";
@@ -30,8 +31,10 @@ import { ShopPage } from "./src/globals/ShopPage";
 import { GalleryPage } from "./src/globals/GalleryPage";
 import { ContactPage } from "./src/globals/ContactPage";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 export default buildConfig({
-  secret: process.env.PAYLOAD_SECRET || "",
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000",
   db: postgresAdapter({
     pool: {
@@ -43,10 +46,11 @@ export default buildConfig({
     user: Users.slug,
     meta: {
       titleSuffix: " — CultureGlow24 Admin",
-      icons: [{ url: "/assets/images/logo.png" }],
-      openGraph: {
-        images: [{ url: "/assets/images/logo.png" }],
-      },
+      favicon: "/assets/images/logo.png",
+      ogImage: "/assets/images/logo.png",
+    },
+    importMap: {
+      baseDir: path.resolve(__dirname, "src/app/(payload)/admin"),
     },
   },
   collections: [

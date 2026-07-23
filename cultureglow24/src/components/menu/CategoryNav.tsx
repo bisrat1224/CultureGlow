@@ -1,17 +1,20 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { CATEGORIES } from "@/lib/data/menu";
 import styles from "./CategoryNav.module.css";
 
-export function CategoryNav() {
-  const [activeId, setActiveId] = useState<string>(CATEGORIES[0].id);
+interface CategoryNavProps {
+  categories: any[];
+}
+
+export default function CategoryNav({ categories }: CategoryNavProps) {
+  const [activeId, setActiveId] = useState<string>(categories[0]?.slug || "");
   const navRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const sections = CATEGORIES.map((c) => document.getElementById(c.id)).filter(
-      (el): el is HTMLElement => el !== null
-    );
+    const sections = categories
+      .map((c) => document.getElementById(c.slug))
+      .filter((el): el is HTMLElement => el !== null);
     if (sections.length === 0) return;
 
     const observer = new IntersectionObserver(
@@ -27,21 +30,21 @@ export function CategoryNav() {
 
     sections.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
-  }, []);
+  }, [categories]);
 
   return (
     <nav className={styles.categoryNav} aria-label="Menu categories">
       <div className="wrap">
         <div className={styles.categoryNavScroll} ref={navRef}>
-          {CATEGORIES.map((cat) => (
+          {categories.map((cat) => (
             <a
               key={cat.id}
-              href={`#${cat.id}`}
+              href={`#${cat.slug}`}
               className={`${styles.categoryNavBtn} ${
-                activeId === cat.id ? styles.categoryNavBtnActive : ""
+                activeId === cat.slug ? styles.categoryNavBtnActive : ""
               }`}
             >
-              {cat.navLabel}
+              {cat.nav_label}
             </a>
           ))}
         </div>

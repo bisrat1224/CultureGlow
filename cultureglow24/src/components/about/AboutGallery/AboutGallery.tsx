@@ -1,32 +1,48 @@
 import Image from "next/image";
-import { aboutContent } from "@/lib/content/content.about";
 import styles from "./AboutGallery.module.css";
-import shared from "../../home/shared.module.css";
+import shared from "../shared.module.css";
 
-export function AboutGallery() {
-  const { eyebrow, headingBeforeEm, headingEm, images } = aboutContent.gallery;
+interface AboutGalleryProps {
+  heading: {
+    eyebrow: string;
+    heading_before_em: string;
+    heading_em: string;
+    heading_after_em: string;
+    desc: string;
+  };
+  photos: any[];
+}
 
+export default function AboutGallery({ heading, photos }: AboutGalleryProps) {
   return (
-    <section className={styles.gallerySection} aria-labelledby="about-gallery-h2">
+    <section className={shared.sectionOnDark} id="gallery" aria-labelledby="about-gallery-h2">
       <div className="wrap">
-        <div className={`${styles.galleryHeader} reveal`}>
-          <p className={shared.sectionEyebrow}>{eyebrow}</p>
-          <h2 className={styles.galleryH2} id="about-gallery-h2">
-            {headingBeforeEm}
-            <em>{headingEm}</em>
+        <div className={`${shared.sectionHead} reveal`}>
+          <p className={shared.sectionEyebrow}>{heading.eyebrow}</p>
+          <h2
+            className={`${shared.sectionTitle} ${shared.sectionTitleDark}`}
+            id="about-gallery-h2"
+          >
+            {heading.heading_before_em}
+            <em>{heading.heading_em}</em>
+            {heading.heading_after_em}
           </h2>
+          <p className={`${shared.sectionDesc} ${shared.sectionDescDark}`}>{heading.desc}</p>
         </div>
 
-        <div className={styles.galleryGrid}>
-          {images.map((img, i) => (
-            <div key={img.src + i} className={`${styles.galleryTile} reveal`}>
+        <div className={styles.aboutGalleryGrid}>
+          {photos.map((photo, i) => (
+            <div
+              key={photo.id}
+              className={`${styles.aboutGalleryItem} reveal reveal-delay-${Math.min(i + 1, 3)}`}
+            >
               <Image
-                src={img.src}
-                alt={img.alt}
+                src={photo.image}
+                alt={photo.alt}
                 fill
                 loading="lazy"
                 sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                className={styles.galleryImgEl}
+                className={styles.aboutGalleryImg}
               />
             </div>
           ))}

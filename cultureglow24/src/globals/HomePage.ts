@@ -11,6 +11,7 @@ export const HomePage: GlobalConfig = {
     update: ({ req: { user } }) => Boolean(user),
   },
   fields: [
+    // HERO
     {
       name: "hero",
       type: "group",
@@ -25,12 +26,14 @@ export const HomePage: GlobalConfig = {
         { name: "hero_image", type: "upload", relationTo: "media" },
       ],
     },
+    // MARQUEE
     {
       name: "marquee_items",
       type: "array",
       label: "Marquee Items",
       fields: [{ name: "text", type: "text", required: true }],
     },
+    // STORY
     {
       name: "story",
       type: "group",
@@ -54,6 +57,7 @@ export const HomePage: GlobalConfig = {
         { name: "story_image_accent", type: "upload", relationTo: "media" },
       ],
     },
+    // PRODUCTS HEADING
     {
       name: "products_heading",
       type: "group",
@@ -65,12 +69,14 @@ export const HomePage: GlobalConfig = {
         { name: "view_all_cta", type: "text", defaultValue: "View All" },
       ],
     },
+    // ACCENT BAND
     {
       name: "accent_band_items",
       type: "array",
       label: "Accent Band Items",
       fields: [{ name: "text", type: "text", required: true }],
     },
+    // KITCHEN
     {
       name: "kitchen",
       type: "group",
@@ -83,6 +89,7 @@ export const HomePage: GlobalConfig = {
         { name: "cta", type: "text", required: true, defaultValue: "Order" },
       ],
     },
+    // SOCIAL HEADING
     {
       name: "social_heading",
       type: "group",
@@ -95,6 +102,7 @@ export const HomePage: GlobalConfig = {
         { name: "reels_label", type: "text", defaultValue: "Reels" },
       ],
     },
+    // CATERING SECTION
     {
       name: "catering_section",
       type: "group",
@@ -109,6 +117,7 @@ export const HomePage: GlobalConfig = {
         { name: "section_image", type: "upload", relationTo: "media" },
       ],
     },
+    // TESTIMONIALS HEADING
     {
       name: "testimonials_heading",
       type: "group",

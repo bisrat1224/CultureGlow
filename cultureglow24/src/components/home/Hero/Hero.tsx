@@ -1,18 +1,27 @@
 import Image from "next/image";
 import Link from "next/link";
 import { buildWhatsAppLink } from "@/lib/constants";
-import { homeContent } from "@/lib/content/content.home";
 import styles from "./Hero.module.css";
 import shared from "../shared.module.css";
 
-export function Hero() {
-  const { eyebrow, headingBeforeEm, headingEm, headingAfterEm, body, primaryCta, secondaryCta } =
-    homeContent.hero;
+interface HeroProps {
+  hero: {
+    eyebrow: string;
+    heading_before_em: string;
+    heading_em: string;
+    heading_after_em: string;
+    body: string;
+    primary_cta: string;
+    secondary_cta: string;
+    hero_image?: any;
+  };
+}
 
+export default function Hero({ hero }: HeroProps) {
   return (
     <section className={styles.hero} aria-label="Hero">
       <Image
-        src="/assets/images/stew-pans.jpg"
+        src={hero.hero_image?.url || "/assets/images/stew-pans.jpg"}
         alt="Traditional Habesha stews"
         fill
         sizes="100vw"
@@ -23,13 +32,13 @@ export function Hero() {
       <div className={styles.heroGrain} />
 
       <div className={`${styles.heroBody} wrap`}>
-        <p className={styles.heroEyebrow}>{eyebrow}</p>
+        <p className={styles.heroEyebrow}>{hero.eyebrow}</p>
         <h1 className={styles.heroH1}>
-          {headingBeforeEm}
-          <em>{headingEm}</em>
-          {headingAfterEm}
+          {hero.heading_before_em}
+          <em>{hero.heading_em}</em>
+          {hero.heading_after_em}
         </h1>
-        <p className={styles.heroSub}>{body}</p>
+        <p className={styles.heroSub}>{hero.body}</p>
         <div className={styles.heroActions}>
           <a
             href={buildWhatsAppLink()}
@@ -38,11 +47,10 @@ export function Hero() {
             rel="noopener noreferrer"
           >
             <img src="/assets/images/img_whatsappicon.svg" alt="" />
-            {primaryCta}
+            {hero.primary_cta}
           </a>
-
           <Link href="/menu" className={shared.btnGhost}>
-            {secondaryCta}
+            {hero.secondary_cta}
           </Link>
         </div>
       </div>

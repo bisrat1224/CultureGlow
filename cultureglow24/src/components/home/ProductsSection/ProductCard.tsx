@@ -1,62 +1,59 @@
-﻿import Image from "next/image";
+import Image from "next/image";
+import Link from "next/link";
 import { buildWhatsAppLink } from "@/lib/constants";
 import styles from "./ProductCard.module.css";
 
-export interface Product {
-  id: string;
-  category: string;
-  name: string;
-  price: string;
-  image: string;
-  alt: string;
-  description?: string;
-  badge?: "Best Seller" | "Popular" | "Gift" | "New";
-  /**
-   * Optional second/third photo for the single-product gallery
-   * (src/app/shop/[slug]/page.tsx). Falls back to just `image` if omitted -
-   * most placeholder products only have one real photo right now.
-   */
-  gallery?: string[];
-  /**
-   * Allergen/dietary flags shown on the single-product page. Lorem Ipsum
-   * placeholders until the client supplies real allergen info via the
-   * Content Checklist (Developer Brief Section 13).
-   */
-  allergens?: string[];
-}
-
-interface ProductCardProps {
-  product: Product;
+export interface ProductCardProps {
+  product: {
+    id: string;
+    name: string;
+    description: string;
+    price: string;
+    image: string;
+    alt: string;
+    badge?: string;
+    category?: string;
+  };
   revealDelayClass?: string;
 }
 
+const BADGE_CLASS: Record<string, string> = {
+  "Best Seller": styles.badgeDefault,
+  Popular: styles.badgeDefault,
+  Gift: styles.badgeDefault,
+  New: styles.badgeNew,
+};
 
-export function ProductCard({ product, revealDelayClass }: ProductCardProps) {
-  const { category, name, price, image, alt } = product;
-
+export default function ProductCard({ product, revealDelayClass = "" }: ProductCardProps) {
   return (
-    <article className={`${styles.bentoCard} reveal ${revealDelayClass ?? ""}`}>
-      <div className={styles.bentoCardImgWrap}>
+    <article className={`${styles.productCard} reveal ${revealDelayClass}`}>
+      <Link href={`/shop/${product.id}`} className={styles.productImage}>
         <Image
-          src={image}
-          alt={alt}
+          src={product.image}
+          alt={product.alt}
           fill
           loading="lazy"
-          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-          className={styles.bentoCardImg}
+          sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 100vw"
         />
-      </div>
-      <div className={styles.bentoCardBody}>
-        <p className={styles.bentoCardCat}>{category}</p>
-        <h3 className={styles.bentoCardName}>{name}</h3>
-        <p className={styles.bentoCardPrice}>{price}</p>
+        {product.badge && (
+          <span className={`${styles.productBadge} ${BADGE_CLASS[product.badge] || styles.badgeDefault}`}>
+            {product.badge}
+          </span>
+        )}
+      </Link>
+      <Link href={`/shop/${product.id}`}>
+        <h3 className={styles.productTitle}>{product.name}</h3>
+      </Link>
+      <p className={styles.productDesc}>{product.description}</p>
+      <div className={styles.productFooter}>
+        <span className={styles.productPrice}>{product.price}</span>
         <a
-          href={buildWhatsAppLink(`I'd like to order ${name}`)}
-          className={styles.btnWaCard}
+          href={buildWhatsAppLink(`I'd like to order ${product.name}`)}
+          className={styles.productOrderBtn}
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image src="/assets/images/img_whatsappicon.svg" alt="" width={14} height={14} />
+          <img src="/assets/images/img_whatsappicon.svg" alt="" />
           Order
         </a>
       </div>

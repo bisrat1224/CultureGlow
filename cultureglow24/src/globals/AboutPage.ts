@@ -11,6 +11,7 @@ export const AboutPage: GlobalConfig = {
     update: ({ req: { user } }) => Boolean(user),
   },
   fields: [
+    // HERO
     {
       name: "hero",
       type: "group",
@@ -23,6 +24,7 @@ export const AboutPage: GlobalConfig = {
         { name: "hero_image", type: "upload", relationTo: "media", required: true },
       ],
     },
+    // STORY
     {
       name: "story",
       type: "group",
@@ -45,6 +47,7 @@ export const AboutPage: GlobalConfig = {
         { name: "story_image_accent", type: "upload", relationTo: "media" },
       ],
     },
+    // MISSION HEADING
     {
       name: "mission_heading",
       type: "group",
@@ -55,6 +58,7 @@ export const AboutPage: GlobalConfig = {
         { name: "heading_em", type: "text", required: true, defaultValue: "Stand For" },
       ],
     },
+    // MILESTONES HEADING
     {
       name: "milestones_heading",
       type: "group",
@@ -65,6 +69,7 @@ export const AboutPage: GlobalConfig = {
         { name: "heading_em", type: "text", required: true, defaultValue: "Way" },
       ],
     },
+    // GALLERY HEADING
     {
       name: "gallery_heading",
       type: "group",
@@ -75,6 +80,7 @@ export const AboutPage: GlobalConfig = {
         { name: "heading_em", type: "text", required: true, defaultValue: "Cherish" },
       ],
     },
+    // SOCIAL HEADING
     {
       name: "social_heading",
       type: "group",

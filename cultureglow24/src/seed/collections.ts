@@ -2,6 +2,7 @@ import type { Payload } from "payload";
 import { PRODUCTS } from "../lib/data/products";
 import { CATEGORIES, STARTERS_ITEMS, MAINS_ITEMS, VEG_VEGAN_ITEMS, DESSERTS_ITEMS, DRINKS_ITEMS } from "../lib/data/menu";
 
+// Inline data from components (we'll read these from the component files)
 const HOME_TESTIMONIALS = [
   { quote: "The flavours took me straight back to Addis. Absolutely incredible experience.", initial: "M", name: "Maya T.", location: "London" },
   { quote: "Best Ethiopian food I've had outside of Ethiopia. The coffee ceremony was magical.", initial: "J", name: "James K.", location: "Manchester" },
@@ -91,67 +92,71 @@ const VALUES = [
 export async function seedCollections(payload: Payload) {
   console.log("📦 Seeding collections...");
 
+  // 1. Products
   for (const product of PRODUCTS) {
     await payload.create({
       collection: "products",
       data: {
         name: product.name,
-        slug: product.id,
+        slug: product.slug,
         category: product.category,
         price: product.price,
         description: product.description,
         badge: product.badge || undefined,
-        whatsapp_message: `I'd like to order the ${product.name}`,
+        whatsapp_message: product.whatsappMessage,
         published: true,
-        featured: false,
+        featured: product.featured || false,
       },
     });
   }
   console.log(`  ✓ products (${PRODUCTS.length} items)`);
 
-  const categoryMap = new Map<string, string>();
-  for (let i = 0; i < CATEGORIES.length; i++) {
-    const cat = CATEGORIES[i];
+  // 2. Menu Categories
+  const categoryMap = new Map<string, string>(); // slug -> id
+
+  for (const cat of CATEGORIES) {
     const doc = await payload.create({
       collection: "menu_categories",
       data: {
-        name: cat.navLabel,
-        slug: cat.id,
+        name: cat.name,
+        slug: cat.slug,
         nav_label: cat.navLabel,
         eyebrow: cat.eyebrow,
-        title_before_em: cat.titleBeforeEm,
-        title_em: cat.titleEm,
+        title_before_em: cat.title.beforeEm,
+        title_em: cat.title.em,
         variant: cat.variant,
         count_label: cat.countLabel,
-        sort_order: i,
+        sort_order: cat.sortOrder,
         published: true,
       },
     });
-    categoryMap.set(cat.id, String(doc.id));
+    categoryMap.set(cat.slug, doc.id);
   }
   console.log(`  ✓ menu_categories (${CATEGORIES.length} items)`);
 
+  // 3. Menu Items
   const allItems = [
-    ...STARTERS_ITEMS.map((i) => ({ ...i, ribbon: undefined as string | undefined, categorySlug: "starters" })),
+    ...STARTERS_ITEMS.map((i) => ({ ...i, categorySlug: "starters" })),
     ...MAINS_ITEMS.map((i) => ({ ...i, categorySlug: "mains" })),
-    ...VEG_VEGAN_ITEMS.map((i) => ({ ...i, ribbon: undefined as string | undefined, categorySlug: "veg-vegan" })),
-    ...DESSERTS_ITEMS.map((i) => ({ ...i, ribbon: undefined as string | undefined, categorySlug: "desserts" })),
-    ...DRINKS_ITEMS.map((i) => ({ ...i, ribbon: undefined as string | undefined, categorySlug: "drinks" })),
+    ...VEG_VEGAN_ITEMS.map((i) => ({ ...i, categorySlug: "veg-vegan" })),
+    ...DESSERTS_ITEMS.map((i) => ({ ...i, categorySlug: "desserts" })),
+    ...DRINKS_ITEMS.map((i) => ({ ...i, categorySlug: "drinks" })),
   ];
 
   for (const item of allItems) {
     const categoryId = categoryMap.get(item.categorySlug);
     if (!categoryId) continue;
+
     await payload.create({
       collection: "menu_items",
       data: {
         name: item.name,
-        slug: item.id,
+        slug: item.slug,
         description: item.description,
         price: item.price,
         alt: item.alt,
         category: categoryId,
-        diet_flags: item.diet || [],
+        diet_flags: item.dietFlags || [],
         tag: item.tag || undefined,
         ribbon: item.ribbon || undefined,
         published: true,
@@ -160,14 +165,22 @@ export async function seedCollections(payload: Payload) {
   }
   console.log(`  ✓ menu_items (${allItems.length} items)`);
 
+  // 4. Testimonials
   for (const t of HOME_TESTIMONIALS) {
-    await payload.create({ collection: "testimonials", data: { ...t, type: "home", published: true } });
+    await payload.create({
+      collection: "testimonials",
+      data: { ...t, type: "home", published: true },
+    });
   }
   for (const t of CATERING_TESTIMONIALS) {
-    await payload.create({ collection: "testimonials", data: { ...t, type: "catering", published: true } });
+    await payload.create({
+      collection: "testimonials",
+      data: { ...t, type: "catering", published: true },
+    });
   }
   console.log(`  ✓ testimonials (${HOME_TESTIMONIALS.length + CATERING_TESTIMONIALS.length} items)`);
 
+  // 5. Catering Packages
   for (const pkg of CATERING_PACKAGES) {
     await payload.create({
       collection: "catering_packages",
@@ -184,6 +197,7 @@ export async function seedCollections(payload: Payload) {
   }
   console.log(`  ✓ catering_packages (${CATERING_PACKAGES.length} items)`);
 
+  // 6. Event Types
   for (const evt of EVENT_TYPES) {
     await payload.create({
       collection: "event_types",
@@ -199,6 +213,7 @@ export async function seedCollections(payload: Payload) {
   }
   console.log(`  ✓ event_types (${EVENT_TYPES.length} items)`);
 
+  // 7. Gallery Photos
   for (let i = 0; i < GALLERY_PHOTOS.length; i++) {
     const photo = GALLERY_PHOTOS[i];
     await payload.create({
@@ -214,6 +229,7 @@ export async function seedCollections(payload: Payload) {
   }
   console.log(`  ✓ gallery_photos (${GALLERY_PHOTOS.length} items)`);
 
+  // 8. Social Tiles
   for (let i = 0; i < SOCIAL_TILES.length; i++) {
     const tile = SOCIAL_TILES[i];
     await payload.create({
@@ -229,6 +245,7 @@ export async function seedCollections(payload: Payload) {
   }
   console.log(`  ✓ social_tiles (${SOCIAL_TILES.length} items)`);
 
+  // 9. TikTok Tiles
   for (let i = 0; i < TIKTOK_TILES.length; i++) {
     const tile = TIKTOK_TILES[i];
     await payload.create({
@@ -243,6 +260,7 @@ export async function seedCollections(payload: Payload) {
   }
   console.log(`  ✓ tiktok_tiles (${TIKTOK_TILES.length} items)`);
 
+  // 10. Bundles
   for (const bundle of BUNDLES) {
     await payload.create({
       collection: "bundles",
@@ -258,20 +276,33 @@ export async function seedCollections(payload: Payload) {
   }
   console.log(`  ✓ bundles (${BUNDLES.length} items)`);
 
+  // 11. Milestones
   for (let i = 0; i < MILESTONES.length; i++) {
     const m = MILESTONES[i];
     await payload.create({
       collection: "milestones",
-      data: { year: m.year, label: m.label, sort_order: i, published: true },
+      data: {
+        year: m.year,
+        label: m.label,
+        sort_order: i,
+        published: true,
+      },
     });
   }
   console.log(`  ✓ milestones (${MILESTONES.length} items)`);
 
+  // 12. Values
   for (let i = 0; i < VALUES.length; i++) {
     const v = VALUES[i];
     await payload.create({
       collection: "values",
-      data: { title: v.title, body: v.body, icon: v.icon, sort_order: i, published: true },
+      data: {
+        title: v.title,
+        body: v.body,
+        icon: v.icon,
+        sort_order: i,
+        published: true,
+      },
     });
   }
   console.log(`  ✓ values (${VALUES.length} items)`);

@@ -11,7 +11,10 @@
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
     "generate:types": "payload generate:types",
     "generate:importmap": "payload generate:importmap",
-    "migrate": "payload migrate"
+    "migrate": "payload migrate",
+    "migrate:create": "payload migrate:create",
+    "seed": "tsx src/seed.ts",
+    "seed:user": "tsx src/seed/create-user.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",
@@ -33,7 +36,8 @@
     "sharp": "^0.35.0",
     "graphql": "^16.10.0",
     "drizzle-orm": "^0.43.0",
-    "pg": "^8.15.0"
+    "pg": "^8.15.0",
+    "cross-env": "^7.0.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -45,6 +49,7 @@
     "tailwindcss": "^4",
     "typescript": "^5",
     "@types/pg": "^8.11.0",
-    "cross-env": "^7.0.3"
+    "cross-env": "^7.0.3",
+    "tsx": "^4.0.0"
   }
 }

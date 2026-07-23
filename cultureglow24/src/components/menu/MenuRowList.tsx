@@ -1,16 +1,28 @@
-import type { MenuItem } from "@/lib/data/menu";
-import { MenuRow } from "./MenuRow";
+import MenuRow from "./MenuRow";
 import styles from "./MenuRow.module.css";
 
 interface MenuRowListProps {
-  items: MenuItem[];
+  items: any[];
 }
 
-export function MenuRowList({ items }: MenuRowListProps) {
+export default function MenuRowList({ items }: MenuRowListProps) {
   return (
-    <div className={styles.menuList}>
-      {items.map((item) => (
-        <MenuRow key={item.id} item={item} />
+    <div className={styles.menuRowList}>
+      {items.map((item, i) => (
+        <MenuRow
+          key={item.id}
+          item={{
+            id: item.id,
+            name: item.name,
+            description: item.description,
+            price: item.price,
+            image: item.image,
+            alt: item.alt,
+            diet: item.diet_flags || [],
+            tag: item.tag || undefined,
+          }}
+          revealDelayClass={`reveal-delay-${Math.min(i + 1, 4)}`}
+        />
       ))}
     </div>
   );

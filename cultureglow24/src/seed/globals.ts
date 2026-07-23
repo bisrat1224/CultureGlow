@@ -1,38 +1,17 @@
 import type { Payload } from "payload";
-import { homeContent } from "../lib/content/content.home";
-import { aboutContent } from "../lib/content/content.about";
-import { menuContent } from "../lib/content/content.menu";
-import { cateringContent } from "../lib/content/content.catering";
-import { shopContent } from "../lib/content/content.shop";
-import { galleryContent } from "../lib/content/content.gallery";
-import { contactContent } from "../lib/content/content.contact";
+import { hero, marquee, story, productsSection, accentBand, kitchen, social, catering, testimonials } from "../lib/content/content.home";
+import { hero as aboutHero, story as aboutStory, mission, milestones, gallery, social as aboutSocial } from "../lib/content/content.about";
+import { hero as menuHero, featureBanner, howToOrder, pdfCta } from "../lib/content/content.menu";
+import { hero as cateringHero, eventTypes, packages, gallery as cateringGallery, testimonials as cateringTestimonials, contactCta } from "../lib/content/content.catering";
+import { hero as shopHero, scrollingBanner, featureBanner as shopFeatureBanner, bundlesSection, productsSection as shopProductsSection, howToOrder as shopHowToOrder } from "../lib/content/content.shop";
+import { hero as galleryHero, photoGrid, tiktok } from "../lib/content/content.gallery";
+import { hero as contactHero, methods, map } from "../lib/content/content.contact";
 import { NAV_LINKS, SOCIAL_LINKS, WHATSAPP_NUMBER, CONTACT_EMAIL } from "../lib/constants";
-
-const { hero, marquee, story, products: productsSection, accentBand, kitchen, social, catering, testimonials } = homeContent;
-const { story: aboutStory, mission, milestones, gallery, social: aboutSocial } = aboutContent;
-const { hero: menuHero, featureBanner, howToOrder, pdfCta } = menuContent;
-const {
-  hero: cateringHero,
-  eventTypes,
-  packages,
-  gallery: cateringGallery,
-  testimonials: cateringTestimonials,
-  contactCta,
-} = cateringContent;
-const {
-  hero: shopHero,
-  scrollingBanner,
-  featureBanner: shopFeatureBanner,
-  bundles: bundlesSection,
-  productsSection: shopProductsSection,
-  howToOrder: shopHowToOrder,
-} = shopContent;
-const { hero: galleryHero, photoGrid, tiktok } = galleryContent;
-const { hero: contactHero, methods, map } = contactContent;
 
 export async function seedGlobals(payload: Payload) {
   console.log("📄 Seeding globals...");
 
+  // 1. Site Settings
   await payload.updateGlobal({
     slug: "site_settings",
     data: {
@@ -47,6 +26,7 @@ export async function seedGlobals(payload: Payload) {
   });
   console.log("  ✓ site_settings");
 
+  // 2. Navigation
   await payload.updateGlobal({
     slug: "navigation",
     data: {
@@ -59,6 +39,7 @@ export async function seedGlobals(payload: Payload) {
   });
   console.log("  ✓ navigation");
 
+  // 3. Footer
   await payload.updateGlobal({
     slug: "footer",
     data: {
@@ -77,6 +58,7 @@ export async function seedGlobals(payload: Payload) {
   });
   console.log("  ✓ footer");
 
+  // 4. SEO Defaults
   await payload.updateGlobal({
     slug: "seo_defaults",
     data: {
@@ -94,24 +76,25 @@ export async function seedGlobals(payload: Payload) {
   });
   console.log("  ✓ seo_defaults");
 
+  // 5. Home Page
   await payload.updateGlobal({
     slug: "home_page",
     data: {
       hero: {
         eyebrow: hero.eyebrow,
-        heading_before_em: hero.headingBeforeEm,
-        heading_em: hero.headingEm,
-        heading_after_em: hero.headingAfterEm,
+        heading_before_em: hero.heading.beforeEm,
+        heading_em: hero.heading.em,
+        heading_after_em: hero.heading.afterEm,
         body: hero.body,
-        primary_cta: hero.primaryCta,
-        secondary_cta: hero.secondaryCta,
+        primary_cta: hero.primaryCTA,
+        secondary_cta: hero.secondaryCTA,
       },
-      marquee_items: marquee.items.map((item) => ({ text: item })),
+      marquee_items: marquee.items.map((item) => ({ text: item.text })),
       story: {
         eyebrow: story.eyebrow,
-        heading_before_em: story.headingBeforeEm,
-        heading_em: story.headingEm,
-        heading_second_line: story.headingSecondLine,
+        heading_before_em: story.heading.beforeEm,
+        heading_em: story.heading.em,
+        heading_second_line: story.heading.secondLine,
         body: story.body,
         amharic: story.amharic,
         badge: story.badge,
@@ -119,58 +102,59 @@ export async function seedGlobals(payload: Payload) {
       },
       products_heading: {
         eyebrow: productsSection.eyebrow,
-        heading_before_em: productsSection.headingBeforeEm,
-        heading_em: productsSection.headingEm,
-        view_all_cta: productsSection.viewAllCta,
+        heading_before_em: productsSection.heading.beforeEm,
+        heading_em: productsSection.heading.em,
+        view_all_cta: productsSection.viewAllCTA,
       },
-      accent_band_items: accentBand.items.map((item) => ({ text: item })),
+      accent_band_items: accentBand.items.map((item) => ({ text: item.text })),
       kitchen: {
         eyebrow: kitchen.eyebrow,
-        heading_before_em: kitchen.headingBeforeEm,
-        heading_em: kitchen.headingEm,
-        heading_second_line: kitchen.headingSecondLine,
+        heading_before_em: kitchen.heading.beforeEm,
+        heading_em: kitchen.heading.em,
+        heading_second_line: kitchen.heading.secondLine,
         body: kitchen.body,
         cta: kitchen.cta,
       },
       social_heading: {
         eyebrow: social.eyebrow,
-        heading_before_em: social.headingBeforeEm,
-        heading_em: social.headingEm,
+        heading_before_em: social.heading.beforeEm,
+        heading_em: social.heading.em,
         tiktok_label: social.tiktokLabel,
         reels_label: social.reelsLabel,
       },
       catering_section: {
         eyebrow: catering.eyebrow,
-        heading_before_em: catering.headingBeforeEm,
-        heading_em: catering.headingEm,
-        heading_second_line: catering.headingSecondLine,
+        heading_before_em: catering.heading.beforeEm,
+        heading_em: catering.heading.em,
+        heading_second_line: catering.heading.secondLine,
         body: catering.body,
         cta: catering.cta,
       },
       testimonials_heading: {
         eyebrow: testimonials.eyebrow,
-        heading_before_em: testimonials.headingBeforeEm,
-        heading_em: testimonials.headingEm,
-        heading_after_em: testimonials.headingAfterEm,
+        heading_before_em: testimonials.heading.beforeEm,
+        heading_em: testimonials.heading.em,
+        heading_after_em: testimonials.heading.afterEm,
       },
     },
   });
   console.log("  ✓ home_page");
 
+  // 6. About Page
   await payload.updateGlobal({
     slug: "about_page",
     data: {
       hero: {
-        eyebrow: "About Us",
-        heading_before_em: "Our ",
-        heading_em: "Story",
-        heading_after_em: "",
-        desc: "Habesha food, beauty, and lifestyle delivered with care.",
+        eyebrow: aboutHero.eyebrow,
+        heading_before_em: aboutHero.heading.beforeEm,
+        heading_em: aboutHero.heading.em,
+        heading_after_em: aboutHero.heading.afterEm,
+        desc: aboutHero.desc,
       },
       story: {
         eyebrow: aboutStory.eyebrow,
-        heading_before_em: aboutStory.headingBeforeEm,
-        heading_em: aboutStory.headingEm,
+        heading_before_em: aboutStory.heading.beforeEm,
+        heading_em: aboutStory.heading.em,
         body: aboutStory.body,
         amharic: aboutStory.amharic,
         badge: aboutStory.badge,
@@ -178,18 +162,18 @@ export async function seedGlobals(payload: Payload) {
       },
       mission_heading: {
         eyebrow: mission.eyebrow,
-        heading_before_em: mission.headingBeforeEm,
-        heading_em: mission.headingEm,
+        heading_before_em: mission.heading.beforeEm,
+        heading_em: mission.heading.em,
       },
       milestones_heading: {
         eyebrow: milestones.eyebrow,
-        heading_before_em: milestones.headingBeforeEm,
-        heading_em: milestones.headingEm,
+        heading_before_em: milestones.heading.beforeEm,
+        heading_em: milestones.heading.em,
       },
       gallery_heading: {
         eyebrow: gallery.eyebrow,
-        heading_before_em: gallery.headingBeforeEm,
-        heading_em: gallery.headingEm,
+        heading_before_em: gallery.heading.beforeEm,
+        heading_em: gallery.heading.em,
       },
       social_heading: {
         heading: aboutSocial.heading,
@@ -198,17 +182,18 @@ export async function seedGlobals(payload: Payload) {
   });
   console.log("  ✓ about_page");
 
+  // 7. Menu Page
   await payload.updateGlobal({
     slug: "menu_page",
     data: {
       hero: {
         eyebrow: menuHero.eyebrow,
-        heading_before_em: menuHero.headingBeforeEm,
-        heading_em: menuHero.headingEm,
-        heading_after_em: menuHero.headingAfterEm,
+        heading_before_em: menuHero.heading.beforeEm,
+        heading_em: menuHero.heading.em,
+        heading_after_em: menuHero.heading.afterEm,
         desc: menuHero.desc,
-        primary_cta: menuHero.primaryCta,
-        secondary_cta: menuHero.secondaryCta,
+        primary_cta: menuHero.primaryCTA,
+        secondary_cta: menuHero.secondaryCTA,
       },
       feature_banner: {
         label: featureBanner.label,
@@ -236,53 +221,55 @@ export async function seedGlobals(payload: Payload) {
   });
   console.log("  ✓ menu_page");
 
+  // 8. Catering Page
   await payload.updateGlobal({
     slug: "catering_page",
     data: {
       hero: {
         eyebrow: cateringHero.eyebrow,
-        heading_before_em: cateringHero.headingBeforeEm,
-        heading_em: cateringHero.headingEm,
-        heading_after_em: cateringHero.headingAfterEm,
+        heading_before_em: cateringHero.heading.beforeEm,
+        heading_em: cateringHero.heading.em,
+        heading_after_em: cateringHero.heading.afterEm,
         desc: cateringHero.desc,
-        primary_cta: cateringHero.primaryCta,
-        secondary_cta: cateringHero.secondaryCta,
+        primary_cta: cateringHero.primaryCTA,
+        secondary_cta: cateringHero.secondaryCTA,
       },
       event_types_heading: {
         eyebrow: eventTypes.eyebrow,
-        heading_before_em: eventTypes.headingBeforeEm,
-        heading_em: eventTypes.headingEm,
-        heading_after_em: eventTypes.headingAfterEm,
+        heading_before_em: eventTypes.heading.beforeEm,
+        heading_em: eventTypes.heading.em,
+        heading_after_em: eventTypes.heading.afterEm,
         desc: eventTypes.desc,
       },
       packages_heading: {
         eyebrow: packages.eyebrow,
-        heading_before_em: packages.headingBeforeEm,
-        heading_em: packages.headingEm,
+        heading_before_em: packages.heading.beforeEm,
+        heading_em: packages.heading.em,
         desc: packages.desc,
       },
       gallery_heading: {
         eyebrow: cateringGallery.eyebrow,
-        heading_before_em: cateringGallery.headingBeforeEm,
-        heading_em: cateringGallery.headingEm,
+        heading_before_em: cateringGallery.heading.beforeEm,
+        heading_em: cateringGallery.heading.em,
         desc: cateringGallery.desc,
       },
       testimonials_heading: {
         eyebrow: cateringTestimonials.eyebrow,
-        heading_before_em: cateringTestimonials.headingBeforeEm,
-        heading_em: cateringTestimonials.headingEm,
-        heading_after_em: cateringTestimonials.headingAfterEm,
+        heading_before_em: cateringTestimonials.heading.beforeEm,
+        heading_em: cateringTestimonials.heading.em,
+        heading_after_em: cateringTestimonials.heading.afterEm,
       },
       contact_cta: {
         eyebrow: contactCta.eyebrow,
-        heading_before_em: contactCta.headingBeforeEm,
-        heading_em: contactCta.headingEm,
+        heading_before_em: contactCta.heading.beforeEm,
+        heading_em: contactCta.heading.em,
         desc: contactCta.desc,
       },
     },
   });
   console.log("  ✓ catering_page");
 
+  // 9. Shop Page
   await payload.updateGlobal({
     slug: "shop_page",
     data: {
@@ -291,7 +278,7 @@ export async function seedGlobals(payload: Payload) {
         title: shopHero.title,
         desc: shopHero.desc,
       },
-      scrolling_banner_items: scrollingBanner.items.map((item) => ({ text: item })),
+      scrolling_banner_items: scrollingBanner.items.map((item) => ({ text: item.text })),
       feature_banner: {
         label: shopFeatureBanner.label,
         title: shopFeatureBanner.title,
@@ -321,56 +308,58 @@ export async function seedGlobals(payload: Payload) {
   });
   console.log("  ✓ shop_page");
 
+  // 10. Gallery Page
   await payload.updateGlobal({
     slug: "gallery_page",
     data: {
       hero: {
         eyebrow: galleryHero.eyebrow,
-        heading_before_em: galleryHero.headingBeforeEm,
-        heading_em: galleryHero.headingEm,
-        heading_after_em: galleryHero.headingAfterEm,
+        heading_before_em: galleryHero.heading.beforeEm,
+        heading_em: galleryHero.heading.em,
+        heading_after_em: galleryHero.heading.afterEm,
         desc: galleryHero.desc,
       },
       photo_grid_heading: {
         eyebrow: photoGrid.eyebrow,
-        heading_before_em: photoGrid.headingBeforeEm,
-        heading_em: photoGrid.headingEm,
-        heading_after_em: photoGrid.headingAfterEm,
+        heading_before_em: photoGrid.heading.beforeEm,
+        heading_em: photoGrid.heading.em,
+        heading_after_em: photoGrid.heading.afterEm,
         desc: photoGrid.desc,
       },
       tiktok_heading: {
         eyebrow: tiktok.eyebrow,
-        heading_before_em: tiktok.headingBeforeEm,
-        heading_em: tiktok.headingEm,
-        heading_after_em: tiktok.headingAfterEm,
+        heading_before_em: tiktok.heading.beforeEm,
+        heading_em: tiktok.heading.em,
+        heading_after_em: tiktok.heading.afterEm,
         desc: tiktok.desc,
       },
     },
   });
   console.log("  ✓ gallery_page");
 
+  // 11. Contact Page
   await payload.updateGlobal({
     slug: "contact_page",
     data: {
       hero: {
         eyebrow: contactHero.eyebrow,
-        heading_before_em: contactHero.headingBeforeEm,
-        heading_em: contactHero.headingEm,
-        heading_after_em: contactHero.headingAfterEm,
+        heading_before_em: contactHero.heading.beforeEm,
+        heading_em: contactHero.heading.em,
+        heading_after_em: contactHero.heading.afterEm,
         desc: contactHero.desc,
         cta: contactHero.cta,
       },
       methods_heading: {
         eyebrow: methods.eyebrow,
-        heading_before_em: methods.headingBeforeEm,
-        heading_em: methods.headingEm,
-        heading_after_em: methods.headingAfterEm,
+        heading_before_em: methods.heading.beforeEm,
+        heading_em: methods.heading.em,
+        heading_after_em: methods.heading.afterEm,
         desc: methods.desc,
-        whatsapp_label: methods.whatsapp.label,
-        whatsapp_value: methods.whatsapp.value,
-        phone_label: methods.phone.label,
-        email_label: methods.email.label,
-        social_label: methods.social.label,
+        whatsapp_label: methods.whatsappLabel,
+        whatsapp_value: methods.whatsappValue,
+        phone_label: methods.phoneLabel,
+        email_label: methods.emailLabel,
+        social_label: methods.socialLabel,
       },
       map_title: map.title,
     },

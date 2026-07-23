@@ -1,30 +1,24 @@
-import Image from "next/image";
-import { galleryContent } from "@/lib/content/content.gallery";
-import styles from "./GalleryHero.module.css";
+interface GalleryHeroProps {
+  hero: {
+    eyebrow: string;
+    heading_before_em: string;
+    heading_em: string;
+    heading_after_em: string;
+    desc: string;
+  };
+}
 
-export function GalleryHero() {
-  const { eyebrow, headingBeforeEm, headingEm, headingAfterEm, desc } = galleryContent.hero;
-
+export default function GalleryHero({ hero }: GalleryHeroProps) {
   return (
-    <section className={styles.galleryHero} aria-label="Gallery hero">
-      <Image
-        src="/assets/images/coffee-pot.jpg"  
-        alt="Habesha cultural gallery moments"
-        fill
-        sizes="100vw"
-        quality={85}
-        priority
-        className={styles.galleryHeroImg}
-      />
-
-      <div className={`${styles.galleryHeroBody} wrap`}>
-        <p className={styles.galleryHeroEyebrow}>{eyebrow}</p>
-        <h1 className={styles.galleryHeroH1}>
-          {headingBeforeEm}
-          <em>{headingEm}</em>
-          {headingAfterEm}
+    <section className="gallery-hero" aria-label="Gallery hero">
+      <div className="wrap">
+        <p className="gallery-hero-eyebrow">{hero.eyebrow}</p>
+        <h1 className="gallery-hero-h1">
+          {hero.heading_before_em}
+          <em>{hero.heading_em}</em>
+          {hero.heading_after_em}
         </h1>
-        <p className={styles.galleryHeroDesc}>{desc}</p>
+        <p className="gallery-hero-desc">{hero.desc}</p>
       </div>
     </section>
   );

@@ -1,48 +1,36 @@
-import { shopContent } from "@/lib/content/content.shop";
-import { BundleCard, type Bundle } from "./BundleCard";
-import styles from "./BundlesSection.module.css";
+import BundleCard from "./BundleCard";
 
-const BUNDLES: Bundle[] = [
-  {
-    id: "yirgacheffe-ritual",
-    label: "For Coffee Lovers",
-    title: "Yirgacheffe Ritual",
-    priceFrom: "£180",
-    image: "/assets/images/stew-pans.jpg",
-    alt: "Coffee Lover Bundle",
-  },
-  {
-    id: "habesha-feast",
-    label: "For Food Lovers",
-    title: "The Habesha Feast",
-    priceFrom: "£320",
-    image: "/assets/images/sharing-hands.jpg",
-    alt: "Feast Bundle",
-  },
-  {
-    id: "habesha-style-edit",
-    label: "For Style Lovers",
-    title: "Habesha Style Edit",
-    priceFrom: "£980",
-    image: "/assets/images/dress-green.jpg",
-    alt: "Kemis Style Bundle",
-  },
-];
+interface BundlesSectionProps {
+  heading: {
+    label: string;
+    title: string;
+    desc: string;
+  };
+  bundles: any[];
+}
 
-export function BundlesSection() {
-  const { label, title, desc } = shopContent.bundles;
-
+export default function BundlesSection({ heading, bundles }: BundlesSectionProps) {
   return (
-    <section className={styles.bundlesSection}>
-      <div className={styles.bundlesHeader}>
-        <p className={styles.sectionLabel}>{label}</p>
-        <h2 className={styles.sectionTitle}>{title}</h2>
-        <p className={styles.bundlesDesc}>{desc}</p>
+    <section className="bundles-section">
+      <div className="bundles-header">
+        <p className="section-label">{heading.label}</p>
+        <h2 className="section-title">{heading.title}</h2>
+        <p className="bundles-desc">{heading.desc}</p>
       </div>
 
-      <div className={styles.bundlesGrid}>
-        {BUNDLES.map((bundle) => (
-          <BundleCard key={bundle.id} bundle={bundle} />
+      <div className="bundles-grid">
+        {bundles.map((bundle) => (
+          <BundleCard
+            key={bundle.id}
+            bundle={{
+              id: bundle.id,
+              label: bundle.label,
+              title: bundle.title,
+              priceFrom: bundle.price_from,
+              image: bundle.image,
+              alt: bundle.alt,
+            }}
+          />
         ))}
       </div>
     </section>

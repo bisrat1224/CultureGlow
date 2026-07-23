@@ -1,11 +1,19 @@
 import Image from "next/image";
 import { buildWhatsAppLink } from "@/lib/constants";
-import { homeContent } from "@/lib/content/content.home";
 import styles from "./CateringSection.module.css";
 
-export function CateringSection() {
-  const { eyebrow, headingBeforeEm, headingEm, headingSecondLine, body, cta } = homeContent.catering;
+interface CateringSectionProps {
+  catering: {
+    eyebrow: string;
+    heading_before_em: string;
+    heading_em: string;
+    heading_second_line: string;
+    body: string;
+    cta: string;
+  };
+}
 
+export default function CateringSection({ catering }: CateringSectionProps) {
   return (
     <section
       className={styles.cateringSection}
@@ -15,21 +23,21 @@ export function CateringSection() {
       <div className="wrap">
         <div className={styles.cateringInner}>
           <div className={`${styles.cateringText} reveal`}>
-            <p className={styles.cateringEyebrow}>{eyebrow}</p>
+            <p className={styles.cateringEyebrow}>{catering.eyebrow}</p>
             <h2 className={styles.cateringH2} id="catering-h2">
-              {headingBeforeEm}
-              <em>{headingEm}</em>
+              {catering.heading_before_em}
+              <em>{catering.heading_em}</em>
               <br />
-              {headingSecondLine}
+              {catering.heading_second_line}
             </h2>
-            <p className={styles.cateringDesc}>{body}</p>
+            <p className={styles.cateringDesc}>{catering.body}</p>
             <a
               href={buildWhatsAppLink()}
               className={styles.btnGreenCta}
               target="_blank"
               rel="noopener noreferrer"
             >
-              {cta}
+              {catering.cta}
             </a>
           </div>
 
@@ -51,15 +59,6 @@ export function CateringSection() {
                 fill
                 loading="lazy"
                 sizes="(min-width: 768px) 50vw, 100vw"
-                className={styles.cateringImgEl}
-              />
-            </div>
-            <div className={`${styles.cateringImgWrap} ${styles.cateringImgSqWrap}`}>
-              <Image
-                src="/assets/images/sharing-hands.jpg"
-                alt="Family sharing"
-                fill
-                sizes="(min-width: 768px) 25vw, 50vw"
                 className={styles.cateringImgEl}
               />
             </div>

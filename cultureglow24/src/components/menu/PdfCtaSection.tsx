@@ -1,25 +1,33 @@
-import { menuContent } from "@/lib/content/content.menu";
 import styles from "./PdfCtaSection.module.css";
 
-export function PdfCtaSection() {
-  const { eyebrow, title, desc, cta } = menuContent.pdfCta;
+interface PdfCtaSectionProps {
+  cta: {
+    eyebrow: string;
+    heading_before_em: string;
+    heading_em: string;
+    heading_after_em: string;
+    desc: string;
+    button_text: string;
+  };
+}
 
+export default function PdfCtaSection({ cta }: PdfCtaSectionProps) {
   return (
-    <section className={styles.pdfCta}>
-      <div className={`wrap ${styles.pdfCtaInner}`}>
-        <p className={styles.pdfCtaEyebrow}>{eyebrow}</p>
-        <h2 className={styles.pdfCtaH2}>{title}</h2>
-        <p className={styles.pdfCtaDesc}>{desc}</p>
-        <a
-          href="#"
-          className={styles.btnPdf}
-          aria-label="Download menu PDF (placeholder link)"
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">
-            <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" />
-          </svg>
-          {cta}
-        </a>
+    <section className={styles.pdfCta} aria-label="PDF download">
+      <div className="wrap">
+        <div className={`${styles.pdfCtaInner} reveal`}>
+          <p className={styles.pdfCtaEyebrow}>{cta.eyebrow}</p>
+          <h2 className={styles.pdfCtaH2}>
+            {cta.heading_before_em}
+            <em>{cta.heading_em}</em>
+            {cta.heading_after_em}
+          </h2>
+          <p className={styles.pdfCtaDesc}>{cta.desc}</p>
+          <button className={styles.pdfCtaBtn} disabled>
+            {cta.button_text}
+          </button>
+          <p className={styles.pdfCtaNote}>Coming soon</p>
+        </div>
       </div>
     </section>
   );

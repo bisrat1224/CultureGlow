@@ -1,54 +1,42 @@
-import type { ReactNode } from "react";
 import styles from "./CategoryBlock.module.css";
+import shared from "./shared.module.css";
 
 interface CategoryBlockProps {
-  id: string;
-  eyebrow: string;
-  titleBeforeEm: string;
-  titleEm: string;
-  countLabel: string;
-  variant: "cream" | "dark";
-  children: ReactNode;
+  category: {
+    id: string;
+    slug: string;
+    eyebrow: string;
+    title_before_em: string;
+    title_em: string;
+    variant: string;
+    count_label: string;
+  };
+  children: React.ReactNode;
 }
 
-export function CategoryBlock({
-  id,
-  eyebrow,
-  titleBeforeEm,
-  titleEm,
-  countLabel,
-  variant,
-  children,
-}: CategoryBlockProps) {
+export default function CategoryBlock({ category, children }: CategoryBlockProps) {
+  const isDark = category.variant === "dark";
+
   return (
     <section
-      className={`${styles.categoryBlock} ${
-        variant === "dark" ? styles.onDark : styles.onCream
-      }`}
-      id={id}
+      className={isDark ? shared.sectionOnDark : shared.sectionOnCream}
+      id={category.slug}
+      aria-labelledby={`${category.slug}-h2`}
     >
       <div className="wrap">
-        <div className={styles.categoryHead}>
-          <div>
-            <p className={styles.categoryEyebrow}>{eyebrow}</p>
-            <h2
-              className={`${styles.categoryTitle} ${
-                variant === "dark" ? styles.onDarkTitle : styles.onLightTitle
-              }`}
-            >
-              {titleBeforeEm}
-              <em>{titleEm}</em>
-            </h2>
-          </div>
-          <span
-            className={`${styles.categoryCount} ${
-              variant === "dark" ? styles.onDarkCount : ""
+        <div className={`${shared.sectionHead} reveal`}>
+          <p className={shared.sectionEyebrow}>{category.eyebrow}</p>
+          <h2
+            className={`${shared.sectionTitle} ${
+              isDark ? shared.sectionTitleDark : shared.sectionTitleLight
             }`}
+            id={`${category.slug}-h2`}
           >
-            {countLabel}
-          </span>
+            {category.title_before_em}
+            <em>{category.title_em}</em>
+          </h2>
+          <p className={styles.categoryCount}>{category.count_label}</p>
         </div>
-
         {children}
       </div>
     </section>

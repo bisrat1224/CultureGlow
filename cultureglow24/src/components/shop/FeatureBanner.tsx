@@ -1,30 +1,34 @@
 import Image from "next/image";
 import { buildWhatsAppLink } from "@/lib/constants";
-import { shopContent } from "@/lib/content/content.shop";
-import styles from "./FeatureBanner.module.css";
 
-export function FeatureBanner() {
-  const { label, title, desc, cta } = shopContent.featureBanner;
+interface FeatureBannerProps {
+  banner: {
+    label: string;
+    title: string;
+    desc: string;
+    cta: string;
+  };
+}
 
+export default function FeatureBanner({ banner }: FeatureBannerProps) {
   return (
-    <section className={styles.featureBanner}>
-      <div className={styles.featureBannerInner}>
+    <section className="feature-banner">
+      <div className="feature-banner-inner">
         <div>
-          <p className={styles.sectionLabel}>{label}</p>
-          <h2 className={styles.featureTitle}>{title}</h2>
-          <p className={styles.featureDesc}>{desc}</p>
-
+          <p className="section-label">{banner.label}</p>
+          <h2 className="feature-title">{banner.title}</h2>
+          <p className="feature-desc">{banner.desc}</p>
           <a
             href={buildWhatsAppLink("I would like to enquire about catering")}
-            className={styles.btnPrimary}
+            className="btn-primary"
             target="_blank"
             rel="noopener noreferrer"
           >
             <img src="/assets/images/img_whatsappicon.svg" alt="" />
-            {cta}
+            {banner.cta}
           </a>
         </div>
-        <div className={styles.featureBannerImage}>
+        <div className="feature-banner-image">
           <Image
             src="/assets/images/sharing-hands.jpg"
             alt="Habesha catering event"

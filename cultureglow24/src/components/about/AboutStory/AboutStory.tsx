@@ -1,26 +1,35 @@
 import Image from "next/image";
-import { aboutContent } from "@/lib/content/content.about";
 import styles from "./AboutStory.module.css";
 
-export function AboutStory() {
-  const { eyebrow, headingBeforeEm, headingEm, headingAfterEm, body, amharic, badge, stats } =
-    aboutContent.story;
+interface AboutStoryProps {
+  story: {
+    eyebrow: string;
+    heading_before_em: string;
+    heading_em: string;
+    heading_after_em: string;
+    body: string;
+    amharic: string;
+    badge: string;
+    stats?: { value: string; label: string }[];
+  };
+}
 
+export default function AboutStory({ story }: AboutStoryProps) {
   return (
-    <section className={styles.storySection} aria-labelledby="about-story-h2">
+    <section className={styles.aboutStory} id="story" aria-labelledby="about-story-h2">
       <div className="wrap">
-        <div className={styles.storyInner}>
-          <div className={`${styles.storyTextCol} reveal`}>
-            <p className={styles.storyEyebrow}>{eyebrow}</p>
-            <h2 className={styles.storyH2} id="about-story-h2">
-              {headingBeforeEm}
-              <em>{headingEm}</em>
-              {headingAfterEm}
+        <div className={styles.aboutStoryInner}>
+          <div className={`${styles.aboutStoryText} reveal`}>
+            <p className={styles.aboutStoryEyebrow}>{story.eyebrow}</p>
+            <h2 className={styles.aboutStoryH2} id="about-story-h2">
+              {story.heading_before_em}
+              <em>{story.heading_em}</em>
+              {story.heading_after_em}
             </h2>
-            <p className={styles.storyBody}>{body}</p>
-            <p className={`${styles.storyAmharic} font-ethiopic`}>{amharic}</p>
-            <div className={styles.storyStats}>
-              {stats.map((stat) => (
+            <p className={styles.aboutStoryBody}>{story.body}</p>
+            <p className={`${styles.aboutStoryAmharic} font-ethiopic`}>{story.amharic}</p>
+            <div className={styles.aboutStoryStats}>
+              {story.stats?.map((stat) => (
                 <div key={stat.label} className={styles.statItem}>
                   <p className={styles.statNum}>{stat.value}</p>
                   <p className={styles.statLabel}>{stat.label}</p>
@@ -29,28 +38,18 @@ export function AboutStory() {
             </div>
           </div>
 
-          <div className={`${styles.storyVisual} reveal reveal-delay-2`}>
-            <div className={styles.storyImgMainWrap}>
+          <div className={`${styles.aboutStoryVisual} reveal reveal-delay-2`}>
+            <div className={styles.aboutStoryImgWrap}>
               <Image
                 src="/assets/images/stew-pans.jpg"
-                alt="Traditional Habesha stews in dark pans"
+                alt="Traditional Habesha stews"
                 fill
                 loading="lazy"
                 sizes="(min-width: 768px) 50vw, 100vw"
-                className={styles.storyImgMainEl}
+                className={styles.aboutStoryImgEl}
               />
             </div>
-            <div className={styles.storyImgAccentWrap}>
-              <Image
-                src="/assets/images/injera-plate.jpg"
-                alt="Injera platter"
-                fill
-                loading="lazy"
-                sizes="(min-width: 768px) 24vw, 48vw"
-                className={styles.storyImgAccentEl}
-              />
-            </div>
-            <span className={styles.storyBadge}>{badge}</span>
+            <span className={styles.aboutStoryBadge}>{story.badge}</span>
           </div>
         </div>
       </div>

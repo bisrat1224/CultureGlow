@@ -1,12 +1,20 @@
 import Image from "next/image";
 import { buildWhatsAppLink } from "@/lib/constants";
-import { menuContent } from "@/lib/content/content.menu";
 import styles from "./MenuHero.module.css";
 
-export function MenuHero() {
-  const { eyebrow, headingBeforeEm, headingEm, headingAfterEm, desc, primaryCta, secondaryCta } =
-    menuContent.hero;
+interface MenuHeroProps {
+  hero: {
+    eyebrow: string;
+    heading_before_em: string;
+    heading_em: string;
+    heading_after_em: string;
+    desc: string;
+    primary_cta: string;
+    secondary_cta: string;
+  };
+}
 
+export default function MenuHero({ hero }: MenuHeroProps) {
   return (
     <section className={styles.menuHero} aria-label="Menu hero">
       <Image
@@ -20,13 +28,13 @@ export function MenuHero() {
       />
       <div className={styles.menuHeroBody}>
         <div className="wrap">
-          <p className={styles.menuHeroEyebrow}>{eyebrow}</p>
+          <p className={styles.menuHeroEyebrow}>{hero.eyebrow}</p>
           <h1 className={styles.menuHeroH1}>
-            {headingBeforeEm}
-            <em>{headingEm}</em>
-            {headingAfterEm}
+            {hero.heading_before_em}
+            <em>{hero.heading_em}</em>
+            {hero.heading_after_em}
           </h1>
-          <p className={styles.menuHeroDesc}>{desc}</p>
+          <p className={styles.menuHeroDesc}>{hero.desc}</p>
           <div className={styles.menuHeroActions}>
             <a
               href={buildWhatsAppLink()}
@@ -35,10 +43,10 @@ export function MenuHero() {
               rel="noopener noreferrer"
             >
               <img src="/assets/images/img_whatsappicon.svg" alt="" />
-              {primaryCta}
+              {hero.primary_cta}
             </a>
             <a href="#mains" className={styles.btnGhostLight}>
-              {secondaryCta}
+              {hero.secondary_cta}
             </a>
           </div>
         </div>

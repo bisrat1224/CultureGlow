@@ -1,14 +1,17 @@
-import { shopContent } from "@/lib/content/content.shop";
-import styles from "./ShopHero.module.css";
+interface ShopHeroProps {
+  hero: {
+    label: string;
+    title: string;
+    desc: string;
+  };
+}
 
-export function ShopHero() {
-  const { label, title, desc } = shopContent.hero;
-
+export default function ShopHero({ hero }: ShopHeroProps) {
   return (
-    <section className={styles.shopHero} aria-label="Shop hero">
-      <p className={styles.shopHeroLabel}>{label}</p>
-      <h1 className={styles.shopHeroTitle}>{title}</h1>
-      <p className={styles.shopHeroDesc}>{desc}</p>
+    <section className="shop-hero" aria-label="Shop hero">
+      <p className="shop-hero-label">{hero.label}</p>
+      <h1 className="shop-hero-title">{hero.title}</h1>
+      <p className="shop-hero-desc">{hero.desc}</p>
     </section>
   );
 }

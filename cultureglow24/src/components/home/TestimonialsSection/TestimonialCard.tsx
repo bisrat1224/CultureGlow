@@ -1,6 +1,6 @@
 import styles from "./TestimonialsSection.module.css";
 
-export interface Testimonial {
+interface Testimonial {
   id: string;
   quote: string;
   initial: string;
@@ -8,33 +8,17 @@ export interface Testimonial {
   location: string;
 }
 
-interface TestimonialCardProps {
-  testimonial: Testimonial;
-  revealDelayClass?: string;
-}
-
-export function TestimonialCard({ testimonial, revealDelayClass }: TestimonialCardProps) {
-  const { quote, initial, name, location } = testimonial;
-
+export default function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
-    <article className={`${styles.tcard} reveal ${revealDelayClass ?? ""}`}>
-      <div className={styles.tcardStars} aria-hidden="true">
-        <span>★</span>
-        <span>★</span>
-        <span>★</span>
-        <span>★</span>
-        <span>★</span>
+    <div className={styles.card}>
+      <div className={styles.avatar}>
+        <span>{testimonial.initial}</span>
       </div>
-      <p className={styles.tcardQuote}>&quot;{quote}&quot;</p>
-      <div className={styles.tcardAuthor}>
-        <div className={styles.tcardAvatar} aria-hidden="true">
-          {initial}
-        </div>
-        <div>
-          <p className={styles.tcardName}>{name}</p>
-          <p className={styles.tcardLoc}>{location}</p>
-        </div>
+      <blockquote className={styles.quote}>{testimonial.quote}</blockquote>
+      <div className={styles.author}>
+        <span className={styles.name}>{testimonial.name}</span>
+        <span className={styles.location}>{testimonial.location}</span>
       </div>
-    </article>
+    </div>
   );
 }

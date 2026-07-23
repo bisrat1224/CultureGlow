@@ -1,77 +1,48 @@
-import { PackageCard, type Package } from "./PackageCard";
-import { cateringContent } from "@/lib/content/content.catering";
+import PackageCard from "./PackageCard";
 import styles from "./PackagesSection.module.css";
 import shared from "../shared.module.css";
 
-const PACKAGES: Package[] = [
-  {
-    id: "essential",
-    name: "Essential",
-    guests: "Up to 30 guests",
-    priceFrom: "£1,500",
-    features: [
-      "Choice of two main dishes",
-      "Traditional injera and sides included",
-      "Setup and serving staff included",
-      "Basic table settings provided",
-    ],
-  },
-  {
-    id: "signature",
-    name: "Signature",
-    guests: "Up to 80 guests",
-    priceFrom: "£3,800",
-    featured: true,
-    features: [
-      "Choice of four main dishes",
-      "Full appetizer and dessert course",
-      "Setup, serving staff, and cleanup included",
-      "Elevated table settings and centerpieces",
-      "Ethiopian coffee ceremony station",
-    ],
-  },
-  {
-    id: "grand-feast",
-    name: "Grand Feast",
-    guests: "80+ guests",
-    priceFrom: "£7500",
-    features: [
-      "Full menu customization",
-      "Multi-course appetizer, main, and dessert service",
-      "Dedicated event coordinator",
-      "Premium table settings and decor",
-      "Ethiopian coffee ceremony station",
-      "Live cooking station on request",
-    ],
-  },
-];
+interface PackagesSectionProps {
+  heading: {
+    eyebrow: string;
+    heading_before_em: string;
+    heading_em: string;
+    heading_after_em: string;
+    desc: string;
+  };
+  packages: any[];
+}
 
-export function PackagesSection() {
-  const { eyebrow, headingBeforeEm, headingEm, headingAfterEm, desc } = cateringContent.packages;
-
+export default function PackagesSection({ heading, packages }: PackagesSectionProps) {
   return (
-    <section
-      className={shared.sectionOnDark}
-      id="packages"
-      aria-labelledby="packages-h2"
-    >
+    <section className={shared.sectionOnDark} id="packages" aria-labelledby="packages-h2">
       <div className="wrap">
         <div className={`${shared.sectionHead} reveal`}>
-          <p className={shared.sectionEyebrow}>{eyebrow}</p>
+          <p className={shared.sectionEyebrow}>{heading.eyebrow}</p>
           <h2
             className={`${shared.sectionTitle} ${shared.sectionTitleDark}`}
             id="packages-h2"
           >
-            {headingBeforeEm}
-            <em>{headingEm}</em>
-            {headingAfterEm}
+            {heading.heading_before_em}
+            <em>{heading.heading_em}</em>
+            {heading.heading_after_em}
           </h2>
-          <p className={`${shared.sectionDesc} ${shared.sectionDescDark}`}>{desc}</p>
+          <p className={`${shared.sectionDesc} ${shared.sectionDescDark}`}>{heading.desc}</p>
         </div>
 
         <div className={styles.packagesGrid}>
-          {PACKAGES.map((pkg) => (
-            <PackageCard key={pkg.id} pkg={pkg} />
+          {packages.map((pkg) => (
+            <PackageCard
+              key={pkg.id}
+              pkg={{
+                id: pkg.id,
+                name: pkg.name,
+                guests: pkg.guests,
+                priceFrom: pkg.price_from,
+                featured: pkg.featured,
+                features: pkg.features?.map((f: any) => f.feature) || [],
+              }}
+            />
           ))}
         </div>
       </div>
