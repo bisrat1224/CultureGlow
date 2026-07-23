@@ -36,19 +36,7 @@
   flex-direction: column;
   justify-content: flex-end;
   padding-bottom: calc(var(--cg-u) * 6);
-}
-
-@media (max-width: 767px) {
-  .menuHero {
-    height: auto;
-    max-height: none;
-  }
-
-  .menuHeroBody {
-    justify-content: center;
-    padding-top: 96px;
-    padding-bottom: calc(var(--cg-u) * 4);
-  }
+  box-sizing: border-box;
 }
 
 .menuHeroEyebrow {
@@ -131,4 +119,20 @@
 .btnGhostLight:hover {
   border-color: var(--cg-cream);
   background: rgba(250, 246, 240, 0.08);
+}
+
+/* Desktop-only: taller hero + guaranteed clearance under the fixed header.
+   Scoped to min-width so mobile/tablet sizing is untouched. On mobile the
+   shorter viewport + unchanged 420px floor already keeps this heading clear
+   of the header; this is only needed where the 3-line heading + description
+   + button row is tall enough to push into the header band. */
+@media (min-width: 1024px) {
+  .menuHero {
+    min-height: 600px;
+    max-height: 760px;
+  }
+
+  .menuHeroBody {
+    padding-top: calc(var(--cg-header-h) + var(--cg-u) * 3);
+  }
 }

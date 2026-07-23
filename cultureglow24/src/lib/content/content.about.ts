@@ -12,7 +12,7 @@ export const aboutContent = {
     headingEm: "CultureGlow24",
     headingAfterEm: "",
     body: "CultureGlow24 began with a simple idea: Habesha culture deserves a place in everyday life, not just special occasions. What started as family recipes shared between neighbors in Addis Ababa has grown into a full celebration of Habesha food, beauty, and lifestyle — delivered straight to your door, one WhatsApp order at a time.",
-    amharic: "ባህላችን ኩራታችን ነው — ምግብ፣ ልብስ፣ ሕይወት።",
+    amharic: "Our culture is our pride. Food, Fashion, Life!",
     badge: "Est. 2024",
     stats: [
       { value: "500+", label: "Orders Delivered" },

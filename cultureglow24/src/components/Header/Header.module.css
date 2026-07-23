@@ -4,6 +4,8 @@
   left: 0;
   right: 0;
   z-index: 900;
+  min-height: var(--cg-header-h);
+  box-sizing: border-box;
   padding: calc(var(--cg-u) * 2.5) calc(var(--cg-u) * 3);
   display: flex;
   align-items: center;

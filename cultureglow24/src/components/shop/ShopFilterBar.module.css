@@ -1,5 +1,9 @@
 .filterBar {
-  padding: calc(var(--cg-u) * 4) 0 0;
+  position: sticky;
+  top: var(--cg-header-h);
+  z-index: 700;
+  background: var(--cg-cream);
+  padding: calc(var(--cg-u) * 2) 0;
 }
 
 .filterScroll {
