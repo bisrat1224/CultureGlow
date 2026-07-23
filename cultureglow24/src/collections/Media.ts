@@ -1,10 +1,8 @@
 import type { CollectionConfig } from "payload";
-import { isCloudinaryConfigured } from "../lib/cloudinary";
 
 export const Media: CollectionConfig = {
   slug: "media",
   upload: {
-    staticURL: "/media",
     staticDir: "media",
     imageSizes: [
       {
@@ -39,16 +37,6 @@ export const Media: CollectionConfig = {
     update: ({ req: { user } }) => Boolean(user),
     delete: ({ req: { user } }) => Boolean(user),
   },
-  hooks: {
-    beforeChange: [
-      ({ req, data }) => {
-        if (isCloudinaryConfigured()) {
-          console.log("Cloudinary is configured — consider migrating uploads to Cloudinary storage adapter");
-        }
-        return data;
-      },
-    ],
-  },
   fields: [
     {
       name: "alt",
@@ -63,16 +51,6 @@ export const Media: CollectionConfig = {
       name: "caption",
       type: "text",
       label: "Caption",
-    },
-    {
-      name: "cloudinary_public_id",
-      type: "text",
-      label: "Cloudinary Public ID",
-      admin: {
-        description: "Set automatically when using Cloudinary storage. TODO: Remove when Cloudinary adapter is active.",
-        readOnly: true,
-        condition: () => false,
-      },
     },
   ],
 };
