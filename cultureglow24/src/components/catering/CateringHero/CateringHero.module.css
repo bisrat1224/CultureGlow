@@ -35,6 +35,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  padding-top: calc(var(--cg-header-h) + var(--cg-u) * 3);
   padding-bottom: calc(var(--cg-u) * 6);
   box-sizing: border-box;
   max-width: 1280px;
@@ -79,15 +80,12 @@
   flex-wrap: wrap;
 }
 
-/* Desktop-only: taller hero + guaranteed clearance under the fixed header.
-   Scoped to min-width so mobile/tablet sizing is untouched. */
+/* Desktop-only: taller hero to give the larger heading/description/CTA
+   stack room to breathe. Header clearance (padding-top) is handled in the
+   base .catHeroBody rule above so it applies at every breakpoint. */
 @media (min-width: 1024px) {
   .catHero {
     min-height: 600px;
     max-height: 760px;
-  }
-
-  .catHeroBody {
-    padding-top: calc(var(--cg-header-h) + var(--cg-u) * 3);
   }
 }
