@@ -1,7 +1,22 @@
-import { AdminViewComponent } from "@payloadcms/next/views";
+import type { Metadata } from "next";
+import { generatePageMetadata, RootPage } from "@payloadcms/next/views";
 
-export default AdminViewComponent;
+import config from "../../../../../payload.config";
+import { importMap } from "../importMap";
 
-export const metadata = {
-  title: "CultureGlow24 Admin",
+type Args = {
+  params: Promise<{
+    segments: string[];
+  }>;
+  searchParams: Promise<{
+    [key: string]: string | string[];
+  }>;
 };
+
+export const generateMetadata = ({ params, searchParams }: Args): Promise<Metadata> =>
+  generatePageMetadata({ config, params, searchParams });
+
+const Page = ({ params, searchParams }: Args) =>
+  RootPage({ config, params, searchParams, importMap });
+
+export default Page;

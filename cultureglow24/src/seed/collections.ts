@@ -96,46 +96,47 @@ export async function seedCollections(payload: Payload) {
       collection: "products",
       data: {
         name: product.name,
-        slug: product.slug,
+        slug: product.id,
         category: product.category,
         price: product.price,
         description: product.description,
         badge: product.badge || undefined,
-        whatsapp_message: product.whatsappMessage,
+        whatsapp_message: `I'd like to order the ${product.name}`,
         published: true,
-        featured: product.featured || false,
+        featured: false,
       },
     });
   }
   console.log(`  ✓ products (${PRODUCTS.length} items)`);
 
   const categoryMap = new Map<string, string>();
-  for (const cat of CATEGORIES) {
+  for (let i = 0; i < CATEGORIES.length; i++) {
+    const cat = CATEGORIES[i];
     const doc = await payload.create({
       collection: "menu_categories",
       data: {
-        name: cat.name,
-        slug: cat.slug,
+        name: cat.navLabel,
+        slug: cat.id,
         nav_label: cat.navLabel,
         eyebrow: cat.eyebrow,
-        title_before_em: cat.title.beforeEm,
-        title_em: cat.title.em,
+        title_before_em: cat.titleBeforeEm,
+        title_em: cat.titleEm,
         variant: cat.variant,
         count_label: cat.countLabel,
-        sort_order: cat.sortOrder,
+        sort_order: i,
         published: true,
       },
     });
-    categoryMap.set(cat.slug, doc.id);
+    categoryMap.set(cat.id, String(doc.id));
   }
   console.log(`  ✓ menu_categories (${CATEGORIES.length} items)`);
 
   const allItems = [
-    ...STARTERS_ITEMS.map((i) => ({ ...i, categorySlug: "starters" })),
+    ...STARTERS_ITEMS.map((i) => ({ ...i, ribbon: undefined as string | undefined, categorySlug: "starters" })),
     ...MAINS_ITEMS.map((i) => ({ ...i, categorySlug: "mains" })),
-    ...VEG_VEGAN_ITEMS.map((i) => ({ ...i, categorySlug: "veg-vegan" })),
-    ...DESSERTS_ITEMS.map((i) => ({ ...i, categorySlug: "desserts" })),
-    ...DRINKS_ITEMS.map((i) => ({ ...i, categorySlug: "drinks" })),
+    ...VEG_VEGAN_ITEMS.map((i) => ({ ...i, ribbon: undefined as string | undefined, categorySlug: "veg-vegan" })),
+    ...DESSERTS_ITEMS.map((i) => ({ ...i, ribbon: undefined as string | undefined, categorySlug: "desserts" })),
+    ...DRINKS_ITEMS.map((i) => ({ ...i, ribbon: undefined as string | undefined, categorySlug: "drinks" })),
   ];
 
   for (const item of allItems) {
@@ -145,12 +146,12 @@ export async function seedCollections(payload: Payload) {
       collection: "menu_items",
       data: {
         name: item.name,
-        slug: item.slug,
+        slug: item.id,
         description: item.description,
         price: item.price,
         alt: item.alt,
         category: categoryId,
-        diet_flags: item.dietFlags || [],
+        diet_flags: item.diet || [],
         tag: item.tag || undefined,
         ribbon: item.ribbon || undefined,
         published: true,

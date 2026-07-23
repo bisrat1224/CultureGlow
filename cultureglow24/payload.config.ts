@@ -31,6 +31,7 @@ import { GalleryPage } from "./src/globals/GalleryPage";
 import { ContactPage } from "./src/globals/ContactPage";
 
 export default buildConfig({
+  secret: process.env.PAYLOAD_SECRET || "",
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000",
   db: postgresAdapter({
     pool: {
@@ -42,8 +43,10 @@ export default buildConfig({
     user: Users.slug,
     meta: {
       titleSuffix: " — CultureGlow24 Admin",
-      favicon: "/assets/images/logo.png",
-      ogImage: "/assets/images/logo.png",
+      icons: [{ url: "/assets/images/logo.png" }],
+      openGraph: {
+        images: [{ url: "/assets/images/logo.png" }],
+      },
     },
   },
   collections: [
