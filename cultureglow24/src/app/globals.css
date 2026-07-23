@@ -18,6 +18,10 @@
   --cg-text:       #555555;
   --cg-border:     #DDD9D2;
   --cg-u:          8px;
+  /* Rendered height of .siteHeader: (padding-top 20px + logo 48px + padding-bottom 20px).
+     Kept as a single token so anything sticking to the header (e.g. CategoryNav,
+     ShopFilterBar) can reference the real value instead of guessing a pixel offset. */
+  --cg-header-h:   88px;
 }
 
 @theme inline {

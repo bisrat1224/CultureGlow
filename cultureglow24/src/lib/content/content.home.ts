@@ -48,7 +48,7 @@ export const homeContent = {
     headingAfterEm: "",
     headingSecondLine: "Meets the Table",
     body: "What started as home-cooked meals shared between neighbours has grown into a full celebration of Habesha food, beauty, and lifestyle. Every dish, garment, and gift we offer carries the same care we'd bring to our own family table.",
-    amharic: "????? ????? ??, ???? ???? ?????",
+    amharic: "Every dish tells a story of home.",
     badge: "Since 2024",
     stats: [
       { value: "500+", label: "Orders Delivered" },

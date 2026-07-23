@@ -1,6 +1,6 @@
 .categoryBlock {
   padding: calc(var(--cg-u) * 10) 0;
-  scroll-margin-top: calc(96px + var(--cg-u) * 9);
+  scroll-margin-top: calc(var(--cg-header-h) + var(--cg-u) * 9);
 }
 
 .onCream {

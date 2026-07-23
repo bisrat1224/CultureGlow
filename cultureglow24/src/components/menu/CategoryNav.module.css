@@ -1,6 +1,6 @@
 .categoryNav {
   position: sticky;
-  top: 96px;
+  top: var(--cg-header-h);
   z-index: 700;
   background: var(--cg-charcoal);
   border-bottom: 1px solid rgba(200, 151, 58, 0.2);

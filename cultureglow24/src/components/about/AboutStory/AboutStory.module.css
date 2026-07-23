@@ -1,8 +1,5 @@
-
-
 .storySection {
   padding: calc(var(--cg-u) * 10) 0;
-  padding-top: calc(96px + var(--cg-u) * 6);
 }
 
 .storyInner {
