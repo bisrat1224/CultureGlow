@@ -1,8 +1,9 @@
 .catHero {
   position: relative;
-  height: 56vh;
   min-height: 420px;
-  max-height: 620px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   overflow: hidden;
   background: var(--cg-charcoal);
 }
@@ -31,10 +32,6 @@
 .catHeroBody {
   position: relative;
   z-index: 2;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
   padding-top: calc(var(--cg-header-h) + var(--cg-u) * 3);
   padding-bottom: calc(var(--cg-u) * 6);
   box-sizing: border-box;
@@ -80,12 +77,11 @@
   flex-wrap: wrap;
 }
 
-/* Desktop-only: taller hero to give the larger heading/description/CTA
-   stack room to breathe. Header clearance (padding-top) is handled in the
-   base .catHeroBody rule above so it applies at every breakpoint. */
+/* Desktop-only: taller floor to give the larger heading/description/CTA
+   stack room to breathe. No max-height anywhere: the hero can always grow
+   taller than this floor if the actual rendered content needs more room. */
 @media (min-width: 1024px) {
   .catHero {
     min-height: 600px;
-    max-height: 760px;
   }
 }
