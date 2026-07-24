@@ -21,8 +21,8 @@ export async function getGalleryPageData() {
 
   return {
     galleryPage,
-    photos: galleryPhotos.docs,
-    tiktokTiles: tiktokTiles.docs,
+    photos: galleryPhotos.docs as any[],
+    tiktokTiles: tiktokTiles.docs as any[],
   };
 }
 

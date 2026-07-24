@@ -12,9 +12,15 @@ interface MenuItem {
   ribbon?: string | null;
 }
 
-export default function MainsCard({ item }: { item: MenuItem }) {
+export default function MainsCard({
+  item,
+  revealDelayClass,
+}: {
+  item: MenuItem;
+  revealDelayClass?: string;
+}) {
   return (
-    <div className={styles.card}>
+    <div className={`${styles.card} reveal ${revealDelayClass ?? ""}`.trim()}>
       <div className={styles.imageWrapper}>
         {item.image?.url ? (
           <Image

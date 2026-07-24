@@ -34,11 +34,11 @@ export default function PackagesSection({ heading, packages }: PackagesSectionPr
           {packages.map((pkg) => (
             <PackageCard
               key={pkg.id}
-              pkg={{
+              package={{
                 id: pkg.id,
                 name: pkg.name,
                 guests: pkg.guests,
-                priceFrom: pkg.price_from,
+                price_from: pkg.price_from,
                 featured: pkg.featured,
                 features: pkg.features?.map((f: any) => f.feature) || [],
               }}

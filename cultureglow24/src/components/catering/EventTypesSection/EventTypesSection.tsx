@@ -38,7 +38,7 @@ export default function EventTypesSection({ heading, eventTypes }: EventTypesSec
                 id: et.id,
                 tag: et.tag,
                 title: et.title,
-                desc: et.description,
+                description: et.description,
                 image: et.image,
                 alt: et.alt,
               }}

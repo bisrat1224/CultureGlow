@@ -2,7 +2,14 @@
 
 import { useCallback, useState } from "react";
 import Image from "next/image";
-import PhotoLightbox from "./PhotoLightbox";
+import { PhotoLightbox } from "./PhotoLightbox";
+
+export interface GalleryPhoto {
+  id: string;
+  image: string;
+  alt: string;
+  ratio?: string;
+}
 
 interface GalleryPhotoGridProps {
   heading: {
@@ -12,7 +19,7 @@ interface GalleryPhotoGridProps {
     heading_after_em: string;
     desc: string;
   };
-  photos: any[];
+  photos: GalleryPhoto[];
 }
 
 export default function GalleryPhotoGrid({ heading, photos }: GalleryPhotoGridProps) {
@@ -65,7 +72,7 @@ export default function GalleryPhotoGrid({ heading, photos }: GalleryPhotoGridPr
 
       {lightboxIndex !== null && (
         <PhotoLightbox
-          photos={photos.map((p) => ({ src: p.image, alt: p.alt }))}
+          photos={photos}
           currentIndex={lightboxIndex}
           onClose={close}
           onPrev={prev}

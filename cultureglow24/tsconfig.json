@@ -1,31 +1,42 @@
-
- ---
-
-## NEW FILE: `.env.example` (updated with all required vars)
-
- ```bash
-# Public — safe to expose in browser bundle
-NEXT_PUBLIC_WHATSAPP_NUMBER=251900000000
-NEXT_PUBLIC_GA_MEASUREMENT_ID=
-NEXT_PUBLIC_SERVER_URL=http://localhost:3000
-
-# Server-only — never exposed to browser
-RESEND_API_KEY=
-CONTACT_FORM_RECIPIENT_EMAIL=
-CATERING_FORM_RECIPIENT_EMAIL=
-
-# === PAYLOAD CMS ===
-DATABASE_URL=postgresql://user:password@host:5432/cultureglow24
-PAYLOAD_SECRET=generate-a-32-character-random-string-here
-
-# === CLOUDINARY ===
-CLOUDINARY_CLOUD_NAME=
-CLOUDINARY_API_KEY=
-CLOUDINARY_API_SECRET=
-CLOUDINARY_UPLOAD_PRESET=
-
-# === SMTP (optional — for password reset emails) ===
-SMTP_HOST=
-SMTP_PORT=587
-SMTP_USER=
-SMTP_PASS=
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "downlevelIteration": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

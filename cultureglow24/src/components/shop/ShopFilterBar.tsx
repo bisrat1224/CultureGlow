@@ -60,10 +60,13 @@ export default function ShopFilterBar({ productsSection, products }: ShopFilterB
               product={{
                 id: product.id,
                 name: product.name,
+                slug: product.slug,
                 description: product.description,
                 price: product.price,
-                image: typeof product.image === "string" ? product.image : product.image?.url,
-                alt: product.alt || product.name,
+                image:
+                  typeof product.image === "string"
+                    ? { url: product.image }
+                    : product.image,
                 badge: product.badge || undefined,
                 category: product.category,
               }}

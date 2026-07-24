@@ -27,9 +27,9 @@ export async function getCachedCollection<T>(
     async () => {
       const payload = await getPayloadClient();
       return payload.find({
-        collection: slug,
-        ...options,
-      }) as Promise<{ docs: T[] }>;
+        collection: slug as any,
+        ...(options as any),
+      }) as unknown as Promise<{ docs: T[] }>;
     },
     { ttl: 30 * 1000, staleTime: 2 * 60 * 1000 }
   );

@@ -13,9 +13,15 @@ interface MenuItem {
   tag?: string | null;
 }
 
-export default function MenuRow({ item }: { item: MenuItem }) {
+export default function MenuRow({
+  item,
+  revealDelayClass,
+}: {
+  item: MenuItem;
+  revealDelayClass?: string;
+}) {
   return (
-    <div className={styles.row}>
+    <div className={`${styles.row} reveal ${revealDelayClass ?? ""}`.trim()}>
       <div className={styles.imageWrapper}>
         {item.image?.url ? (
           <Image

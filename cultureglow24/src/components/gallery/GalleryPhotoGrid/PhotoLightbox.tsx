@@ -2,11 +2,15 @@
 
 import { useEffect } from "react";
 import styles from "./PhotoLightbox.module.css";
-import type { GalleryPhoto } from "./GalleryPhotoGrid";
+
+interface LightboxPhoto {
+  image: string;
+  alt: string;
+}
 
 interface PhotoLightboxProps {
-  photos: GalleryPhoto[];
-  index: number;
+  photos: LightboxPhoto[];
+  currentIndex: number;
   onClose: () => void;
   onPrev: () => void;
   onNext: () => void;
@@ -22,7 +26,7 @@ interface PhotoLightboxProps {
 // from the Brief's suggestion, not an oversight.
 export function PhotoLightbox({
   photos,
-  index,
+  currentIndex,
   onClose,
   onPrev,
   onNext,
@@ -41,7 +45,7 @@ export function PhotoLightbox({
     };
   }, [onClose, onPrev, onNext]);
 
-  const photo = photos[index];
+  const photo = photos[currentIndex];
 
   return (
     <div
@@ -91,7 +95,7 @@ export function PhotoLightbox({
         ›
       </button>
       <p className={styles.lightboxCount}>
-        {index + 1} / {photos.length}
+        {currentIndex + 1} / {photos.length}
       </p>
     </div>
   );

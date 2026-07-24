@@ -8,9 +8,15 @@ interface Testimonial {
   location: string;
 }
 
-export default function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
+export default function TestimonialCard({
+  testimonial,
+  revealDelayClass,
+}: {
+  testimonial: Testimonial;
+  revealDelayClass?: string;
+}) {
   return (
-    <div className={styles.card}>
+    <div className={`${styles.card} reveal ${revealDelayClass ?? ""}`.trim()}>
       <div className={styles.avatar}>
         <span>{testimonial.initial}</span>
       </div>

@@ -26,7 +26,8 @@ export default function BundlesSection({ heading, bundles }: BundlesSectionProps
               id: bundle.id,
               label: bundle.label,
               title: bundle.title,
-              priceFrom: bundle.price_from,
+              slug: bundle.slug,
+              price_from: bundle.price_from,
               image: bundle.image,
               alt: bundle.alt,
             }}

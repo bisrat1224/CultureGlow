@@ -10,9 +10,15 @@ interface EventType {
   alt: string;
 }
 
-export default function EventTypeCard({ eventType }: { eventType: EventType }) {
+export default function EventTypeCard({
+  eventType,
+  revealDelayClass,
+}: {
+  eventType: EventType;
+  revealDelayClass?: string;
+}) {
   return (
-    <div className={styles.card}>
+    <div className={`${styles.card} reveal ${revealDelayClass ?? ""}`.trim()}>
       <div className={styles.imageWrapper}>
         {eventType.image?.url ? (
           <Image

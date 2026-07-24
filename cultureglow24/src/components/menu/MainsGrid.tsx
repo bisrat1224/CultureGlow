@@ -14,11 +14,11 @@ export default function MainsGrid({ items }: MainsGridProps) {
           item={{
             id: item.id,
             name: item.name,
+            slug: item.slug,
             description: item.description,
             price: item.price,
             image: item.image,
             alt: item.alt,
-            diet: item.diet_flags || [],
             ribbon: item.ribbon || undefined,
           }}
           revealDelayClass={`reveal-delay-${Math.min(i + 1, 4)}`}

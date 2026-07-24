@@ -7,11 +7,19 @@ interface SocialTileData {
   caption: string;
 }
 
-export default function SocialTile({ tile }: { tile: SocialTileData }) {
+export default function SocialTile({
+  data,
+  revealDelayClass,
+}: {
+  data: SocialTileData;
+  revealDelayClass?: string;
+}) {
   return (
-    <div className={`${styles.tile} ${styles[`color${tile.color.toUpperCase()}`]}`}>
-      <span className={styles.platform}>{tile.platform}</span>
-      <p className={styles.caption}>{tile.caption}</p>
+    <div
+      className={`${styles.tile} ${styles[`color${data.color.toUpperCase()}`]} reveal ${revealDelayClass ?? ""}`.trim()}
+    >
+      <span className={styles.platform}>{data.platform}</span>
+      <p className={styles.caption}>{data.caption}</p>
     </div>
   );
 }

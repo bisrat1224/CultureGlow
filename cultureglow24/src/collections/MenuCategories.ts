@@ -58,8 +58,10 @@ export const MenuCategories: CollectionConfig = {
     {
       name: "title_before_em",
       type: "text",
-      required: true,
       label: "Title (before emphasized word)",
+      admin: {
+        description: "Leave blank if the whole title should be emphasized (e.g. Desserts, Drinks).",
+      },
     },
     {
       name: "title_em",

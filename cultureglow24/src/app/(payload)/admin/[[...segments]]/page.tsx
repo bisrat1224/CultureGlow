@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { generatePageMetadata, RootPage } from "@payloadcms/next/views";
-
 import config from "../../../../../payload.config";
+import { generatePageMetadata, RootPage } from "@payloadcms/next/views";
 import { importMap } from "../importMap";
 
 type Args = {

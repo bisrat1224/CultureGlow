@@ -1,4 +1,5 @@
 import type { Payload } from "payload";
+import type { HeroImageIds } from "./media";
 import { homeContent } from "../lib/content/content.home";
 import { aboutContent } from "../lib/content/content.about";
 import { menuContent } from "../lib/content/content.menu";
@@ -6,33 +7,34 @@ import { cateringContent } from "../lib/content/content.catering";
 import { shopContent } from "../lib/content/content.shop";
 import { galleryContent } from "../lib/content/content.gallery";
 import { contactContent } from "../lib/content/content.contact";
-import { NAV_LINKS, SOCIAL_LINKS, WHATSAPP_NUMBER, CONTACT_EMAIL } from "../lib/constants";
 
-const { hero, marquee, story, products: productsSection, accentBand, kitchen, social, catering, testimonials } = homeContent;
-const { story: aboutStory, mission, milestones, gallery, social: aboutSocial } = aboutContent;
-const { hero: menuHero, featureBanner, howToOrder, pdfCta } = menuContent;
-const {
-  hero: cateringHero,
-  eventTypes,
-  packages,
-  gallery: cateringGallery,
-  testimonials: cateringTestimonials,
-  contactCta,
-} = cateringContent;
-const {
-  hero: shopHero,
-  scrollingBanner,
-  featureBanner: shopFeatureBanner,
-  bundles: bundlesSection,
-  productsSection: shopProductsSection,
-  howToOrder: shopHowToOrder,
-} = shopContent;
-const { hero: galleryHero, photoGrid, tiktok } = galleryContent;
-const { hero: contactHero, methods, map } = contactContent;
+// Sitewide nav/social/contact seed data. This used to live in
+// lib/constants.ts, but that file now only holds utility functions
+// (content moved to Payload CMS) — these are the initial values used to
+// seed the site_settings/navigation/footer globals the first time.
+const NAV_LINKS = [
+  { label: "Home", href: "/" },
+  { label: "Menu", href: "/menu" },
+  { label: "Catering", href: "/catering" },
+  { label: "Shop", href: "/shop" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
+];
 
-export async function seedGlobals(payload: Payload) {
+const SOCIAL_LINKS = [
+  { label: "Instagram", href: "https://instagram.com/cultureglow24" },
+  { label: "TikTok", href: "https://tiktok.com/@cultureglow24" },
+  { label: "Facebook", href: "https://facebook.com/cultureglow24" },
+];
+
+const WHATSAPP_NUMBER = "251900000000";
+const CONTACT_EMAIL = "hello@cultureglow24.com";
+
+export async function seedGlobals(payload: Payload, heroImages: HeroImageIds) {
   console.log("📄 Seeding globals...");
 
+  // 1. Site Settings
   await payload.updateGlobal({
     slug: "site_settings",
     data: {
@@ -47,6 +49,7 @@ export async function seedGlobals(payload: Payload) {
   });
   console.log("  ✓ site_settings");
 
+  // 2. Navigation
   await payload.updateGlobal({
     slug: "navigation",
     data: {
@@ -59,6 +62,7 @@ export async function seedGlobals(payload: Payload) {
   });
   console.log("  ✓ navigation");
 
+  // 3. Footer
   await payload.updateGlobal({
     slug: "footer",
     data: {
@@ -77,6 +81,7 @@ export async function seedGlobals(payload: Payload) {
   });
   console.log("  ✓ footer");
 
+  // 4. SEO Defaults
   await payload.updateGlobal({
     slug: "seo_defaults",
     data: {
@@ -94,6 +99,8 @@ export async function seedGlobals(payload: Payload) {
   });
   console.log("  ✓ seo_defaults");
 
+  // 5. Home Page
+  const { hero, marquee, story, products, accentBand, kitchen, social, catering, testimonials } = homeContent;
   await payload.updateGlobal({
     slug: "home_page",
     data: {
@@ -106,7 +113,7 @@ export async function seedGlobals(payload: Payload) {
         primary_cta: hero.primaryCta,
         secondary_cta: hero.secondaryCta,
       },
-      marquee_items: marquee.items.map((item) => ({ text: item })),
+      marquee_items: marquee.items.map((text: string) => ({ text })),
       story: {
         eyebrow: story.eyebrow,
         heading_before_em: story.headingBeforeEm,
@@ -115,15 +122,15 @@ export async function seedGlobals(payload: Payload) {
         body: story.body,
         amharic: story.amharic,
         badge: story.badge,
-        stats: story.stats.map((s) => ({ value: s.value, label: s.label })),
+        stats: story.stats.map((s: { value: string; label: string }) => ({ value: s.value, label: s.label })),
       },
       products_heading: {
-        eyebrow: productsSection.eyebrow,
-        heading_before_em: productsSection.headingBeforeEm,
-        heading_em: productsSection.headingEm,
-        view_all_cta: productsSection.viewAllCta,
+        eyebrow: products.eyebrow,
+        heading_before_em: products.headingBeforeEm,
+        heading_em: products.headingEm,
+        view_all_cta: products.viewAllCta,
       },
-      accent_band_items: accentBand.items.map((item) => ({ text: item })),
+      accent_band_items: accentBand.items.map((text: string) => ({ text })),
       kitchen: {
         eyebrow: kitchen.eyebrow,
         heading_before_em: kitchen.headingBeforeEm,
@@ -157,15 +164,35 @@ export async function seedGlobals(payload: Payload) {
   });
   console.log("  ✓ home_page");
 
+  // 6. About Page
+  // content.about.ts has no `hero` section (copy-only file, see its header
+  // comment) — seeded here with defaults matching the About Page global's
+  // own schema defaults.
+  const aboutHero = {
+    eyebrow: "About Us",
+    headingBeforeEm: "Our ",
+    headingEm: "Story",
+    headingAfterEm: "",
+    desc: "Habesha food, beauty, and lifestyle delivered with care.",
+  };
+  const { story: aboutStory, mission, milestones, gallery: aboutGallery, social: aboutSocial } = aboutContent;
+  if (!heroImages.about) {
+    throw new Error(
+      `seedGlobals: heroImages.about is falsy (${JSON.stringify(
+        heroImages.about
+      )}) — seedMedia did not produce a usable id for the "about" hero image.`
+    );
+  }
   await payload.updateGlobal({
     slug: "about_page",
     data: {
       hero: {
-        eyebrow: "About Us",
-        heading_before_em: "Our ",
-        heading_em: "Story",
-        heading_after_em: "",
-        desc: "Habesha food, beauty, and lifestyle delivered with care.",
+        eyebrow: aboutHero.eyebrow,
+        heading_before_em: aboutHero.headingBeforeEm,
+        heading_em: aboutHero.headingEm,
+        heading_after_em: aboutHero.headingAfterEm,
+        desc: aboutHero.desc,
+        hero_image: heroImages.about,
       },
       story: {
         eyebrow: aboutStory.eyebrow,
@@ -174,7 +201,7 @@ export async function seedGlobals(payload: Payload) {
         body: aboutStory.body,
         amharic: aboutStory.amharic,
         badge: aboutStory.badge,
-        stats: aboutStory.stats.map((s) => ({ value: s.value, label: s.label })),
+        stats: aboutStory.stats.map((s: { value: string; label: string }) => ({ value: s.value, label: s.label })),
       },
       mission_heading: {
         eyebrow: mission.eyebrow,
@@ -187,9 +214,9 @@ export async function seedGlobals(payload: Payload) {
         heading_em: milestones.headingEm,
       },
       gallery_heading: {
-        eyebrow: gallery.eyebrow,
-        heading_before_em: gallery.headingBeforeEm,
-        heading_em: gallery.headingEm,
+        eyebrow: aboutGallery.eyebrow,
+        heading_before_em: aboutGallery.headingBeforeEm,
+        heading_em: aboutGallery.headingEm,
       },
       social_heading: {
         heading: aboutSocial.heading,
@@ -198,6 +225,8 @@ export async function seedGlobals(payload: Payload) {
   });
   console.log("  ✓ about_page");
 
+  // 7. Menu Page
+  const { hero: menuHero, featureBanner, howToOrder, pdfCta } = menuContent;
   await payload.updateGlobal({
     slug: "menu_page",
     data: {
@@ -209,6 +238,7 @@ export async function seedGlobals(payload: Payload) {
         desc: menuHero.desc,
         primary_cta: menuHero.primaryCta,
         secondary_cta: menuHero.secondaryCta,
+        hero_image: heroImages.menu,
       },
       feature_banner: {
         label: featureBanner.label,
@@ -220,7 +250,7 @@ export async function seedGlobals(payload: Payload) {
         label: howToOrder.label,
         title: howToOrder.title,
         desc: howToOrder.desc,
-        steps: howToOrder.steps.map((s) => ({
+        steps: howToOrder.steps.map((s: { number: number; title: string; desc: string }) => ({
           number: s.number,
           title: s.title,
           desc: s.desc,
@@ -236,6 +266,15 @@ export async function seedGlobals(payload: Payload) {
   });
   console.log("  ✓ menu_page");
 
+  // 8. Catering Page
+  const {
+    hero: cateringHero,
+    eventTypes,
+    packages,
+    gallery: cateringGallery,
+    testimonials: cateringTestimonials,
+    contactCta,
+  } = cateringContent;
   await payload.updateGlobal({
     slug: "catering_page",
     data: {
@@ -247,6 +286,7 @@ export async function seedGlobals(payload: Payload) {
         desc: cateringHero.desc,
         primary_cta: cateringHero.primaryCta,
         secondary_cta: cateringHero.secondaryCta,
+        hero_image: heroImages.catering,
       },
       event_types_heading: {
         eyebrow: eventTypes.eyebrow,
@@ -283,6 +323,15 @@ export async function seedGlobals(payload: Payload) {
   });
   console.log("  ✓ catering_page");
 
+  // 9. Shop Page
+  const {
+    hero: shopHero,
+    scrollingBanner,
+    featureBanner: shopFeatureBanner,
+    bundles: bundlesSection,
+    productsSection: shopProductsSection,
+    howToOrder: shopHowToOrder,
+  } = shopContent;
   await payload.updateGlobal({
     slug: "shop_page",
     data: {
@@ -291,7 +340,7 @@ export async function seedGlobals(payload: Payload) {
         title: shopHero.title,
         desc: shopHero.desc,
       },
-      scrolling_banner_items: scrollingBanner.items.map((item) => ({ text: item })),
+      scrolling_banner_items: scrollingBanner.items.map((text: string) => ({ text })),
       feature_banner: {
         label: shopFeatureBanner.label,
         title: shopFeatureBanner.title,
@@ -311,7 +360,7 @@ export async function seedGlobals(payload: Payload) {
         label: shopHowToOrder.label,
         title: shopHowToOrder.title,
         desc: shopHowToOrder.desc,
-        steps: shopHowToOrder.steps.map((s) => ({
+        steps: shopHowToOrder.steps.map((s: { number: number; title: string; desc: string }) => ({
           number: s.number,
           title: s.title,
           desc: s.desc,
@@ -321,6 +370,8 @@ export async function seedGlobals(payload: Payload) {
   });
   console.log("  ✓ shop_page");
 
+  // 10. Gallery Page
+  const { hero: galleryHero, photoGrid, tiktok } = galleryContent;
   await payload.updateGlobal({
     slug: "gallery_page",
     data: {
@@ -330,6 +381,7 @@ export async function seedGlobals(payload: Payload) {
         heading_em: galleryHero.headingEm,
         heading_after_em: galleryHero.headingAfterEm,
         desc: galleryHero.desc,
+        hero_image: heroImages.gallery,
       },
       photo_grid_heading: {
         eyebrow: photoGrid.eyebrow,
@@ -349,6 +401,8 @@ export async function seedGlobals(payload: Payload) {
   });
   console.log("  ✓ gallery_page");
 
+  // 11. Contact Page
+  const { hero: contactHero, methods, map } = contactContent;
   await payload.updateGlobal({
     slug: "contact_page",
     data: {
@@ -359,6 +413,7 @@ export async function seedGlobals(payload: Payload) {
         heading_after_em: contactHero.headingAfterEm,
         desc: contactHero.desc,
         cta: contactHero.cta,
+        hero_image: heroImages.contact,
       },
       methods_heading: {
         eyebrow: methods.eyebrow,

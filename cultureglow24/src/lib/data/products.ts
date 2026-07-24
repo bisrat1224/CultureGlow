@@ -1,6 +1,15 @@
-﻿import type { Product } from "@/components/home/ProductsSection/ProductCard";
-
-export type { Product };
+﻿export interface Product {
+  id: string;
+  category: string;
+  name: string;
+  price: string;
+  image: string;
+  alt: string;
+  description: string;
+  gallery?: string[];
+  allergens?: string[];
+  badge?: string;
+}
 
 export type ProductCategory = "HABESHA FOOD" | "LIFESTYLE" | "BEAUTY";
 

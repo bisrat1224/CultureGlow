@@ -6,7 +6,7 @@ interface CategoryBlockProps {
     id: string;
     slug: string;
     eyebrow: string;
-    title_before_em: string;
+    title_before_em?: string | null;
     title_em: string;
     variant: string;
     count_label: string;

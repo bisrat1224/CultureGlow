@@ -14,11 +14,12 @@ export default function MenuRowList({ items }: MenuRowListProps) {
           item={{
             id: item.id,
             name: item.name,
+            slug: item.slug,
             description: item.description,
             price: item.price,
             image: item.image,
             alt: item.alt,
-            diet: item.diet_flags || [],
+            diet_flags: item.diet_flags || [],
             tag: item.tag || undefined,
           }}
           revealDelayClass={`reveal-delay-${Math.min(i + 1, 4)}`}

@@ -21,8 +21,8 @@ export async function getMenuPageData() {
 
   return {
     menuPage,
-    categories: categories.docs,
-    menuItems: menuItems.docs,
+    categories: categories.docs as any[],
+    menuItems: menuItems.docs as any[],
   };
 }
 

@@ -1,5 +1,5 @@
 import { buildWhatsAppLink } from "@/lib/constants";
-import MenuRow from "./MenuRow";
+import { MenuRow } from "./MenuRow";
 import styles from "./KitchenSection.module.css";
 import shared from "../shared.module.css";
 
