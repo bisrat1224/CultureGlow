@@ -68,7 +68,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
               <p className={styles.productPrice}>{product.price}</p>
               <p className={styles.productDescription}>{product.description}</p>
 
-              {product.allergens && product.allergens.length > 0 && (
+              {product.category === "HABESHA FOOD" &&
+                product.allergens &&
+                product.allergens.length > 0 && (
                 <div className={styles.allergenBlock}>
                   <p className={styles.allergenLabel}>Allergen Information</p>
                   <ul className={styles.allergenList}>

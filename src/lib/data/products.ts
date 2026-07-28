@@ -38,7 +38,6 @@ export const PRODUCTS: Product[] = [
       "/assets/images/dress-green.jpg",
       "/assets/images/dress-burgundy.jpg",
     ],
-    allergens: ["Not applicable - clothing item"],
   },
   {
     id: "netela-dress",
@@ -52,7 +51,6 @@ export const PRODUCTS: Product[] = [
       "/assets/images/dress-burgundy.jpg",
       "/assets/images/dress-green.jpg",
     ],
-    allergens: ["Not applicable - clothing item"],
   },
   {
     id: "beyaynetu-platter",
@@ -92,7 +90,6 @@ export const PRODUCTS: Product[] = [
     alt: "Hand-embroidered shawl with tibeb trim",
     description: "A hand-embroidered shawl with traditional tibeb trim, a versatile layering piece for any occasion.",
     gallery: ["/assets/images/habesha-shawl.jpeg"],
-    allergens: ["Not applicable - clothing item"],
   },
   {
     id: "product-7",
