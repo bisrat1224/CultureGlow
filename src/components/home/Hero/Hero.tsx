@@ -16,7 +16,7 @@ export function Hero() {
         alt="Traditional Habesha stews"
         fill
         sizes="100vw"
-        quality={70}
+        quality={90}
         priority
         className={styles.heroImgFallback}
       />

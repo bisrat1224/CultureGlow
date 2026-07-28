@@ -25,7 +25,7 @@ export function ContactHero() {
         alt="Hands sharing an injera platter"
         fill
         sizes="100vw"
-        quality={70}
+        quality={90}
         priority
         className={styles.contactHeroImg}
       />

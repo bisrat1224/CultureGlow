@@ -14,7 +14,7 @@ export function MenuHero() {
         alt="Injera platter with assorted stews"
         fill
         sizes="100vw"
-        quality={70}
+        quality={90}
         priority
         className={styles.menuHeroImg}
       />
