@@ -56,8 +56,7 @@ export function GalleryPhotoGrid() {
               <Image
                 src={photo.image}
                 alt={photo.alt}
-                width={600}
-                height={photo.ratio === "3/4" ? 800 : 450}
+                fill
                 loading="lazy"
                 className={styles.masonryImg}
                 sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
