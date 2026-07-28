@@ -10,7 +10,7 @@ const TESTIMONIALS: Testimonial[] = [
       "I ordered a family platter for a small get-together and it disappeared in minutes, the doro wat tasted just like my grandmother's.",
     initial: "L",
     name: "Liya T.",
-    location: "Wedding, Ethiopia",
+    location: "Wedding, Camden",
   },
   {
     id: "meron-a",
@@ -18,7 +18,7 @@ const TESTIMONIALS: Testimonial[] = [
       "WhatsApp ordering made it so easy. I messaged, confirmed, and had authentic Habesha food at my door within the hour.",
     initial: "M",
     name: "Meron A.",
-    location: "Graduation, Bole",
+    location: "Graduation, Oxford",
   },
   {
     id: "dawit-s",
@@ -26,7 +26,7 @@ const TESTIMONIALS: Testimonial[] = [
       "Every dish felt homemade. The injera was fresh and the portions were generous enough for the whole family.",
     initial: "D",
     name: "Dawit S.",
-    location: "Family Reunion, Piassa",
+    location: "Family Reunion, Manchester",
   },
 ];
 
