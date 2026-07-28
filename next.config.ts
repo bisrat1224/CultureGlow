@@ -10,6 +10,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "images.pexels.com",
       },
+      {
+        protocol: "https",
+        hostname: "images.ctfassets.net",
+      },
     ],
   },
   async headers() {
@@ -28,8 +32,8 @@ const nextConfig: NextConfig = {
               "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com; " +
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
               "font-src 'self' https://fonts.gstatic.com; " +
-              "img-src 'self' data: https://images.pexels.com; " +
-              "connect-src 'self'; " +
+              "img-src 'self' data: https://images.pexels.com https://images.ctfassets.net; " +
+              "connect-src 'self' https://cdn.contentful.com https://preview.contentful.com; " +
               "frame-ancestors 'none';",
           },
         ],

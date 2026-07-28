@@ -4,14 +4,24 @@ import { ShopFilterBar } from "@/components/shop/ShopFilterBar";
 import { FeatureBanner } from "@/components/shop/FeatureBanner";
 import { BundlesSection } from "@/components/shop/BundlesSection";
 import { HowToOrderSection } from "@/components/shop/HowToOrderSection";
+import { getProducts, getShopContent } from "@/lib/contentful/queries";
 
-export default function ShopPage() {
+export default async function ShopPage() {
+  const [products, shop] = await Promise.all([
+    getProducts(),
+    getShopContent(),
+  ]);
+
   return (
     <>
       <ShopHero />
       <ScrollingBanner />
       <div className="wrap">
-        <ShopFilterBar />
+        <ShopFilterBar
+          products={products}
+          label={shop.productsSection.label}
+          title={shop.productsSection.title}
+        />
       </div>
       <FeatureBanner />
       <BundlesSection />

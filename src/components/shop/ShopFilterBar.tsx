@@ -1,22 +1,36 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { PRODUCTS, SHOP_FILTERS, type ProductCategory } from "@/lib/data/products";
+import {
+  SHOP_FILTERS,
+  type ProductCategory,
+} from "@/lib/data/products";
+import type { Product } from "@/components/home/ProductsSection/ProductCard";
 import { shopContent } from "@/lib/content/content.shop";
 import { ShopProductCard } from "./ShopProductCard";
 import styles from "./ShopFilterBar.module.css";
 
+interface ShopFilterBarProps {
+  products: Product[];
+  label?: string;
+  title?: string;
+}
 
-export function ShopFilterBar() {
-  const [activeFilter, setActiveFilter] = useState<ProductCategory | "all">("all");
-  const { label, title } = shopContent.productsSection;
+export function ShopFilterBar({
+  products,
+  label = shopContent.productsSection.label,
+  title = shopContent.productsSection.title,
+}: ShopFilterBarProps) {
+  const [activeFilter, setActiveFilter] = useState<ProductCategory | "all">(
+    "all"
+  );
 
   const filtered = useMemo(
     () =>
       activeFilter === "all"
-        ? PRODUCTS
-        : PRODUCTS.filter((p) => p.category === activeFilter),
-    [activeFilter]
+        ? products
+        : products.filter((p) => p.category === activeFilter),
+    [activeFilter, products]
   );
 
   return (

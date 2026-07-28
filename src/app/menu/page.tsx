@@ -6,83 +6,33 @@ import { MenuRowList } from "@/components/menu/MenuRowList";
 import { FeatureBanner } from "@/components/menu/FeatureBanner";
 import { HowToOrderSection } from "@/components/menu/HowToOrderSection";
 import { PdfCtaSection } from "@/components/menu/PdfCtaSection";
-import {
-  CATEGORIES,
-  STARTERS_ITEMS,
-  MAINS_ITEMS,
-  VEG_VEGAN_ITEMS,
-  DESSERTS_ITEMS,
-  DRINKS_ITEMS,
-} from "@/lib/data/menu";
+import { getAllMenuItems } from "@/lib/contentful/queries";
 
-// Category order/metadata comes from CATEGORIES (lib/data/menu.ts) so the
-// CategoryNav pills and these section shells never drift out of sync.
-const [starters, mains, vegVegan, desserts, drinks] = CATEGORIES;
+export default async function MenuPage() {
+  const sections = await getAllMenuItems();
 
-export default function MenuPage() {
   return (
     <>
       <MenuHero />
-      <CategoryNav />
+      <CategoryNav categories={sections.map((s) => s.category)} />
 
       <div className="wrap">
         <DietLegend />
       </div>
 
-      <CategoryBlock
-        id={starters.id}
-        eyebrow={starters.eyebrow}
-        titleBeforeEm={starters.titleBeforeEm}
-        titleEm={starters.titleEm}
-        countLabel={starters.countLabel}
-        variant={starters.variant}
-      >
-        <MenuRowList items={STARTERS_ITEMS} />
-      </CategoryBlock>
-
-      <CategoryBlock
-        id={mains.id}
-        eyebrow={mains.eyebrow}
-        titleBeforeEm={mains.titleBeforeEm}
-        titleEm={mains.titleEm}
-        countLabel={mains.countLabel}
-        variant={mains.variant}
-      >
-        <MenuRowList items={MAINS_ITEMS} />
-      </CategoryBlock>
-
-      <CategoryBlock
-        id={vegVegan.id}
-        eyebrow={vegVegan.eyebrow}
-        titleBeforeEm={vegVegan.titleBeforeEm}
-        titleEm={vegVegan.titleEm}
-        countLabel={vegVegan.countLabel}
-        variant={vegVegan.variant}
-      >
-        <MenuRowList items={VEG_VEGAN_ITEMS} />
-      </CategoryBlock>
-
-      <CategoryBlock
-        id={desserts.id}
-        eyebrow={desserts.eyebrow}
-        titleBeforeEm={desserts.titleBeforeEm}
-        titleEm={desserts.titleEm}
-        countLabel={desserts.countLabel}
-        variant={desserts.variant}
-      >
-        <MenuRowList items={DESSERTS_ITEMS} />
-      </CategoryBlock>
-
-      <CategoryBlock
-        id={drinks.id}
-        eyebrow={drinks.eyebrow}
-        titleBeforeEm={drinks.titleBeforeEm}
-        titleEm={drinks.titleEm}
-        countLabel={drinks.countLabel}
-        variant={drinks.variant}
-      >
-        <MenuRowList items={DRINKS_ITEMS} />
-      </CategoryBlock>
+      {sections.map(({ category, items }) => (
+        <CategoryBlock
+          key={category.id}
+          id={category.id}
+          eyebrow={category.eyebrow}
+          titleBeforeEm={category.titleBeforeEm}
+          titleEm={category.titleEm}
+          countLabel={category.countLabel}
+          variant={category.variant}
+        >
+          <MenuRowList items={items} />
+        </CategoryBlock>
+      ))}
 
       <FeatureBanner />
       <HowToOrderSection />
