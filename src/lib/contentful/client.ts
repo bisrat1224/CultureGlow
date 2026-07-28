@@ -3,9 +3,13 @@ import { createClient, type ContentfulClientApi } from "contentful";
 let deliveryClient: ContentfulClientApi<undefined> | null = null;
 let previewClient: ContentfulClientApi<undefined> | null = null;
 
+/**
+ * Contentful is OFF by default so local JSON in /content is the source of truth.
+ * Set CONTENTFUL_ENABLED=true in .env.local only when you want live CMS data.
+ */
 export function isContentfulEnabled(): boolean {
   return (
-    process.env.CONTENTFUL_ENABLED !== "false" &&
+    process.env.CONTENTFUL_ENABLED === "true" &&
     Boolean(process.env.CONTENTFUL_SPACE_ID) &&
     Boolean(process.env.CONTENTFUL_DELIVERY_TOKEN)
   );
