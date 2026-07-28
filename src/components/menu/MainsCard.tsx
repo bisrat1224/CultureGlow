@@ -1,21 +1,21 @@
 import Image from "next/image";
 import { buildWhatsAppLink } from "@/lib/constants";
-import type { MainsItem } from "@/lib/data/menu";
+import type { MenuItem } from "@/lib/data/menu";
 import { DIET_LEGEND } from "@/lib/data/menu";
 import { DietChip } from "./DietChip";
 import styles from "./MainsCard.module.css";
 
 interface MainsCardProps {
-  item: MainsItem;
+  item: MenuItem;
 }
 
 export function MainsCard({ item }: MainsCardProps) {
-  const { name, description, price, image, alt, diet, ribbon } = item;
+  const { name, description, price, image, alt, diet, tag } = item;
 
   return (
     <article className={styles.mainsCard}>
       <div className={styles.mainsCardImage}>
-        {ribbon && <span className={styles.mainsRibbon}>{ribbon}</span>}
+        {tag && <span className={styles.mainsRibbon}>{tag}</span>}
         <Image
           src={image}
           alt={alt}
