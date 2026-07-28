@@ -62,7 +62,7 @@ export const homeContent = {
     headingBeforeEm: "Handpicked ",
     headingEm: "Favourites",
     headingAfterEm: "",
-    viewAllCta: "View All ?",
+    viewAllCta: "View All",
   },
 
   accentBand: {
@@ -97,7 +97,7 @@ export const homeContent = {
     headingEm: "Feast",
     headingSecondLine: "to Your Event",
     body: "From intimate family gatherings to full wedding receptions, our catering team brings the same authentic flavor and warm hospitality to every table we serve.",
-    cta: "Plan Your Event ?",
+    cta: "Plan Your Event",
   },
 
   testimonials: {

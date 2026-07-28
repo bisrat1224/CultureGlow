@@ -1,4 +1,4 @@
-import { buildWhatsAppLink } from "@/lib/constants";
+import Link from "next/link";
 import { FEATURED_PRODUCTS } from "@/lib/data/products";
 import { homeContent } from "@/lib/content/content.home";
 import { ProductCard } from "./ProductCard";
@@ -26,14 +26,12 @@ export function ProductsSection() {
               {headingAfterEm}
             </h2>
           </div>
-          <a
-            href={buildWhatsAppLink()}
+          <Link
+            href="/shop"
             className={`${styles.btnOutlineGold} reveal reveal-delay-2`}
-            target="_blank"
-            rel="noopener noreferrer"
           >
             {viewAllCta}
-          </a>
+          </Link>
         </div>
 
         <div className={styles.bentoGrid}>
