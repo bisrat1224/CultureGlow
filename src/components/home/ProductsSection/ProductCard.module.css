@@ -21,6 +21,7 @@
 
 .bentoCardImgEl {
   object-fit: cover;
+  object-position: top center;
   transition: transform 0.5s ease;
 }
 
