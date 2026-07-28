@@ -10,6 +10,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  /* Always readable over heroes — light tint at rest, stronger when scrolled */
+  background: rgba(26, 26, 26, 0.55);
+  backdrop-filter: blur(8px);
   transition:
     background 0.4s ease,
     backdrop-filter 0.4s ease;
@@ -40,7 +43,7 @@
 .headerNav a {
   font-size: 14px;
   font-weight: 500;
-  color: rgba(250, 246, 240, 0.75);
+  color: rgba(250, 246, 240, 0.85);
   letter-spacing: 0.02em;
   transition: color 0.2s;
 }
