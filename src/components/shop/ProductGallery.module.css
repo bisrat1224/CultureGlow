@@ -1,4 +1,4 @@
-﻿.gallery {
+.gallery {
   display: flex;
   flex-direction: column;
   gap: calc(var(--cg-u) * 2);
@@ -7,13 +7,18 @@
 .mainImageWrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 4;
   border-radius: 12px;
   overflow: hidden;
   border: none;
   padding: 0;
   cursor: zoom-in;
   background: var(--cg-gold-light);
+}
+
+.mainImage {
+  object-fit: cover;
+  object-position: top center;
 }
 
 .thumbRow {
@@ -48,9 +53,6 @@
   border-color: var(--cg-gold);
 }
 
-/* Lightbox - deliberately mirrors
-   gallery/GalleryPhotoGrid/PhotoLightbox.module.css's values exactly,
-   for visual consistency between the two lightbox instances sitewide. */
 .lightbox {
   position: fixed;
   inset: 0;
