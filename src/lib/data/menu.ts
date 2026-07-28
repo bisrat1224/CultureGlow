@@ -11,10 +11,6 @@ export interface MenuItem {
   tag?: string; // e.g. "Popular" - the small green corner tag on menu-row
 }
 
-export interface MainsItem extends MenuItem {
-  ribbon?: string; 
-}
-
 export interface CategoryMeta {
   id: string; // anchor id, matches category-nav-btn's data-cat
   navLabel: string;
@@ -96,7 +92,7 @@ export const STARTERS_ITEMS: MenuItem[] = [
   },
 ];
 
-export const MAINS_ITEMS: MainsItem[] = [
+export const MAINS_ITEMS: MenuItem[] = [
   {
     id: "doro-wat",
     name: "Doro Wat",
@@ -141,7 +137,7 @@ export const MAINS_ITEMS: MainsItem[] = [
     image: "/assets/images/sharing-hands.jpg",
     alt: "Habesha Feast Platter",
     diet: ["spicy", "gf"],
-    ribbon: "Chef's Special",
+    tag: "Chef's Special",
   },
 ];
 

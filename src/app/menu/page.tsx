@@ -3,13 +3,13 @@ import { CategoryNav } from "@/components/menu/CategoryNav";
 import { DietLegend } from "@/components/menu/DietLegend";
 import { CategoryBlock } from "@/components/menu/CategoryBlock";
 import { MenuRowList } from "@/components/menu/MenuRowList";
-import { MainsGrid } from "@/components/menu/MainsGrid";
 import { FeatureBanner } from "@/components/menu/FeatureBanner";
 import { HowToOrderSection } from "@/components/menu/HowToOrderSection";
 import { PdfCtaSection } from "@/components/menu/PdfCtaSection";
 import {
   CATEGORIES,
   STARTERS_ITEMS,
+  MAINS_ITEMS,
   VEG_VEGAN_ITEMS,
   DESSERTS_ITEMS,
   DRINKS_ITEMS,
@@ -48,7 +48,7 @@ export default function MenuPage() {
         countLabel={mains.countLabel}
         variant={mains.variant}
       >
-        <MainsGrid />
+        <MenuRowList items={MAINS_ITEMS} />
       </CategoryBlock>
 
       <CategoryBlock
