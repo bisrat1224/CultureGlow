@@ -49,14 +49,28 @@ a.methodCard:hover {
   color: var(--cg-charcoal);
 }
 
-.socialList {
-  display: flex;
-  gap: calc(var(--cg-u) * 3);
-  list-style: none;
-  margin-top: 4px;
+.socialCard {
+  justify-content: center;
 }
 
-.socialList a {
+.socialList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--cg-u) * 3);
+  list-style: none;
+  margin-top: 8px;
+  width: 100%;
+}
+
+.socialLink {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -65,8 +79,20 @@ a.methodCard:hover {
   transition: color 0.2s;
 }
 
-.socialList a:hover {
+.socialLink:hover {
   color: var(--cg-gold);
+}
+
+.socialIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--cg-gold-light);
+  color: var(--cg-gold);
+  flex-shrink: 0;
 }
 
 @media (min-width: 640px) {
