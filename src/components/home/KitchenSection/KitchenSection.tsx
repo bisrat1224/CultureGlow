@@ -1,14 +1,20 @@
 import { buildWhatsAppLink } from "@/lib/constants";
 import { FEATURED_MENU_ITEMS } from "@/lib/data/menu";
 import { homeContent } from "@/lib/content/content.home";
-import { MenuRow } from "./MenuRow";
+import { MenuRow } from "@/components/menu/MenuRow";
 import styles from "./KitchenSection.module.css";
 import shared from "../shared.module.css";
 
-const REVEAL_DELAYS = ["reveal-delay-1", "reveal-delay-2", "reveal-delay-3", "reveal-delay-4"];
+const REVEAL_DELAYS = [
+  "reveal-delay-1",
+  "reveal-delay-2",
+  "reveal-delay-3",
+  "reveal-delay-4",
+];
 
 export function KitchenSection() {
-  const { eyebrow, headingBeforeEm, headingEm, headingSecondLine, body, cta } = homeContent.kitchen;
+  const { eyebrow, headingBeforeEm, headingEm, headingSecondLine, body, cta } =
+    homeContent.kitchen;
 
   return (
     <section
