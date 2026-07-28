@@ -71,9 +71,8 @@ export function Footer() {
         <div className={styles.footerCol}>
           <p className={styles.footerColTitle}>Contact</p>
           <ul className={styles.footerLinks}>
-            <li>Delivering across Addis Ababa</li>
+            <li>Delivering across Manchester</li>
             <li>{CONTACT_EMAIL}</li>
-            <li>Mon–Sat, 9am–7pm</li>
           </ul>
         </div>
 

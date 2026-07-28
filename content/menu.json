@@ -139,12 +139,12 @@
     ],
     "desserts": [
       {
-        "id": "himbasha",
-        "name": "Himbasha",
+        "id": "Ambasha",
+        "name": "Ambasha",
         "description": "Lightly sweetened Ethiopian celebration bread, scented with cardamom and a touch of honey.",
         "price": "£220",
         "image": "/assets/images/ambasha.jpeg",
-        "alt": "Himbasha",
+        "alt": "Ambasha",
         "diet": ["veg"]
       },
       {

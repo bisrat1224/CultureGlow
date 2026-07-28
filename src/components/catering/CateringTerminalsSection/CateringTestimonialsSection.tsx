@@ -13,7 +13,7 @@ const TESTIMONIALS: CateringTestimonial[] = [
       "CultureGlow24 catered our wedding and every single guest asked where the food was from. The doro wat was better than my grandmother's, and that's saying a lot.",
     initial: "L",
     name: "Liya T.",
-    location: "Wedding, Addis Ababa",
+    location: "Wedding, York",
   },
   {
     id: "meron-a",
@@ -21,7 +21,7 @@ const TESTIMONIALS: CateringTestimonial[] = [
       "We booked them for a company retreat and the team handled everything - setup, service, cleanup. Zero stress and the spread was incredible.",
     initial: "M",
     name: "Meron A.",
-    location: "Corporate Retreat, Bole",
+    location: "Corporate Retreat, Costwolds",
   },
   {
     id: "dawit-s",
@@ -29,7 +29,7 @@ const TESTIMONIALS: CateringTestimonial[] = [
       "They understood exactly what our Timkat celebration needed. Authentic, generous portions, and served with real care for the tradition.",
     initial: "D",
     name: "Dawit S.",
-    location: "Timkat Celebration, Piassa",
+    location: "Timkat Celebration, Manchester",
   },
 ];
 
