@@ -8,7 +8,7 @@ const BUNDLES: Bundle[] = [
     label: "For Coffee Lovers",
     title: "Yirgacheffe Ritual",
     priceFrom: "£180",
-    image: "/assets/images/stew-pans.jpg",
+    image: "/assets/images/yirgacheffe-ritual.jpg",
     alt: "Coffee Lover Bundle",
   },
   {
