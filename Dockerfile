@@ -11,8 +11,10 @@
 # inside the POST handlers and come from the Kubernetes Secret at run time.
 # They are deliberately NOT build args - build args land in the image history.
 #
-# CONTENTFUL_MANAGEMENT_TOKEN must never appear here: it is a write-scoped
-# token used only by scripts/contentful/*, which are excluded via .dockerignore.
+# CONTENTFUL_MANAGEMENT_TOKEN is accepted as a build arg for parity with the
+# other Contentful vars, but nothing in the build consumes it: scripts/contentful/*
+# is excluded via .dockerignore. It is scoped to the builder stage only, so it
+# does not reach the published image.
 
 # ---- Builder ----------------------------------------------------------------
 FROM node:22-alpine AS builder
@@ -36,6 +38,13 @@ ARG CONTENTFUL_ENABLED="false"
 ARG CONTENTFUL_SPACE_ID=""
 ARG CONTENTFUL_ENVIRONMENT=""
 ARG CONTENTFUL_DELIVERY_TOKEN=""
+ARG CONTENTFUL_PREVIEW_TOKEN=""
+# Write-scoped. Passed for parity with the other Contentful vars by explicit
+# decision; nothing in `next build` reads it, since scripts/contentful/* is
+# excluded from the build context. It is set on the BUILDER stage only - the
+# runtime stage below is a fresh FROM, so this value is not carried into the
+# published image. The running pod gets it from the Kubernetes Secret instead.
+ARG CONTENTFUL_MANAGEMENT_TOKEN=""
 ARG SOURCE_REVISION=""
 
 ENV NEXT_PUBLIC_WHATSAPP_NUMBER=$NEXT_PUBLIC_WHATSAPP_NUMBER \
@@ -44,6 +53,8 @@ ENV NEXT_PUBLIC_WHATSAPP_NUMBER=$NEXT_PUBLIC_WHATSAPP_NUMBER \
     CONTENTFUL_SPACE_ID=$CONTENTFUL_SPACE_ID \
     CONTENTFUL_ENVIRONMENT=$CONTENTFUL_ENVIRONMENT \
     CONTENTFUL_DELIVERY_TOKEN=$CONTENTFUL_DELIVERY_TOKEN \
+    CONTENTFUL_PREVIEW_TOKEN=$CONTENTFUL_PREVIEW_TOKEN \
+    CONTENTFUL_MANAGEMENT_TOKEN=$CONTENTFUL_MANAGEMENT_TOKEN \
     SOURCE_REVISION=$SOURCE_REVISION
 
 RUN npm run build

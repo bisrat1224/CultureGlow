@@ -91,15 +91,28 @@ jobs:
           tags: |
             ${{ env.WEB_IMAGE }}:${{ needs.version.outputs.tag }}
             ${{ env.WEB_IMAGE }}:sha-${{ github.sha }}
-          # NEXT_PUBLIC_* and Contentful values are baked into the bundle here,
-          # so these are dev-environment values. Set them as repo Variables.
-          # Contentful stays off in dev: the build uses the committed fallback
-          # content. To turn it on, add the three CONTENTFUL_* build-args and
-          # set CONTENTFUL_ENABLED=true.
+          # Everything below is baked in at `next build`, because every page
+          # that reads Contentful is statically rendered and NEXT_PUBLIC_* is
+          # string-substituted into the browser bundle. None of it can be
+          # changed by editing the Deployment later: content and the WhatsApp
+          # number are properties of the image.
+          #
+          # NEXT_PUBLIC_* are not secrets (they ship to the browser), so they
+          # live in repo Variables. The Contentful tokens are secrets.
+          # CONTENTFUL_ENABLED defaults to false, so the build falls back to
+          # the committed content until you set the DEV_CONTENTFUL_ENABLED
+          # variable to true. isContentfulEnabled() additionally requires a
+          # non-empty space id and delivery token, so flipping the variable
+          # without the secrets present is a safe no-op.
           build-args: |
             NEXT_PUBLIC_WHATSAPP_NUMBER=${{ vars.DEV_WHATSAPP_NUMBER }}
             NEXT_PUBLIC_GA_MEASUREMENT_ID=${{ vars.DEV_GA_MEASUREMENT_ID }}
-            CONTENTFUL_ENABLED=false
+            CONTENTFUL_ENABLED=${{ vars.DEV_CONTENTFUL_ENABLED || 'false' }}
+            CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID }}
+            CONTENTFUL_ENVIRONMENT=${{ vars.DEV_CONTENTFUL_ENVIRONMENT || 'master' }}
+            CONTENTFUL_DELIVERY_TOKEN=${{ secrets.CONTENTFUL_DELIVERY_TOKEN }}
+            CONTENTFUL_PREVIEW_TOKEN=${{ secrets.CONTENTFUL_PREVIEW_TOKEN }}
+            CONTENTFUL_MANAGEMENT_TOKEN=${{ secrets.CONTENTFUL_MANAGEMENT_TOKEN }}
             SOURCE_REVISION=${{ github.sha }}
           cache-from: type=gha,scope=web
           cache-to: type=gha,scope=web,mode=max
