@@ -1,0 +1,66 @@
+{
+  "tiktoks": [
+    {
+      "id": "tiktok-shibshibshop-7511690113722715397",
+      "title": "@shibshibshop",
+      "url": "https://www.tiktok.com/@shibshibshop/video/7511690113722715397",
+      "caption": "@shibshibshop",
+      "addedToSite": "2026-07-29",
+      "sortOrder": 1,
+      "showOnHome": true,
+      "showOnGallery": true
+    },
+    {
+      "id": "tiktok-havifashion1-7647578821578820885",
+      "title": "@havifashion1",
+      "url": "https://www.tiktok.com/@havifashion1/video/7647578821578820885",
+      "caption": "@havifashion1",
+      "addedToSite": "2026-07-29",
+      "sortOrder": 2,
+      "showOnHome": true,
+      "showOnGallery": true
+    },
+    {
+      "id": "tiktok-hdmona-7481638070698118405",
+      "title": "@hdmona.habesha.dr",
+      "url": "https://www.tiktok.com/@hdmona.habesha.dr/video/7481638070698118405",
+      "caption": "@hdmona.habesha.dr",
+      "addedToSite": "2026-07-29",
+      "sortOrder": 3,
+      "showOnHome": true,
+      "showOnGallery": true
+    }
+  ],
+  "reels": [
+    {
+      "id": "reel-DYyL6ODIuu4",
+      "title": "Reel DYyL6ODIuu4",
+      "url": "https://www.instagram.com/reels/DYyL6ODIuu4/",
+      "caption": "Instagram Reel",
+      "addedToSite": "2026-07-29",
+      "sortOrder": 1,
+      "showOnHome": true,
+      "showOnGallery": false
+    },
+    {
+      "id": "reel-CrD-w0xro-3",
+      "title": "Reel CrD-w0xro-3",
+      "url": "https://www.instagram.com/reels/CrD-w0xro-3/",
+      "caption": "Instagram Reel",
+      "addedToSite": "2026-07-29",
+      "sortOrder": 2,
+      "showOnHome": true,
+      "showOnGallery": false
+    },
+    {
+      "id": "reel-DUgXyOADIs8",
+      "title": "Reel DUgXyOADIs8",
+      "url": "https://www.instagram.com/reels/DUgXyOADIs8/",
+      "caption": "Instagram Reel",
+      "addedToSite": "2026-07-29",
+      "sortOrder": 3,
+      "showOnHome": true,
+      "showOnGallery": false
+    }
+  ]
+}

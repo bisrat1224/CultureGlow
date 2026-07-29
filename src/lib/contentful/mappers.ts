@@ -4,6 +4,7 @@ import type { MenuItem, CategoryMeta } from "@/lib/data/menu";
 import type { HomeContent } from "@/lib/content/content.home";
 import type { ShopContent } from "@/lib/content/content.shop";
 import type { MenuContent } from "@/lib/content/content.menu";
+import type { SocialPost, SocialPlatform } from "@/lib/data/social";
 import { richTextToPlain } from "./richText";
 
 type Fields = Record<string, unknown>;
@@ -215,4 +216,44 @@ export function mapMenuPage(entry: Entry<EntrySkeletonType>): MenuContent {
       cta: f(fields, "pdfCtaCta", ""),
     },
   } as MenuContent;
+}
+
+function dateField(value: unknown): string {
+  if (!value) return "";
+  if (typeof value === "string") return value.slice(0, 10);
+  return String(value).slice(0, 10);
+}
+
+export function mapTiktokPost(entry: Entry<EntrySkeletonType>): SocialPost {
+  const fields = entry.fields as Fields;
+  const thumb = fields.thumbnail as Asset | undefined;
+  return {
+    id: f(fields, "slug", entry.sys.id),
+    platform: "tiktok" as SocialPlatform,
+    title: f(fields, "title", ""),
+    url: f(fields, "url", ""),
+    caption: f(fields, "caption", ""),
+    addedToSite: dateField(fields.addedToSite),
+    sortOrder: Number(f(fields, "sortOrder", 0)),
+    showOnHome: Boolean(f(fields, "showOnHome", true)),
+    showOnGallery: Boolean(f(fields, "showOnGallery", true)),
+    thumbnail: assetUrl(thumb) || undefined,
+  };
+}
+
+export function mapInstagramReel(entry: Entry<EntrySkeletonType>): SocialPost {
+  const fields = entry.fields as Fields;
+  const thumb = fields.thumbnail as Asset | undefined;
+  return {
+    id: f(fields, "slug", entry.sys.id),
+    platform: "reels" as SocialPlatform,
+    title: f(fields, "title", ""),
+    url: f(fields, "url", ""),
+    caption: f(fields, "caption", ""),
+    addedToSite: dateField(fields.addedToSite),
+    sortOrder: Number(f(fields, "sortOrder", 0)),
+    showOnHome: Boolean(f(fields, "showOnHome", true)),
+    showOnGallery: Boolean(f(fields, "showOnGallery", false)),
+    thumbnail: assetUrl(thumb) || undefined,
+  };
 }

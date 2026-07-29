@@ -6,12 +6,16 @@ import {
   mapHomePage,
   mapShopPage,
   mapMenuPage,
+  mapTiktokPost,
+  mapInstagramReel,
 } from "./mappers";
 import type { Product } from "@/components/home/ProductsSection/ProductCard";
 import type { MenuItem, CategoryMeta } from "@/lib/data/menu";
 import type { HomeContent } from "@/lib/content/content.home";
 import type { ShopContent } from "@/lib/content/content.shop";
 import type { MenuContent } from "@/lib/content/content.menu";
+import type { SocialPost } from "@/lib/data/social";
+import { getLocalTiktoks, getLocalReels } from "@/lib/data/social";
 
 import { homeContent as homeFallback } from "@/lib/content/content.home";
 import { shopContent as shopFallback } from "@/lib/content/content.shop";
@@ -229,4 +233,42 @@ export async function getMenuContent(): Promise<MenuContent> {
     if (!res.items[0]) return menuFallback;
     return mapMenuPage(res.items[0]);
   }, menuFallback);
+}
+
+export async function getTiktokPosts(opts?: {
+  homeOnly?: boolean;
+  galleryOnly?: boolean;
+}): Promise<SocialPost[]> {
+  const fallback = getLocalTiktoks(opts);
+  return safe(async () => {
+    const client = getDeliveryClient()!;
+    const res = await client.getEntries({
+      content_type: "tiktokPost",
+      limit: 50,
+      order: ["fields.sortOrder"],
+    });
+    if (!res.items.length) return fallback;
+    let posts = res.items.map(mapTiktokPost);
+    if (opts?.homeOnly) posts = posts.filter((p) => p.showOnHome);
+    if (opts?.galleryOnly) posts = posts.filter((p) => p.showOnGallery);
+    return posts.sort((a, b) => a.sortOrder - b.sortOrder);
+  }, fallback);
+}
+
+export async function getInstagramReels(opts?: {
+  homeOnly?: boolean;
+}): Promise<SocialPost[]> {
+  const fallback = getLocalReels(opts);
+  return safe(async () => {
+    const client = getDeliveryClient()!;
+    const res = await client.getEntries({
+      content_type: "instagramReel",
+      limit: 50,
+      order: ["fields.sortOrder"],
+    });
+    if (!res.items.length) return fallback;
+    let posts = res.items.map(mapInstagramReel);
+    if (opts?.homeOnly) posts = posts.filter((p) => p.showOnHome);
+    return posts.sort((a, b) => a.sortOrder - b.sortOrder);
+  }, fallback);
 }

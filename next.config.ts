@@ -29,11 +29,13 @@ const nextConfig: NextConfig = {
             key: "Content-Security-Policy",
             value:
               "default-src 'self'; " +
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com; " +
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.instagram.com https://www.tiktok.com; " +
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
               "font-src 'self' https://fonts.gstatic.com; " +
-              "img-src 'self' data: https://images.pexels.com https://images.ctfassets.net; " +
-              "connect-src 'self' https://cdn.contentful.com https://preview.contentful.com; " +
+              "img-src 'self' data: https://images.pexels.com https://images.ctfassets.net https://*.tiktokcdn.com https://*.cdninstagram.com https://*.fbcdn.net; " +
+              "connect-src 'self' https://cdn.contentful.com https://preview.contentful.com https://www.tiktok.com https://www.instagram.com; " +
+              "frame-src https://www.tiktok.com https://www.instagram.com; " +
+              "media-src 'self' https://*.tiktokcdn.com https://*.cdninstagram.com; " +
               "frame-ancestors 'none';",
           },
         ],
