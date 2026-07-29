@@ -21,7 +21,9 @@ env:
 
 jobs:
   # 1) Work out the release-candidate tag.
-  #    RC number = commits since the last v*.*.* tag. Requires an anchor tag:
+  #    RC number = commits since the last v*.*.* tag. With no tag yet, this
+  #    falls back to v0.0.0 + total commit count, so a fresh repo still builds.
+  #    To take control of the version, create an anchor tag:
   #      git tag v0.1.0 && git push origin v0.1.0
   version:
     runs-on: ubuntu-latest
@@ -37,16 +39,30 @@ jobs:
         name: Compute release-candidate tag
         run: |
           set -euo pipefail
-          LAST=$(git describe --tags --abbrev=0 --match 'v*.*.*' 2>/dev/null || echo v0.0.0)
+
+          # `git describe` fails when no matching tag exists. Don't substitute a
+          # fake "v0.0.0" here: git rev-list would then be handed a revision
+          # that doesn't resolve and exit 128, killing the job under `set -e`.
+          LAST=$(git describe --tags --abbrev=0 --match 'v*.*.*' 2>/dev/null || true)
+
+          if [ -n "$LAST" ]; then
+            RANGE="${LAST}..HEAD"
+          else
+            LAST="v0.0.0"          # for the version arithmetic only
+            RANGE="HEAD"           # no anchor tag: count the whole history
+          fi
+
           STRIPPED="${LAST#v}"
           IFS='.' read -r MAJOR MINOR PATCH <<< "$STRIPPED"
           NEXT="${MAJOR}.${MINOR}.$((PATCH + 1))"
 
-          RC=$(git rev-list "${LAST}..HEAD" 2>/dev/null | wc -l | tr -d ' ')
-          [ "$RC" -eq 0 ] && RC=1
+          RC=$(git rev-list --count "$RANGE")
+          if [ "$RC" -eq 0 ]; then
+            RC=1
+          fi
 
           echo "tag=${NEXT}-rc.${RC}" >> "$GITHUB_OUTPUT"
-          echo "Last tag: ${LAST} | web: ${NEXT}-rc.${RC}"
+          echo "Last tag: ${LAST} | range: ${RANGE} | web: ${NEXT}-rc.${RC}"
 
   # 2) Build + push the image.
   build:
