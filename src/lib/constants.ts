@@ -13,8 +13,10 @@
  * variables, every WhatsApp button sitewide updates automatically -
  * no code change needed.
  */
+// Fallback: Ofcom UK drama/fiction mobile range 07700 900xxx (never assigned).
+// wa.me format: country code + number, no + or spaces → 447700900123
 export const WHATSAPP_NUMBER =
-  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "251900000000";
+  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "447700900123";
 
 
 export const CONTACT_EMAIL = "hello@cultureglow24.com";
@@ -47,7 +49,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
 /**
  * Builds a wa.me link, optionally pre-filling a message.
  * Matches the Developer Brief's required URL format:
- * wa.me/251[number]?text=Hi, I would like to order: [product name]
+ * wa.me/[country][number]?text=Hi, I would like to order: [product name]
  */
 export function buildWhatsAppLink(message?: string): string {
   const base = `https://wa.me/${WHATSAPP_NUMBER}`;
