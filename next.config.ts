@@ -1,6 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Emits .next/standalone with a self-contained server.js and only the
+  // node_modules actually traced as reachable. Required by the container
+  // image, which copies that directory instead of the full dependency tree.
+  output: "standalone",
   turbopack: {
     root: __dirname,
   },

@@ -1,0 +1,30 @@
+.git
+.github
+node_modules
+.next
+out
+build
+coverage
+
+# Secrets must never enter the build context.
+.env
+.env.*
+!.env.local.example
+
+# Contentful bootstrap/seed scripts use a write-scoped management token and are
+# not part of the app (tsconfig excludes them too).
+scripts
+
+# Docs and tooling config that the build doesn't read.
+*.md
+!README.md
+.vscode
+.idea
+.DS_Store
+*.pem
+*.tsbuildinfo
+.vercel
+.agents
+skills-lock.json
+Dockerfile
+.dockerignore

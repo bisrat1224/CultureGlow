@@ -1,0 +1,129 @@
+name: Deploy (dev)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Never run two dev deploys at once; let an in-flight one finish.
+concurrency:
+  group: deploy-dev
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+env:
+  REGISTRY: ghcr.io
+  # Must match `newName` in
+  # k8s-gitops/clusters/dev/apps/culture-glow-web/kustomization.yaml
+  WEB_IMAGE: ghcr.io/techally-consult/culture-glow-web
+
+jobs:
+  # 1) Work out the release-candidate tag.
+  #    RC number = commits since the last v*.*.* tag. Requires an anchor tag:
+  #      git tag v0.1.0 && git push origin v0.1.0
+  version:
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.version.outputs.tag }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+
+      - id: version
+        name: Compute release-candidate tag
+        run: |
+          set -euo pipefail
+          LAST=$(git describe --tags --abbrev=0 --match 'v*.*.*' 2>/dev/null || echo v0.0.0)
+          STRIPPED="${LAST#v}"
+          IFS='.' read -r MAJOR MINOR PATCH <<< "$STRIPPED"
+          NEXT="${MAJOR}.${MINOR}.$((PATCH + 1))"
+
+          RC=$(git rev-list "${LAST}..HEAD" 2>/dev/null | wc -l | tr -d ' ')
+          [ "$RC" -eq 0 ] && RC=1
+
+          echo "tag=${NEXT}-rc.${RC}" >> "$GITHUB_OUTPUT"
+          echo "Last tag: ${LAST} | web: ${NEXT}-rc.${RC}"
+
+  # 2) Build + push the image.
+  build:
+    needs: version
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: docker/setup-buildx-action@v3
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: Dockerfile
+          push: true
+          platforms: linux/amd64
+          tags: |
+            ${{ env.WEB_IMAGE }}:${{ needs.version.outputs.tag }}
+            ${{ env.WEB_IMAGE }}:sha-${{ github.sha }}
+          # NEXT_PUBLIC_* and Contentful values are baked into the bundle here,
+          # so these are dev-environment values. Set them as repo Variables.
+          # Contentful stays off in dev: the build uses the committed fallback
+          # content. To turn it on, add the three CONTENTFUL_* build-args and
+          # set CONTENTFUL_ENABLED=true.
+          build-args: |
+            NEXT_PUBLIC_WHATSAPP_NUMBER=${{ vars.DEV_WHATSAPP_NUMBER }}
+            NEXT_PUBLIC_GA_MEASUREMENT_ID=${{ vars.DEV_GA_MEASUREMENT_ID }}
+            CONTENTFUL_ENABLED=false
+            SOURCE_REVISION=${{ github.sha }}
+          cache-from: type=gha,scope=web
+          cache-to: type=gha,scope=web,mode=max
+
+  # 3) Bump the image tag in the GitOps repo. Flux picks it up within ~5 min.
+  update-gitops:
+    needs: [version, build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout k8s-gitops
+        uses: actions/checkout@v4
+        with:
+          repository: Techally-Consult/k8s-gitops
+          token: ${{ secrets.GITOPS_PAT }}
+          ref: main
+          path: k8s-gitops
+
+      - name: Install yq
+        uses: mikefarah/yq@master
+
+      - name: Update image tag
+        working-directory: k8s-gitops
+        env:
+          WEB_TAG: ${{ needs.version.outputs.tag }}
+        run: |
+          set -euo pipefail
+          yq -i ".images[0].newTag = \"${WEB_TAG}\"" \
+            clusters/dev/apps/culture-glow-web/kustomization.yaml
+
+      - name: Commit & push
+        working-directory: k8s-gitops
+        env:
+          WEB_TAG: ${{ needs.version.outputs.tag }}
+        run: |
+          set -euo pipefail
+          git config user.name "culture-glow-ci[bot]"
+          git config user.email "ci@culture-glow.local"
+          if git diff --quiet; then
+            echo "No kustomization changes to commit."
+            exit 0
+          fi
+          git commit -am "chore(dev): bump culture-glow-web to ${WEB_TAG}"
+          git push origin main
