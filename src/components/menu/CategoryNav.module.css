@@ -26,10 +26,13 @@
   border-radius: 999px;
   white-space: nowrap;
   border: 1.5px solid rgba(250, 246, 240, 0.12);
-  transition: all 0.25s ease;
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   min-height: 40px;
+  /* Prevent sticky :hover on touch from leaving gold-on-gold invisible text */
+  -webkit-tap-highlight-color: transparent;
 }
 
 .categoryNavBtn:hover {
@@ -37,8 +40,12 @@
   color: var(--cg-gold);
 }
 
-.categoryNavBtnActive {
+/* Charcoal on gold (same as shop filters). Higher specificity so sticky
+   mobile :hover cannot leave gold text on a gold pill. */
+.categoryNavBtn.categoryNavBtnActive,
+.categoryNavBtn.categoryNavBtnActive:hover,
+.categoryNavBtn.categoryNavBtnActive:focus {
   background-color: var(--cg-gold);
   border-color: var(--cg-gold);
-  color: #fff;
+  color: var(--cg-charcoal);
 }

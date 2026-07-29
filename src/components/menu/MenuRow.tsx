@@ -7,13 +7,16 @@ import styles from "./MenuRow.module.css";
 
 interface MenuRowProps {
   item: MenuItem;
+  revealDelayClass?: string;
 }
 
-export function MenuRow({ item }: MenuRowProps) {
+export function MenuRow({ item, revealDelayClass }: MenuRowProps) {
   const { name, description, price, image, alt, diet, tag } = item;
 
   return (
-    <article className={styles.menuRow}>
+    <article
+      className={`${styles.menuRow}${revealDelayClass ? ` reveal ${revealDelayClass}` : ""}`}
+    >
       <div className={styles.menuRowImgWrap}>
         <Image
           src={image}

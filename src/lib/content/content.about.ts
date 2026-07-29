@@ -11,7 +11,7 @@ export const aboutContent = {
     headingBeforeEm: "About ",
     headingEm: "CultureGlow24",
     headingAfterEm: "",
-    body: "CultureGlow24 began with a simple idea: Habesha culture deserves a place in everyday life, not just special occasions. What started as family recipes shared between neighbors in Addis Ababa has grown into a full celebration of Habesha food, beauty, and lifestyle — delivered straight to your door, one WhatsApp order at a time.",
+    body: "CultureGlow24 began with a simple idea: Habesha culture deserves a place in everyday life, not just special occasions. What started as family recipes shared between neighbors in The Homeland has grown into a full celebration of Habesha food, beauty, and lifestyle — delivered straight to your door, one WhatsApp order at a time.",
     amharic: "Our culture is our pride. Food, Fashion, Life!",
     badge: "Est. 2024",
     stats: [
@@ -59,28 +59,28 @@ export const aboutContent = {
     headingEm: "Cherish",
     images: [
       {
-        src: "/assets/images/stew-pans.jpg",
-        alt: "Traditional Habesha stews simmering in dark pans",
+        src: "https://images.pexels.com/photos/35976293/pexels-photo-35976293.png?auto=compress&cs=tinysrgb&w=700",
+        alt: "Ethiopian wedding celebration at night",
       },
       {
-        src: "/assets/images/injera-plate.jpg",
-        alt: "Injera platter with assorted stews",
+        src: "https://images.pexels.com/photos/3376765/pexels-photo-3376765.jpeg?auto=compress&cs=tinysrgb&w=700",
+        alt: "Banquet hall set up with round tables and floral centerpieces",
       },
       {
-        src: "/assets/images/dress-green.jpg",
-        alt: "Habesha kemis dress with intricate embroidery",
+        src: "https://images.pexels.com/photos/30844787/pexels-photo-30844787.jpeg?auto=compress&cs=tinysrgb&w=700",
+        alt: "Elegant birthday celebration with balloons and cake",
       },
       {
-        src: "/assets/images/dress-burgundy.jpg",
-        alt: "Elegant Habesha cultural dress",
+        src: "https://images.pexels.com/photos/20865956/pexels-photo-20865956.jpeg?auto=compress&cs=tinysrgb&w=700",
+        alt: "Women in colorful traditional dress at Meskel festival, Addis Ababa",
       },
       {
-        src: "/assets/images/platter-big.jpg",
-        alt: "Ethiopian coffee ceremony setting",
+        src: "https://images.pexels.com/photos/17272177/pexels-photo-17272177.jpeg?auto=compress&cs=tinysrgb&w=700",
+        alt: "Traditional parade during a religious festival in Addis Ababa",
       },
       {
-        src: "/assets/images/sharing-hands.jpg",
-        alt: "Habesha catering spread for a family gathering",
+        src: "https://images.pexels.com/photos/6405679/pexels-photo-6405679.jpeg?auto=compress&cs=tinysrgb&w=700",
+        alt: "Team celebrating together at a festive office party",
       },
     ],
   },

@@ -9,7 +9,7 @@ export function AboutHero() {
         alt="Habesha cultural heritage and identity"
         fill
         sizes="100vw"
-        quality={85}
+        quality={90}
         priority
         className={styles.aboutHeroImg}
       />

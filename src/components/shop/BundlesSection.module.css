@@ -51,21 +51,31 @@
   min-height: 260px;
   display: flex;
   align-items: flex-end;
+  border: 1px solid rgba(200, 151, 58, 0.45);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.bundleCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--cg-gold);
+  z-index: 3;
+  pointer-events: none;
 }
 
 .bundleCard:hover {
   transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  border-color: rgba(200, 151, 58, 0.75);
 }
 
-.bundleCard img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+/* Only the background photo — do NOT target .bundleBtn img (that was
+   stretching the WhatsApp icon across the whole card). */
 
 .bundleOverlay {
   position: relative;
@@ -118,9 +128,14 @@
 }
 
 .bundleBtn img {
-  width: 13px;
-  height: 13px;
-  filter: brightness(0) invert(1);
+  position: static;
+  inset: auto;
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  /* Dark icon to match charcoal button label on gold */
+  filter: brightness(0);
+  flex-shrink: 0;
 }
 
 @media (min-width: 640px) {

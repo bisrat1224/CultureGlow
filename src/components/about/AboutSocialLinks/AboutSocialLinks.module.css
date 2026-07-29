@@ -1,23 +1,15 @@
-
-
 .socialLinksSection {
-  padding: calc(var(--cg-u) * 8) 0;
   background: var(--cg-charcoal);
+  padding: calc(var(--cg-u) * 8) 0;
   text-align: center;
-}
-
-.socialLinksInner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: calc(var(--cg-u) * 2);
 }
 
 .socialLinksH2 {
   font-family: "Playfair Display", serif;
-  font-size: clamp(24px, 3vw, 32px);
+  font-size: clamp(28px, 3.5vw, 40px);
   font-weight: 700;
   color: var(--cg-cream);
+  margin-bottom: calc(var(--cg-u) * 4);
 }
 
 .socialLinksList {
@@ -28,7 +20,10 @@
   justify-content: center;
 }
 
-.socialLinksList a {
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -37,6 +32,17 @@
   transition: color 0.2s;
 }
 
-.socialLinksList a:hover {
+.socialLink:hover {
   color: var(--cg-cream);
+}
+
+.socialIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(200, 151, 58, 0.15);
+  color: var(--cg-gold);
 }

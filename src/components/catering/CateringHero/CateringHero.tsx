@@ -15,7 +15,7 @@ export function CateringHero() {
         alt="Elegant banquet hall set up for a large catered event"
         fill
         sizes="100vw"
-        quality={70}
+        quality={90}
         priority
         className={styles.catHeroImg}
       />

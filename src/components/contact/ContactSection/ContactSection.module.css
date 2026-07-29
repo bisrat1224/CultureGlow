@@ -5,22 +5,36 @@
 }
 
 .methodCard {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   gap: 8px;
   background: #fff;
-  border: 1px solid var(--cg-border);
+  border: 1px solid rgba(200, 151, 58, 0.4);
   border-radius: 12px;
   padding: calc(var(--cg-u) * 4) calc(var(--cg-u) * 3);
+  overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.methodCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--cg-gold);
+  z-index: 2;
+  pointer-events: none;
 }
 
 a.methodCard:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
-  border-color: var(--cg-gold);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  border-color: rgba(200, 151, 58, 0.75);
 }
 
 .methodIcon {
@@ -49,24 +63,56 @@ a.methodCard:hover {
   color: var(--cg-charcoal);
 }
 
-.socialList {
-  display: flex;
-  gap: calc(var(--cg-u) * 3);
-  list-style: none;
-  margin-top: 4px;
+.socialCard {
+  /* Match the vertical stack of WhatsApp / Phone / Email cards */
+  justify-content: flex-start;
 }
 
-.socialList a {
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+.socialList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--cg-u) * 1.5);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.socialLink {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: none;
   color: var(--cg-charcoal);
   transition: color 0.2s;
 }
 
-.socialList a:hover {
+.socialLink:hover {
   color: var(--cg-gold);
+}
+
+.socialIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--cg-gold-light);
+  color: var(--cg-gold);
+  flex-shrink: 0;
+}
+
+.socialIcon svg {
+  width: 16px;
+  height: 16px;
 }
 
 @media (min-width: 640px) {

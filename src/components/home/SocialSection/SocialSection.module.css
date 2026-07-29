@@ -41,31 +41,57 @@
 
 .socialGrid {
   display: flex;
-  justify-content: center;
+  /* flex-start so overflow content can scroll fully left↔right.
+     justify-content: center was trapping the scroll origin in the middle. */
+  justify-content: flex-start;
   gap: calc(var(--cg-u) * 2);
   overflow-x: auto;
-  scrollbar-width: none;
-  padding-bottom: 4px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  padding-bottom: 8px;
+  /* Side padding so first/last tiles aren't clipped against the wrap edge */
+  padding-left: 2px;
+  padding-right: 2px;
 }
 
 .socialGrid::-webkit-scrollbar {
-  display: none;
+  height: 4px;
+}
+
+.socialGrid::-webkit-scrollbar-thumb {
+  background: rgba(250, 246, 240, 0.2);
+  border-radius: 4px;
 }
 
 .socialTile {
+  position: relative;
   flex: 0 0 168px;
   background: rgba(250, 246, 240, 0.04);
-  border: 1px solid rgba(221, 217, 210, 0.12);
+  border: 1px solid rgba(200, 151, 58, 0.4);
   border-radius: 12px;
   overflow: hidden;
   transition:
     transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
-    box-shadow 0.3s ease;
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.socialTile::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--cg-gold);
+  z-index: 3;
+  pointer-events: none;
 }
 
 .socialTile:hover {
   transform: translateY(-6px);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+  border-color: rgba(200, 151, 58, 0.7);
 }
 
 .socialTileMedia {
@@ -77,6 +103,31 @@
   align-items: center;
   justify-content: center;
 }
+
+.socialTileLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+}
+
+.socialTileLink:hover .socialPlay {
+  transform: scale(1.08);
+  background: rgba(26, 26, 26, 0.55);
+}
+
+.socialThumbImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+
+
 
 .socialColorA {
   background: var(--cg-gold);
@@ -91,6 +142,8 @@
 }
 
 .socialPlay {
+  position: relative;
+  z-index: 1;
   width: 48px;
   height: 48px;
   border-radius: 50%;
@@ -98,6 +151,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .socialBadge {
@@ -137,5 +191,10 @@
 @media (min-width: 1024px) {
   .socialTile {
     flex: 0 0 240px;
+  }
+
+  /* Tiles fit the row on desktop — center for layout balance */
+  .socialGrid {
+    justify-content: center;
   }
 }

@@ -14,7 +14,6 @@ export const metadata: Metadata = {
     "Habesha food",
     "Habesha",
     "injera",
-    "Addis Ababa",
   ],
   openGraph: {
     title: "CultureGlow24 Habesha Food, Beauty & Lifestyle",
@@ -28,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "CultureGlow24 — Ethiopian & Eritrean Food, Beauty & Lifestyle",
+    title: "CultureGlow24 — Ethiopian Food, Beauty & Lifestyle",
     description: "Authentic Habesha food, beauty, and lifestyle products.",
   },
 };

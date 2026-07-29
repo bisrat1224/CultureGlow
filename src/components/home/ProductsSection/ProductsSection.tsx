@@ -1,14 +1,23 @@
-import { buildWhatsAppLink } from "@/lib/constants";
-import { FEATURED_PRODUCTS } from "@/lib/data/products";
-import { homeContent } from "@/lib/content/content.home";
+import Link from "next/link";
+import { getFeaturedProducts, getHomeContent } from "@/lib/contentful/queries";
 import { ProductCard } from "./ProductCard";
 import styles from "./ProductsSection.module.css";
 import shared from "../shared.module.css";
 
-const REVEAL_DELAYS = ["reveal-delay-1", "reveal-delay-2", "reveal-delay-3", "reveal-delay-4"];
+const REVEAL_DELAYS = [
+  "reveal-delay-1",
+  "reveal-delay-2",
+  "reveal-delay-3",
+  "reveal-delay-4",
+];
 
-export function ProductsSection() {
-  const { eyebrow, headingBeforeEm, headingEm, headingAfterEm, viewAllCta } = homeContent.products;
+export async function ProductsSection() {
+  const [home, products] = await Promise.all([
+    getHomeContent(),
+    getFeaturedProducts(),
+  ]);
+  const { eyebrow, headingBeforeEm, headingEm, headingAfterEm, viewAllCta } =
+    home.products;
 
   return (
     <section
@@ -26,22 +35,20 @@ export function ProductsSection() {
               {headingAfterEm}
             </h2>
           </div>
-          <a
-            href={buildWhatsAppLink()}
+          <Link
+            href="/shop"
             className={`${styles.btnOutlineGold} reveal reveal-delay-2`}
-            target="_blank"
-            rel="noopener noreferrer"
           >
             {viewAllCta}
-          </a>
+          </Link>
         </div>
 
         <div className={styles.bentoGrid}>
-          {FEATURED_PRODUCTS.map((product, i) => (
+          {products.map((product, i) => (
             <ProductCard
               key={product.id}
               product={product}
-              revealDelayClass={REVEAL_DELAYS[i]}
+              revealDelayClass={REVEAL_DELAYS[i % REVEAL_DELAYS.length]}
             />
           ))}
         </div>

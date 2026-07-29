@@ -1,38 +1,37 @@
-.masonry {
-  columns: 1;
-  column-gap: calc(var(--cg-u) * 2);
+/* Two columns, taller frames — solid rectangle */
+.photoGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: calc(var(--cg-u) * 2.5);
 }
 
-.masonryItem {
-  break-inside: avoid;
-  margin-bottom: calc(var(--cg-u) * 2);
+.photoItem {
+  position: relative;
+  width: 100%;
+  /* Half the previous height: was 3/4 (tall), now 3/2 (shorter landscape-leaning).
+     object-fit: cover keeps image proportions — no stretch/squash. */
+  aspect-ratio: 3 / 2;
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
   border: none;
   padding: 0;
-  display: block;
-  width: 100%;
   background: var(--cg-gold-light);
-  position: relative;
 }
 
-.masonryImg {
-  width: 100%;
-  height: auto;
-  display: block;
+.photoImg {
+  object-fit: cover;
+  object-position: center;
   transition: transform 0.4s ease;
   will-change: transform;
 }
 
-.masonryItem:hover .masonryImg {
+.photoItem:hover .photoImg {
   transform: scale(1.03);
 }
 
 @media (min-width: 640px) {
-  .masonry { columns: 2; }
-}
-
-@media (min-width: 1024px) {
-  .masonry { columns: 3; }
+  .photoGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

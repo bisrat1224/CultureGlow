@@ -12,7 +12,7 @@ export function GalleryHero() {
         alt="Habesha cultural gallery moments"
         fill
         sizes="100vw"
-        quality={85}
+        quality={90}
         priority
         className={styles.galleryHeroImg}
       />

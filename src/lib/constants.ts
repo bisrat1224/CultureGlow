@@ -13,9 +13,14 @@
  * variables, every WhatsApp button sitewide updates automatically -
  * no code change needed.
  */
+// wa.me format: country code + number, no + or spaces
 export const WHATSAPP_NUMBER =
-  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "251900000000";
+  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "447310452605";
 
+/** Display form for contact UI (spaces for readability). */
+export const UK_PHONE_DISPLAY = "+44 7310 452605";
+/** E.164 for tel: links. */
+export const UK_PHONE_TEL = "+447310452605";
 
 export const CONTACT_EMAIL = "hello@cultureglow24.com";
 
@@ -25,11 +30,12 @@ export type NavLink = {
 };
 
 export const NAV_LINKS: NavLink[] = [
-  { href: "/about", label: "About" },
+  { href: "/", label: "Home" },
   { href: "/shop", label: "Shop" },
   { href: "/menu", label: "Menu" },
   { href: "/catering", label: "Catering" },
   { href: "/gallery", label: "Gallery" },
+  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -39,14 +45,14 @@ export type SocialLink = {
 };
 
 export const SOCIAL_LINKS: SocialLink[] = [
-  { label: "TikTok", href: "#" },
-  { label: "Instagram", href: "#" },
+  { label: "TikTok", href: "https://www.tiktok.com/@cultureglow24" },
+  { label: "Instagram", href: "https://www.instagram.com/cultureglow24/" },
 ];
 
 /**
  * Builds a wa.me link, optionally pre-filling a message.
  * Matches the Developer Brief's required URL format:
- * wa.me/251[number]?text=Hi, I would like to order: [product name]
+ * wa.me/[country][number]?text=Hi, I would like to order: [product name]
  */
 export function buildWhatsAppLink(message?: string): string {
   const base = `https://wa.me/${WHATSAPP_NUMBER}`;

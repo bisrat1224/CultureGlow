@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { buildWhatsAppLink } from "@/lib/constants";
+import Link from "next/link";
 import { homeContent } from "@/lib/content/content.home";
 import styles from "./CateringSection.module.css";
 
@@ -23,14 +23,9 @@ export function CateringSection() {
               {headingSecondLine}
             </h2>
             <p className={styles.cateringDesc}>{body}</p>
-            <a
-              href={buildWhatsAppLink()}
-              className={styles.btnGreenCta}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Link href="/catering" className={styles.btnGreenCta}>
               {cta}
-            </a>
+            </Link>
           </div>
 
           <div className={`${styles.cateringVisual} reveal reveal-delay-2`}>

@@ -9,11 +9,6 @@ interface ProductGalleryProps {
   alt: string;
 }
 
-// Thumbnail strip + main image, with click-to-enlarge full-screen view.
-// Mirrors the interaction model already established by Gallery's
-// PhotoLightbox.tsx (Esc/←/→, click-outside to close) rather than
-// introducing a new pattern or a carousel dependency, per Section 7's
-// "match the pattern the section most resembles" convention.
 export function ProductGallery({ images, alt }: ProductGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -47,17 +42,13 @@ export function ProductGallery({ images, alt }: ProductGalleryProps) {
         onClick={() => setLightboxOpen(true)}
         aria-label="Open full-size image"
       >
-        {/* priority + loading="lazy" were set together here, which is a
-            contradiction Next.js can't resolve consistently — priority
-            is meant to eager-load this LCP-candidate image ahead of
-            everything else on the product page, so the lazy flag is
-            dropped rather than the priority flag. */}
         <Image
           src={images[activeIndex]}
           alt={alt}
           fill
           sizes="(min-width: 1024px) 50vw, 100vw"
-          style={{ objectFit: "cover" }}
+          className={styles.mainImage}
+          style={{ objectFit: "cover", objectPosition: "top center" }}
           priority
         />
       </button>
@@ -75,7 +66,14 @@ export function ProductGallery({ images, alt }: ProductGalleryProps) {
               aria-label={`View photo ${i + 1}`}
               aria-pressed={i === activeIndex}
             >
-              <Image src={img} alt="" fill sizes="80px" style={{ objectFit: "cover" }} loading="lazy" />
+              <Image
+                src={img}
+                alt=""
+                fill
+                sizes="80px"
+                style={{ objectFit: "cover", objectPosition: "top center" }}
+                loading="lazy"
+              />
             </button>
           ))}
         </div>
@@ -89,10 +87,6 @@ export function ProductGallery({ images, alt }: ProductGalleryProps) {
           aria-label={`Photo: ${alt}`}
           onClick={() => setLightboxOpen(false)}
         >
-          {/* Raw <img>, not next/image, matching the pattern set by
-              Gallery's PhotoLightbox.tsx (see that file's note for why).
-              decoding="async" keeps the full-res decode off the main
-              thread so opening the lightbox doesn't stutter the click. */}
           <img
             src={images[activeIndex]}
             alt={alt}
