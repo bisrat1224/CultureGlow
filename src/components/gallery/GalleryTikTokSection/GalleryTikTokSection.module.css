@@ -3,6 +3,8 @@
   /* flex-start so overflow content can scroll fully left↔right */
   justify-content: flex-start;
   gap: calc(var(--cg-u) * 2);
+  /* Extra space under the section description */
+  margin-top: calc(var(--cg-u) * 2);
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;

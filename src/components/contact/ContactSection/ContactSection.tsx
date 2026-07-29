@@ -1,11 +1,14 @@
 import { MessageCircle, Phone, Mail } from "lucide-react";
-import { SOCIAL_LINKS, CONTACT_EMAIL, buildWhatsAppLink } from "@/lib/constants";
+import {
+  SOCIAL_LINKS,
+  CONTACT_EMAIL,
+  buildWhatsAppLink,
+  UK_PHONE_DISPLAY,
+  UK_PHONE_TEL,
+} from "@/lib/constants";
 import { contactContent } from "@/lib/content/content.contact";
 import styles from "./ContactSection.module.css";
 import shared from "../shared.module.css";
-
-const UK_PHONE_DISPLAY = "+44 20 7946 0321";
-const UK_PHONE_TEL = "+442079460321";
 
 function InstagramIcon() {
   return (

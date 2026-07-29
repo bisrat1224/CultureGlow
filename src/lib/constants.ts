@@ -13,11 +13,14 @@
  * variables, every WhatsApp button sitewide updates automatically -
  * no code change needed.
  */
-// Fallback: Ofcom UK drama/fiction mobile range 07700 900xxx (never assigned).
-// wa.me format: country code + number, no + or spaces → 447700900123
+// wa.me format: country code + number, no + or spaces
 export const WHATSAPP_NUMBER =
-  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "447700900123";
+  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "447310452605";
 
+/** Display form for contact UI (spaces for readability). */
+export const UK_PHONE_DISPLAY = "+44 7310 452605";
+/** E.164 for tel: links. */
+export const UK_PHONE_TEL = "+447310452605";
 
 export const CONTACT_EMAIL = "hello@cultureglow24.com";
 
@@ -42,8 +45,8 @@ export type SocialLink = {
 };
 
 export const SOCIAL_LINKS: SocialLink[] = [
-  { label: "TikTok", href: "#" },
-  { label: "Instagram", href: "#" },
+  { label: "TikTok", href: "https://www.tiktok.com/@cultureglow24" },
+  { label: "Instagram", href: "https://www.instagram.com/cultureglow24/" },
 ];
 
 /**

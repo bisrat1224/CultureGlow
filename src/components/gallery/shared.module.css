@@ -22,6 +22,8 @@
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  /* Space between intro copy and content below */
+  margin-bottom: calc(var(--cg-u) * 6);
 }
 
 .sectionTitle {
