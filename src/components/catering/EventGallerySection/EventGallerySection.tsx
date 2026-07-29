@@ -8,9 +8,9 @@ interface GalleryItem {
   image: string;
   alt: string;
   caption: string;
-  tall?: boolean;
 }
 
+/** 12 items → exact 4×3 rectangle on desktop (no masonry gaps). */
 const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "wedding-1",
@@ -18,7 +18,6 @@ const GALLERY_ITEMS: GalleryItem[] = [
       "https://images.pexels.com/photos/35976293/pexels-photo-35976293.png?auto=compress&cs=tinysrgb&w=700",
     alt: "Ethiopian wedding celebration at night",
     caption: "Wedding",
-    tall: true,
   },
   {
     id: "corporate-1",
@@ -40,7 +39,6 @@ const GALLERY_ITEMS: GalleryItem[] = [
       "https://images.pexels.com/photos/20865956/pexels-photo-20865956.jpeg?auto=compress&cs=tinysrgb&w=700",
     alt: "Women in colorful traditional dress at Meskel festival, Addis Ababa",
     caption: "Cultural",
-    tall: true,
   },
   {
     id: "ceremony-1",
@@ -69,7 +67,6 @@ const GALLERY_ITEMS: GalleryItem[] = [
       "https://images.pexels.com/photos/7180728/pexels-photo-7180728.jpeg?auto=compress&cs=tinysrgb&w=700",
     alt: "Elegant birthday cake on a dinner table",
     caption: "Birthday",
-    tall: true,
   },
   {
     id: "wedding-2",
@@ -126,10 +123,7 @@ export function EventGallerySection() {
 
         <div className={styles.galleryGrid}>
           {GALLERY_ITEMS.map((item) => (
-            <div
-              key={item.id}
-              className={`${styles.galleryItem} ${item.tall ? styles.galleryItemTall : ""} reveal`}
-            >
+            <div key={item.id} className={`${styles.galleryItem} reveal`}>
               <Image
                 src={item.image}
                 alt={item.alt}

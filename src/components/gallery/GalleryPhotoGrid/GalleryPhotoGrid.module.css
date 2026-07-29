@@ -8,7 +8,9 @@
 .photoItem {
   position: relative;
   width: 100%;
-  aspect-ratio: 3 / 4;
+  /* Half the previous height: was 3/4 (tall), now 3/2 (shorter landscape-leaning).
+     object-fit: cover keeps image proportions — no stretch/squash. */
+  aspect-ratio: 3 / 2;
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;

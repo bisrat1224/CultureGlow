@@ -59,13 +59,8 @@
   transform: translateY(-4px);
 }
 
-.bundleCard img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+/* Only the background photo — do NOT target .bundleBtn img (that was
+   stretching the WhatsApp icon across the whole card). */
 
 .bundleOverlay {
   position: relative;
@@ -118,9 +113,14 @@
 }
 
 .bundleBtn img {
-  width: 13px;
-  height: 13px;
-  filter: brightness(0) invert(1);
+  position: static;
+  inset: auto;
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  /* Dark icon to match charcoal button label on gold */
+  filter: brightness(0);
+  flex-shrink: 0;
 }
 
 @media (min-width: 640px) {

@@ -50,18 +50,19 @@ a.methodCard:hover {
 }
 
 .socialCard {
-  justify-content: center;
+  /* Match the vertical stack of WhatsApp / Phone / Email cards */
+  justify-content: flex-start;
 }
 
 .socialList {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: calc(var(--cg-u) * 3);
+  gap: calc(var(--cg-u) * 1.5);
   list-style: none;
-  margin-top: 8px;
+  margin: 0;
+  padding: 0;
   width: 100%;
 }
 
@@ -71,10 +72,10 @@ a.methodCard:hover {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: none;
   color: var(--cg-charcoal);
   transition: color 0.2s;
 }
@@ -87,12 +88,17 @@ a.methodCard:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background: var(--cg-gold-light);
   color: var(--cg-gold);
   flex-shrink: 0;
+}
+
+.socialIcon svg {
+  width: 16px;
+  height: 16px;
 }
 
 @media (min-width: 640px) {

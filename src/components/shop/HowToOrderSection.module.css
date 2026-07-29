@@ -31,11 +31,14 @@
 }
 
 .stepsRow {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 28px;
   margin-top: calc(var(--cg-u) * 5);
-  align-items: center;
+  align-items: stretch;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .stepItem {
@@ -43,7 +46,11 @@
   flex-direction: column;
   align-items: center;
   gap: 12px;
+  height: 100%;
   max-width: 220px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 
 .stepNumber {
@@ -65,6 +72,8 @@
   font-size: 18px;
   font-weight: 700;
   color: var(--cg-charcoal);
+  /* Keep titles on one visual band across columns */
+  min-height: 1.3em;
 }
 
 .stepDesc {
@@ -72,12 +81,21 @@
   color: var(--cg-text);
   line-height: 1.5;
   text-align: center;
+  flex: 1 1 auto;
 }
 
 @media (min-width: 640px) {
   .stepsRow {
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .stepsRow {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .stepItem {
+    max-width: none;
   }
 }
