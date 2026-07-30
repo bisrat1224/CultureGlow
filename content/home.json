@@ -1,20 +1,21 @@
 {
   "hero": {
-    "eyebrow": "Habesha Food · Beauty · Lifestyle",
-    "headingBeforeEm": "Taste the ",
-    "headingEm": "Soul",
-    "headingAfterEm": " of Ethiopia",
-    "body": "Handcrafted Habesha stews, warm spice blends, and everyday essentials, made the traditional way and delivered straight to your door.",
-    "primaryCta": "Order",
+    "eyebrow": "Handmade · Cultural · Sustainable",
+    "headingBeforeEm": "Crafted with ",
+    "headingEm": "Love",
+    "headingAfterEm": ", Worn with Pride",
+    "body": "Handmade clothing inspired by diverse cultures and crafted with love. Celebrating individuality and sustainability, one unique piece at a time.",
+    "primaryCta": "Order Now",
     "secondaryCta": "Explore the Menu"
   },
   "marquee": {
     "items": [
-      "CultureGlow24",
+      "Culture Glow",
       "Authentic Habesha Cuisine",
       "Traditional Clothing",
       "Cultural Events",
-      "Catering Services"
+      "Catering Services",
+      "CultureGlow24"
     ]
   },
   "story": {
@@ -23,7 +24,7 @@
     "headingEm": "Culture",
     "headingAfterEm": "",
     "headingSecondLine": "Meets the Table",
-    "body": "What started as home-cooked meals shared between neighbours has grown into a full celebration of Habesha food, beauty, and lifestyle. Every dish, garment, and gift we offer carries the same care we'd bring to our own family table.",
+    "body": "What started as home-cooked meals shared between neighbors has grown into a full celebration of Habesha food, beauty, and lifestyle. Every dish, garment, and gift we offer carries the same care we'd bring to our own family table.",
     "amharic": "Every dish tells a story of home.",
     "badge": "Since 2024",
     "stats": [
@@ -35,7 +36,7 @@
   "products": {
     "eyebrow": "Featured Products",
     "headingBeforeEm": "Handpicked ",
-    "headingEm": "Favourites",
+    "headingEm": "Favorites",
     "headingAfterEm": "",
     "viewAllCta": "View All"
   },

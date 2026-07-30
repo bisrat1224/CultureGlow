@@ -29,9 +29,23 @@
   gap: calc(var(--cg-u) * 1.5);
 }
 
+.headerLogo a {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--cg-u) * 1.5);
+}
+
 .headerLogo img {
   height: 48px;
   width: auto;
+}
+
+.logoName {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--cg-cream, #faf6f0);
+  white-space: nowrap;
 }
 
 .headerNav {

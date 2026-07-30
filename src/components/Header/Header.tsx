@@ -28,6 +28,7 @@ export function Header() {
               width={48}
               height={48}
             />
+            <span className={styles.logoName}>CULTURE GLOW</span>
           </Link>
         </div>
 
@@ -55,7 +56,7 @@ export function Header() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/assets/images/img_whatsappicon.svg" alt="" />
+            <img src="/assets/images/img_whatsappicon.svg" alt="WhatsApp Icon" />
             Order
           </a>
           <button
