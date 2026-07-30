@@ -86,6 +86,11 @@
 
 .storyImgMainEl {
   object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.storyImgMainWrap:hover .storyImgMainEl {
+  transform: scale(1.04);
 }
 
 .storyImgAccentWrap {

@@ -41,6 +41,7 @@
 }
 
 .headerNav a {
+  position: relative;
   font-size: 14px;
   font-weight: 500;
   color: rgba(250, 246, 240, 0.85);
@@ -48,12 +49,31 @@
   transition: color 0.2s;
 }
 
+.headerNav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 1.5px;
+  background: var(--cg-gold);
+  transition: width 0.25s ease;
+}
+
 .headerNav a:hover {
   color: var(--cg-gold);
 }
 
+.headerNav a:hover::after {
+  width: 100%;
+}
+
 .headerNav a.active {
   color: var(--cg-gold);
+}
+
+.headerNav a.active::after {
+  width: 100%;
 }
 
 .headerRight {

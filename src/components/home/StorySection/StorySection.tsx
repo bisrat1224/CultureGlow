@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { homeContent } from "@/lib/content/content.home";
+import { StatCounter } from "./StatCounter";
 import styles from "./StorySection.module.css";
 
 export function StorySection() {
@@ -14,7 +15,7 @@ export function StorySection() {
     >
       <div className="wrap">
         <div className={styles.storyInner}>
-          <div className={`${styles.storyTextCol} reveal`}>
+          <div className={`${styles.storyTextCol} reveal reveal-left`}>
             <p className={styles.storyEyebrow}>{eyebrow}</p>
             <h2 className={styles.storyH2} id="story-h2">
               {headingBeforeEm}
@@ -27,14 +28,16 @@ export function StorySection() {
             <div className={styles.storyStats}>
               {stats.map((stat) => (
                 <div key={stat.label} className={styles.statItem}>
-                  <p className={styles.statNum}>{stat.value}</p>
+                  <p className={styles.statNum}>
+                    <StatCounter value={stat.value} />
+                  </p>
                   <p className={styles.statLabel}>{stat.label}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className={`${styles.storyVisual} reveal reveal-delay-2`}>
+          <div className={`${styles.storyVisual} reveal-right reveal-delay-2`}>
             <div className={styles.storyImgMainWrap}>
               <Image
                 src="/assets/images/stew-pans.jpg"
