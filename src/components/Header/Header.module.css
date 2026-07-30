@@ -43,7 +43,7 @@
 .logoName {
   display: none;
   font-family: "Playfair Display", serif;
-  font-size: 28px;
+  font-size: 24px;
   letter-spacing: 0.04em;
   color: var(--cg-cream, #faf6f0);
   white-space: nowrap;
@@ -135,9 +135,6 @@
 }
 
 @media (min-width: 768px) {
-  .logoName {
-    display: block;
-  }
 
   .headerNav {
     display: flex;
@@ -145,5 +142,12 @@
 
   .hamburger {
     display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .logoName {
+    display: block;
+    font-size: 24px;
   }
 }
