@@ -54,7 +54,7 @@ export function Footer() {
             <p className={styles.footerBrandName}>Culture Glow</p>
           </div>
           <p className={styles.footerTagline}>
-            Where culture meets glow — authentic Habesha food, beauty &amp; lifestyle delivered across Manchester.
+            Where culture meets glow — authentic Habesha food, beauty &amp; lifestyle delivered across London.
           </p>
           <a
             href={buildWhatsAppLink()}
@@ -83,7 +83,7 @@ export function Footer() {
         <div className={styles.footerContact}>
           <p className={styles.footerColTitle}>Contact</p>
           <ul className={styles.footerLinks}>
-            <li>Delivering across Manchester</li>
+            <li>Delivering across London</li>
             <li>
               <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
             </li>

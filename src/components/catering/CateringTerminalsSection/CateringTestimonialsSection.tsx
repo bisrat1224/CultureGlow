@@ -29,7 +29,7 @@ const TESTIMONIALS: CateringTestimonial[] = [
       "They understood exactly what our Timkat celebration needed. Authentic, generous portions, and served with real care for the tradition.",
     initial: "D",
     name: "Dawit S.",
-    location: "Timkat Celebration, Manchester",
+    location: "Timkat Celebration, London",
   },
 ];
 
