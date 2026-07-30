@@ -26,7 +26,7 @@ const TESTIMONIALS: Testimonial[] = [
       "Every dish felt homemade. The injera was fresh and the portions were generous enough for the whole family.",
     initial: "D",
     name: "Dawit S.",
-    location: "Family Reunion, Manchester",
+    location: "Family Reunion, London",
   },
 ];
 
