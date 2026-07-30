@@ -16,7 +16,7 @@
       "description": "A generous injera platter with a rotating selection of stews, sized for one or shared as a starter.",
       "gallery": [
         "/assets/images/injera-plate.jpg",
-        "/assets/images/stew-pans.jpg"
+        "/assets/images/stew-pans.avif"
       ],
       "allergens": [
         "Contains gluten (teff and wheat blends vary by batch)",
@@ -68,10 +68,10 @@
       "category": "HABESHA FOOD",
       "name": "Spiced Lentil Stew",
       "price": "£9.50",
-      "image": "/assets/images/stew-pans.jpg",
+      "image": "/assets/images/stew-pans.avif",
       "alt": "Bowl of spiced red lentil stew with injera",
       "description": "A warming stew of red lentils simmered with berbere and garlic, served with injera on the side.",
-      "gallery": ["/assets/images/stew-pans.jpg"],
+      "gallery": ["/assets/images/stew-pans.avif"],
       "allergens": ["Contains legumes"]
     },
     {
