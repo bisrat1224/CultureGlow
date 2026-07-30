@@ -74,7 +74,7 @@ export async function POST(request: Request) {
     await resend.emails.send({
       // NOTE: replace with a verified sending domain once one exists -
       // resend.dev's onboarding address is a placeholder for local/dev use.
-      from: "CultureGlow24 <hello@cultureglow24.com>", // TODO: Verify domain with Resend before going live
+      from: "CultureGlow24 <cultureglow24@gmail.com>", // TODO: Verify domain with Resend before going live
       to: recipient,
       replyTo: email,
       subject: `New contact form submission from ${name}`,

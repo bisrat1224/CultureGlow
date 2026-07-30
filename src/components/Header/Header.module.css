@@ -41,9 +41,9 @@
 }
 
 .logoName {
+  display: none;
   font-family: "Playfair Display", serif;
   font-size: 28px;
-  /* font-weight: 700; */
   letter-spacing: 0.04em;
   color: var(--cg-cream, #faf6f0);
   white-space: nowrap;
@@ -135,6 +135,10 @@
 }
 
 @media (min-width: 768px) {
+  .logoName {
+    display: block;
+  }
+
   .headerNav {
     display: flex;
   }

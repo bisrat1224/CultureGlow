@@ -92,7 +92,7 @@ export async function POST(request: Request) {
 
   try {
     await resend.emails.send({
-      from: "CultureGlow24 <hello@cultureglow24.com>", // TODO: Verify domain with Resend before going live
+      from: "CultureGlow24 <cultureglow24@gmail.com>", // TODO: Verify domain with Resend before going live
       to: recipient,
       replyTo: email,
       subject: `New catering enquiry from ${name}`,
