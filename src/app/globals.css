@@ -77,8 +77,8 @@
   --color-brand-red: var(--cg-red);
   --color-cg-text: var(--cg-text);
   --color-cg-border: var(--cg-border);
-  --font-serif: "Playfair Display", serif;
-  --font-ethiopic: "Noto Serif Ethiopic", serif;
+  --font-serif: var(--font-playfair), serif;
+  --font-ethiopic: var(--font-noto), serif;
 }
 
 :root {
@@ -173,7 +173,7 @@ html {
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-inter), sans-serif;
   background: var(--cg-cream);
   color: var(--cg-charcoal);
   overflow-x: hidden;
@@ -199,11 +199,11 @@ button {
 
 /* ─── TYPOGRAPHY HELPERS ───────────────────────────────── */
 .f-serif {
-  font-family: "Playfair Display", serif;
+  font-family: var(--font-serif);
 }
 
 .f-ethiopic {
-  font-family: "Noto Serif Ethiopic", serif;
+  font-family: var(--font-ethiopic);
 }
 
 /* ─── LAYOUT ───────────────────────────────────────────── */

@@ -20,7 +20,8 @@ export interface CategoryMeta {
   titleBeforeEm: string;
   titleEm: string;
   variant: "cream" | "dark";
-  countLabel: string;
+  /** Derived at render time from actual item count; Contentful can override if set. */
+  countLabel?: string;
 }
 
 /** Loaded from content/menu.json — edit that file to change the menu. */

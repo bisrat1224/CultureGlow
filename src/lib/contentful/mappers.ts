@@ -70,7 +70,7 @@ export function mapMenuCategory(
     titleBeforeEm: f(fields, "titleBeforeEm", ""),
     titleEm: f(fields, "titleEm", ""),
     variant: f(fields, "variant", "cream") as "cream" | "dark",
-    countLabel: f(fields, "countLabel", ""),
+    countLabel: f(fields, "countLabel") || undefined,
     itemIds: items.map((i) => {
       const s = (i.fields as Fields)?.slug;
       return typeof s === "string" ? s : i.sys.id;

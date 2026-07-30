@@ -1,12 +1,18 @@
+import type { HomeContent } from "@/lib/content/content.home";
+import type { SocialPost } from "@/lib/data/social";
 import { SocialTile } from "./SocialTile";
-import { homeContent } from "@/lib/content/content.home";
-import { getTiktokPosts, getInstagramReels } from "@/lib/contentful/queries";
 import styles from "./SocialSection.module.css";
 import shared from "../shared.module.css";
 
 const REVEAL_DELAYS = ["reveal-delay-1", "reveal-delay-2", "reveal-delay-3"];
 
-export async function SocialSection() {
+interface Props {
+  home: HomeContent["social"];
+  tiktoks: SocialPost[];
+  reels: SocialPost[];
+}
+
+export function SocialSection({ home, tiktoks, reels }: Props) {
   const {
     eyebrow,
     headingBeforeEm,
@@ -14,12 +20,7 @@ export async function SocialSection() {
     headingAfterEm,
     tiktokLabel,
     reelsLabel,
-  } = homeContent.social;
-
-  const [tiktoks, reels] = await Promise.all([
-    getTiktokPosts({ homeOnly: true }),
-    getInstagramReels({ homeOnly: true }),
-  ]);
+  } = home;
 
   return (
     <section

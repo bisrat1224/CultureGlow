@@ -6,8 +6,7 @@
       "eyebrow": "Begin the Meal",
       "titleBeforeEm": "Start",
       "titleEm": "ers",
-      "variant": "cream",
-      "countLabel": "2 dishes"
+      "variant": "cream"
     },
     {
       "id": "mains",
@@ -15,8 +14,7 @@
       "eyebrow": "The Signature Selection",
       "titleBeforeEm": "Main ",
       "titleEm": "Dishes",
-      "variant": "dark",
-      "countLabel": "5 dishes"
+      "variant": "dark"
     },
     {
       "id": "veg-vegan",
@@ -24,8 +22,7 @@
       "eyebrow": "Plant-Forward Favourites",
       "titleBeforeEm": "Veg & ",
       "titleEm": "Vegan",
-      "variant": "cream",
-      "countLabel": "2 dishes"
+      "variant": "cream"
     },
     {
       "id": "desserts",
@@ -33,8 +30,7 @@
       "eyebrow": "Something Sweet",
       "titleBeforeEm": "",
       "titleEm": "Desserts",
-      "variant": "dark",
-      "countLabel": "2 dishes"
+      "variant": "dark"
     },
     {
       "id": "drinks",
@@ -42,8 +38,7 @@
       "eyebrow": "To Sip & Savour",
       "titleBeforeEm": "",
       "titleEm": "Drinks",
-      "variant": "cream",
-      "countLabel": "2 drinks"
+      "variant": "cream"
     }
   ],
   "items": {

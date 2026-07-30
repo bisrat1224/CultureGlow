@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { getFeaturedProducts, getHomeContent } from "@/lib/contentful/queries";
+import type { HomeContent } from "@/lib/content/content.home";
+import type { Product } from "./ProductCard";
 import { ProductCard } from "./ProductCard";
 import styles from "./ProductsSection.module.css";
 import shared from "../shared.module.css";
@@ -11,13 +12,13 @@ const REVEAL_DELAYS = [
   "reveal-delay-4",
 ];
 
-export async function ProductsSection() {
-  const [home, products] = await Promise.all([
-    getHomeContent(),
-    getFeaturedProducts(),
-  ]);
-  const { eyebrow, headingBeforeEm, headingEm, headingAfterEm, viewAllCta } =
-    home.products;
+interface Props {
+  home: HomeContent["products"];
+  products: Product[];
+}
+
+export function ProductsSection({ home, products }: Props) {
+  const { eyebrow, headingBeforeEm, headingEm, headingAfterEm, viewAllCta } = home;
 
   return (
     <section

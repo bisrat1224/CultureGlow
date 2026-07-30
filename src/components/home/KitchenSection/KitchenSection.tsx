@@ -1,6 +1,6 @@
 import { buildWhatsAppLink } from "@/lib/constants";
-import { FEATURED_MENU_ITEMS } from "@/lib/data/menu";
-import { homeContent } from "@/lib/content/content.home";
+import type { HomeContent } from "@/lib/content/content.home";
+import type { MenuItem } from "@/lib/data/menu";
 import { MenuRow } from "@/components/menu/MenuRow";
 import styles from "./KitchenSection.module.css";
 import shared from "../shared.module.css";
@@ -12,9 +12,13 @@ const REVEAL_DELAYS = [
   "reveal-delay-4",
 ];
 
-export function KitchenSection() {
-  const { eyebrow, headingBeforeEm, headingEm, headingSecondLine, body, cta } =
-    homeContent.kitchen;
+interface Props {
+  home: HomeContent["kitchen"];
+  items: MenuItem[];
+}
+
+export function KitchenSection({ home, items }: Props) {
+  const { eyebrow, headingBeforeEm, headingEm, headingSecondLine, body, cta } = home;
 
   return (
     <section
@@ -47,7 +51,7 @@ export function KitchenSection() {
 
           <div className={styles.kitchenItemsCol}>
             <div className={styles.menuList}>
-              {FEATURED_MENU_ITEMS.map((item, i) => (
+              {items.map((item, i) => (
                 <MenuRow
                   key={item.id}
                   item={item}
