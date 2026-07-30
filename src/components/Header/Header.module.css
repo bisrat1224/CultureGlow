@@ -29,9 +29,24 @@
   gap: calc(var(--cg-u) * 1.5);
 }
 
+.headerLogo a {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--cg-u) * 1.5);
+}
+
 .headerLogo img {
   height: 48px;
   width: auto;
+}
+
+.logoName {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  /* font-weight: 700; */
+  letter-spacing: 0.04em;
+  color: var(--cg-cream, #faf6f0);
+  white-space: nowrap;
 }
 
 .headerNav {
@@ -41,6 +56,7 @@
 }
 
 .headerNav a {
+  position: relative;
   font-size: 14px;
   font-weight: 500;
   color: rgba(250, 246, 240, 0.85);
@@ -48,12 +64,31 @@
   transition: color 0.2s;
 }
 
+.headerNav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 1.5px;
+  background: var(--cg-gold);
+  transition: width 0.25s ease;
+}
+
 .headerNav a:hover {
   color: var(--cg-gold);
 }
 
+.headerNav a:hover::after {
+  width: 100%;
+}
+
 .headerNav a.active {
   color: var(--cg-gold);
+}
+
+.headerNav a.active::after {
+  width: 100%;
 }
 
 .headerRight {

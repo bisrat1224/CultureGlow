@@ -17,9 +17,16 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: var(--cg-gold);
+  background: linear-gradient(90deg, var(--cg-gold) 0%, #e8b84b 50%, var(--cg-gold) 100%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  transition: background-position 0.6s ease;
   z-index: 2;
   pointer-events: none;
+}
+
+.bentoCard:hover::before {
+  background-position: 0% 0;
 }
 
 .bentoCard:hover {

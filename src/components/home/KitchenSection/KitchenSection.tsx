@@ -28,7 +28,7 @@ export function KitchenSection({ home, items }: Props) {
     >
       <div className="wrap">
         <div className={styles.kitchenLayout}>
-          <div className={`${styles.kitchenHeaderCol} reveal`}>
+          <div className={`${styles.kitchenHeaderCol} reveal reveal-left`}>
             <p className={shared.sectionEyebrow}>{eyebrow}</p>
             <h2 className={styles.sectionH2Dark} id="kitchen-h2">
               {headingBeforeEm}

@@ -253,6 +253,36 @@ button {
   transition-delay: 0.4s;
 }
 
+/* ─── DIRECTIONAL REVEAL VARIANTS ───────────────────────────
+   Use reveal-left / reveal-right on side-by-side columns so
+   the animation direction mirrors the visual layout — text
+   enters from the left, images from the right.
+*/
+.reveal-left,
+.reveal-right {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.js-armed .reveal-left {
+  opacity: 0;
+  transform: translateX(-28px);
+}
+
+.js-armed .reveal-right {
+  opacity: 0;
+  transform: translateX(28px);
+}
+
+.js-armed .reveal-left.visible,
+.js-armed .reveal-right.visible {
+  opacity: 1;
+  transform: none;
+}
+
 /* ─── ACCESSIBILITY ────────────────────────────────────── */
 .visually-hidden {
   position: absolute;

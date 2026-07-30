@@ -1,0 +1,57 @@
+.tabs {
+  display: flex;
+  gap: calc(var(--cg-u) * 1);
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: calc(var(--cg-u) * 0.5);
+  margin-bottom: calc(var(--cg-u) * 4);
+  -webkit-overflow-scrolling: touch;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab {
+  flex-shrink: 0;
+  padding: 8px 20px;
+  border-radius: 100px;
+  border: 1.5px solid rgba(200, 151, 58, 0.35);
+  background: transparent;
+  color: rgba(250, 246, 240, 0.55);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  min-height: 40px;
+}
+
+.tab:hover {
+  border-color: var(--cg-gold);
+  color: var(--cg-gold);
+}
+
+.tabActive {
+  background: var(--cg-gold);
+  border-color: var(--cg-gold);
+  color: #fff;
+}
+
+.bentoGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: calc(var(--cg-u) * 2);
+}
+
+@media (min-width: 640px) {
+  .bentoGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .bentoGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

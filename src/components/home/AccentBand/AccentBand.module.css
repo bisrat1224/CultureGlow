@@ -2,6 +2,8 @@
   background: var(--cg-red);
   padding: calc(var(--cg-u) * 3) 0;
   overflow: hidden;
+  /* Diagonal bottom edge — right side exits early into the cream section below */
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
 }
 
 .accentBandInner {
@@ -11,6 +13,10 @@
   white-space: nowrap;
   animation: marquee 22s linear infinite;
   width: max-content;
+}
+
+.accentBand:hover .accentBandInner {
+  animation-play-state: paused;
 }
 
 .accentBandText {

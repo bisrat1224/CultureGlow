@@ -1,16 +1,9 @@
 import Link from "next/link";
 import type { HomeContent } from "@/lib/content/content.home";
 import type { Product } from "./ProductCard";
-import { ProductCard } from "./ProductCard";
+import { ProductsGrid } from "./ProductsGrid";
 import styles from "./ProductsSection.module.css";
 import shared from "../shared.module.css";
-
-const REVEAL_DELAYS = [
-  "reveal-delay-1",
-  "reveal-delay-2",
-  "reveal-delay-3",
-  "reveal-delay-4",
-];
 
 interface Props {
   home: HomeContent["products"];
@@ -44,15 +37,7 @@ export function ProductsSection({ home, products }: Props) {
           </Link>
         </div>
 
-        <div className={styles.bentoGrid}>
-          {products.map((product, i) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              revealDelayClass={REVEAL_DELAYS[i % REVEAL_DELAYS.length]}
-            />
-          ))}
-        </div>
+        <ProductsGrid products={products} />
       </div>
     </section>
   );

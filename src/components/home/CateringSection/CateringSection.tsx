@@ -14,7 +14,7 @@ export function CateringSection() {
     >
       <div className="wrap">
         <div className={styles.cateringInner}>
-          <div className={`${styles.cateringText} reveal`}>
+          <div className={`${styles.cateringText} reveal reveal-left`}>
             <p className={styles.cateringEyebrow}>{eyebrow}</p>
             <h2 className={styles.cateringH2} id="catering-h2">
               {headingBeforeEm}
@@ -28,7 +28,7 @@ export function CateringSection() {
             </Link>
           </div>
 
-          <div className={`${styles.cateringVisual} reveal reveal-delay-2`}>
+          <div className={`${styles.cateringVisual} reveal-right reveal-delay-2`}>
             <div className={`${styles.cateringImgWrap} ${styles.cateringImgTallWrap}`}>
               <Image
                 src="/assets/images/stew-pans.jpg"
