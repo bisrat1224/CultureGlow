@@ -23,9 +23,9 @@ export default async function ShopPage() {
           title={shop.productsSection.title}
         />
       </div>
-      <FeatureBanner />
+      <FeatureBanner {...shop.featureBanner} />
       <BundlesSection />
-      <HowToOrderSection />
+      <HowToOrderSection {...shop.howToOrder} />
     </>
   );
 }

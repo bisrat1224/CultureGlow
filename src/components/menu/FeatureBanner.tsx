@@ -1,10 +1,15 @@
 import Image from "next/image";
 import { buildWhatsAppLink } from "@/lib/constants";
-import { menuContent } from "@/lib/content/content.menu";
 import styles from "./FeatureBanner.module.css";
 
-export function FeatureBanner() {
-  const { label, title, desc, cta } = menuContent.featureBanner;
+interface FeatureBannerProps {
+  label: string;
+  title: string;
+  desc: string;
+  cta: string;
+}
+
+export function FeatureBanner({ label, title, desc, cta }: FeatureBannerProps) {
 
   return (
     <section className={styles.featureBanner}>

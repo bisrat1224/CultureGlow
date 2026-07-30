@@ -1,8 +1,13 @@
-import { shopContent } from "@/lib/content/content.shop";
 import styles from "./HowToOrderSection.module.css";
 
-export function HowToOrderSection() {
-  const { label, title, desc, steps } = shopContent.howToOrder;
+interface HowToOrderProps {
+  label: string;
+  title: string;
+  desc: string;
+  steps: { number: number; title: string; desc: string }[];
+}
+
+export function HowToOrderSection({ label, title, desc, steps }: HowToOrderProps) {
 
   return (
     <section className={styles.howToOrder}>
