@@ -34,17 +34,22 @@ export function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={`${styles.footerInner} wrap`}>
+
+        {/* Col 1: Brand */}
         <div className={styles.footerBrand}>
-          <Image
-            src="/assets/images/logo.png"
-            alt="CultureGlow24"
-            width={160}
-            height={40}
-            loading="lazy"
-            className={styles.footerLogo}
-          />
+          <div className={styles.footerBrandHeader}>
+            <Image
+              src="/assets/images/logo.png"
+              alt="CultureGlow24"
+              width={160}
+              height={40}
+              loading="lazy"
+              className={styles.footerLogo}
+            />
+            <p className={styles.footerBrandName}>Culture Glow</p>
+          </div>
           <p className={styles.footerTagline}>
-            Habesha food, beauty, and lifestyle - ordering via WhatsApp only.
+            Where culture meets glow — authentic Habesha food, beauty &amp; lifestyle delivered across Manchester.
           </p>
           <a
             href={buildWhatsAppLink()}
@@ -52,14 +57,15 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/assets/images/img_whatsappicon.svg" alt="" />
+            <img src="/assets/images/img_whatsappicon.svg" alt="WhatsApp Icon" />
             Order
           </a>
         </div>
 
-        <nav className={styles.footerCol} aria-label="Footer navigation">
+        {/* Col 2: Explore (2-column grid) */}
+        <nav className={styles.footerExplore} aria-label="Footer navigation">
           <p className={styles.footerColTitle}>Explore</p>
-          <ul className={styles.footerLinks}>
+          <ul className={styles.footerExploreLinks}>
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
                 <Link href={link.href}>{link.label}</Link>
@@ -68,18 +74,20 @@ export function Footer() {
           </ul>
         </nav>
 
-        <div className={styles.footerMeta}>
-          <div className={styles.footerCol}>
+        {/* Col 3: Contact + Follow merged */}
+        <div className={styles.footerConnect}>
+          <div>
             <p className={styles.footerColTitle}>Contact</p>
             <ul className={styles.footerLinks}>
               <li>Delivering across Manchester</li>
-              <li>{CONTACT_EMAIL}</li>
+              <li>
+                <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+              </li>
             </ul>
           </div>
-
-          <div className={styles.footerCol}>
+          <div>
             <p className={styles.footerColTitle}>Follow</p>
-            <ul className={styles.footerLinks}>
+            <ul className={`${styles.footerLinks} ${styles.footerSocialList}`}>
               {SOCIAL_LINKS.map((social) => (
                 <li key={social.label}>
                   <a
@@ -98,10 +106,11 @@ export function Footer() {
             </ul>
           </div>
         </div>
+
       </div>
 
       <div className={styles.footerBottom}>
-        <p>© {year} CultureGlow24. All rights reserved.</p>
+        <p>© {year} CULTURE GLOW24. All rights reserved. Designed by <a href="https://www.techallyconsult.com" target="_blank" rel="noopener noreferrer">Techally Consult</a></p>
       </div>
     </footer>
   );

@@ -4,7 +4,7 @@
   padding-top: calc(var(--cg-u) * 5);
 }
 
-/* ── Mobile: compact bar layout ── */
+/* ── Mobile: stacked layout ── */
 .footerInner {
   display: flex;
   flex-direction: column;
@@ -22,22 +22,44 @@
   flex-wrap: wrap;
 }
 
+/* Logo + brand name inline */
+.footerBrandHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .footerLogo {
   height: 36px;
   width: auto;
 }
 
-/* Hidden on mobile */
+/* Brand name hidden on mobile */
+.footerBrandName {
+  display: none;
+}
+
+/* Tagline hidden on mobile */
 .footerTagline {
   display: none;
 }
 
-/* Column titles hidden on mobile — links render inline */
+/* Column titles hidden on mobile */
 .footerColTitle {
   display: none;
 }
 
 /* Nav links inline with wrapping on mobile */
+.footerExploreLinks {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 4px calc(var(--cg-u) * 1.5);
+  list-style: none;
+  font-size: 14px;
+  color: rgba(250, 246, 240, 0.65);
+}
+
 .footerLinks {
   display: flex;
   flex-direction: row;
@@ -48,23 +70,21 @@
   color: rgba(250, 246, 240, 0.65);
 }
 
+.footerExploreLinks a,
 .footerLinks a {
   transition: color 0.2s;
 }
 
+.footerExploreLinks a:hover,
 .footerLinks a:hover {
   color: var(--cg-gold);
 }
 
-/* Contact + Follow sit side by side on mobile */
-.footerMeta {
+/* Contact + Follow sit inline on mobile */
+.footerConnect {
   display: flex;
   gap: calc(var(--cg-u) * 4);
   flex-wrap: wrap;
-}
-
-.footerCol {
-  /* shrinks to content on mobile */
 }
 
 .footerWaBtn {
@@ -93,6 +113,11 @@
   height: 16px;
 }
 
+.footerSocialList {
+  flex-direction: row !important;
+  gap: calc(var(--cg-u) * 2) !important;
+}
+
 .footerSocialLink {
   display: inline-flex;
   align-items: center;
@@ -108,43 +133,51 @@
 
 .footerBottom {
   border-top: 1px solid rgba(250, 246, 240, 0.08);
-  padding: calc(var(--cg-u) * 2.5) 0;
+  padding: calc(var(--cg-u) * 3) 0 calc(var(--cg-u) * 4);
   text-align: center;
   font-size: 12px;
   color: rgba(250, 246, 240, 0.4);
 }
 
-/* ── 640px+: restore 4-col layout ── */
+/* ── 640px+: 3-column grid layout ── */
 @media (min-width: 640px) {
   .footer {
-    padding-top: calc(var(--cg-u) * 8);
+    padding-top: calc(var(--cg-u) * 5);
   }
 
   .footerInner {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: calc(var(--cg-u) * 5) calc(var(--cg-u) * 4);
-    padding-bottom: calc(var(--cg-u) * 8);
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: calc(var(--cg-u) * 4) calc(var(--cg-u) * 6);
+    padding-bottom: calc(var(--cg-u) * 5);
   }
 
   .footerBrand {
-    flex: 1 1 260px;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: calc(var(--cg-u) * 2);
+    gap: calc(var(--cg-u) * 1.5);
   }
 
   .footerLogo {
-    height: 40px;
+    height: 38px;
+  }
+
+  .footerBrandName {
+    display: block;
+    font-family: "Playfair Display", serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--cg-cream, #faf6f0);
+    letter-spacing: 0.02em;
   }
 
   .footerTagline {
     display: block;
-    font-size: 14px;
-    line-height: 1.6;
+    font-size: 13px;
+    line-height: 1.65;
     color: rgba(250, 246, 240, 0.6);
-    max-width: 320px;
+    max-width: 280px;
   }
 
   .footerColTitle {
@@ -157,18 +190,26 @@
     margin-bottom: calc(var(--cg-u) * 2);
   }
 
+  /* Explore links: 2-column grid */
+  .footerExploreLinks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: calc(var(--cg-u) * 1.25) calc(var(--cg-u) * 3);
+    flex-direction: unset;
+    flex-wrap: unset;
+    font-size: 14px;
+    color: rgba(250, 246, 240, 0.65);
+  }
+
+  /* Contact + Follow: stack vertically */
+  .footerConnect {
+    flex-direction: column;
+    gap: calc(var(--cg-u) * 4);
+  }
+
   .footerLinks {
     flex-direction: column;
     gap: calc(var(--cg-u) * 1.25);
-  }
-
-  /* Remove the wrapper — let cols participate in parent flex directly */
-  .footerMeta {
-    display: contents;
-  }
-
-  .footerCol {
-    flex: 1 1 140px;
   }
 
   .footerBottom {

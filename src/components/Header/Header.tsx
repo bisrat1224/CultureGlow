@@ -28,7 +28,7 @@ export function Header() {
               width={48}
               height={48}
             />
-            <span className={styles.logoName}>CULTURE GLOW</span>
+            <span className={styles.logoName}>Culture Glow</span>
           </Link>
         </div>
 
