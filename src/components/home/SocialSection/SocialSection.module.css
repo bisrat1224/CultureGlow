@@ -25,42 +25,69 @@
   color: var(--cg-gold);
 }
 
-.socialRow + .socialRow {
-  margin-top: calc(var(--cg-u) * 6);
-}
-
-.socialRowLabel {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(250, 246, 240, 0.5);
-  text-align: center;
-  margin-bottom: calc(var(--cg-u) * 2);
-}
-
-.socialGrid {
-  display: flex;
-  /* flex-start so overflow content can scroll fully left↔right.
-     justify-content: center was trapping the scroll origin in the middle. */
-  justify-content: flex-start;
-  gap: calc(var(--cg-u) * 2);
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
+/* Single merged row: a fixed-width track holding two copies of the post
+   list, animated with translateX(-50%) so it loops seamlessly. The
+   viewport just clips the overflow — it never scrolls itself. */
+.socialMarqueeViewport {
+  overflow: hidden;
+  /* Bleed to the viewport edges so tiles can scroll under the wrap's
+     side padding instead of stopping short of it. */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
   padding-bottom: 8px;
-  /* Side padding so first/last tiles aren't clipped against the wrap edge */
-  padding-left: 2px;
-  padding-right: 2px;
+  /* Fade the hard edges so tiles don't just get clipped mid-card. */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 40px,
+    #000 calc(100% - 40px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 40px,
+    #000 calc(100% - 40px),
+    transparent 100%
+  );
 }
 
-.socialGrid::-webkit-scrollbar {
-  height: 4px;
+.socialMarqueeTrack {
+  display: flex;
+  width: max-content;
+  gap: calc(var(--cg-u) * 2);
+  padding-left: calc(var(--cg-u) * 2);
+  padding-right: calc(var(--cg-u) * 2);
+  animation: socialMarqueeScroll 45s linear infinite;
 }
 
-.socialGrid::-webkit-scrollbar-thumb {
-  background: rgba(250, 246, 240, 0.2);
-  border-radius: 4px;
+/* Pause on hover (desktop) and while focused via keyboard (tabbing
+   through the links), so a reader can stop the strip to click through. */
+.socialMarqueeViewport:hover .socialMarqueeTrack,
+.socialMarqueeTrack:has(:focus-visible) {
+  animation-play-state: paused;
+}
+
+@keyframes socialMarqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* Track holds two full copies of the list, so -50% is exactly one
+       full loop and the wrap-around is invisible. */
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .socialMarqueeTrack {
+    animation: none;
+  }
+
+  .socialMarqueeViewport {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 .socialTile {
