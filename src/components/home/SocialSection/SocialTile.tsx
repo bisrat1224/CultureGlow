@@ -4,6 +4,10 @@ import styles from "./SocialSection.module.css";
 interface SocialTileProps {
   post: SocialPost;
   revealDelayClass?: string;
+  /** True for the duplicated copy used to loop the marquee seamlessly:
+   * hides it from screen readers and removes it from tab order so
+   * keyboard/AT users only ever encounter each post once. */
+  duplicate?: boolean;
 }
 
 const PLATFORM_LABEL: Record<SocialPost["platform"], string> = {
@@ -34,7 +38,11 @@ function colorForId(id: string): string {
  * Entire card is a link to the original TikTok / Instagram post.
  * No embed, no autoplay, no motion.
  */
-export function SocialTile({ post, revealDelayClass }: SocialTileProps) {
+export function SocialTile({
+  post,
+  revealDelayClass,
+  duplicate,
+}: SocialTileProps) {
   const { platform, caption, url, title, thumbnail, id } = post;
   const label = PLATFORM_LABEL[platform];
   const openLabel = `Open ${label}: ${title || caption || id}`;
@@ -42,6 +50,7 @@ export function SocialTile({ post, revealDelayClass }: SocialTileProps) {
   return (
     <article
       className={`${styles.socialTile} reveal ${revealDelayClass ?? ""}`}
+      aria-hidden={duplicate ? true : undefined}
     >
       <a
         href={url}
@@ -49,6 +58,7 @@ export function SocialTile({ post, revealDelayClass }: SocialTileProps) {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={openLabel}
+        tabIndex={duplicate ? -1 : undefined}
       >
         <div
           className={`${styles.socialTileMedia} ${

@@ -13,14 +13,27 @@ interface Props {
 }
 
 export function SocialSection({ home, tiktoks, reels }: Props) {
-  const {
-    eyebrow,
-    headingBeforeEm,
-    headingEm,
-    headingAfterEm,
-    tiktokLabel,
-    reelsLabel,
-  } = home;
+  const { eyebrow, headingBeforeEm, headingEm, headingAfterEm } = home;
+
+  // Merge both platforms into a single continuous strip. Interleave rather
+  // than concatenate so the marquee doesn't show "all tiktok, then all
+  // reels" back to back.
+  const posts: SocialPost[] = [];
+  const max = Math.max(tiktoks.length, reels.length);
+  for (let i = 0; i < max; i++) {
+    if (tiktoks[i]) posts.push(tiktoks[i]);
+    if (reels[i]) posts.push(reels[i]);
+  }
+
+  if (posts.length === 0) return null;
+
+  // Duplicate the track so the CSS animation can loop seamlessly from
+  // translateX(0) to translateX(-50%). The second copy is marked so it
+  // can be hidden from screen readers and tab order.
+  const marqueePosts = [
+    ...posts.map((post) => ({ post, duplicate: false })),
+    ...posts.map((post) => ({ post, duplicate: true })),
+  ];
 
   return (
     <section
@@ -38,35 +51,18 @@ export function SocialSection({ home, tiktoks, reels }: Props) {
           </h2>
         </div>
 
-        {tiktoks.length > 0 && (
-          <div className={`${styles.socialRow} reveal`}>
-            <p className={styles.socialRowLabel}>{tiktokLabel}</p>
-            <div className={styles.socialGrid}>
-              {tiktoks.map((post, i) => (
-                <SocialTile
-                  key={post.id}
-                  post={post}
-                  revealDelayClass={REVEAL_DELAYS[i % REVEAL_DELAYS.length]}
-                />
-              ))}
-            </div>
+        <div className={`${styles.socialMarqueeViewport} reveal`}>
+          <div className={styles.socialMarqueeTrack}>
+            {marqueePosts.map(({ post, duplicate }, i) => (
+              <SocialTile
+                key={`${post.id}-${i}`}
+                post={post}
+                duplicate={duplicate}
+                revealDelayClass={REVEAL_DELAYS[i % REVEAL_DELAYS.length]}
+              />
+            ))}
           </div>
-        )}
-
-        {reels.length > 0 && (
-          <div className={`${styles.socialRow} reveal reveal-delay-2`}>
-            <p className={styles.socialRowLabel}>{reelsLabel}</p>
-            <div className={styles.socialGrid}>
-              {reels.map((post, i) => (
-                <SocialTile
-                  key={post.id}
-                  post={post}
-                  revealDelayClass={REVEAL_DELAYS[i % REVEAL_DELAYS.length]}
-                />
-              ))}
-            </div>
-          </div>
-        )}
+        </div>
       </div>
     </section>
   );
