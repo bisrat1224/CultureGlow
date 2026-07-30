@@ -126,7 +126,7 @@
         "name": "Shiro Wat",
         "description": "Ground chickpea stew simmered with garlic, onion, and berbere, warm, hearty, and naturally vegan.",
         "price": "£11.00",
-        "image": "/assets/images/stew-pans.jpg",
+        "image": "/assets/images/stew-pans.avif",
         "alt": "Shiro Wat",
         "diet": ["veg", "vegan", "gf", "spicy"],
         "tag": "Popular"

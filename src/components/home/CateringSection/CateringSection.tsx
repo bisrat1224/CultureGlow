@@ -31,7 +31,7 @@ export function CateringSection() {
           <div className={`${styles.cateringVisual} reveal-right reveal-delay-2`}>
             <div className={`${styles.cateringImgWrap} ${styles.cateringImgTallWrap}`}>
               <Image
-                src="/assets/images/stew-pans.jpg"
+                src="/assets/images/stew-pans.avif"
                 alt="Traditional stews for catering"
                 fill
                 loading="lazy"

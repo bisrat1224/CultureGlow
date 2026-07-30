@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import heroBg from "../../../../public/assets/images/stew-pans.jpg";
+import heroBg from "../../../../public/assets/images/stew-pans.avif";
 import { buildWhatsAppLink } from "@/lib/constants";
 import { homeContent } from "@/lib/content/content.home";
 import styles from "./Hero.module.css";

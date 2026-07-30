@@ -40,7 +40,7 @@ export function StorySection() {
           <div className={`${styles.storyVisual} reveal-right reveal-delay-2`}>
             <div className={styles.storyImgMainWrap}>
               <Image
-                src="/assets/images/stew-pans.jpg"
+                src="/assets/images/stew-pans.avif"
                 alt="Traditional Habesha stews in dark pans"
                 fill
                 loading="lazy"
