@@ -1,11 +1,13 @@
 "use client";
 
 import { useCallback, useState } from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { galleryContent } from "@/lib/content/content.gallery";
-import { PhotoLightbox } from "./PhotoLightbox";
 import styles from "./GalleryPhotoGrid.module.css";
 import shared from "../shared.module.css";
+
+const PhotoLightbox = dynamic(() => import("./PhotoLightbox").then((m) => m.PhotoLightbox), { ssr: false });
 
 export interface GalleryPhoto {
   id: string;

@@ -1,9 +1,31 @@
 ﻿import type { Metadata } from "next";
+import { Playfair_Display, Inter, Noto_Serif_Ethiopic } from "next/font/google";
 import { Header } from "@/components/Header/Header";
 import { Footer } from "@/components/Footer/Footer";
 import { ScrollRevealInit } from "@/components/ScrollRevealInit";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import "./globals.css";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  variable: "--font-playfair",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const notoSerif = Noto_Serif_Ethiopic({
+  subsets: ["ethiopic", "latin"],
+  weight: ["400", "700"],
+  variable: "--font-noto",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "CultureGlow24 Habesha Food, Beauty & Lifestyle",
@@ -38,19 +60,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&family=Noto+Serif+Ethiopic:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang="en" className={`h-full antialiased ${playfair.variable} ${inter.variable} ${notoSerif.variable}`}>
       <body className="min-h-full flex flex-col">
         <a
           href="#main-content"
