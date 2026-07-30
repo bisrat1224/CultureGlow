@@ -68,33 +68,35 @@ export function Footer() {
           </ul>
         </nav>
 
-        <div className={styles.footerCol}>
-          <p className={styles.footerColTitle}>Contact</p>
-          <ul className={styles.footerLinks}>
-            <li>Delivering across Manchester</li>
-            <li>{CONTACT_EMAIL}</li>
-          </ul>
-        </div>
+        <div className={styles.footerMeta}>
+          <div className={styles.footerCol}>
+            <p className={styles.footerColTitle}>Contact</p>
+            <ul className={styles.footerLinks}>
+              <li>Delivering across Manchester</li>
+              <li>{CONTACT_EMAIL}</li>
+            </ul>
+          </div>
 
-        <div className={styles.footerCol}>
-          <p className={styles.footerColTitle}>Follow</p>
-          <ul className={styles.footerLinks}>
-            {SOCIAL_LINKS.map((social) => (
-              <li key={social.label}>
-                <a
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.footerSocialLink}
-                >
-                  <span className={styles.footerSocialIcon}>
-                    <SocialIcon label={social.label} />
-                  </span>
-                  {social.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+          <div className={styles.footerCol}>
+            <p className={styles.footerColTitle}>Follow</p>
+            <ul className={styles.footerLinks}>
+              {SOCIAL_LINKS.map((social) => (
+                <li key={social.label}>
+                  <a
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.footerSocialLink}
+                  >
+                    <span className={styles.footerSocialIcon}>
+                      <SocialIcon label={social.label} />
+                    </span>
+                    {social.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
 
