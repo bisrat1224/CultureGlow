@@ -22,7 +22,7 @@ export const UK_PHONE_DISPLAY = "+44 7310 452605";
 /** E.164 for tel: links. */
 export const UK_PHONE_TEL = "+447310452605";
 
-export const CONTACT_EMAIL = "hello@cultureglow24.com";
+export const CONTACT_EMAIL = "cultureglow24@gmail.com";
 
 export type NavLink = {
   href: string;
