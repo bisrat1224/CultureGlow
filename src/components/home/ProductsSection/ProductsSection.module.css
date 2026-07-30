@@ -47,21 +47,3 @@
   background: var(--cg-gold);
   color: #fff;
 }
-
-.bentoGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: calc(var(--cg-u) * 2);
-}
-
-@media (min-width: 640px) {
-  .bentoGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .bentoGrid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
