@@ -26,7 +26,7 @@ export function ScrollRevealInit() {
 
     const observeAll = () => {
       document
-        .querySelectorAll<HTMLElement>(".reveal:not(.visible)")
+        .querySelectorAll<HTMLElement>(".reveal:not(.visible), .reveal-left:not(.visible), .reveal-right:not(.visible)")
         .forEach((el) => observer.observe(el));
     };
 
