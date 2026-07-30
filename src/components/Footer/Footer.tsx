@@ -3,6 +3,11 @@ import Link from "next/link";
 import { NAV_LINKS, SOCIAL_LINKS, CONTACT_EMAIL, buildWhatsAppLink } from "@/lib/constants";
 import styles from "./Footer.module.css";
 
+const ADDRESS =
+  "156 Battersea High Street Putney high street SW15 1NS, London SW11 3JR, United Kingdom";
+const ADDRESS_MAPS_URL =
+  "https://www.google.com/maps/place/Cultureglow24/@51.4702081,-0.1720105,17z/data=!3m1!4b1!4m6!3m5!1s0x4876050041cfcabd:0xd52dc7647d223753!8m2!3d51.4702081!4d-0.1720105!16s%2Fg%2F11yzsf9ww8!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDcyNy4wIKXMDSoASAFQAw%3D%3D";
+
 function InstagramIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -74,37 +79,50 @@ export function Footer() {
           </ul>
         </nav>
 
-        {/* Col 3: Contact + Follow merged */}
-        <div className={styles.footerConnect}>
-          <div>
-            <p className={styles.footerColTitle}>Contact</p>
-            <ul className={styles.footerLinks}>
-              <li>Delivering across Manchester</li>
-              <li>
-                <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+        {/* Col 3: Contact + Address */}
+        <div className={styles.footerContact}>
+          <p className={styles.footerColTitle}>Contact</p>
+          <ul className={styles.footerLinks}>
+            <li>Delivering across Manchester</li>
+            <li>
+              <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+            </li>
+          </ul>
+          <p className={`${styles.footerColTitle} ${styles.footerAddressTitle}`}>Address</p>
+          <ul className={styles.footerLinks}>
+            <li>
+              <a
+                href={ADDRESS_MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.footerAddressLink}
+              >
+                {ADDRESS}
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        {/* Col 4: Follow */}
+        <div className={styles.footerFollow}>
+          <p className={styles.footerColTitle}>Follow</p>
+          <ul className={`${styles.footerLinks} ${styles.footerSocialList}`}>
+            {SOCIAL_LINKS.map((social) => (
+              <li key={social.label}>
+                <a
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.footerSocialLink}
+                >
+                  <span className={styles.footerSocialIcon}>
+                    <SocialIcon label={social.label} />
+                  </span>
+                  {social.label}
+                </a>
               </li>
-            </ul>
-          </div>
-          <div>
-            <p className={styles.footerColTitle}>Follow</p>
-            <ul className={`${styles.footerLinks} ${styles.footerSocialList}`}>
-              {SOCIAL_LINKS.map((social) => (
-                <li key={social.label}>
-                  <a
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.footerSocialLink}
-                  >
-                    <span className={styles.footerSocialIcon}>
-                      <SocialIcon label={social.label} />
-                    </span>
-                    {social.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+            ))}
+          </ul>
         </div>
 
       </div>
