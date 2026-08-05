@@ -38,7 +38,7 @@ export function ProductGallery({ images, alt }: ProductGalleryProps) {
     <div className={styles.gallery}>
       <button
         type="button"
-        className={styles.mainImageWrap}
+        className={`${styles.mainImageWrap} cg-press-card`}
         onClick={() => setLightboxOpen(true)}
         aria-label="Open full-size image"
       >

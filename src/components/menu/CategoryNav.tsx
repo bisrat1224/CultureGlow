@@ -43,7 +43,7 @@ export function CategoryNav({ categories = CATEGORIES }: CategoryNavProps) {
               href={`#${cat.id}`}
               className={`${styles.categoryNavBtn} ${
                 activeId === cat.id ? styles.categoryNavBtnActive : ""
-              }`}
+              } cg-press`}
             >
               {cat.navLabel}
             </a>

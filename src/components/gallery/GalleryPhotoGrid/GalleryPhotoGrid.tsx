@@ -98,7 +98,7 @@ export function GalleryPhotoGrid() {
           {PHOTOS.map((photo, idx) => (
             <button
               key={photo.id}
-              className={styles.photoItem}
+              className={`${styles.photoItem} cg-press-card`}
               onClick={() => setLightboxIndex(idx)}
               aria-label={`Open lightbox: ${photo.alt}`}
             >

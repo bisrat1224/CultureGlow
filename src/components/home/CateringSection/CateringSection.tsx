@@ -23,7 +23,7 @@ export function CateringSection() {
               {headingSecondLine}
             </h2>
             <p className={styles.cateringDesc}>{body}</p>
-            <Link href="/catering" className={styles.btnGreenCta}>
+            <Link href="/catering" className={`${styles.btnGreenCta} cg-press`}>
               {cta}
             </Link>
           </div>

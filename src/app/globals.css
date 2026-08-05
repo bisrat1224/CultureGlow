@@ -230,6 +230,49 @@ button {
   padding: 0 calc(var(--cg-u) * 3);
 }
 
+/* ─── PRESS FEEDBACK ────────────────────────────────────────
+   Every affordance on this site used to live in :hover, which does not
+   exist on touch: tapping Order, a filter pill or a card produced no
+   response at all until the next navigation. These rules fire on
+   pointer-down so a tap is acknowledged the instant it happens.
+
+   :where() keeps specificity at 0 so any component rule still wins.
+   Timing is deliberately short; feedback that outlasts the press reads
+   as lag rather than as acknowledgement.
+*/
+:where(button):not(:disabled):active,
+.cg-press:active {
+  transform: scale(0.97);
+  transition: transform 100ms ease-out;
+}
+
+/* Large surfaces scale less: the same 3% on a full-width card reads as
+   the whole page flinching. */
+.cg-press-card:active {
+  transform: scale(0.99);
+  transition: transform 100ms ease-out;
+}
+
+/* Kill the sticky grey flash iOS paints on tap; the rules above are the
+   feedback now. */
+:where(button),
+.cg-press,
+.cg-press-card {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Reduced motion means no vestibular movement, not no feedback. The
+     opacity dip conveys the same acknowledgement without the scale. */
+  :where(button):not(:disabled):active,
+  .cg-press:active,
+  .cg-press-card:active {
+    transform: none;
+    opacity: 0.72;
+    transition: opacity 100ms ease-out;
+  }
+}
+
 /* ─── SCROLL REVEAL ────────────────────────────────────────
    Default: fully visible. This is the safe/static state used by
    anything that reads the page without running JS to completion

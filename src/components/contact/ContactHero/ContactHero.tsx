@@ -41,7 +41,7 @@ export function ContactHero() {
         <div className={styles.contactHeroActions}>
           <a
             href={buildWhatsAppLink()}
-            className={shared.btnPrimary}
+            className={`${shared.btnPrimary} cg-press`}
             target="_blank"
             rel="noopener noreferrer"
           >

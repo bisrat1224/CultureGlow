@@ -58,7 +58,7 @@ export function Footer() {
           </p>
           <a
             href={buildWhatsAppLink()}
-            className={styles.footerWaBtn}
+            className={`${styles.footerWaBtn} cg-press`}
             target="_blank"
             rel="noopener noreferrer"
           >

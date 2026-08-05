@@ -35,7 +35,7 @@ export function Hero() {
         <div className={styles.heroActions}>
           <a
             href={buildWhatsAppLink()}
-            className={shared.btnPrimary}
+            className={`${shared.btnPrimary} cg-press`}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -43,7 +43,7 @@ export function Hero() {
             {primaryCta}
           </a>
 
-          <Link href="/menu" className={shared.btnGhost}>
+          <Link href="/menu" className={`${shared.btnGhost} cg-press`}>
             {secondaryCta}
           </Link>
         </div>

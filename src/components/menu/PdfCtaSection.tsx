@@ -12,7 +12,7 @@ export function PdfCtaSection() {
         <p className={styles.pdfCtaDesc}>{desc}</p>
         <a
           href="#"
-          className={styles.btnPdf}
+          className={`${styles.btnPdf} cg-press`}
           aria-label="Download menu PDF (placeholder link)"
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">

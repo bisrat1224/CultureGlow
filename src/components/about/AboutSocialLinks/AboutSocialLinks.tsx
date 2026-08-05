@@ -43,7 +43,7 @@ export function AboutSocialLinks() {
                 href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={styles.socialLink}
+                className={`${styles.socialLink} cg-press`}
               >
                 <span className={styles.socialIcon}>
                   <SocialIcon label={s.label} />

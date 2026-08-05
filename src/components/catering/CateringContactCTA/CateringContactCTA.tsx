@@ -27,7 +27,7 @@ export function CateringContactCTA() {
           <p className={`${shared.sectionDesc} ${shared.sectionDescLight}`}>{desc}</p>
 
           <div className={styles.ctaActions}>
-            <Link href="/contact" className={shared.btnPrimary}>
+            <Link href="/contact" className={`${shared.btnPrimary} cg-press`}>
               Contact Us
             </Link>
           </div>

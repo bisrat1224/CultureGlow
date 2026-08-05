@@ -34,7 +34,7 @@ export function BundleCard({ bundle }: BundleCardProps) {
         <p className={styles.bundlePrice}>From {priceFrom}</p>
         <a
           href={buildWhatsAppLink(`I'd like to order ${title} bundle`)}
-          className={styles.bundleBtn}
+          className={`${styles.bundleBtn} cg-press`}
           target="_blank"
           rel="noopener noreferrer"
         >

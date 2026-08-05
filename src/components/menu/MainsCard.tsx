@@ -46,7 +46,7 @@ export function MainsCard({ item }: MainsCardProps) {
           <span className={styles.mainsCardPrice}>{price}</span>
           <a
             href={buildWhatsAppLink(`I'd like to order ${name}`)}
-            className={styles.mainsCardBtn}
+            className={`${styles.mainsCardBtn} cg-press`}
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -30,14 +30,14 @@ export function MenuHero() {
           <div className={styles.menuHeroActions}>
             <a
               href={buildWhatsAppLink()}
-              className={styles.btnPrimary}
+              className={`${styles.btnPrimary} cg-press`}
               target="_blank"
               rel="noopener noreferrer"
             >
               <img src="/assets/images/img_whatsappicon.svg" alt="" />
               {primaryCta}
             </a>
-            <a href="#mains" className={styles.btnGhostLight}>
+            <a href="#mains" className={`${styles.btnGhostLight} cg-press`}>
               {secondaryCta}
             </a>
           </div>

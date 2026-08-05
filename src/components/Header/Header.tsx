@@ -51,7 +51,7 @@ export function Header() {
         <div className={styles.headerRight}>
           <a
             href={buildWhatsAppLink()}
-            className={styles.btnWaHeader}
+            className={`${styles.btnWaHeader} cg-press`}
             aria-label="Order via WhatsApp"
             target="_blank"
             rel="noopener noreferrer"
