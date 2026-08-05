@@ -2,13 +2,18 @@
   background-color: var(--cg-gold-light);
   padding: calc(var(--cg-u) * 7.5) 24px;
   text-align: center;
+
+  /* Light ground: gold-as-text needs the darkened value. Declared even
+     inside dark sections, since a light card there would otherwise
+     inherit the bright gold and drop to 2.4:1. */
+  --cg-gold-fg: var(--cg-gold-text);
 }
 
 .sectionLabel {
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 2px;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
   text-transform: uppercase;
   margin-bottom: calc(var(--cg-u) * 1.5);
 }

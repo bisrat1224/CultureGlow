@@ -29,13 +29,13 @@
 
 .tab:hover {
   border-color: var(--cg-gold);
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 .tabActive {
   background: var(--cg-gold);
   border-color: var(--cg-gold);
-  color: #fff;
+  color: var(--cg-gold-ink);
 }
 
 .bentoGrid {

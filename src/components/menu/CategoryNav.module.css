@@ -5,6 +5,9 @@
   background: var(--cg-charcoal);
   border-bottom: 1px solid rgba(200, 151, 58, 0.2);
   padding: calc(var(--cg-u) * 2) 0;
+
+  /* Dark ground: gold reads as gold here (6.58:1). */
+  --cg-gold-fg: var(--cg-gold);
 }
 .categoryNavScroll {
   display: flex;
@@ -37,7 +40,7 @@
 
 .categoryNavBtn:hover {
   border-color: var(--cg-gold);
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 /* Charcoal on gold (same as shop filters). Higher specificity so sticky

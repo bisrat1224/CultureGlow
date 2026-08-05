@@ -4,6 +4,10 @@
   padding: calc(var(--cg-u) * 10) 0;
   position: relative;
   overflow: hidden;
+
+  /* Green ground: neither gold passes here (bright 2.42:1, dark 1.02:1),
+     so gold-as-text becomes the light cream tint instead. 5.79:1. */
+  --cg-gold-fg: var(--cg-gold-light);
 }
 
 .cateringSection::before {
@@ -45,7 +49,7 @@
 
 .cateringH2 em {
   font-style: italic;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 .cateringDesc {
@@ -61,7 +65,7 @@
   align-items: center;
   gap: 8px;
   background: var(--cg-gold);
-  color: #fff;
+  color: var(--cg-gold-ink);
   font-size: 16px;
   font-weight: 600;
   padding: 16px 32px;
@@ -73,7 +77,7 @@
 }
 
 .btnGreenCta:hover {
-  background: #b08634;
+  background: var(--cg-gold-hover);
   transform: translateY(-2px);
 }
 

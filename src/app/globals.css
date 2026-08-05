@@ -11,8 +11,21 @@
 :root {
   --cg-cream:      #FAF6F0;
   --cg-charcoal:   #1A1A1A;
-  --cg-gold:       #C8973A;
+  /* Gold, split by role. One value cannot serve as both a fill behind white
+     text and as text on cream: #C8973A is 2.64:1 against #fff and 2.46:1
+     against the cream background, and AA needs 4.5:1. The fill is unchanged;
+     what sits on it and what stands in for it as text are now explicit. */
+  --cg-gold:       #C8973A;  /* fill only. 6.58:1 against --cg-gold-ink */
+  --cg-gold-ink:   #1A1A1A;  /* text/icons ON a gold fill */
+  --cg-gold-text:  #7A5B1E;  /* gold-coloured TEXT on cream. 5.84:1 */
+  --cg-gold-hover: #B08634;  /* gold fill, hover/active. 5.23:1 vs ink */
   --cg-gold-light: #FBF3E2;
+  /* Gold used as a TEXT colour, resolved against the ground it lands on.
+     Shared classes like .sectionEyebrow appear on both cream and charcoal
+     sections, so a single fixed value is wrong on one of them either way.
+     This inherits: the default suits a light ground, and dark surfaces
+     opt back into the bright gold below. */
+  --cg-gold-fg:    var(--cg-gold-text);
   --cg-green:      #2D6A4F;
   --cg-red:        #A61C00;
   --cg-text:       #555555;
@@ -73,6 +86,9 @@
   --color-charcoal: var(--cg-charcoal);
   --color-gold: var(--cg-gold);
   --color-gold-light: var(--cg-gold-light);
+  --color-gold-ink: var(--cg-gold-ink);
+  --color-gold-text: var(--cg-gold-text);
+  --color-gold-hover: var(--cg-gold-hover);
   --color-green: var(--cg-green);
   --color-brand-red: var(--cg-red);
   --color-cg-text: var(--cg-text);

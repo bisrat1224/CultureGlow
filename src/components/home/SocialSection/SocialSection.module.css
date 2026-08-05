@@ -1,6 +1,9 @@
 ﻿.socialSection {
   padding: calc(var(--cg-u) * 10) 0;
   background: var(--cg-charcoal);
+
+  /* Dark ground: gold reads as gold here (6.58:1). */
+  --cg-gold-fg: var(--cg-gold);
 }
 
 .socialHeader {
@@ -22,7 +25,7 @@
 
 .sectionH2Light em {
   font-style: italic;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 /* Single merged row: a fixed-width track holding two copies of the post
@@ -141,6 +144,9 @@
 .socialTileLink:hover .socialPlay {
   transform: scale(1.08);
   background: rgba(26, 26, 26, 0.55);
+
+  /* Dark ground: gold reads as gold here (6.58:1). */
+  --cg-gold-fg: var(--cg-gold);
 }
 
 .socialThumbImg {
@@ -162,6 +168,10 @@
 
 .socialColorB {
   background: var(--cg-green);
+
+  /* Green ground: neither gold passes here (bright 2.42:1, dark 1.02:1),
+     so gold-as-text becomes the light cream tint instead. 5.79:1. */
+  --cg-gold-fg: var(--cg-gold-light);
 }
 
 .socialColorC {
@@ -179,6 +189,9 @@
   align-items: center;
   justify-content: center;
   transition: transform 0.2s ease, background 0.2s ease;
+
+  /* Dark ground: gold reads as gold here (6.58:1). */
+  --cg-gold-fg: var(--cg-gold);
 }
 
 .socialBadge {
@@ -196,10 +209,15 @@
 
 .socialBadgeTiktok {
   background: rgba(26, 26, 26, 0.75);
+
+  /* Dark ground: gold reads as gold here (6.58:1). */
+  --cg-gold-fg: var(--cg-gold);
 }
 
 .socialBadgeReels {
   background: rgba(200, 151, 58, 0.9);
+  /* Overrides .socialBadge's #fff, which is 2.64:1 on this gold fill. */
+  color: var(--cg-gold-ink);
 }
 
 .socialCaption {

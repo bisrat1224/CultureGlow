@@ -2,6 +2,9 @@
   background: var(--cg-charcoal);
   padding: calc(var(--cg-u) * 8) 0;
   text-align: center;
+
+  /* Dark ground: gold reads as gold here (6.58:1). */
+  --cg-gold-fg: var(--cg-gold);
 }
 
 .socialLinksH2 {
@@ -28,7 +31,7 @@
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
   transition: color 0.2s;
 }
 
@@ -44,5 +47,5 @@
   height: 40px;
   border-radius: 50%;
   background: rgba(200, 151, 58, 0.15);
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }

@@ -7,6 +7,9 @@
   align-items: center;
   justify-content: center;
   padding: calc(var(--cg-u) * 3);
+
+  /* Dark ground: gold reads as gold here (6.58:1). */
+  --cg-gold-fg: var(--cg-gold);
 }
 
 .lightboxImg {

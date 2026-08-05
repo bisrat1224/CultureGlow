@@ -6,6 +6,9 @@
   justify-content: flex-end;
   overflow: hidden;
   background: var(--cg-charcoal);
+
+  /* Dark ground: gold reads as gold here (6.58:1). */
+  --cg-gold-fg: var(--cg-gold);
 }
 
 .aboutHeroImg {
@@ -34,7 +37,7 @@
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
   margin-bottom: calc(var(--cg-u) * 1.5);
 }
 
@@ -50,7 +53,7 @@
 
 .aboutHeroH1 em {
   font-style: italic;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 .aboutHeroDesc {

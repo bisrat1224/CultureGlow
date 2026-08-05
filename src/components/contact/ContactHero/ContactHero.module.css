@@ -5,6 +5,9 @@
   max-height: 620px;
   overflow: hidden;
   background: var(--cg-charcoal);
+
+  /* Dark ground: gold reads as gold here (6.58:1). */
+  --cg-gold-fg: var(--cg-gold);
 }
 
 .contactHeroImg {
@@ -45,7 +48,7 @@
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
   margin-bottom: calc(var(--cg-u) * 2);
 }
 
@@ -61,7 +64,7 @@
 
 .contactHeroH1 em {
   font-style: italic;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 .contactHeroDesc {

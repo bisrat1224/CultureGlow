@@ -1,6 +1,11 @@
 .testimonialsSection {
   padding: calc(var(--cg-u) * 10) 0;
   background: var(--cg-gold-light);
+
+  /* Light ground: gold-as-text needs the darkened value. Declared even
+     inside dark sections, since a light card there would otherwise
+     inherit the bright gold and drop to 2.4:1. */
+  --cg-gold-fg: var(--cg-gold-text);
 }
 
 .testimonialsHeader {
@@ -18,7 +23,7 @@
 
 .testimonialsH2 em {
   font-style: italic;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 .testimonialsGrid {
@@ -43,6 +48,11 @@
     transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
     box-shadow 0.3s,
     border-color 0.3s;
+
+  /* Light ground: gold-as-text needs the darkened value. Declared even
+     inside dark sections, since a light card there would otherwise
+     inherit the bright gold and drop to 2.4:1. */
+  --cg-gold-fg: var(--cg-gold-text);
 }
 
 .tcard::before {
@@ -77,7 +87,7 @@
 }
 
 .tcardStars span {
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
   font-size: 16px;
 }
 
@@ -109,7 +119,7 @@
   font-family: "Playfair Display", serif;
   font-size: 18px;
   font-weight: 700;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
   flex-shrink: 0;
 }
 

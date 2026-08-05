@@ -60,7 +60,7 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
   margin-bottom: var(--cg-u);
 }
 
@@ -76,7 +76,7 @@
 .bentoCardPrice {
   font-size: 15px;
   font-weight: 700;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
   margin-bottom: calc(var(--cg-u) * 2);
 }
 
@@ -85,7 +85,7 @@
   align-items: center;
   gap: 8px;
   background: var(--cg-gold);
-  color: #fff;
+  color: var(--cg-gold-ink);
   font-size: 14px;
   font-weight: 600;
   padding: 10px 20px;
@@ -97,7 +97,7 @@
 }
 
 .btnWaCard:hover {
-  background: #b08634;
+  background: var(--cg-gold-hover);
   transform: translateY(-1px);
 }
 

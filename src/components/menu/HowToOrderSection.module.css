@@ -2,13 +2,18 @@
   background-color: var(--cg-cream);
   padding: 72px 24px;
   text-align: center;
+
+  /* Light ground: gold-as-text needs the darkened value. Declared even
+     inside dark sections, since a light card there would otherwise
+     inherit the bright gold and drop to 2.4:1. */
+  --cg-gold-fg: var(--cg-gold-text);
 }
 
 .sectionLabel {
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 2px;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
   text-transform: uppercase;
   margin-bottom: 12px;
 }
@@ -58,7 +63,7 @@
   height: 48px;
   border-radius: 50%;
   background-color: var(--cg-gold);
-  color: #fff;
+  color: var(--cg-gold-ink);
   font-family: "Playfair Display", serif;
   font-size: 20px;
   font-weight: 700;

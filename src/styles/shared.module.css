@@ -7,7 +7,7 @@
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
   margin-bottom: calc(var(--cg-u) * 1.5);
 }
 
@@ -22,7 +22,7 @@
 
 .sectionTitle em {
   font-style: italic;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 .sectionDesc {
@@ -40,7 +40,7 @@
   padding: 14px 28px;
   border-radius: 8px;
   background: var(--cg-gold);
-  color: #fff;
+  color: var(--cg-gold-ink);
   font-weight: 600;
   font-size: 14px;
   text-decoration: none;
@@ -73,5 +73,5 @@
 
 .btnGhost:hover {
   border-color: var(--cg-gold);
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }

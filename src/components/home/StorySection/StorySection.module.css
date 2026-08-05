@@ -14,7 +14,7 @@
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
   margin-bottom: calc(var(--cg-u) * 2);
 }
 
@@ -29,7 +29,7 @@
 
 .storyH2 em {
   font-style: italic;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 .storyBody {
@@ -114,7 +114,7 @@
   top: 24px;
   right: calc(var(--cg-u) * -1);
   background: var(--cg-gold);
-  color: #fff;
+  color: var(--cg-gold-ink);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.1em;

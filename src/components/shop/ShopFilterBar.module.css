@@ -4,6 +4,11 @@
   z-index: 700;
   background: var(--cg-cream);
   padding: calc(var(--cg-u) * 2) 0;
+
+  /* Light ground: gold-as-text needs the darkened value. Declared even
+     inside dark sections, since a light card there would otherwise
+     inherit the bright gold and drop to 2.4:1. */
+  --cg-gold-fg: var(--cg-gold-text);
 }
 
 .filterScroll {
@@ -31,6 +36,11 @@
   min-height: 44px;
   display: inline-flex;
   align-items: center;
+
+  /* Light ground: gold-as-text needs the darkened value. Declared even
+     inside dark sections, since a light card there would otherwise
+     inherit the bright gold and drop to 2.4:1. */
+  --cg-gold-fg: var(--cg-gold-text);
 }
 
 .filterBtn:hover,
@@ -44,7 +54,7 @@
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 2px;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
   text-transform: uppercase;
   margin-bottom: calc(var(--cg-u) * 1.5);
 }

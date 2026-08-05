@@ -5,7 +5,7 @@
 }
 
 .breadcrumb a {
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
   font-weight: 600;
 }
 
@@ -26,7 +26,7 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
   margin-bottom: calc(var(--cg-u) * 1.5);
 }
 
@@ -41,7 +41,7 @@
 .productPrice {
   font-size: 22px;
   font-weight: 700;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
   margin-bottom: calc(var(--cg-u) * 3);
 }
 
@@ -57,6 +57,11 @@
   border-radius: 8px;
   padding: calc(var(--cg-u) * 2.5);
   margin-bottom: calc(var(--cg-u) * 4);
+
+  /* Light ground: gold-as-text needs the darkened value. Declared even
+     inside dark sections, since a light card there would otherwise
+     inherit the bright gold and drop to 2.4:1. */
+  --cg-gold-fg: var(--cg-gold-text);
 }
 
 .allergenLabel {
@@ -81,7 +86,7 @@
   align-items: center;
   gap: 8px;
   background: var(--cg-gold);
-  color: #fff;
+  color: var(--cg-gold-ink);
   font-size: 15px;
   font-weight: 600;
   padding: 14px 28px;
@@ -92,7 +97,7 @@
 }
 
 .orderBtn:hover {
-  background: #b08634;
+  background: var(--cg-gold-hover);
   transform: translateY(-2px);
 }
 
@@ -116,7 +121,7 @@
 
 .relatedH2 em {
   font-style: italic;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 .relatedGrid {

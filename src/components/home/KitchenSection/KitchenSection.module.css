@@ -29,7 +29,7 @@
 
 .sectionH2Dark em {
   font-style: italic;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 .kitchenDesc {

@@ -93,7 +93,7 @@
 .mainsCardPrice {
   font-size: 17px;
   font-weight: 700;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 .mainsCardBtn {
@@ -101,7 +101,7 @@
   align-items: center;
   gap: 6px;
   background: var(--cg-gold);
-  color: #fff;
+  color: var(--cg-gold-ink);
   font-size: 13px;
   font-weight: 600;
   padding: 9px 16px;
@@ -111,7 +111,7 @@
 }
 
 .mainsCardBtn:hover {
-  background: #b08634;
+  background: var(--cg-gold-hover);
 }
 
 .mainsCardBtn img {

@@ -17,6 +17,11 @@
   border: none;
   padding: 0;
   background: var(--cg-gold-light);
+
+  /* Light ground: gold-as-text needs the darkened value. Declared even
+     inside dark sections, since a light card there would otherwise
+     inherit the bright gold and drop to 2.4:1. */
+  --cg-gold-fg: var(--cg-gold-text);
 }
 
 .photoImg {

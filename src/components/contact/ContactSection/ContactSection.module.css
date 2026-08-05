@@ -17,6 +17,11 @@
   padding: calc(var(--cg-u) * 4) calc(var(--cg-u) * 3);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+
+  /* Light ground: gold-as-text needs the darkened value. Declared even
+     inside dark sections, since a light card there would otherwise
+     inherit the bright gold and drop to 2.4:1. */
+  --cg-gold-fg: var(--cg-gold-text);
 }
 
 .methodCard::before {
@@ -42,7 +47,7 @@ a.methodCard:hover {
   height: 56px;
   border-radius: 50%;
   background: var(--cg-gold-light);
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,7 +59,7 @@ a.methodCard:hover {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 .methodValue {
@@ -95,7 +100,7 @@ a.methodCard:hover {
 }
 
 .socialLink:hover {
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 .socialIcon {
@@ -106,7 +111,7 @@ a.methodCard:hover {
   height: 28px;
   border-radius: 50%;
   background: var(--cg-gold-light);
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
   flex-shrink: 0;
 }
 

@@ -56,6 +56,9 @@
   background: rgba(26, 26, 26, 0.55);
   padding: 4px 8px;
   border-radius: 5px;
+
+  /* Dark ground: gold reads as gold here (6.58:1). */
+  --cg-gold-fg: var(--cg-gold);
 }
 
 .socialTileMeta {

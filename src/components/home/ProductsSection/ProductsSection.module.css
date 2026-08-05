@@ -1,6 +1,9 @@
 .productsSection {
   padding: calc(var(--cg-u) * 10) 0;
   background: var(--cg-charcoal);
+
+  /* Dark ground: gold reads as gold here (6.58:1). */
+  --cg-gold-fg: var(--cg-gold);
 }
 
 .productsHeader {
@@ -22,7 +25,7 @@
 
 .sectionH2Light em {
   font-style: italic;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 .btnOutlineGold {
@@ -30,7 +33,7 @@
   align-items: center;
   gap: 8px;
   background: transparent;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
   font-size: 14px;
   font-weight: 600;
   padding: 12px 24px;
@@ -45,5 +48,5 @@
 
 .btnOutlineGold:hover {
   background: var(--cg-gold);
-  color: #fff;
+  color: var(--cg-gold-ink);
 }

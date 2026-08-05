@@ -14,6 +14,11 @@
   padding: 0;
   cursor: zoom-in;
   background: var(--cg-gold-light);
+
+  /* Light ground: gold-as-text needs the darkened value. Declared even
+     inside dark sections, since a light card there would otherwise
+     inherit the bright gold and drop to 2.4:1. */
+  --cg-gold-fg: var(--cg-gold-text);
 }
 
 .mainImage {
@@ -62,6 +67,9 @@
   align-items: center;
   justify-content: center;
   padding: calc(var(--cg-u) * 3);
+
+  /* Dark ground: gold reads as gold here (6.58:1). */
+  --cg-gold-fg: var(--cg-gold);
 }
 
 .lightboxImg {

@@ -1,6 +1,9 @@
 .featureBanner {
   background-color: var(--cg-charcoal);
   padding: calc(var(--cg-u) * 7.5) 24px;
+
+  /* Dark ground: gold reads as gold here (6.58:1). */
+  --cg-gold-fg: var(--cg-gold);
 }
 
 .featureBannerInner {
@@ -17,7 +20,7 @@
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 2px;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
   text-transform: uppercase;
   margin-bottom: calc(var(--cg-u) * 1.5);
 }
@@ -53,7 +56,7 @@
 }
 
 .btnPrimary:hover {
-  background-color: #b08634;
+  background-color: var(--cg-gold-hover);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(200, 151, 58, 0.3);
 }

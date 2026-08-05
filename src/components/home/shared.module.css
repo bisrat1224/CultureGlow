@@ -5,7 +5,7 @@
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
   margin-bottom: calc(var(--cg-u) * 1.5);
 }
 
@@ -14,7 +14,7 @@
   align-items: center;
   gap: 8px;
   background: var(--cg-gold);
-  color: #fff;
+  color: var(--cg-gold-ink);
   font-size: 15px;
   font-weight: 600;
   padding: 14px 28px;
@@ -24,7 +24,7 @@
 }
 
 .btnPrimary:hover {
-  background: #b08634;
+  background: var(--cg-gold-hover);
   transform: translateY(-2px);
 }
 

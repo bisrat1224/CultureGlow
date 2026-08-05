@@ -71,7 +71,7 @@
 
 .packagePrice {
   font-size: 15px;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
   font-weight: 700;
   margin-bottom: calc(var(--cg-u) * 3);
 }
@@ -111,7 +111,7 @@
   justify-content: center;
   gap: 8px;
   background: var(--cg-gold);
-  color: #fff;
+  color: var(--cg-gold-ink);
   font-size: 14px;
   font-weight: 600;
   padding: 12px 20px;
@@ -121,7 +121,7 @@
 }
 
 .packageBtn:hover {
-  background: #b08634;
+  background: var(--cg-gold-hover);
 }
 
 .packageBtnGhost {
@@ -132,5 +132,5 @@
 
 .packageBtnGhost:hover {
   border-color: var(--cg-gold);
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }

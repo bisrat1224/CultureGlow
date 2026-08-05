@@ -16,11 +16,17 @@
   transition:
     background 0.4s ease,
     backdrop-filter 0.4s ease;
+
+  /* Dark ground: gold reads as gold here (6.58:1). */
+  --cg-gold-fg: var(--cg-gold);
 }
 
 .scrolled {
   background: rgba(26, 26, 26, 0.92);
   backdrop-filter: blur(12px);
+
+  /* Dark ground: gold reads as gold here (6.58:1). */
+  --cg-gold-fg: var(--cg-gold);
 }
 
 .headerLogo {
@@ -76,7 +82,7 @@
 }
 
 .headerNav a:hover {
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 .headerNav a:hover::after {
@@ -84,7 +90,7 @@
 }
 
 .headerNav a.active {
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 .headerNav a.active::after {
@@ -102,7 +108,7 @@
   align-items: center;
   gap: 6px;
   background: var(--cg-gold);
-  color: #fff;
+  color: var(--cg-gold-ink);
   font-size: 14px;
   font-weight: 600;
   padding: 10px 20px;
@@ -114,7 +120,7 @@
 }
 
 .btnWaHeader:hover {
-  background: #b08634;
+  background: var(--cg-gold-hover);
   transform: translateY(-1px);
 }
 
@@ -125,7 +131,7 @@
 
 .hamburger {
   background: none;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
   font-size: 22px;
   min-width: 44px;
   min-height: 44px;
