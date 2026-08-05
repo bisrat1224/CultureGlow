@@ -50,3 +50,17 @@
     transform: translateX(-50%);
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .marqueeTrack {
+    animation: none;
+  }
+
+  /* Stopping the animation would otherwise leave a frozen, clipped strip
+     with content permanently off-screen, so hand scrolling to the reader.
+     Same approach SocialSection already takes. */
+  .marqueeBand {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}

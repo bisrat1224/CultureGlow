@@ -28,3 +28,17 @@
     transform: translateX(-50%);
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .bannerContent {
+    animation: none;
+  }
+
+  /* Stopping the animation would otherwise leave a frozen, clipped strip
+     with content permanently off-screen, so hand scrolling to the reader.
+     Same approach SocialSection already takes. */
+  .scrollingBanner {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}

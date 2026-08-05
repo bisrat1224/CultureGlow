@@ -99,7 +99,8 @@
   width: 1px;
   height: 48px;
   background: linear-gradient(to bottom, rgba(250, 246, 240, 0.5), transparent);
-  animation: scrollLine 1.8s ease-in-out infinite;
+  /* The pulse lives in the no-preference block below with the rest of the
+     hero's motion; it used to loop here regardless of the setting. */
 }
 
 @keyframes scrollLine {
@@ -153,5 +154,9 @@
 
   .heroScroll {
     animation: heroFadeIn 0.5s ease 1.1s both;
+  }
+
+  .heroScrollLine {
+    animation: scrollLine 1.8s ease-in-out infinite;
   }
 }
