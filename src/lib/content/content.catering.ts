@@ -34,11 +34,14 @@ export const cateringContent = {
   },
 
   gallery: {
-    eyebrow: "From Past Events",
-    headingBeforeEm: "Moments We've ",
-    headingEm: "Catered",
+    // Same reasoning as the gallery page: these are licensed stock images,
+    // so the copy describes the kinds of events we cater rather than
+    // presenting the photos as our own past work.
+    eyebrow: "Occasions We Cater",
+    headingBeforeEm: "Built for the ",
+    headingEm: "Occasion",
     headingAfterEm: "",
-    desc: "A look at some of the weddings, corporate events, birthdays, and ceremonies we've had the pleasure of catering.",
+    desc: "Weddings, corporate gatherings, birthdays, and ceremonies, the kinds of events our catering is built around.",
   },
 
   testimonials: {
