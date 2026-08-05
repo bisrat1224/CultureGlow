@@ -4,7 +4,7 @@
     "headingBeforeEm": "Every ",
     "headingEm": "Dish",
     "headingAfterEm": ", Every Category",
-    "desc": "From sizzling tibs to slow-simmered wats, explore every dish we make, organized by course, so you can find your next favorite in seconds.",
+    "desc": "Tibs, wats, vegan platters and desserts, listed by course so you can find what you want quickly.",
     "primaryCta": "Order",
     "secondaryCta": "See Signature Dishes"
   },
@@ -17,7 +17,7 @@
   "howToOrder": {
     "label": "Simple Process",
     "title": "From Menu to Doorstep",
-    "desc": "Ordering from the full menu takes the same four simple steps as everything else we offer.",
+    "desc": "Ordering from the full menu takes the same four steps as the rest of the site.",
     "steps": [
       {
         "number": 1,
@@ -44,7 +44,7 @@
   "pdfCta": {
     "eyebrow": "Take It With You",
     "title": "Download the Full Menu",
-    "desc": "Prefer a printable copy? Grab the full CultureGlow24 menu as a PDF, perfect for sharing or keeping on hand.",
+    "desc": "Download the full menu as a PDF to print it or send it on.",
     "cta": "Download Menu (PDF)"
   }
 }

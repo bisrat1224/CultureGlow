@@ -15,7 +15,7 @@ export const galleryContent = {
     headingAfterEm: "",
     // Describes the subject rather than claiming authorship: the images on
     // this page are currently licensed stock, not our own shoots.
-    desc: "Habesha food, dress, and celebration, the world CultureGlow24 cooks and caters for.",
+    desc: "The food we cook, the dress we sell, and the celebrations we cater.",
   },
 
   photoGrid: {

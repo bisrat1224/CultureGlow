@@ -2,7 +2,7 @@
   "hero": {
     "label": "Habesha Food · Beauty · Lifestyle",
     "title": "Everything Habesha, Delivered to Your Door",
-    "desc": "Browse our curated collection of Ethiopian food, beauty, and lifestyle products, order in seconds over WhatsApp, no account or checkout required."
+    "desc": "Ethiopian food, beauty and lifestyle products. Order over WhatsApp in seconds, with no account and no checkout."
   },
   "scrollingBanner": {
     "items": [
@@ -15,13 +15,13 @@
   "featureBanner": {
     "label": "Catering & Events",
     "title": "Let Us Cater Your Next Celebration",
-    "desc": "From weddings to office parties, our catering team brings the full CultureGlow24 experience, authentic dishes, beautifully presented, to any gathering.",
+    "desc": "We cater weddings, office parties and family gatherings, and we plate every dish for the room it is going into.",
     "cta": "Plan Your Event"
   },
   "bundles": {
     "label": "Gift Bundles",
-    "title": "Curated Sets, Ready to Gift",
-    "desc": "Can't decide what to order? These handpicked bundles pair our most-loved dishes, garments, and beauty items into one easy WhatsApp order."
+    "title": "Gift Sets, Ready to Send",
+    "desc": "Each bundle pairs our most-ordered dishes, garments and beauty items, so you send one WhatsApp message instead of choosing item by item."
   },
   "productsSection": {
     "label": "Our Products",
@@ -30,12 +30,12 @@
   "howToOrder": {
     "label": "Simple Process",
     "title": "Ordering Is Easy",
-    "desc": "No app to download and no account to create, just four simple steps between you and your next Habesha favorite.",
+    "desc": "Four steps from browsing to delivery. You will not need an app or an account.",
     "steps": [
       {
         "number": 1,
         "title": "Browse & Pick",
-        "desc": "Explore our food, beauty, and lifestyle products and pick what speaks to you."
+        "desc": "Look through the food, beauty and lifestyle products and choose what you want."
       },
       {
         "number": 2,
@@ -50,7 +50,7 @@
       {
         "number": 4,
         "title": "Fast Delivery",
-        "desc": "Sit back while your order is prepared and delivered fresh to your door."
+        "desc": "We cook your order and deliver it to your door."
       }
     ]
   }
