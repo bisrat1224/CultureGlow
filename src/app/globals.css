@@ -35,6 +35,38 @@
      Kept as a single token so anything sticking to the header (e.g. CategoryNav,
      ShopFilterBar) can reference the real value instead of guessing a pixel offset. */
   --cg-header-h:   88px;
+
+  /* Fixed chrome material. One definition so the header and the sticky
+     sub-bars read as the same physical layer rather than three unrelated
+     opaque strips: a semi-transparent ground, real blur, and a bright top
+     edge so the surface catches light. Content passes visibly underneath. */
+  --cg-material-bar:        rgba(26, 26, 26, 0.62);
+  --cg-material-bar-strong: rgba(26, 26, 26, 0.82);
+  --cg-material-cream:      rgba(250, 246, 240, 0.78);
+  --cg-material-blur:       blur(20px) saturate(180%);
+  --cg-material-edge:       rgba(250, 246, 240, 0.10);
+}
+
+/* Two independent preferences, two different answers: reduced transparency
+   wants a solid surface, increased contrast wants a solid surface AND a
+   defined border. */
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --cg-material-bar:        rgb(26, 26, 26);
+    --cg-material-bar-strong: rgb(26, 26, 26);
+    --cg-material-cream:      var(--cg-cream);
+    --cg-material-blur:       none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --cg-material-bar:        rgb(20, 20, 20);
+    --cg-material-bar-strong: rgb(20, 20, 20);
+    --cg-material-cream:      var(--cg-cream);
+    --cg-material-blur:       none;
+    --cg-material-edge:       rgba(250, 246, 240, 0.5);
+  }
 }
 
 @theme inline {
@@ -230,6 +262,68 @@ button {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 calc(var(--cg-u) * 3);
+}
+
+/* ─── SCROLL EDGE ───────────────────────────────────────────
+   A short gradient below fixed chrome so content dissolves into the bar
+   instead of being guillotined by it. Never takes pointer events.
+*/
+.cg-scroll-edge::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 24px;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(26, 26, 26, 0.32),
+    rgba(26, 26, 26, 0)
+  );
+}
+
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  /* A gradient is a translucency effect; these readers asked for a hard
+     boundary instead, which the bar's own border already provides. */
+  .cg-scroll-edge::after {
+    display: none;
+  }
+}
+
+/* ─── HORIZONTAL SCROLLERS ──────────────────────────────────
+   These strips hide their scrollbar, so the only remaining cue that
+   content continues past the edge is a fade. mask-image does it without
+   an overlay element, and snapping means a flick lands on a pill rather
+   than halfway between two.
+*/
+.cg-hscroll {
+  scroll-snap-type: x proximity;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 16px,
+    #000 calc(100% - 16px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 16px,
+    #000 calc(100% - 16px),
+    transparent 100%
+  );
+}
+
+.cg-hscroll > * {
+  scroll-snap-align: start;
+}
+
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  .cg-hscroll {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
 }
 
 /* ─── PRESS FEEDBACK ────────────────────────────────────────

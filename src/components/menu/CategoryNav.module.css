@@ -2,8 +2,11 @@
   position: sticky;
   top: var(--cg-header-h);
   z-index: 700;
-  background: var(--cg-charcoal);
-  border-bottom: 1px solid rgba(200, 151, 58, 0.2);
+  /* Same material as the header above it, so the two read as one layer
+     with content passing under rather than two stacked opaque strips. */
+  background: var(--cg-material-bar-strong);
+  backdrop-filter: var(--cg-material-blur);
+  border-bottom: 1px solid var(--cg-material-edge);
   padding: calc(var(--cg-u) * 2) 0;
 
   /* Dark ground: gold reads as gold here (6.58:1). */

@@ -54,7 +54,7 @@ export function ProductGallery({ images, alt }: ProductGalleryProps) {
       </button>
 
       {images.length > 1 && (
-        <div className={styles.thumbRow} role="group" aria-label="Product photos">
+        <div className={`${styles.thumbRow} cg-hscroll`} role="group" aria-label="Product photos">
           {images.map((img, i) => (
             <button
               key={img + i}

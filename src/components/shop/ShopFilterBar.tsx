@@ -37,7 +37,7 @@ export function ShopFilterBar({
     <>
       <section className={styles.filterBar}>
         <div
-          className={styles.filterScroll}
+          className={`${styles.filterScroll} cg-hscroll`}
           role="group"
           aria-label="Filter products by category"
         >

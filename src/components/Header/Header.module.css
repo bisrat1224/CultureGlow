@@ -10,20 +10,26 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* Always readable over heroes — light tint at rest, stronger when scrolled */
-  background: rgba(26, 26, 26, 0.55);
-  backdrop-filter: blur(8px);
-  transition:
-    background 0.4s ease,
-    backdrop-filter 0.4s ease;
+  /* Shared chrome material: translucent at rest, denser once content is
+     passing underneath. Same tokens the sticky sub-bars use, so header and
+     sub-bar read as one continuous layer. */
+  background: var(--cg-material-bar);
+  /* Unprefixed only. Lightning CSS adds the -webkit- prefix per the
+     browserslist target; writing it by hand makes it drop the standard
+     property and keep only the prefixed one, which Chrome ignores. */
+  backdrop-filter: var(--cg-material-blur);
+  transition: background 0.4s ease;
 
   /* Dark ground: gold reads as gold here (6.58:1). */
   --cg-gold-fg: var(--cg-gold);
 }
 
 .scrolled {
-  background: rgba(26, 26, 26, 0.92);
-  backdrop-filter: blur(12px);
+  /* Only the background opacity changes. Animating backdrop-filter forces a
+     re-composite of everything behind the bar on every frame and reads much
+     the same as this. */
+  background: var(--cg-material-bar-strong);
+  border-bottom: 1px solid var(--cg-material-edge);
 
   /* Dark ground: gold reads as gold here (6.58:1). */
   --cg-gold-fg: var(--cg-gold);

@@ -2,7 +2,12 @@
   position: sticky;
   top: var(--cg-header-h);
   z-index: 700;
-  background: var(--cg-cream);
+  /* Same construction as the charcoal bars, just a cream ground: this one
+     sits on a light page, so the material is tinted to match rather than
+     switching to a different surface treatment. */
+  background: var(--cg-material-cream);
+  backdrop-filter: var(--cg-material-blur);
+  border-bottom: 1px solid var(--cg-border);
   padding: calc(var(--cg-u) * 2) 0;
 
   /* Light ground: gold-as-text needs the darkened value. Declared even

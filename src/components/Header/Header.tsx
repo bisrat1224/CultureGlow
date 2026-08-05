@@ -17,7 +17,7 @@ export function Header() {
   return (
     <>
       <header
-        className={`${styles.siteHeader} ${scrolled ? styles.scrolled : ""}`}
+        className={`${styles.siteHeader} ${scrolled ? styles.scrolled : ""} cg-scroll-edge`}
       >
         <div className={styles.headerLogo}>
           <Link href="/">
