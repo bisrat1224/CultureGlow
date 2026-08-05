@@ -12,17 +12,17 @@
 }
 
 .sectionLabel {
-  font-size: 10px;
+  font-size: 0.625rem;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 0.2em;
   color: var(--cg-gold-fg);
   text-transform: uppercase;
   margin-bottom: calc(var(--cg-u) * 1.5);
 }
 
 .sectionTitle {
-  font-family: "Playfair Display", serif;
-  font-size: 28px;
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
   font-weight: 700;
   line-height: 1.3;
   color: var(--cg-charcoal);
@@ -30,7 +30,7 @@
 }
 
 .bundlesDesc {
-  font-size: 15px;
+  font-size: 0.9375rem;
   color: var(--cg-text);
   line-height: 1.6;
   max-width: 560px;
@@ -86,24 +86,24 @@
 }
 
 .bundleLabel {
-  font-size: 10px;
+  font-size: 0.625rem;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 0.2em;
   color: var(--cg-gold-fg);
   text-transform: uppercase;
   margin-bottom: 6px;
 }
 
 .bundleTitle {
-  font-family: "Playfair Display", serif;
-  font-size: 22px;
+  font-family: var(--font-serif);
+  font-size: 1.375rem;
   font-weight: 700;
   color: var(--cg-cream);
   margin-bottom: 4px;
 }
 
 .bundlePrice {
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   color: rgba(250, 246, 240, 0.75);
   margin-bottom: 14px;
@@ -112,7 +112,7 @@
 .bundleBtn {
   background-color: var(--cg-gold);
   color: var(--cg-charcoal);
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 600;
   padding: 8px 18px;
   border-radius: 8px;

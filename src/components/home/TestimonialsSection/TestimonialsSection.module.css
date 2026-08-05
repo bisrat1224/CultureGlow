@@ -14,8 +14,10 @@
 }
 
 .testimonialsH2 {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(28px, 3.5vw, 42px);
+  font-family: var(--font-serif);
+  font-size: var(--cg-text-h2);
+  line-height: var(--cg-text-h2-lh);
+  letter-spacing: var(--cg-text-h2-ls);
   font-weight: 700;
   color: var(--cg-charcoal);
   margin-top: calc(var(--cg-u) * 1.5);
@@ -88,11 +90,11 @@
 
 .tcardStars span {
   color: var(--cg-gold-fg);
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .tcardQuote {
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.7;
   color: var(--cg-text);
   margin-bottom: calc(var(--cg-u) * 3);
@@ -116,21 +118,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Playfair Display", serif;
-  font-size: 18px;
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--cg-gold-fg);
   flex-shrink: 0;
 }
 
 .tcardName {
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 600;
   color: var(--cg-charcoal);
 }
 
 .tcardLoc {
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--cg-text);
 }
 

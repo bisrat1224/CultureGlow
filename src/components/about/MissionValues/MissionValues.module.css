@@ -19,7 +19,7 @@
 }
 
 .missionEyebrow {
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -28,10 +28,11 @@
 }
 
 .missionH2 {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(28px, 3.5vw, 42px);
+  font-family: var(--font-serif);
+  font-size: var(--cg-text-h2);
+  line-height: var(--cg-text-h2-lh);
+  letter-spacing: var(--cg-text-h2-ls);
   font-weight: 700;
-  line-height: 1.1;
   color: var(--cg-charcoal);
 }
 
@@ -80,15 +81,15 @@
 }
 
 .missionCardTitle {
-  font-family: "Playfair Display", serif;
-  font-size: 20px;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--cg-charcoal);
   margin-bottom: var(--cg-u);
 }
 
 .missionCardBody {
-  font-size: 15px;
+  font-size: 0.9375rem;
   line-height: 1.7;
   color: var(--cg-text);
 }

@@ -10,7 +10,7 @@
 }
 
 .storyEyebrow {
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -19,10 +19,11 @@
 }
 
 .storyH2 {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(32px, 4vw, 48px);
+  font-family: var(--font-serif);
+  font-size: var(--cg-text-h2);
+  line-height: var(--cg-text-h2-lh);
+  letter-spacing: var(--cg-text-h2-ls);
   font-weight: 700;
-  line-height: 1.1;
   color: var(--cg-charcoal);
   margin-bottom: calc(var(--cg-u) * 3);
 }
@@ -33,7 +34,7 @@
 }
 
 .storyBody {
-  font-size: 17px;
+  font-size: 1.0625rem;
   line-height: 1.75;
   color: var(--cg-text);
   max-width: 540px;
@@ -41,7 +42,7 @@
 }
 
 .storyAmharic {
-  font-size: 18px;
+  font-size: 1.125rem;
   color: var(--cg-text);
   line-height: 1.8;
   border-left: 3px solid var(--cg-gold);
@@ -56,15 +57,15 @@
 }
 
 .statNum {
-  font-family: "Playfair Display", serif;
-  font-size: 40px;
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
   font-weight: 700;
   color: var(--cg-charcoal);
   line-height: 1;
 }
 
 .statLabel {
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -115,7 +116,7 @@
   right: calc(var(--cg-u) * -1);
   background: var(--cg-gold);
   color: var(--cg-gold-ink);
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;

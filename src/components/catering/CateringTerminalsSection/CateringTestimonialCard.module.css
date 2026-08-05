@@ -18,11 +18,11 @@
 
 .tcardStars span {
   color: var(--cg-gold-fg);
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .tcardQuote {
-  font-size: 15px;
+  font-size: 0.9375rem;
   line-height: 1.7;
   color: rgba(250, 246, 240, 0.75);
   margin-bottom: calc(var(--cg-u) * 3);
@@ -44,20 +44,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Playfair Display", serif;
-  font-size: 18px;
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--cg-gold-fg);
   flex-shrink: 0;
 }
 
 .tcardName {
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 600;
   color: var(--cg-cream);
 }
 
 .tcardLoc {
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: rgba(250, 246, 240, 0.5);
 }

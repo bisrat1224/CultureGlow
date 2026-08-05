@@ -16,10 +16,11 @@
    when the declaration is identical, since sections evolve
    independently. */
 .sectionH2Light {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(28px, 3.5vw, 42px);
+  font-family: var(--font-serif);
+  font-size: var(--cg-text-h2);
+  line-height: var(--cg-text-h2-lh);
+  letter-spacing: var(--cg-text-h2-ls);
   font-weight: 700;
-  line-height: 1.1;
   color: var(--cg-cream);
 }
 
@@ -198,7 +199,7 @@
   position: absolute;
   top: 12px;
   left: 12px;
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -222,7 +223,7 @@
 
 .socialCaption {
   padding: calc(var(--cg-u) * 2);
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 1.5;
   color: rgba(250, 246, 240, 0.65);
 }

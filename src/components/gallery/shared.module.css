@@ -4,9 +4,10 @@
    with the "sections evolve independently" precedent set by SocialSection. */
 
 .sectionEyebrow {
-  font-size: 11px;
+  font-size: var(--cg-text-xs);
+  line-height: var(--cg-text-xs-lh);
+  letter-spacing: var(--cg-text-xs-ls);
   font-weight: 700;
-  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--cg-gold-fg);
   margin-bottom: 8px;
@@ -27,10 +28,11 @@
 }
 
 .sectionTitle {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(28px, 3.5vw, 42px);
+  font-family: var(--font-serif);
+  font-size: var(--cg-text-h2);
+  line-height: var(--cg-text-h2-lh);
+  letter-spacing: var(--cg-text-h2-ls);
   font-weight: 700;
-  line-height: 1.08;
 }
 
 .sectionTitle em {
@@ -47,8 +49,9 @@
 }
 
 .sectionDesc {
-  font-size: 15px;
-  line-height: 1.7;
+  font-size: var(--cg-text-body);
+  line-height: var(--cg-text-body-lh);
+  letter-spacing: var(--cg-text-body-ls);
   margin-top: calc(var(--cg-u) * 2);
 }
 

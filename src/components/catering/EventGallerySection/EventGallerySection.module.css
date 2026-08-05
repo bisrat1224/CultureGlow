@@ -51,7 +51,7 @@
   z-index: 1;
   background: linear-gradient(transparent, rgba(26, 26, 26, 0.75));
   padding: calc(var(--cg-u) * 1.5) calc(var(--cg-u) * 1.5) var(--cg-u);
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 600;
   color: #fff;
   letter-spacing: 0.02em;

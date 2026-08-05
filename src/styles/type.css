@@ -1,0 +1,47 @@
+/* ─── TYPE SCALE ────────────────────────────────────────────
+   Sizes are rem so they scale with the reader's browser font-size
+   setting; the site previously used 180 px values and 0 rem, which
+   ignored that preference outright.
+
+   Each step carries its own leading and tracking, because both are
+   size-specific: large text needs tighter leading and negative tracking
+   (letters read further apart as they grow), small uppercase text needs
+   the opposite. A single global letter-spacing is wrong somewhere by
+   definition.
+*/
+:root {
+  /* Display: the homepage hero. Tight leading, negative tracking. */
+  --cg-text-display: clamp(2.5rem, 7vw, 4.5rem);
+  --cg-text-display-lh: 1.05;
+  --cg-text-display-ls: -0.022em;
+
+  /* H1: page heroes below the homepage. */
+  --cg-text-h1: clamp(2.25rem, 5vw, 4rem);
+  --cg-text-h1-lh: 1.08;
+  --cg-text-h1-ls: -0.018em;
+
+  /* H2: section titles. The canonical value; every section uses it. */
+  --cg-text-h2: clamp(1.75rem, 3.5vw, 2.625rem);
+  --cg-text-h2-lh: 1.15;
+  --cg-text-h2-ls: -0.012em;
+
+  /* H3: card titles. */
+  --cg-text-h3: 1.375rem;
+  --cg-text-h3-lh: 1.25;
+  --cg-text-h3-ls: -0.006em;
+
+  /* Body. Tracking sits at 0: this is the size the face was drawn for. */
+  --cg-text-body: 1.0625rem;
+  --cg-text-body-lh: 1.65;
+  --cg-text-body-ls: 0;
+
+  --cg-text-sm: 0.875rem;
+  --cg-text-sm-lh: 1.55;
+  --cg-text-sm-ls: 0.004em;
+
+  /* Eyebrows and micro-labels. Positive tracking because uppercase at
+     this size closes up and stops being readable without it. */
+  --cg-text-xs: 0.75rem;
+  --cg-text-xs-lh: 1.4;
+  --cg-text-xs-ls: 0.14em;
+}

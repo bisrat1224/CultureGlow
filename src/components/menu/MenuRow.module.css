@@ -59,7 +59,7 @@
   left: -6px;
   background: var(--cg-green);
   color: #fff;
-  font-size: 9px;
+  font-size: 0.5625rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -78,15 +78,15 @@
 }
 
 .menuRowName {
-  font-family: "Playfair Display", serif;
-  font-size: 20px;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--cg-charcoal);
   margin-bottom: 4px;
 }
 
 .menuRowDesc {
-  font-size: 14px;
+  font-size: 0.875rem;
   color: var(--cg-text);
   line-height: 1.5;
   margin-bottom: 8px;
@@ -107,7 +107,7 @@
 }
 
 .menuRowPrice {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--cg-gold-fg);
 }
@@ -118,7 +118,7 @@
   gap: 6px;
   background: var(--cg-gold);
   color: var(--cg-gold-ink);
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 600;
   padding: 8px 14px;
   border-radius: 6px;

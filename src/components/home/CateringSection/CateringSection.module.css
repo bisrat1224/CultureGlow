@@ -30,7 +30,7 @@
 }
 
 .cateringEyebrow {
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -39,10 +39,11 @@
 }
 
 .cateringH2 {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(28px, 4vw, 48px);
+  font-family: var(--font-serif);
+  font-size: var(--cg-text-h2);
+  line-height: var(--cg-text-h2-lh);
+  letter-spacing: var(--cg-text-h2-ls);
   font-weight: 700;
-  line-height: 1.1;
   color: var(--cg-cream);
   margin-bottom: calc(var(--cg-u) * 3);
 }
@@ -53,7 +54,7 @@
 }
 
 .cateringDesc {
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.7;
   color: rgba(250, 246, 240, 0.8);
   max-width: 480px;
@@ -66,7 +67,7 @@
   gap: 8px;
   background: var(--cg-gold);
   color: var(--cg-gold-ink);
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
   padding: 16px 32px;
   border-radius: 8px;

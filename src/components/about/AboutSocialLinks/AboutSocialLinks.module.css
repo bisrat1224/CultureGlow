@@ -8,8 +8,10 @@
 }
 
 .socialLinksH2 {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(28px, 3.5vw, 40px);
+  font-family: var(--font-serif);
+  font-size: var(--cg-text-h2);
+  line-height: var(--cg-text-h2-lh);
+  letter-spacing: var(--cg-text-h2-ls);
   font-weight: 700;
   color: var(--cg-cream);
   margin-bottom: calc(var(--cg-u) * 4);
@@ -27,7 +29,7 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;

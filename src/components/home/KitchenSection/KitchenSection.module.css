@@ -18,10 +18,11 @@
 }
 
 .sectionH2Dark {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(28px, 3.5vw, 42px);
+  font-family: var(--font-serif);
+  font-size: var(--cg-text-h2);
+  line-height: var(--cg-text-h2-lh);
+  letter-spacing: var(--cg-text-h2-ls);
   font-weight: 700;
-  line-height: 1.1;
   color: var(--cg-charcoal);
   margin-top: calc(var(--cg-u) * 1.5);
   margin-bottom: calc(var(--cg-u) * 3);
@@ -33,7 +34,7 @@
 }
 
 .kitchenDesc {
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.7;
   color: var(--cg-text);
   margin-bottom: calc(var(--cg-u) * 4);

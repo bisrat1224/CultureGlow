@@ -55,7 +55,7 @@ a.methodCard:hover {
 }
 
 .methodLabel {
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -63,7 +63,7 @@ a.methodCard:hover {
 }
 
 .methodValue {
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 500;
   color: var(--cg-charcoal);
 }
@@ -91,7 +91,7 @@ a.methodCard:hover {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 500;
   letter-spacing: 0.02em;
   text-transform: none;

@@ -19,7 +19,7 @@
 
 .errorTitle {
   font-family: var(--font-serif);
-  font-size: 30px;
+  font-size: 1.875rem;
   color: var(--cg-charcoal);
   margin-bottom: 1rem;
 }
@@ -36,7 +36,7 @@
   border-radius: 8px;
   background: var(--cg-gold);
   padding: 12px 24px;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   color: var(--cg-gold-ink);
   border: none;

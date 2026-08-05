@@ -43,7 +43,7 @@
 }
 
 .catHeroEyebrow {
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -52,8 +52,9 @@
 }
 
 .catHeroH1 {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(38px, 6vw, 64px);
+  font-family: var(--font-serif);
+  font-size: var(--cg-text-h1);
+  letter-spacing: var(--cg-text-h1-ls);
   font-weight: 700;
   line-height: 1.05;
   color: var(--cg-cream);
@@ -67,7 +68,7 @@
 }
 
 .catHeroDesc {
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.7;
   color: rgba(250, 246, 240, 0.78);
   max-width: 480px;

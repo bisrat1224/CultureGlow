@@ -28,7 +28,7 @@
 }
 
 .pdfCtaEyebrow {
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -37,15 +37,17 @@
 }
 
 .pdfCtaH2 {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(26px, 3.5vw, 38px);
+  font-family: var(--font-serif);
+  font-size: var(--cg-text-h2);
+  line-height: var(--cg-text-h2-lh);
+  letter-spacing: var(--cg-text-h2-ls);
   font-weight: 700;
   color: var(--cg-cream);
   margin-bottom: calc(var(--cg-u) * 2);
 }
 
 .pdfCtaDesc {
-  font-size: 15px;
+  font-size: 0.9375rem;
   color: rgba(250, 246, 240, 0.65);
   max-width: 440px;
   margin: 0 auto calc(var(--cg-u) * 4);
@@ -57,7 +59,7 @@
   gap: 8px;
   background: var(--cg-gold);
   color: var(--cg-gold-ink);
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 600;
   padding: 14px 28px;
   border-radius: 8px;

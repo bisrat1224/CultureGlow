@@ -8,17 +8,18 @@
 }
 
 .shopHeroLabel {
-  font-size: 10px;
+  font-size: 0.625rem;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 0.2em;
   color: var(--cg-gold-fg);
   text-transform: uppercase;
   margin-bottom: calc(var(--cg-u) * 2);
 }
 
 .shopHeroTitle {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(36px, 5vw, 48px);
+  font-family: var(--font-serif);
+  font-size: var(--cg-text-h1);
+  letter-spacing: var(--cg-text-h1-ls);
   font-weight: 700;
   line-height: 1.2;
   color: var(--cg-cream);
@@ -29,7 +30,7 @@
 }
 
 .shopHeroDesc {
-  font-size: 15px;
+  font-size: 0.9375rem;
   line-height: 1.6;
   color: rgba(250, 246, 240, 0.8);
   max-width: 600px;

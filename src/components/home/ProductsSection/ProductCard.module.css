@@ -58,7 +58,7 @@
 }
 
 .bentoCardCat {
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -67,8 +67,8 @@
 }
 
 .bentoCardName {
-  font-family: "Playfair Display", serif;
-  font-size: 22px;
+  font-family: var(--font-serif);
+  font-size: 1.375rem;
   font-weight: 600;
   color: var(--cg-cream);
   margin-bottom: var(--cg-u);
@@ -76,7 +76,7 @@
 }
 
 .bentoCardPrice {
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 700;
   color: var(--cg-gold-fg);
   margin-bottom: calc(var(--cg-u) * 2);
@@ -88,7 +88,7 @@
   gap: 8px;
   background: var(--cg-gold);
   color: var(--cg-gold-ink);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   padding: 10px 20px;
   border-radius: 8px;

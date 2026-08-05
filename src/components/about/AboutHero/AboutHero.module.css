@@ -33,7 +33,7 @@
 }
 
 .aboutHeroEyebrow {
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -42,8 +42,9 @@
 }
 
 .aboutHeroH1 {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(36px, 5vw, 64px);
+  font-family: var(--font-serif);
+  font-size: var(--cg-text-h1);
+  letter-spacing: var(--cg-text-h1-ls);
   font-weight: 700;
   line-height: 1.05;
   color: #fff;
@@ -57,7 +58,7 @@
 }
 
 .aboutHeroDesc {
-  font-size: 17px;
+  font-size: 1.0625rem;
   line-height: 1.6;
   color: rgba(255,255,255,0.92);
   max-width: 520px;

@@ -54,7 +54,7 @@
 
 .eventCardTag {
   display: inline-block;
-  font-size: 10px;
+  font-size: 0.625rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -66,15 +66,15 @@
 }
 
 .eventCardTitle {
-  font-family: "Playfair Display", serif;
-  font-size: 24px;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--cg-cream);
   margin-bottom: 6px;
 }
 
 .eventCardDesc {
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: rgba(250, 246, 240, 0.75);
   line-height: 1.55;
 }
