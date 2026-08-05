@@ -13,7 +13,9 @@ export const galleryContent = {
     headingBeforeEm: "Moments in ",
     headingEm: "Frame",
     headingAfterEm: "",
-    desc: "A window into CultureGlow24, the dishes we cook, the garments we love, and the celebrations we're honored to be part of.",
+    // Describes the subject rather than claiming authorship: the images on
+    // this page are currently licensed stock, not our own shoots.
+    desc: "The food we cook, the dress we sell, and the celebrations we cater.",
   },
 
   photoGrid: {
@@ -21,7 +23,7 @@ export const galleryContent = {
     headingBeforeEm: "Food, Fashion & ",
     headingEm: "Festivity",
     headingAfterEm: "",
-    desc: "A growing collection of real moments from our kitchen, our fittings, and the events we've catered, more added as they come in.",
+    desc: "Habesha celebrations, tables, and traditional dress. Photos from our own kitchen and events are coming as we shoot them.",
   },
 
   tiktok: {

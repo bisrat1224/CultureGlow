@@ -85,7 +85,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
             <a
               href={buildWhatsAppLink(`I'd like to order ${product.name}`)}
-              className={styles.orderBtn}
+              className={`${styles.orderBtn} cg-press`}
               target="_blank"
               rel="noopener noreferrer"
             >

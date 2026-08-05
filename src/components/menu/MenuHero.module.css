@@ -6,6 +6,9 @@
   justify-content: flex-end;
   overflow: hidden;
   background: var(--cg-charcoal);
+
+  /* Dark ground: gold reads as gold here (6.58:1). */
+  --cg-gold-fg: var(--cg-gold);
 }
 
 .menuHeroImg {
@@ -38,17 +41,18 @@
 }
 
 .menuHeroEyebrow {
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
   margin-bottom: calc(var(--cg-u) * 2);
 }
 
 .menuHeroH1 {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(38px, 6vw, 64px);
+  font-family: var(--font-serif);
+  font-size: var(--cg-text-h1);
+  letter-spacing: var(--cg-text-h1-ls);
   font-weight: 700;
   line-height: 1.05;
   color: var(--cg-cream);
@@ -58,11 +62,11 @@
 
 .menuHeroH1 em {
   font-style: italic;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 .menuHeroDesc {
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.7;
   color: rgba(250, 246, 240, 0.78);
   max-width: 460px;
@@ -80,8 +84,8 @@
   align-items: center;
   gap: 8px;
   background: var(--cg-gold);
-  color: #fff;
-  font-size: 15px;
+  color: var(--cg-gold-ink);
+  font-size: 0.9375rem;
   font-weight: 600;
   padding: 14px 28px;
   border-radius: 8px;
@@ -90,7 +94,7 @@
 }
 
 .btnPrimary:hover {
-  background: #b08634;
+  background: var(--cg-gold-hover);
   transform: translateY(-2px);
 }
 
@@ -105,7 +109,7 @@
   gap: 8px;
   background: transparent;
   color: var(--cg-cream);
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 600;
   padding: 14px 28px;
   border-radius: 8px;

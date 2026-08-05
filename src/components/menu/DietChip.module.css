@@ -5,7 +5,7 @@
   width: 22px;
   height: 22px;
   border-radius: 6px;
-  font-size: 10px;
+  font-size: 0.625rem;
   font-weight: 700;
   color: #fff;
   flex-shrink: 0;
@@ -13,10 +13,16 @@
 
 .dietVeg {
   background: var(--cg-green);
+
+  /* Green ground: neither gold passes here (bright 2.42:1, dark 1.02:1),
+     so gold-as-text becomes the light cream tint instead. 5.79:1. */
+  --cg-gold-fg: var(--cg-gold-light);
 }
 
 .dietVegan {
-  background: #4c8c6e;
+  /* Was #4c8c6e, which put the white label at 3.97:1. Darkened to clear AA
+     (5.05:1) while staying distinct from .dietVeg's --cg-green. */
+  background: #3f7a5e;
 }
 
 .dietGf {

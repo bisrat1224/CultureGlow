@@ -1,13 +1,15 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import { galleryContent } from "@/lib/content/content.gallery";
+import { Lightbox } from "@/components/ui/Lightbox/Lightbox";
 import styles from "./GalleryPhotoGrid.module.css";
 import shared from "../shared.module.css";
 
-const PhotoLightbox = dynamic(() => import("./PhotoLightbox").then((m) => m.PhotoLightbox), { ssr: false });
+// Imported directly rather than via next/dynamic: the lazy chunk meant the
+// first tap paid a network round-trip before anything appeared, which with
+// no press feedback read as a broken control.
 
 export interface GalleryPhoto {
   id: string;
@@ -69,6 +71,8 @@ const PHOTOS: GalleryPhoto[] = [
 
 export function GalleryPhotoGrid() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  // Where the tapped tile sat, so the lightbox can scale out of it.
+  const [originRect, setOriginRect] = useState<DOMRect | null>(null);
   const { eyebrow, headingBeforeEm, headingEm, headingAfterEm, desc } = galleryContent.photoGrid;
 
   const close = useCallback(() => setLightboxIndex(null), []);
@@ -98,8 +102,11 @@ export function GalleryPhotoGrid() {
           {PHOTOS.map((photo, idx) => (
             <button
               key={photo.id}
-              className={styles.photoItem}
-              onClick={() => setLightboxIndex(idx)}
+              className={`${styles.photoItem} cg-press-card`}
+              onClick={(e) => {
+                setOriginRect(e.currentTarget.getBoundingClientRect());
+                setLightboxIndex(idx);
+              }}
               aria-label={`Open lightbox: ${photo.alt}`}
             >
               <Image
@@ -117,9 +124,10 @@ export function GalleryPhotoGrid() {
       </div>
 
       {lightboxIndex !== null && (
-        <PhotoLightbox
-          photos={PHOTOS}
+        <Lightbox
+          items={PHOTOS.map((p) => ({ src: p.image, alt: p.alt }))}
           index={lightboxIndex}
+          originRect={originRect}
           onClose={close}
           onPrev={prev}
           onNext={next}

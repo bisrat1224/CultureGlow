@@ -53,7 +53,7 @@ export function MenuRow({ item, revealDelayClass }: MenuRowProps) {
         <span className={styles.menuRowPrice}>{price}</span>
         <a
           href={buildWhatsAppLink(`I'd like to order ${name}`)}
-          className={styles.menuRowBtn}
+          className={`${styles.menuRowBtn} cg-press`}
           target="_blank"
           rel="noopener noreferrer"
         >

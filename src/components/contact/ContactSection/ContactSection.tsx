@@ -62,7 +62,7 @@ export function ContactSection() {
         <div className={styles.methodsGrid}>
           <a
             href={buildWhatsAppLink()}
-            className={styles.methodCard}
+            className={`${styles.methodCard} cg-press-card`}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -73,7 +73,7 @@ export function ContactSection() {
             <span className={styles.methodValue}>{whatsapp.value}</span>
           </a>
 
-          <a href={`tel:${UK_PHONE_TEL}`} className={styles.methodCard}>
+          <a href={`tel:${UK_PHONE_TEL}`} className={`${styles.methodCard} cg-press-card`}>
             <span className={styles.methodIcon} aria-hidden="true">
               <Phone size={22} strokeWidth={1.75} />
             </span>
@@ -81,7 +81,7 @@ export function ContactSection() {
             <span className={styles.methodValue}>{UK_PHONE_DISPLAY}</span>
           </a>
 
-          <a href={`mailto:${CONTACT_EMAIL}`} className={styles.methodCard}>
+          <a href={`mailto:${CONTACT_EMAIL}`} className={`${styles.methodCard} cg-press-card`}>
             <span className={styles.methodIcon} aria-hidden="true">
               <Mail size={22} strokeWidth={1.75} />
             </span>

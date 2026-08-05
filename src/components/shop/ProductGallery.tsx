@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import Image from "next/image";
+import { Lightbox } from "@/components/ui/Lightbox/Lightbox";
 import styles from "./ProductGallery.module.css";
 
 interface ProductGalleryProps {
@@ -12,37 +13,37 @@ interface ProductGalleryProps {
 export function ProductGallery({ images, alt }: ProductGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  // Captured on click rather than read from a ref during render, so the
+  // lightbox knows which box to scale out of.
+  const [originRect, setOriginRect] = useState<DOMRect | null>(null);
 
-  useEffect(() => {
-    if (!lightboxOpen) return;
-
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setLightboxOpen(false);
-      if (e.key === "ArrowLeft") {
-        setActiveIndex((i) => (i - 1 + images.length) % images.length);
-      }
-      if (e.key === "ArrowRight") {
-        setActiveIndex((i) => (i + 1) % images.length);
-      }
-    };
-
-    document.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
-    };
-  }, [lightboxOpen, images.length]);
+  // Keyboard handling, scroll locking and focus management all live in
+  // Lightbox now; this component used to carry its own near-identical copy.
+  const close = useCallback(() => setLightboxOpen(false), []);
+  const prev = useCallback(
+    () => setActiveIndex((i) => (i - 1 + images.length) % images.length),
+    [images.length]
+  );
+  const next = useCallback(
+    () => setActiveIndex((i) => (i + 1) % images.length),
+    [images.length]
+  );
 
   return (
     <div className={styles.gallery}>
       <button
         type="button"
-        className={styles.mainImageWrap}
-        onClick={() => setLightboxOpen(true)}
+        className={`${styles.mainImageWrap} cg-press-card`}
+        onClick={(e) => {
+          setOriginRect(e.currentTarget.getBoundingClientRect());
+          setLightboxOpen(true);
+        }}
         aria-label="Open full-size image"
       >
         <Image
+          // Keyed so React swaps the node on change, which is what lets
+          // @starting-style fire and cross-fade each switch.
+          key={images[activeIndex]}
           src={images[activeIndex]}
           alt={alt}
           fill
@@ -54,7 +55,7 @@ export function ProductGallery({ images, alt }: ProductGalleryProps) {
       </button>
 
       {images.length > 1 && (
-        <div className={styles.thumbRow} role="group" aria-label="Product photos">
+        <div className={`${styles.thumbRow} cg-hscroll`} role="group" aria-label="Product photos">
           {images.map((img, i) => (
             <button
               key={img + i}
@@ -80,55 +81,14 @@ export function ProductGallery({ images, alt }: ProductGalleryProps) {
       )}
 
       {lightboxOpen && (
-        <div
-          className={styles.lightbox}
-          role="dialog"
-          aria-modal="true"
-          aria-label={`Photo: ${alt}`}
-          onClick={() => setLightboxOpen(false)}
-        >
-          <img
-            src={images[activeIndex]}
-            alt={alt}
-            className={styles.lightboxImg}
-            decoding="async"
-            onClick={(e) => e.stopPropagation()}
-          />
-          <button
-            className={styles.lightboxClose}
-            aria-label="Close"
-            onClick={() => setLightboxOpen(false)}
-          >
-            ✕
-          </button>
-          {images.length > 1 && (
-            <>
-              <button
-                className={styles.lightboxPrev}
-                aria-label="Previous photo"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setActiveIndex((i) => (i - 1 + images.length) % images.length);
-                }}
-              >
-                ‹
-              </button>
-              <button
-                className={styles.lightboxNext}
-                aria-label="Next photo"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setActiveIndex((i) => (i + 1) % images.length);
-                }}
-              >
-                ›
-              </button>
-              <p className={styles.lightboxCount}>
-                {activeIndex + 1} / {images.length}
-              </p>
-            </>
-          )}
-        </div>
+        <Lightbox
+          items={images.map((src) => ({ src, alt }))}
+          index={activeIndex}
+          originRect={originRect}
+          onClose={close}
+          onPrev={prev}
+          onNext={next}
+        />
       )}
     </div>
   );

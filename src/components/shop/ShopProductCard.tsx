@@ -21,7 +21,7 @@ export function ShopProductCard({ product }: ShopProductCardProps) {
 
   return (
     <article className={styles.productCard} data-category={product.category}>
-      <Link href={`/shop/${id}`} className={styles.productImage}>
+      <Link href={`/shop/${id}`} className={`${styles.productImage} cg-press-card`}>
         <Image
           src={image}
           alt={alt}
@@ -43,7 +43,7 @@ export function ShopProductCard({ product }: ShopProductCardProps) {
         <span className={styles.productPrice}>{price}</span>
         <a
           href={buildWhatsAppLink(`I'd like to order ${name}`)}
-          className={styles.productOrderBtn}
+          className={`${styles.productOrderBtn} cg-press`}
           target="_blank"
           rel="noopener noreferrer"
         >

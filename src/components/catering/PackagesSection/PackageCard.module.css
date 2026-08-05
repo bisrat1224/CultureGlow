@@ -43,7 +43,7 @@
   transform: translateX(-50%);
   background: var(--cg-gold);
   color: var(--cg-charcoal);
-  font-size: 10px;
+  font-size: 0.625rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -53,15 +53,15 @@
 }
 
 .packageName {
-  font-family: "Playfair Display", serif;
-  font-size: 22px;
+  font-family: var(--font-serif);
+  font-size: 1.375rem;
   font-weight: 700;
   color: var(--cg-cream);
   margin-bottom: 6px;
 }
 
 .packageGuests {
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.04em;
   color: rgba(250, 246, 240, 0.5);
@@ -70,14 +70,14 @@
 }
 
 .packagePrice {
-  font-size: 15px;
-  color: var(--cg-gold);
+  font-size: 0.9375rem;
+  color: var(--cg-gold-fg);
   font-weight: 700;
   margin-bottom: calc(var(--cg-u) * 3);
 }
 
 .packagePrice span {
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 500;
   color: rgba(250, 246, 240, 0.5);
 }
@@ -95,7 +95,7 @@
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: rgba(250, 246, 240, 0.75);
   line-height: 1.4;
 }
@@ -111,8 +111,8 @@
   justify-content: center;
   gap: 8px;
   background: var(--cg-gold);
-  color: #fff;
-  font-size: 14px;
+  color: var(--cg-gold-ink);
+  font-size: 0.875rem;
   font-weight: 600;
   padding: 12px 20px;
   border-radius: 8px;
@@ -121,7 +121,7 @@
 }
 
 .packageBtn:hover {
-  background: #b08634;
+  background: var(--cg-gold-hover);
 }
 
 .packageBtnGhost {
@@ -132,5 +132,5 @@
 
 .packageBtnGhost:hover {
   border-color: var(--cg-gold);
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }

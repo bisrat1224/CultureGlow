@@ -9,6 +9,11 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+
+  /* Light ground: gold-as-text needs the darkened value. Declared even
+     inside dark sections, since a light card there would otherwise
+     inherit the bright gold and drop to 2.4:1. */
+  --cg-gold-fg: var(--cg-gold-text);
 }
 
 .productCard::before {
@@ -56,9 +61,9 @@
   top: 10px;
   left: 10px;
   color: var(--cg-gold-light);
-  font-size: 10px;
+  font-size: 0.625rem;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 4px 10px;
   border-radius: 999px;
@@ -70,11 +75,15 @@
 
 .badgeNew {
   background-color: var(--cg-green);
+
+  /* Green ground: neither gold passes here (bright 2.42:1, dark 1.02:1),
+     so gold-as-text becomes the light cream tint instead. 5.79:1. */
+  --cg-gold-fg: var(--cg-gold-light);
 }
 
 .productTitle {
-  font-family: "Playfair Display", serif;
-  font-size: 20px;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
   font-weight: 400;
   color: var(--cg-charcoal);
   margin-bottom: 6px;
@@ -82,11 +91,11 @@
 }
 
 .productTitle:hover {
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 .productDesc {
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--cg-text);
   line-height: 1.5;
   margin-bottom: calc(var(--cg-u) * 1.5);
@@ -102,15 +111,15 @@
 }
 
 .productPrice {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 700;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 .productOrderBtn {
   background-color: var(--cg-gold);
-  color: #fff;
-  font-size: 13px;
+  color: var(--cg-gold-ink);
+  font-size: 0.8125rem;
   font-weight: 600;
   padding: 9px 18px;
   border-radius: 8px;
@@ -122,7 +131,7 @@
 }
 
 .productOrderBtn:hover {
-  background-color: #b08634;
+  background-color: var(--cg-gold-hover);
   transform: scale(1.04);
 }
 

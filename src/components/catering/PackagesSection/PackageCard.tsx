@@ -57,7 +57,7 @@ export function PackageCard({ pkg }: PackageCardProps) {
         href={buildWhatsAppLink(
           `I'd like to enquire about the ${name} catering package`
         )}
-        className={`${styles.packageBtn} ${featured ? "" : styles.packageBtnGhost}`}
+        className={`${styles.packageBtn} ${featured ? "" : styles.packageBtnGhost} cg-press`}
         target="_blank"
         rel="noopener noreferrer"
       >

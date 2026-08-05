@@ -39,7 +39,7 @@ export function KitchenSection({ home, items }: Props) {
             <p className={styles.kitchenDesc}>{body}</p>
             <a
               href={buildWhatsAppLink()}
-              className={shared.btnPrimary}
+              className={`${shared.btnPrimary} cg-press`}
               style={{ display: "inline-flex" }}
               target="_blank"
               rel="noopener noreferrer"

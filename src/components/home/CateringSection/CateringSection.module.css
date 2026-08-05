@@ -4,6 +4,10 @@
   padding: calc(var(--cg-u) * 10) 0;
   position: relative;
   overflow: hidden;
+
+  /* Green ground: neither gold passes here (bright 2.42:1, dark 1.02:1),
+     so gold-as-text becomes the light cream tint instead. 5.79:1. */
+  --cg-gold-fg: var(--cg-gold-light);
 }
 
 .cateringSection::before {
@@ -26,7 +30,7 @@
 }
 
 .cateringEyebrow {
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -35,21 +39,22 @@
 }
 
 .cateringH2 {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(28px, 4vw, 48px);
+  font-family: var(--font-serif);
+  font-size: var(--cg-text-h2);
+  line-height: var(--cg-text-h2-lh);
+  letter-spacing: var(--cg-text-h2-ls);
   font-weight: 700;
-  line-height: 1.1;
   color: var(--cg-cream);
   margin-bottom: calc(var(--cg-u) * 3);
 }
 
 .cateringH2 em {
   font-style: italic;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 .cateringDesc {
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.7;
   color: rgba(250, 246, 240, 0.8);
   max-width: 480px;
@@ -61,8 +66,8 @@
   align-items: center;
   gap: 8px;
   background: var(--cg-gold);
-  color: #fff;
-  font-size: 16px;
+  color: var(--cg-gold-ink);
+  font-size: 1rem;
   font-weight: 600;
   padding: 16px 32px;
   border-radius: 8px;
@@ -73,7 +78,7 @@
 }
 
 .btnGreenCta:hover {
-  background: #b08634;
+  background: var(--cg-gold-hover);
   transform: translateY(-2px);
 }
 

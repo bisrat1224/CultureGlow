@@ -32,7 +32,7 @@ export function CateringHero() {
           <div className={styles.catHeroActions}>
             <a
               href={buildWhatsAppLink("I would like to enquire about catering")}
-              className={shared.btnPrimary}
+              className={`${shared.btnPrimary} cg-press`}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -43,7 +43,7 @@ export function CateringHero() {
               />
               {primaryCta}
             </a>
-            <a href="#packages" className={shared.btnGhostLight}>
+            <a href="#packages" className={`${shared.btnGhostLight} cg-press`}>
               {secondaryCta}
             </a>
           </div>

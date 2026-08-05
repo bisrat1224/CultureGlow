@@ -3,6 +3,11 @@
 .missionSection {
   padding: calc(var(--cg-u) * 10) 0;
   background: var(--cg-cream);
+
+  /* Light ground: gold-as-text needs the darkened value. Declared even
+     inside dark sections, since a light card there would otherwise
+     inherit the bright gold and drop to 2.4:1. */
+  --cg-gold-fg: var(--cg-gold-text);
 }
 
 .missionHeader {
@@ -14,25 +19,26 @@
 }
 
 .missionEyebrow {
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
   margin-bottom: calc(var(--cg-u) * 1.5);
 }
 
 .missionH2 {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(28px, 3.5vw, 42px);
+  font-family: var(--font-serif);
+  font-size: var(--cg-text-h2);
+  line-height: var(--cg-text-h2-lh);
+  letter-spacing: var(--cg-text-h2-ls);
   font-weight: 700;
-  line-height: 1.1;
   color: var(--cg-charcoal);
 }
 
 .missionH2 em {
   font-style: italic;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 .missionGrid {
@@ -48,8 +54,13 @@
   border: 1px solid var(--cg-border);
   border-radius: 12px;
   transition:
-    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.3s;
+
+  /* Light ground: gold-as-text needs the darkened value. Declared even
+     inside dark sections, since a light card there would otherwise
+     inherit the bright gold and drop to 2.4:1. */
+  --cg-gold-fg: var(--cg-gold-text);
 }
 
 .missionCard:hover {
@@ -62,7 +73,7 @@
   height: 56px;
   border-radius: 50%;
   background: var(--cg-gold-light);
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,15 +81,15 @@
 }
 
 .missionCardTitle {
-  font-family: "Playfair Display", serif;
-  font-size: 20px;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--cg-charcoal);
   margin-bottom: var(--cg-u);
 }
 
 .missionCardBody {
-  font-size: 15px;
+  font-size: 0.9375rem;
   line-height: 1.7;
   color: var(--cg-text);
 }

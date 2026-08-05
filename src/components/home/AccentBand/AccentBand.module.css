@@ -20,8 +20,8 @@
 }
 
 .accentBandText {
-  font-family: "Playfair Display", serif;
-  font-size: 20px;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   color: var(--cg-gold-light);
@@ -29,7 +29,7 @@
 
 .accentBandSep {
   color: rgba(251, 243, 226, 0.4);
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 @keyframes marquee {
@@ -38,5 +38,19 @@
   }
   to {
     transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .accentBandInner {
+    animation: none;
+  }
+
+  /* Stopping the animation would otherwise leave a frozen, clipped strip
+     with content permanently off-screen, so hand scrolling to the reader.
+     Same approach SocialSection already takes. */
+  .accentBand {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 }

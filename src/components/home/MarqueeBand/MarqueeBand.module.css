@@ -6,6 +6,9 @@
   border-bottom: 1px solid rgba(200, 151, 58, 0.2);
   /* Diagonal bottom edge — left side exits early into the cream section below */
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 78%);
+
+  /* Dark ground: gold reads as gold here (6.58:1). */
+  --cg-gold-fg: var(--cg-gold);
 }
 
 .marqueeTrack {
@@ -21,8 +24,8 @@
 }
 
 .marqueeItem {
-  font-family: "Playfair Display", serif;
-  font-size: 15px;
+  font-family: var(--font-serif);
+  font-size: 0.9375rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   color: rgba(250, 246, 240, 0.5);
@@ -45,5 +48,19 @@
   }
   to {
     transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marqueeTrack {
+    animation: none;
+  }
+
+  /* Stopping the animation would otherwise leave a frozen, clipped strip
+     with content permanently off-screen, so hand scrolling to the reader.
+     Same approach SocialSection already takes. */
+  .marqueeBand {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 }

@@ -15,6 +15,11 @@
   padding: calc(var(--cg-u) * 2);
   overflow: hidden;
   transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+
+  /* Light ground: gold-as-text needs the darkened value. Declared even
+     inside dark sections, since a light card there would otherwise
+     inherit the bright gold and drop to 2.4:1. */
+  --cg-gold-fg: var(--cg-gold-text);
 }
 
 .menuRow::before {
@@ -54,13 +59,17 @@
   left: -6px;
   background: var(--cg-green);
   color: #fff;
-  font-size: 9px;
+  font-size: 0.5625rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   padding: 3px 8px;
   border-radius: 100px;
   white-space: nowrap;
+
+  /* Green ground: neither gold passes here (bright 2.42:1, dark 1.02:1),
+     so gold-as-text becomes the light cream tint instead. 5.79:1. */
+  --cg-gold-fg: var(--cg-gold-light);
 }
 
 .menuRowInfo {
@@ -69,15 +78,15 @@
 }
 
 .menuRowName {
-  font-family: "Playfair Display", serif;
-  font-size: 20px;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--cg-charcoal);
   margin-bottom: 4px;
 }
 
 .menuRowDesc {
-  font-size: 14px;
+  font-size: 0.875rem;
   color: var(--cg-text);
   line-height: 1.5;
   margin-bottom: 8px;
@@ -98,9 +107,9 @@
 }
 
 .menuRowPrice {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 700;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 .menuRowBtn {
@@ -108,8 +117,8 @@
   align-items: center;
   gap: 6px;
   background: var(--cg-gold);
-  color: #fff;
-  font-size: 13px;
+  color: var(--cg-gold-ink);
+  font-size: 0.8125rem;
   font-weight: 600;
   padding: 8px 14px;
   border-radius: 6px;
@@ -118,7 +127,7 @@
 }
 
 .menuRowBtn:hover {
-  background: #b08634;
+  background: var(--cg-gold-hover);
 }
 
 .menuRowBtn img {

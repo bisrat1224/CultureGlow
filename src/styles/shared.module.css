@@ -3,31 +3,34 @@
    Use for section eyebrows, titles, descriptions, and common buttons. */
 
 .sectionEyebrow {
-  font-size: 12px;
+  font-size: var(--cg-text-xs);
+  line-height: var(--cg-text-xs-lh);
+  letter-spacing: var(--cg-text-xs-ls);
   font-weight: 600;
-  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
   margin-bottom: calc(var(--cg-u) * 1.5);
 }
 
 .sectionTitle {
   font-family: var(--font-serif);
-  font-size: clamp(28px, 4vw, 48px);
+  font-size: var(--cg-text-h2);
+  line-height: var(--cg-text-h2-lh);
+  letter-spacing: var(--cg-text-h2-ls);
   font-weight: 700;
-  line-height: 1.15;
   color: var(--cg-charcoal);
   margin-bottom: calc(var(--cg-u) * 2);
 }
 
 .sectionTitle em {
   font-style: italic;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 .sectionDesc {
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: var(--cg-text-body);
+  line-height: var(--cg-text-body-lh);
+  letter-spacing: var(--cg-text-body-ls);
   color: var(--cg-text);
   max-width: 60ch;
 }
@@ -40,9 +43,9 @@
   padding: 14px 28px;
   border-radius: 8px;
   background: var(--cg-gold);
-  color: #fff;
+  color: var(--cg-gold-ink);
   font-weight: 600;
-  font-size: 14px;
+  font-size: 0.875rem;
   text-decoration: none;
   transition: background 0.2s ease, transform 0.2s ease;
   cursor: pointer;
@@ -64,7 +67,7 @@
   background: transparent;
   color: var(--cg-charcoal);
   font-weight: 600;
-  font-size: 14px;
+  font-size: 0.875rem;
   text-decoration: none;
   border: 1.5px solid var(--cg-border);
   transition: border-color 0.2s ease, color 0.2s ease;
@@ -73,5 +76,5 @@
 
 .btnGhost:hover {
   border-color: var(--cg-gold);
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }

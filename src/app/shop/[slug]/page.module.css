@@ -1,11 +1,11 @@
 .breadcrumb {
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--cg-text);
   margin-bottom: calc(var(--cg-u) * 4);
 }
 
 .breadcrumb a {
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
   font-weight: 600;
 }
 
@@ -22,31 +22,33 @@
 }
 
 .productCategory {
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
   margin-bottom: calc(var(--cg-u) * 1.5);
 }
 
 .productTitle {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(28px, 3.5vw, 40px);
+  font-family: var(--font-serif);
+  font-size: var(--cg-text-h2);
+  line-height: var(--cg-text-h2-lh);
+  letter-spacing: var(--cg-text-h2-ls);
   font-weight: 700;
   color: var(--cg-charcoal);
   margin-bottom: calc(var(--cg-u) * 1.5);
 }
 
 .productPrice {
-  font-size: 22px;
+  font-size: 1.375rem;
   font-weight: 700;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
   margin-bottom: calc(var(--cg-u) * 3);
 }
 
 .productDescription {
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.7;
   color: var(--cg-text);
   margin-bottom: calc(var(--cg-u) * 4);
@@ -57,10 +59,15 @@
   border-radius: 8px;
   padding: calc(var(--cg-u) * 2.5);
   margin-bottom: calc(var(--cg-u) * 4);
+
+  /* Light ground: gold-as-text needs the darkened value. Declared even
+     inside dark sections, since a light card there would otherwise
+     inherit the bright gold and drop to 2.4:1. */
+  --cg-gold-fg: var(--cg-gold-text);
 }
 
 .allergenLabel {
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -71,7 +78,7 @@
 .allergenList {
   list-style: disc;
   padding-left: 20px;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: var(--cg-text);
   line-height: 1.6;
 }
@@ -81,8 +88,8 @@
   align-items: center;
   gap: 8px;
   background: var(--cg-gold);
-  color: #fff;
-  font-size: 15px;
+  color: var(--cg-gold-ink);
+  font-size: 0.9375rem;
   font-weight: 600;
   padding: 14px 28px;
   border-radius: 8px;
@@ -92,7 +99,7 @@
 }
 
 .orderBtn:hover {
-  background: #b08634;
+  background: var(--cg-gold-hover);
   transform: translateY(-2px);
 }
 
@@ -107,8 +114,10 @@
 }
 
 .relatedH2 {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(24px, 3vw, 32px);
+  font-family: var(--font-serif);
+  font-size: var(--cg-text-h2);
+  line-height: var(--cg-text-h2-lh);
+  letter-spacing: var(--cg-text-h2-ls);
   font-weight: 700;
   color: var(--cg-charcoal);
   margin-bottom: calc(var(--cg-u) * 4);
@@ -116,7 +125,7 @@
 
 .relatedH2 em {
   font-style: italic;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 .relatedGrid {

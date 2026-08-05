@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@import "../styles/type.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -11,8 +12,21 @@
 :root {
   --cg-cream:      #FAF6F0;
   --cg-charcoal:   #1A1A1A;
-  --cg-gold:       #C8973A;
+  /* Gold, split by role. One value cannot serve as both a fill behind white
+     text and as text on cream: #C8973A is 2.64:1 against #fff and 2.46:1
+     against the cream background, and AA needs 4.5:1. The fill is unchanged;
+     what sits on it and what stands in for it as text are now explicit. */
+  --cg-gold:       #C8973A;  /* fill only. 6.58:1 against --cg-gold-ink */
+  --cg-gold-ink:   #1A1A1A;  /* text/icons ON a gold fill */
+  --cg-gold-text:  #7A5B1E;  /* gold-coloured TEXT on cream. 5.84:1 */
+  --cg-gold-hover: #B08634;  /* gold fill, hover/active. 5.23:1 vs ink */
   --cg-gold-light: #FBF3E2;
+  /* Gold used as a TEXT colour, resolved against the ground it lands on.
+     Shared classes like .sectionEyebrow appear on both cream and charcoal
+     sections, so a single fixed value is wrong on one of them either way.
+     This inherits: the default suits a light ground, and dark surfaces
+     opt back into the bright gold below. */
+  --cg-gold-fg:    var(--cg-gold-text);
   --cg-green:      #2D6A4F;
   --cg-red:        #A61C00;
   --cg-text:       #555555;
@@ -22,6 +36,38 @@
      Kept as a single token so anything sticking to the header (e.g. CategoryNav,
      ShopFilterBar) can reference the real value instead of guessing a pixel offset. */
   --cg-header-h:   88px;
+
+  /* Fixed chrome material. One definition so the header and the sticky
+     sub-bars read as the same physical layer rather than three unrelated
+     opaque strips: a semi-transparent ground, real blur, and a bright top
+     edge so the surface catches light. Content passes visibly underneath. */
+  --cg-material-bar:        rgba(26, 26, 26, 0.62);
+  --cg-material-bar-strong: rgba(26, 26, 26, 0.82);
+  --cg-material-cream:      rgba(250, 246, 240, 0.78);
+  --cg-material-blur:       blur(20px) saturate(180%);
+  --cg-material-edge:       rgba(250, 246, 240, 0.10);
+}
+
+/* Two independent preferences, two different answers: reduced transparency
+   wants a solid surface, increased contrast wants a solid surface AND a
+   defined border. */
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --cg-material-bar:        rgb(26, 26, 26);
+    --cg-material-bar-strong: rgb(26, 26, 26);
+    --cg-material-cream:      var(--cg-cream);
+    --cg-material-blur:       none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --cg-material-bar:        rgb(20, 20, 20);
+    --cg-material-bar-strong: rgb(20, 20, 20);
+    --cg-material-cream:      var(--cg-cream);
+    --cg-material-blur:       none;
+    --cg-material-edge:       rgba(250, 246, 240, 0.5);
+  }
 }
 
 @theme inline {
@@ -73,6 +119,9 @@
   --color-charcoal: var(--cg-charcoal);
   --color-gold: var(--cg-gold);
   --color-gold-light: var(--cg-gold-light);
+  --color-gold-ink: var(--cg-gold-ink);
+  --color-gold-text: var(--cg-gold-text);
+  --color-gold-hover: var(--cg-gold-hover);
   --color-green: var(--cg-green);
   --color-brand-red: var(--cg-red);
   --color-cg-text: var(--cg-text);
@@ -168,8 +217,10 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
@@ -212,6 +263,111 @@ button {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 calc(var(--cg-u) * 3);
+}
+
+/* ─── SCROLL EDGE ───────────────────────────────────────────
+   A short gradient below fixed chrome so content dissolves into the bar
+   instead of being guillotined by it. Never takes pointer events.
+*/
+.cg-scroll-edge::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 24px;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(26, 26, 26, 0.32),
+    rgba(26, 26, 26, 0)
+  );
+}
+
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  /* A gradient is a translucency effect; these readers asked for a hard
+     boundary instead, which the bar's own border already provides. */
+  .cg-scroll-edge::after {
+    display: none;
+  }
+}
+
+/* ─── HORIZONTAL SCROLLERS ──────────────────────────────────
+   These strips hide their scrollbar, so the only remaining cue that
+   content continues past the edge is a fade. mask-image does it without
+   an overlay element, and snapping means a flick lands on a pill rather
+   than halfway between two.
+*/
+.cg-hscroll {
+  scroll-snap-type: x proximity;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 16px,
+    #000 calc(100% - 16px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 16px,
+    #000 calc(100% - 16px),
+    transparent 100%
+  );
+}
+
+.cg-hscroll > * {
+  scroll-snap-align: start;
+}
+
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  .cg-hscroll {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+}
+
+/* ─── PRESS FEEDBACK ────────────────────────────────────────
+   Every affordance on this site used to live in :hover, which does not
+   exist on touch: tapping Order, a filter pill or a card produced no
+   response at all until the next navigation. These rules fire on
+   pointer-down so a tap is acknowledged the instant it happens.
+
+   :where() keeps specificity at 0 so any component rule still wins.
+   Timing is deliberately short; feedback that outlasts the press reads
+   as lag rather than as acknowledgement.
+*/
+:where(button):not(:disabled):active,
+.cg-press:active {
+  transform: scale(0.97);
+  transition: transform 100ms ease-out;
+}
+
+/* Large surfaces scale less: the same 3% on a full-width card reads as
+   the whole page flinching. */
+.cg-press-card:active {
+  transform: scale(0.99);
+  transition: transform 100ms ease-out;
+}
+
+/* Kill the sticky grey flash iOS paints on tap; the rules above are the
+   feedback now. */
+:where(button),
+.cg-press,
+.cg-press-card {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Reduced motion means no vestibular movement, not no feedback. The
+     opacity dip conveys the same acknowledgement without the scale. */
+  :where(button):not(:disabled):active,
+  .cg-press:active,
+  .cg-press-card:active {
+    transform: none;
+    opacity: 0.72;
+    transition: opacity 100ms ease-out;
+  }
 }
 
 /* ─── SCROLL REVEAL ────────────────────────────────────────

@@ -41,7 +41,7 @@ export function ProductCard({ product, revealDelayClass }: ProductCardProps) {
         <p className={styles.bentoCardPrice}>{price}</p>
         <a
           href={buildWhatsAppLink(`I'd like to order ${name}`)}
-          className={styles.btnWaCard}
+          className={`${styles.btnWaCard} cg-press`}
           target="_blank"
           rel="noopener noreferrer"
         >

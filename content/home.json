@@ -3,8 +3,8 @@
     "eyebrow": "Handmade · Cultural · Sustainable",
     "headingBeforeEm": "Crafted with ",
     "headingEm": "Love",
-    "headingAfterEm": ", Worn with Pride",
-    "body": "Handmade clothing inspired by diverse cultures and crafted with love. Celebrating individuality and sustainability, one unique piece at a time.",
+    "headingAfterEm": ", Shared with Pride",
+    "body": "Slow-cooked Habesha stews, fresh injera, and traditional dress. Send us a message on WhatsApp and we deliver.",
     "primaryCta": "Order Now",
     "secondaryCta": "Explore the Menu"
   },
@@ -24,19 +24,19 @@
     "headingEm": "Culture",
     "headingAfterEm": "",
     "headingSecondLine": "Meets the Table",
-    "body": "What started as home-cooked meals shared between neighbors has grown into a full celebration of Habesha food, beauty, and lifestyle. Every dish, garment, and gift we offer carries the same care we'd bring to our own family table.",
+    "body": "We began by cooking for neighbours and now sell Habesha food, beauty and lifestyle products across London. We prepare what goes to you the way we prepare what goes on our own table.",
     "amharic": "Every dish tells a story of home.",
     "badge": "Since 2024",
     "stats": [
       { "value": "500+", "label": "Orders Delivered" },
       { "value": "12+", "label": "Menu Items" },
-      { "value": "100%", "label": "Authentic" }
+      { "value": "2024", "label": "Serving London Since" }
     ]
   },
   "products": {
     "eyebrow": "Featured Products",
-    "headingBeforeEm": "Handpicked ",
-    "headingEm": "Favorites",
+    "headingBeforeEm": "Our Most ",
+    "headingEm": "Ordered",
     "headingAfterEm": "",
     "viewAllCta": "View All"
   },
@@ -52,7 +52,7 @@
     "headingBeforeEm": "Our ",
     "headingEm": "Signature",
     "headingSecondLine": "Dishes",
-    "body": "Every dish is simmered, spiced, and plated the way it's always been done, slow-cooked stews, fresh injera, and recipes passed down rather than shortcuts taken.",
+    "body": "We simmer the stews slowly, bake the injera fresh, and cook from recipes our families handed down. Nothing here comes out of a shortcut.",
     "cta": "Order"
   },
   "social": {

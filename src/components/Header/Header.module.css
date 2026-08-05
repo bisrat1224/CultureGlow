@@ -10,17 +10,29 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* Always readable over heroes — light tint at rest, stronger when scrolled */
-  background: rgba(26, 26, 26, 0.55);
-  backdrop-filter: blur(8px);
-  transition:
-    background 0.4s ease,
-    backdrop-filter 0.4s ease;
+  /* Shared chrome material: translucent at rest, denser once content is
+     passing underneath. Same tokens the sticky sub-bars use, so header and
+     sub-bar read as one continuous layer. */
+  background: var(--cg-material-bar);
+  /* Unprefixed only. Lightning CSS adds the -webkit- prefix per the
+     browserslist target; writing it by hand makes it drop the standard
+     property and keep only the prefixed one, which Chrome ignores. */
+  backdrop-filter: var(--cg-material-blur);
+  transition: background 0.4s ease;
+
+  /* Dark ground: gold reads as gold here (6.58:1). */
+  --cg-gold-fg: var(--cg-gold);
 }
 
 .scrolled {
-  background: rgba(26, 26, 26, 0.92);
-  backdrop-filter: blur(12px);
+  /* Only the background opacity changes. Animating backdrop-filter forces a
+     re-composite of everything behind the bar on every frame and reads much
+     the same as this. */
+  background: var(--cg-material-bar-strong);
+  border-bottom: 1px solid var(--cg-material-edge);
+
+  /* Dark ground: gold reads as gold here (6.58:1). */
+  --cg-gold-fg: var(--cg-gold);
 }
 
 .headerLogo {
@@ -42,9 +54,11 @@
 
 .logoName {
   display: none;
-  font-family: "Playfair Display", serif;
-  font-size: 24px;
-  letter-spacing: 0.04em;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  /* Was +0.04em. Positive tracking on a display face at this size pushes
+     letters further apart exactly where they already read too loose. */
+  letter-spacing: -0.01em;
   color: var(--cg-cream, #faf6f0);
   white-space: nowrap;
 }
@@ -57,7 +71,7 @@
 
 .headerNav a {
   position: relative;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 500;
   color: rgba(250, 246, 240, 0.85);
   letter-spacing: 0.02em;
@@ -76,7 +90,7 @@
 }
 
 .headerNav a:hover {
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 .headerNav a:hover::after {
@@ -84,7 +98,7 @@
 }
 
 .headerNav a.active {
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 .headerNav a.active::after {
@@ -102,8 +116,8 @@
   align-items: center;
   gap: 6px;
   background: var(--cg-gold);
-  color: #fff;
-  font-size: 14px;
+  color: var(--cg-gold-ink);
+  font-size: 0.875rem;
   font-weight: 600;
   padding: 10px 20px;
   border-radius: 8px;
@@ -114,7 +128,7 @@
 }
 
 .btnWaHeader:hover {
-  background: #b08634;
+  background: var(--cg-gold-hover);
   transform: translateY(-1px);
 }
 
@@ -125,8 +139,8 @@
 
 .hamburger {
   background: none;
-  color: var(--cg-gold);
-  font-size: 22px;
+  color: var(--cg-gold-fg);
+  font-size: 1.375rem;
   min-width: 44px;
   min-height: 44px;
   display: flex;
@@ -148,6 +162,6 @@
 @media (min-width: 1024px) {
   .logoName {
     display: block;
-    font-size: 24px;
+    font-size: 1.5rem;
   }
 }

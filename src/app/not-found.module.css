@@ -4,6 +4,11 @@
   align-items: center;
   justify-content: center;
   background: var(--cg-cream);
+
+  /* Light ground: gold-as-text needs the darkened value. Declared even
+     inside dark sections, since a light card there would otherwise
+     inherit the bright gold and drop to 2.4:1. */
+  --cg-gold-fg: var(--cg-gold-text);
 }
 
 .notFoundContent {
@@ -14,7 +19,7 @@
 
 .notFoundCode {
   font-family: var(--font-serif);
-  font-size: 40px;
+  font-size: 2.5rem;
   color: var(--cg-charcoal);
   margin-bottom: 1rem;
 }
@@ -31,9 +36,9 @@
   border-radius: 8px;
   background: var(--cg-gold);
   padding: 12px 24px;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--cg-gold-ink);
   text-decoration: none;
   transition: background 0.2s ease, transform 0.2s ease;
 }

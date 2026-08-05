@@ -1,5 +1,5 @@
 /**
- * Centralized sitewide copy — ABOUT PAGE.
+ * Centralized sitewide copy for the ABOUT PAGE.
  * Mirrors content.home.ts's shape/rationale (see that file's header comment).
  * Structured/repeatable data stays out of this file per the CMS scoping
  * doc — this is copy only (headings, body text, eyebrows, alt text).
@@ -11,13 +11,13 @@ export const aboutContent = {
     headingBeforeEm: "About ",
     headingEm: "CultureGlow24",
     headingAfterEm: "",
-    body: "CultureGlow24 began with a simple idea: Habesha culture deserves a place in everyday life, not just special occasions. What started as family recipes shared between neighbors in The Homeland has grown into a full celebration of Habesha food, beauty, and lifestyle — delivered straight to your door, one WhatsApp order at a time.",
+    body: "Habesha culture belongs in everyday life, not saved for holidays. We started by cooking family recipes for neighbours, and we now deliver Habesha food, beauty and lifestyle products across London. You order over WhatsApp and we bring it to your door.",
     amharic: "Our culture is our pride. Food, Fashion, Life!",
     badge: "Est. 2024",
     stats: [
       { value: "500+", label: "Orders Delivered" },
       { value: "12+", label: "Menu Items" },
-      { value: "100%", label: "Authentic" },
+      { value: "2024", label: "Serving London Since" },
     ],
   },
 
@@ -28,7 +28,7 @@ export const aboutContent = {
     values: [
       {
         title: "Authenticity",
-        body: "Every recipe, spice blend, and garment we offer is rooted in real Habesha tradition — nothing adapted or diluted for convenience.",
+        body: "We cook the recipes and source the garments as Habesha tradition makes them. We do not adapt the spicing to make it easier to sell.",
       },
       {
         title: "Community",
@@ -36,7 +36,7 @@ export const aboutContent = {
       },
       {
         title: "Craftsmanship",
-        body: "From slow-simmered stews to hand-embroidered textiles, we work with people who take the time real quality demands.",
+        body: "Our stews simmer for hours and our textiles are embroidered by hand. We choose suppliers who work at that pace.",
       },
     ],
   },

@@ -31,7 +31,7 @@ export function ProductsSection({ home, products }: Props) {
           </div>
           <Link
             href="/shop"
-            className={`${styles.btnOutlineGold} reveal reveal-delay-2`}
+            className={`${styles.btnOutlineGold} reveal reveal-delay-2 cg-press`}
           >
             {viewAllCta}
           </Link>

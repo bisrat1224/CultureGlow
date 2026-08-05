@@ -5,10 +5,18 @@
 
 .onCream {
   background: var(--cg-cream);
+
+  /* Light ground: gold-as-text needs the darkened value. Declared even
+     inside dark sections, since a light card there would otherwise
+     inherit the bright gold and drop to 2.4:1. */
+  --cg-gold-fg: var(--cg-gold-text);
 }
 
 .onDark {
   background: var(--cg-charcoal);
+
+  /* Dark ground: gold reads as gold here (6.58:1). */
+  --cg-gold-fg: var(--cg-gold);
 }
 
 .categoryHead {
@@ -21,19 +29,20 @@
 }
 
 .categoryEyebrow {
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
   margin-bottom: 6px;
 }
 
 .categoryTitle {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(28px, 3.5vw, 42px);
+  font-family: var(--font-serif);
+  font-size: var(--cg-text-h2);
+  line-height: var(--cg-text-h2-lh);
+  letter-spacing: var(--cg-text-h2-ls);
   font-weight: 700;
-  line-height: 1.05;
 }
 
 .onLightTitle {
@@ -46,11 +55,11 @@
 
 .categoryTitle em {
   font-style: italic;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 .categoryCount {
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 600;
   color: var(--cg-text);
 }

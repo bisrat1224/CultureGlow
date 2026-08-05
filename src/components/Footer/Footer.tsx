@@ -54,11 +54,11 @@ export function Footer() {
             <p className={styles.footerBrandName}>Culture Glow</p>
           </div>
           <p className={styles.footerTagline}>
-            Where culture meets glow — authentic Habesha food, beauty &amp; lifestyle delivered across London.
+            Habesha food, beauty and lifestyle products, delivered across London.
           </p>
           <a
             href={buildWhatsAppLink()}
-            className={styles.footerWaBtn}
+            className={`${styles.footerWaBtn} cg-press`}
             target="_blank"
             rel="noopener noreferrer"
           >

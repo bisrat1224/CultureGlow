@@ -21,7 +21,7 @@ export function FeatureBanner({ label, title, desc, cta }: FeatureBannerProps) {
 
           <a
             href={buildWhatsAppLink("I would like to enquire about catering")}
-            className={styles.btnPrimary}
+            className={`${styles.btnPrimary} cg-press`}
             target="_blank"
             rel="noopener noreferrer"
           >

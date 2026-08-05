@@ -19,7 +19,7 @@
   border: 1.5px solid rgba(200, 151, 58, 0.35);
   background: transparent;
   color: rgba(250, 246, 240, 0.55);
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 600;
   letter-spacing: 0.05em;
   cursor: pointer;
@@ -29,13 +29,13 @@
 
 .tab:hover {
   border-color: var(--cg-gold);
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 .tabActive {
   background: var(--cg-gold);
   border-color: var(--cg-gold);
-  color: #fff;
+  color: var(--cg-gold-ink);
 }
 
 .bentoGrid {

@@ -54,7 +54,7 @@ export function SocialTile({
     >
       <a
         href={url}
-        className={styles.socialTileLink}
+        className={`${styles.socialTileLink} cg-press-card`}
         target="_blank"
         rel="noopener noreferrer"
         aria-label={openLabel}

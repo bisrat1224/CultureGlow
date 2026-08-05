@@ -3,6 +3,11 @@
 .milestonesSection {
   padding: calc(var(--cg-u) * 10) 0;
   background: var(--cg-gold-light);
+
+  /* Light ground: gold-as-text needs the darkened value. Declared even
+     inside dark sections, since a light card there would otherwise
+     inherit the bright gold and drop to 2.4:1. */
+  --cg-gold-fg: var(--cg-gold-text);
 }
 
 .milestonesHeader {
@@ -11,8 +16,10 @@
 }
 
 .milestonesH2 {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(28px, 3.5vw, 42px);
+  font-family: var(--font-serif);
+  font-size: var(--cg-text-h2);
+  line-height: var(--cg-text-h2-lh);
+  letter-spacing: var(--cg-text-h2-ls);
   font-weight: 700;
   color: var(--cg-charcoal);
   margin-top: calc(var(--cg-u) * 1.5);
@@ -20,7 +27,7 @@
 
 .milestonesH2 em {
   font-style: italic;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 .timeline {
@@ -37,8 +44,8 @@
 }
 
 .timelineYear {
-  font-family: "Playfair Display", serif;
-  font-size: 32px;
+  font-family: var(--font-serif);
+  font-size: 2rem;
   font-weight: 700;
   color: var(--cg-charcoal);
   line-height: 1;
@@ -46,7 +53,7 @@
 }
 
 .timelineLabel {
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;

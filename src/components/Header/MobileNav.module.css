@@ -1,29 +1,71 @@
 .mobileNav {
-  display: none;
   position: fixed;
   inset: 0;
-  background: var(--cg-charcoal);
+  background: rgba(26, 26, 26, 0.96);
+  backdrop-filter: var(--cg-material-blur);
   z-index: 950;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: calc(var(--cg-u) * 4);
+
+  /* Scale out of the hamburger that opened it (top-right), so the panel
+     reads as growing from the control rather than materialising over the
+     page. Enter and exit share the path. */
+  transform-origin: calc(100% - 44px) 44px;
+
+  opacity: 1;
+  transform: scale(1);
+  transition:
+    opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    overlay 0.28s allow-discrete,
+    display 0.28s allow-discrete;
+
+  /* Dark ground: gold reads as gold here (6.58:1). */
+  --cg-gold-fg: var(--cg-gold);
 }
 
-.mobileNav.open {
-  display: flex;
+/* Entry state. @starting-style is what lets an element that toggles
+   display animate at all, instead of the hard cut this used to be. */
+@starting-style {
+  .mobileNav.open {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+}
+
+.mobileNav:not(.open) {
+  display: none;
+  opacity: 0;
+  transform: scale(0.94);
 }
 
 .mobileNav a {
-  font-family: "Playfair Display", serif;
-  font-size: 36px;
+  font-family: var(--font-serif);
+  font-size: 2.25rem;
   font-weight: 700;
   color: var(--cg-cream);
   transition: color 0.2s;
 }
 
 .mobileNav a:hover {
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
+}
+
+/* Answers "where am I?", matching the gold the desktop nav already uses
+   for the current page. Without this, mobile had no way to tell. */
+.mobileNav a.active {
+  color: var(--cg-gold-fg);
+}
+
+.mobileNav a.active::after {
+  content: "";
+  display: block;
+  height: 2px;
+  margin-top: 6px;
+  background: var(--cg-gold-fg);
 }
 
 .mobileNavClose {
@@ -32,12 +74,41 @@
   right: 24px;
   background: none;
   color: var(--cg-cream);
-  font-size: 28px;
+  font-size: 1.75rem;
   min-width: 44px;
   min-height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Cross-fade only. The scale is the vestibular part; opacity still
+     communicates that a layer arrived. */
+  .mobileNav {
+    transition:
+      opacity 0.2s ease,
+      overlay 0.2s allow-discrete,
+      display 0.2s allow-discrete;
+    transform: none;
+  }
+
+  @starting-style {
+    .mobileNav.open {
+      transform: none;
+    }
+  }
+
+  .mobileNav:not(.open) {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  .mobileNav {
+    background: var(--cg-charcoal);
+    backdrop-filter: none;
+  }
 }
 
 @media (min-width: 768px) {

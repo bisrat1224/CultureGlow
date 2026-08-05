@@ -1,6 +1,9 @@
 ﻿.socialSection {
   padding: calc(var(--cg-u) * 10) 0;
   background: var(--cg-charcoal);
+
+  /* Dark ground: gold reads as gold here (6.58:1). */
+  --cg-gold-fg: var(--cg-gold);
 }
 
 .socialHeader {
@@ -13,16 +16,17 @@
    when the declaration is identical, since sections evolve
    independently. */
 .sectionH2Light {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(28px, 3.5vw, 42px);
+  font-family: var(--font-serif);
+  font-size: var(--cg-text-h2);
+  line-height: var(--cg-text-h2-lh);
+  letter-spacing: var(--cg-text-h2-ls);
   font-weight: 700;
-  line-height: 1.1;
   color: var(--cg-cream);
 }
 
 .sectionH2Light em {
   font-style: italic;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 /* Single merged row: a fixed-width track holding two copies of the post
@@ -98,7 +102,7 @@
   border-radius: 12px;
   overflow: hidden;
   transition:
-    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.3s ease,
     border-color 0.3s ease;
 }
@@ -141,6 +145,9 @@
 .socialTileLink:hover .socialPlay {
   transform: scale(1.08);
   background: rgba(26, 26, 26, 0.55);
+
+  /* Dark ground: gold reads as gold here (6.58:1). */
+  --cg-gold-fg: var(--cg-gold);
 }
 
 .socialThumbImg {
@@ -162,6 +169,10 @@
 
 .socialColorB {
   background: var(--cg-green);
+
+  /* Green ground: neither gold passes here (bright 2.42:1, dark 1.02:1),
+     so gold-as-text becomes the light cream tint instead. 5.79:1. */
+  --cg-gold-fg: var(--cg-gold-light);
 }
 
 .socialColorC {
@@ -179,13 +190,16 @@
   align-items: center;
   justify-content: center;
   transition: transform 0.2s ease, background 0.2s ease;
+
+  /* Dark ground: gold reads as gold here (6.58:1). */
+  --cg-gold-fg: var(--cg-gold);
 }
 
 .socialBadge {
   position: absolute;
   top: 12px;
   left: 12px;
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -196,15 +210,20 @@
 
 .socialBadgeTiktok {
   background: rgba(26, 26, 26, 0.75);
+
+  /* Dark ground: gold reads as gold here (6.58:1). */
+  --cg-gold-fg: var(--cg-gold);
 }
 
 .socialBadgeReels {
   background: rgba(200, 151, 58, 0.9);
+  /* Overrides .socialBadge's #fff, which is 2.64:1 on this gold fill. */
+  color: var(--cg-gold-ink);
 }
 
 .socialCaption {
   padding: calc(var(--cg-u) * 2);
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 1.5;
   color: rgba(250, 246, 240, 0.65);
 }

@@ -2,9 +2,15 @@
   position: sticky;
   top: var(--cg-header-h);
   z-index: 700;
-  background: var(--cg-charcoal);
-  border-bottom: 1px solid rgba(200, 151, 58, 0.2);
+  /* Same material as the header above it, so the two read as one layer
+     with content passing under rather than two stacked opaque strips. */
+  background: var(--cg-material-bar-strong);
+  backdrop-filter: var(--cg-material-blur);
+  border-bottom: 1px solid var(--cg-material-edge);
   padding: calc(var(--cg-u) * 2) 0;
+
+  /* Dark ground: gold reads as gold here (6.58:1). */
+  --cg-gold-fg: var(--cg-gold);
 }
 .categoryNavScroll {
   display: flex;
@@ -20,7 +26,7 @@
 .categoryNavBtn {
   background-color: rgba(250, 246, 240, 0.06);
   color: rgba(250, 246, 240, 0.75);
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 600;
   padding: 8px 20px;
   border-radius: 999px;
@@ -37,7 +43,7 @@
 
 .categoryNavBtn:hover {
   border-color: var(--cg-gold);
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 /* Charcoal on gold (same as shop filters). Higher specificity so sticky

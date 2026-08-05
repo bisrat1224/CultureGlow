@@ -5,11 +5,12 @@
    independently" precedent set by SocialSection. */
 
 .sectionEyebrow {
-  font-size: 11px;
+  font-size: var(--cg-text-xs);
+  line-height: var(--cg-text-xs-lh);
+  letter-spacing: var(--cg-text-xs-ls);
   font-weight: 700;
-  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
   margin-bottom: 8px;
 }
 
@@ -28,15 +29,16 @@
 }
 
 .sectionTitle {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(28px, 3.5vw, 42px);
+  font-family: var(--font-serif);
+  font-size: var(--cg-text-h2);
+  line-height: var(--cg-text-h2-lh);
+  letter-spacing: var(--cg-text-h2-ls);
   font-weight: 700;
-  line-height: 1.08;
 }
 
 .sectionTitle em {
   font-style: italic;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 .sectionTitleLight {
@@ -48,8 +50,9 @@
 }
 
 .sectionDesc {
-  font-size: 15px;
-  line-height: 1.7;
+  font-size: var(--cg-text-body);
+  line-height: var(--cg-text-body-lh);
+  letter-spacing: var(--cg-text-body-ls);
   margin-top: calc(var(--cg-u) * 2);
 }
 
@@ -64,11 +67,19 @@
 .sectionOnCream {
   background: var(--cg-cream);
   padding: calc(var(--cg-u) * 10) 0;
+
+  /* Light ground: gold-as-text needs the darkened value. Declared even
+     inside dark sections, since a light card there would otherwise
+     inherit the bright gold and drop to 2.4:1. */
+  --cg-gold-fg: var(--cg-gold-text);
 }
 
 .sectionOnDark {
   background: var(--cg-charcoal);
   padding: calc(var(--cg-u) * 10) 0;
+
+  /* Dark ground: gold reads as gold here (6.58:1). */
+  --cg-gold-fg: var(--cg-gold);
 }
 
 /* Button styles duplicated from home/shared.module.css / CateringHero's
@@ -80,8 +91,8 @@
   align-items: center;
   gap: 8px;
   background: var(--cg-gold);
-  color: #fff;
-  font-size: 15px;
+  color: var(--cg-gold-ink);
+  font-size: 0.9375rem;
   font-weight: 600;
   padding: 14px 28px;
   border-radius: 8px;
@@ -90,7 +101,7 @@
 }
 
 .btnPrimary:hover {
-  background: #b08634;
+  background: var(--cg-gold-hover);
   transform: translateY(-2px);
 }
 
@@ -105,7 +116,7 @@
   gap: 8px;
   background: transparent;
   color: var(--cg-cream);
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 600;
   padding: 14px 28px;
   border-radius: 8px;

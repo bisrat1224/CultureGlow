@@ -32,11 +32,28 @@ export function StatCounter({ value, className }: Props) {
         hasRun.current = true;
         observer.disconnect();
 
+        // Years are not quantities. Counting "1, 2, 3 ... 2024" reads as a
+        // glitch, so anything year-shaped lands on its value immediately.
+        const isYear = Number.isInteger(num) && num >= 1900 && num <= 2100;
+        if (isYear) {
+          setDisplay(num);
+          return;
+        }
+
         const duration = 1200;
         const start = performance.now();
         const isFloat = num % 1 !== 0;
 
+        // Zero is written inside the first frame rather than as a separate
+        // state update, so a reader already looking at the figure never sees
+        // it jump backwards before counting up.
+        let started = false;
+
         function tick(now: number) {
+          if (!started) {
+            started = true;
+            setDisplay(0);
+          }
           const elapsed = now - start;
           const progress = Math.min(elapsed / duration, 1);
           // ease out cubic
@@ -46,7 +63,6 @@ export function StatCounter({ value, className }: Props) {
           if (progress < 1) requestAnimationFrame(tick);
         }
 
-        setDisplay(0);
         requestAnimationFrame(tick);
       },
       { threshold: 0.5 }

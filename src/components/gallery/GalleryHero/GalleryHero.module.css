@@ -5,6 +5,9 @@
   max-height: 620px;
   overflow: hidden;
   background: var(--cg-charcoal);
+
+  /* Dark ground: gold reads as gold here (6.58:1). */
+  --cg-gold-fg: var(--cg-gold);
 }
 
 .galleryHeroImg {
@@ -41,17 +44,18 @@
 }
 
 .galleryHeroEyebrow {
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
   margin-bottom: calc(var(--cg-u) * 2);
 }
 
 .galleryHeroH1 {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(38px, 6vw, 64px);
+  font-family: var(--font-serif);
+  font-size: var(--cg-text-h1);
+  letter-spacing: var(--cg-text-h1-ls);
   font-weight: 700;
   line-height: 1.05;
   color: var(--cg-cream);
@@ -61,11 +65,11 @@
 
 .galleryHeroH1 em {
   font-style: italic;
-  color: var(--cg-gold);
+  color: var(--cg-gold-fg);
 }
 
 .galleryHeroDesc {
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.7;
   color: rgba(250, 246, 240, 0.78);
   max-width: 480px;

@@ -2,8 +2,18 @@
   position: sticky;
   top: var(--cg-header-h);
   z-index: 700;
-  background: var(--cg-cream);
+  /* Same construction as the charcoal bars, just a cream ground: this one
+     sits on a light page, so the material is tinted to match rather than
+     switching to a different surface treatment. */
+  background: var(--cg-material-cream);
+  backdrop-filter: var(--cg-material-blur);
+  border-bottom: 1px solid var(--cg-border);
   padding: calc(var(--cg-u) * 2) 0;
+
+  /* Light ground: gold-as-text needs the darkened value. Declared even
+     inside dark sections, since a light card there would otherwise
+     inherit the bright gold and drop to 2.4:1. */
+  --cg-gold-fg: var(--cg-gold-text);
 }
 
 .filterScroll {
@@ -21,7 +31,7 @@
 .filterBtn {
   background-color: var(--cg-gold-light);
   color: var(--cg-charcoal);
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 600;
   padding: 8px 20px;
   border-radius: 999px;
@@ -31,6 +41,11 @@
   min-height: 44px;
   display: inline-flex;
   align-items: center;
+
+  /* Light ground: gold-as-text needs the darkened value. Declared even
+     inside dark sections, since a light card there would otherwise
+     inherit the bright gold and drop to 2.4:1. */
+  --cg-gold-fg: var(--cg-gold-text);
 }
 
 .filterBtn:hover,
@@ -41,17 +56,17 @@
 }
 
 .sectionLabel {
-  font-size: 10px;
+  font-size: 0.625rem;
   font-weight: 700;
-  letter-spacing: 2px;
-  color: var(--cg-gold);
+  letter-spacing: 0.2em;
+  color: var(--cg-gold-fg);
   text-transform: uppercase;
   margin-bottom: calc(var(--cg-u) * 1.5);
 }
 
 .sectionTitle {
-  font-family: "Playfair Display", serif;
-  font-size: 28px;
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
   font-weight: 700;
   line-height: 1.3;
   color: var(--cg-charcoal);
