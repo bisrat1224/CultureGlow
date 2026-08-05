@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import type { NavLink } from "@/lib/constants";
 import { useEffect, useRef } from "react";
 import styles from "./MobileNav.module.css";
@@ -14,6 +15,7 @@ interface MobileNavProps {
 export function MobileNav({ isOpen, onClose, links }: MobileNavProps) {
   const navRef = useRef<HTMLDivElement>(null);
   const closeBtnRef = useRef<HTMLButtonElement>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     if (!isOpen) return;
@@ -50,8 +52,10 @@ export function MobileNav({ isOpen, onClose, links }: MobileNavProps) {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, onClose]);
 
-  if (!isOpen) return null;
-
+  // Deliberately not unmounted when closed: an element that disappears from
+  // the tree cannot animate out, which is why this used to be a hard cut.
+  // `inert` keeps it out of the tab order and the accessibility tree while
+  // it is closed, so keeping it mounted costs nothing.
   return (
     <div
       ref={navRef}
@@ -59,6 +63,7 @@ export function MobileNav({ isOpen, onClose, links }: MobileNavProps) {
       role="dialog"
       aria-modal="true"
       aria-label="Mobile navigation"
+      inert={!isOpen}
     >
       <button
         ref={closeBtnRef}
@@ -70,11 +75,21 @@ export function MobileNav({ isOpen, onClose, links }: MobileNavProps) {
         ✕
       </button>
 
-      {links.map((link) => (
-        <Link key={link.href} href={link.href} onClick={onClose}>
-          {link.label}
-        </Link>
-      ))}
+      {links.map((link) => {
+        const isActive =
+          link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
+        return (
+          <Link
+            key={link.href}
+            href={link.href}
+            onClick={onClose}
+            className={isActive ? styles.active : undefined}
+            aria-current={isActive ? "page" : undefined}
+          >
+            {link.label}
+          </Link>
+        );
+      })}
     </div>
   );
 }
