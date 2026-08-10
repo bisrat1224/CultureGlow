@@ -1,31 +1,34 @@
 {
   "tiktoks": [
     {
-      "id": "tiktok-shibshibshop-7511690113722715397",
-      "title": "@shibshibshop",
-      "url": "https://www.tiktok.com/@shibshibshop/video/7511690113722715397",
-      "caption": "@shibshibshop",
-      "addedToSite": "2026-07-29",
+      "id": "tiktok-cultureglow24-7660268334390250774",
+      "title": "Our Coffee Beans",
+      "url": "https://www.tiktok.com/@cultureglow24/video/7660268334390250774",
+      "caption": "Our Coffee Beans",
+      "thumbnail": "/assets/images/social/our-coffee-beans.png",
+      "addedToSite": "2026-08-10",
       "sortOrder": 1,
       "showOnHome": true,
       "showOnGallery": true
     },
     {
       "id": "tiktok-havifashion1-7647578821578820885",
-      "title": "@havifashion1",
+      "title": "Coffee Ceremony",
       "url": "https://www.tiktok.com/@havifashion1/video/7647578821578820885",
-      "caption": "@havifashion1",
-      "addedToSite": "2026-07-29",
+      "caption": "Coffee Ceremony",
+      "thumbnail": "/assets/images/social/coffee-ceremony.png",
+      "addedToSite": "2026-08-10",
       "sortOrder": 2,
       "showOnHome": true,
       "showOnGallery": true
     },
     {
-      "id": "tiktok-hdmona-7481638070698118405",
-      "title": "@hdmona.habesha.dr",
-      "url": "https://www.tiktok.com/@hdmona.habesha.dr/video/7481638070698118405",
-      "caption": "@hdmona.habesha.dr",
-      "addedToSite": "2026-07-29",
+      "id": "tiktok-cultureglow24-7649385099259055393",
+      "title": "Coffee and Cake",
+      "url": "https://www.tiktok.com/@cultureglow24/video/7649385099259055393",
+      "caption": "Coffee and Cake",
+      "thumbnail": "/assets/images/social/coffee-and-cake.png",
+      "addedToSite": "2026-08-10",
       "sortOrder": 3,
       "showOnHome": true,
       "showOnGallery": true
@@ -33,34 +36,37 @@
   ],
   "reels": [
     {
-      "id": "reel-DYyL6ODIuu4",
-      "title": "Reel DYyL6ODIuu4",
-      "url": "https://www.instagram.com/reels/DYyL6ODIuu4/",
-      "caption": "Instagram Reel",
-      "addedToSite": "2026-07-29",
+      "id": "reel-DY92QnNK5rY",
+      "title": "Habesha Kemis at the Park",
+      "url": "https://www.instagram.com/cultureglow24/reel/DY92QnNK5rY/",
+      "caption": "Habesha Kemis at the Park",
+      "thumbnail": "/assets/images/social/habesha-kemis-park.png",
+      "addedToSite": "2026-08-10",
       "sortOrder": 1,
       "showOnHome": true,
-      "showOnGallery": false
+      "showOnGallery": true
     },
     {
-      "id": "reel-CrD-w0xro-3",
-      "title": "Reel CrD-w0xro-3",
-      "url": "https://www.instagram.com/reels/CrD-w0xro-3/",
-      "caption": "Instagram Reel",
-      "addedToSite": "2026-07-29",
+      "id": "reel-DWze6MADHmL",
+      "title": "Street Taste Test",
+      "url": "https://www.instagram.com/cultureglow24/reel/DWze6MADHmL/",
+      "caption": "Street Taste Test",
+      "thumbnail": "/assets/images/social/street-taste-test.png",
+      "addedToSite": "2026-08-10",
       "sortOrder": 2,
       "showOnHome": true,
-      "showOnGallery": false
+      "showOnGallery": true
     },
     {
-      "id": "reel-DUgXyOADIs8",
-      "title": "Reel DUgXyOADIs8",
-      "url": "https://www.instagram.com/reels/DUgXyOADIs8/",
-      "caption": "Instagram Reel",
-      "addedToSite": "2026-07-29",
+      "id": "reel-DWlYQHeDIrl",
+      "title": "Another Happy Customer",
+      "url": "https://www.instagram.com/reel/DWlYQHeDIrl/",
+      "caption": "Another Happy Customer",
+      "thumbnail": "/assets/images/social/another-happy-customer.png",
+      "addedToSite": "2026-08-10",
       "sortOrder": 3,
       "showOnHome": true,
-      "showOnGallery": false
+      "showOnGallery": true
     }
   ]
 }

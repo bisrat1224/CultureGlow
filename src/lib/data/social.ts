@@ -17,6 +17,7 @@ export interface SocialPost {
   sortOrder: number;
   showOnHome: boolean;
   showOnGallery: boolean;
+  /** Optional local or remote image path shown as the tile background */
   thumbnail?: string;
 }
 
@@ -29,6 +30,7 @@ type Raw = {
   sortOrder: number;
   showOnHome: boolean;
   showOnGallery: boolean;
+  thumbnail?: string;
 };
 
 function mapRaw(item: Raw, platform: SocialPlatform): SocialPost {
@@ -42,6 +44,7 @@ function mapRaw(item: Raw, platform: SocialPlatform): SocialPost {
     sortOrder: item.sortOrder,
     showOnHome: item.showOnHome,
     showOnGallery: item.showOnGallery,
+    thumbnail: item.thumbnail || undefined,
   };
 }
 
