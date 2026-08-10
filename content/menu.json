@@ -131,7 +131,7 @@
       {
         "id": "habesha-plate-special",
         "name": "Habesha Plate Special",
-        "description": "A composed plate of seasonal Habesha stews and sides, served with fresh injera",
+        "description": "A composed plate of seasonal Habesha stews and sides, served with fresh injera.",
         "price": "£14.50",
         "image": "/assets/images/menu-items/habesha-food-plate.jpeg",
         "alt": "Habesha plate with assorted stews and injera",
@@ -143,7 +143,7 @@
       {
         "id": "habesha-sharing-platter-new",
         "name": "Habesha Sharing Platter",
-        "description": "A generous sharing platter of mixed Habesha dishes, ideal for two to share",
+        "description": "A generous sharing platter of mixed Habesha dishes, ideal for two to share.",
         "price": "£22.00",
         "image": "/assets/images/menu-items/habesha-food-platter.jpeg",
         "alt": "Habesha sharing platter with mixed dishes",

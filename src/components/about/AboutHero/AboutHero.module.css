@@ -13,6 +13,7 @@
 
 .aboutHeroImg {
   object-fit: cover;
+  object-position: center 25%;
   z-index: 0;
 }
 

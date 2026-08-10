@@ -12,6 +12,7 @@ interface GalleryItem {
 
 /** Real CultureGlow24 event/gallery photos (client). Older stock placeholders kept below for easy restore. */
 const GALLERY_ITEMS: GalleryItem[] = [
+  // Real client photos (allowed set)
   {
     id: "wedding",
     image: "/assets/images/gallery/wedding.jpeg",
@@ -23,18 +24,6 @@ const GALLERY_ITEMS: GalleryItem[] = [
     image: "/assets/images/gallery/aau-event.jpeg",
     alt: "CultureGlow24 at an AAU event",
     caption: "Event",
-  },
-  {
-    id: "booth-1",
-    image: "/assets/images/gallery/booth-1.jpeg",
-    alt: "CultureGlow24 booth setup",
-    caption: "Booth",
-  },
-  {
-    id: "booth-2",
-    image: "/assets/images/gallery/booth-2.jpeg",
-    alt: "CultureGlow24 booth with products on display",
-    caption: "Booth",
   },
   {
     id: "booth-3",
@@ -49,27 +38,9 @@ const GALLERY_ITEMS: GalleryItem[] = [
     caption: "Booth",
   },
   {
-    id: "booth-5",
-    image: "/assets/images/gallery/booth-5.jpeg",
-    alt: "CultureGlow24 booth and visitors",
-    caption: "Booth",
-  },
-  {
-    id: "happy-customers-1",
-    image: "/assets/images/gallery/happy-customers-1.jpeg",
-    alt: "Happy customers enjoying CultureGlow24 food",
-    caption: "Customers",
-  },
-  {
     id: "happy-customers-2",
     image: "/assets/images/gallery/happy-customers-2.jpeg",
     alt: "Customers at a CultureGlow24 event",
-    caption: "Customers",
-  },
-  {
-    id: "happy-customers-3",
-    image: "/assets/images/gallery/happy-customers-3.jpeg",
-    alt: "Guests smiling at a CultureGlow24 gathering",
     caption: "Customers",
   },
   {
@@ -77,6 +48,43 @@ const GALLERY_ITEMS: GalleryItem[] = [
     image: "/assets/images/gallery/happy-customers-4.jpeg",
     alt: "Happy customers with CultureGlow24 dishes",
     caption: "Customers",
+  },
+  // Placeholder stock (pad to 12 for 4×3 symmetry on desktop)
+  {
+    id: "placeholder-wedding-1",
+    image: "https://images.pexels.com/photos/35976293/pexels-photo-35976293.png?auto=compress&cs=tinysrgb&w=700",
+    alt: "Ethiopian wedding celebration at night",
+    caption: "Wedding",
+  },
+  {
+    id: "placeholder-corporate-1",
+    image: "https://images.pexels.com/photos/3376765/pexels-photo-3376765.jpeg?auto=compress&cs=tinysrgb&w=700",
+    alt: "Banquet hall set up with round tables and floral centerpieces",
+    caption: "Corporate",
+  },
+  {
+    id: "placeholder-birthday-1",
+    image: "https://images.pexels.com/photos/30844787/pexels-photo-30844787.jpeg?auto=compress&cs=tinysrgb&w=700",
+    alt: "Elegant birthday celebration with balloons and cake",
+    caption: "Birthday",
+  },
+  {
+    id: "placeholder-cultural-1",
+    image: "https://images.pexels.com/photos/20865956/pexels-photo-20865956.jpeg?auto=compress&cs=tinysrgb&w=700",
+    alt: "Women in colorful traditional dress at Meskel festival, Addis Ababa",
+    caption: "Cultural",
+  },
+  {
+    id: "placeholder-ceremony-1",
+    image: "https://images.pexels.com/photos/17272177/pexels-photo-17272177.jpeg?auto=compress&cs=tinysrgb&w=700",
+    alt: "Traditional parade during a religious festival in Addis Ababa",
+    caption: "Ceremony",
+  },
+  {
+    id: "placeholder-corporate-3",
+    image: "https://images.pexels.com/photos/6405679/pexels-photo-6405679.jpeg?auto=compress&cs=tinysrgb&w=700",
+    alt: "Team celebrating together at a festive office party",
+    caption: "Corporate",
   },
 ];
 

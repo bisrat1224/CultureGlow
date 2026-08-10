@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Contentful purge + seed (Page → content)
 
-## Getting Started
+## Architecture
+- **Page singletons** (`homePage`, `shopPage`, …): marketing texts (+ hero assets uploaded)
+- **Shared catalogue**: `product`, `menuItem`, `menuCategory`, `galleryPhoto`
+- **Keep**: `tiktokPost`, `instagramReel` (not deleted)
 
-First, run the development server:
+## Image subfolders
+Upload resolves paths like:
+- `/assets/images/shop-items/...`
+- `/assets/images/menu-items/...`
+- `/assets/images/gallery/...`
+- `/assets/images/hero-bg-images/...`
+from `public/` on disk. Asset titles use the relative path so basenames in different folders never collide.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Steps
+1. Copy both `.ts` files into `scripts/contentful/`
+2. Ensure `.env.local` has SPACE_ID, ENVIRONMENT, MANAGEMENT_TOKEN
+3. Purge (destructive):
+   ```bash
+   CONFIRM_PURGE=yes npx tsx scripts/contentful/purge-except-social.ts
+   ```
+4. Seed from local JSON + allow-listed gallery:
+   ```bash
+   npx tsx scripts/contentful/seed-from-local.ts
+   ```
+5. Open Contentful → Content and confirm one entry per page type, new products, 6 gallery photos, social still there.

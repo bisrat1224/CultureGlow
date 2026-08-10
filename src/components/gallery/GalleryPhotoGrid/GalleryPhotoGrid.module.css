@@ -26,7 +26,7 @@
 
 .photoImg {
   object-fit: cover;
-  object-position: center;
+  object-position: center 20%;
   transition: transform 0.4s ease;
   will-change: transform;
 }

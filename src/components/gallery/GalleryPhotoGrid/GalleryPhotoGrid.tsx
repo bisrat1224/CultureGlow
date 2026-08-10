@@ -17,7 +17,10 @@ export interface GalleryPhoto {
   alt: string;
 }
 
-/** Real CultureGlow24 gallery photos (client). Older stock placeholders kept below for easy restore. */
+/** Real CultureGlow24 gallery photos (client selection).
+ * Allowed: wedding, aau-event, booth-3, booth-4, happy-customers-2, happy-customers-4.
+ * 6 items → even 2-column grid (3 rows). booth-5 and other booth/happy shots excluded.
+ */
 const PHOTOS: GalleryPhoto[] = [
   {
     id: "wedding",
@@ -30,16 +33,6 @@ const PHOTOS: GalleryPhoto[] = [
     alt: "CultureGlow24 at an AAU event",
   },
   {
-    id: "booth-1",
-    image: "/assets/images/gallery/booth-1.jpeg",
-    alt: "CultureGlow24 booth setup",
-  },
-  {
-    id: "booth-2",
-    image: "/assets/images/gallery/booth-2.jpeg",
-    alt: "CultureGlow24 booth with products on display",
-  },
-  {
     id: "booth-3",
     image: "/assets/images/gallery/booth-3.jpeg",
     alt: "CultureGlow24 market booth",
@@ -50,24 +43,9 @@ const PHOTOS: GalleryPhoto[] = [
     alt: "CultureGlow24 booth close-up",
   },
   {
-    id: "booth-5",
-    image: "/assets/images/gallery/booth-5.jpeg",
-    alt: "CultureGlow24 booth and visitors",
-  },
-  {
-    id: "happy-customers-1",
-    image: "/assets/images/gallery/happy-customers-1.jpeg",
-    alt: "Happy customers enjoying CultureGlow24 food",
-  },
-  {
     id: "happy-customers-2",
     image: "/assets/images/gallery/happy-customers-2.jpeg",
     alt: "Customers at a CultureGlow24 event",
-  },
-  {
-    id: "happy-customers-3",
-    image: "/assets/images/gallery/happy-customers-3.jpeg",
-    alt: "Guests smiling at a CultureGlow24 gathering",
   },
   {
     id: "happy-customers-4",
@@ -77,51 +55,14 @@ const PHOTOS: GalleryPhoto[] = [
 ];
 
 /*
- * PLACEHOLDER / STOCK PHOTOS (commented out — restore if needed)
+ * EXCLUDED client photos (do not use): booth-1, booth-2, booth-5,
+ * happy-customers-1, happy-customers-3.
  *
- * const PHOTOS_PLACEHOLDER: GalleryPhoto[] = [
- *   {
- *     id: "wedding-1",
- *     image: "https://images.pexels.com/photos/35976293/pexels-photo-35976293.png?auto=compress&cs=tinysrgb&w=900",
- *     alt: "Ethiopian wedding celebration at night",
- *   },
- *   {
- *     id: "corporate-1",
- *     image: "https://images.pexels.com/photos/3376765/pexels-photo-3376765.jpeg?auto=compress&cs=tinysrgb&w=900",
- *     alt: "Banquet hall set up with round tables and floral centerpieces",
- *   },
- *   {
- *     id: "birthday-1",
- *     image: "https://images.pexels.com/photos/30844787/pexels-photo-30844787.jpeg?auto=compress&cs=tinysrgb&w=900",
- *     alt: "Elegant birthday celebration with balloons and cake",
- *   },
- *   {
- *     id: "cultural-1",
- *     image: "https://images.pexels.com/photos/20865956/pexels-photo-20865956.jpeg?auto=compress&cs=tinysrgb&w=900",
- *     alt: "Women in colorful traditional dress at Meskel festival, Addis Ababa",
- *   },
- *   {
- *     id: "ceremony-1",
- *     image: "https://images.pexels.com/photos/17272177/pexels-photo-17272177.jpeg?auto=compress&cs=tinysrgb&w=900",
- *     alt: "Traditional parade during a religious festival in Addis Ababa",
- *   },
- *   {
- *     id: "corporate-3",
- *     image: "https://images.pexels.com/photos/6405679/pexels-photo-6405679.jpeg?auto=compress&cs=tinysrgb&w=900",
- *     alt: "Team celebrating together at a festive office party",
- *   },
- *   {
- *     id: "wedding-2",
- *     image: "https://images.pexels.com/photos/36005228/pexels-photo-36005228.jpeg?auto=compress&cs=tinysrgb&w=900",
- *     alt: "Group celebrating in colorful traditional attire",
- *   },
- *   {
- *     id: "ceremony-2",
- *     image: "https://images.pexels.com/photos/19960366/pexels-photo-19960366.jpeg?auto=compress&cs=tinysrgb&w=900",
- *     alt: "Traditional attire at a religious ceremony under blue sky",
- *   },
- * ];
+ * PLACEHOLDER / STOCK (restore if needed to pad the grid):
+ *   wedding-1, corporate-1, birthday-1, cultural-1, ceremony-1, corporate-3, wedding-2, ceremony-2
+ *   (see git history / previous block for full Pexels URLs)
  */
+
 
 
 export function GalleryPhotoGrid() {
