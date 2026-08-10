@@ -50,7 +50,10 @@
         "price": "£5.50",
         "image": "/assets/images/sambusajpg.jpg",
         "alt": "Sambusa",
-        "diet": ["veg", "vegan"],
+        "diet": [
+          "veg",
+          "vegan"
+        ],
         "tag": "Popular"
       },
       {
@@ -60,7 +63,10 @@
         "price": "£4.50",
         "image": "/assets/images/Kategna.jpeg",
         "alt": "Kategna",
-        "diet": ["veg", "spicy"]
+        "diet": [
+          "veg",
+          "spicy"
+        ]
       }
     ],
     "mains": [
@@ -71,7 +77,9 @@
         "price": "£14.50",
         "image": "/assets/images/Doro-wat.jpg",
         "alt": "Doro Wat",
-        "diet": ["spicy"]
+        "diet": [
+          "spicy"
+        ]
       },
       {
         "id": "injera-with-tibs-main",
@@ -80,7 +88,9 @@
         "price": "£13.50",
         "image": "/assets/images/tibs-skillet.jpg",
         "alt": "Injera with Tibs",
-        "diet": ["spicy"]
+        "diet": [
+          "spicy"
+        ]
       },
       {
         "id": "injera-platter-main",
@@ -89,7 +99,10 @@
         "price": "£12.50",
         "image": "/assets/images/injera-plate.jpg",
         "alt": "Injera Platter",
-        "diet": ["gf", "veg"]
+        "diet": [
+          "gf",
+          "veg"
+        ]
       },
       {
         "id": "family-sharing-platter-main",
@@ -98,7 +111,9 @@
         "price": "£28.00",
         "image": "/assets/images/family-platter.jpeg",
         "alt": "Family Sharing Platter",
-        "diet": ["spicy"]
+        "diet": [
+          "spicy"
+        ]
       },
       {
         "id": "habesha-feast-platter-main",
@@ -107,8 +122,35 @@
         "price": "£48.00",
         "image": "/assets/images/sharing-hands.jpg",
         "alt": "Habesha Feast Platter",
-        "diet": ["spicy", "gf"],
+        "diet": [
+          "spicy",
+          "gf"
+        ],
         "tag": "Chef's Special"
+      },
+      {
+        "id": "habesha-plate-special",
+        "name": "Habesha Plate Special",
+        "description": "A composed plate of seasonal Habesha stews and sides, served with fresh injera",
+        "price": "£14.50",
+        "image": "/assets/images/menu-items/habesha-food-plate.jpeg",
+        "alt": "Habesha plate with assorted stews and injera",
+        "diet": [
+          "gf"
+        ],
+        "tag": "New"
+      },
+      {
+        "id": "habesha-sharing-platter-new",
+        "name": "Habesha Sharing Platter",
+        "description": "A generous sharing platter of mixed Habesha dishes, ideal for two to share",
+        "price": "£22.00",
+        "image": "/assets/images/menu-items/habesha-food-platter.jpeg",
+        "alt": "Habesha sharing platter with mixed dishes",
+        "diet": [
+          "gf"
+        ],
+        "tag": "New"
       }
     ],
     "veg-vegan": [
@@ -119,7 +161,11 @@
         "price": "£13.00",
         "image": "/assets/images/platter-big.jpg",
         "alt": "Beyaynetu",
-        "diet": ["veg", "vegan", "gf"]
+        "diet": [
+          "veg",
+          "vegan",
+          "gf"
+        ]
       },
       {
         "id": "shiro-wat",
@@ -128,8 +174,41 @@
         "price": "£11.00",
         "image": "/assets/images/stew-pans.avif",
         "alt": "Shiro Wat",
-        "diet": ["veg", "vegan", "gf", "spicy"],
+        "diet": [
+          "veg",
+          "vegan",
+          "gf",
+          "spicy"
+        ],
         "tag": "Popular"
+      },
+      {
+        "id": "lentil-bowl-one",
+        "name": "Spiced Lentil and Meat Bowl",
+        "description": "A hearty bowl of spiced lentils, meats and vegetables, served with injera.",
+        "price": "£11.50",
+        "image": "/assets/images/menu-items/habesha-food-bowl-1.jpeg",
+        "alt": "Bowl of spiced Habesha lentils and vegetables",
+        "diet": [
+          "veg",
+          "vegan",
+          "gf"
+        ],
+        "tag": "New"
+      },
+      {
+        "id": "vegetable-stew-bowl",
+        "name": "Vegetable Stew Bowl",
+        "description": "A colourful vegetable stew bowl with seasonal produce and traditional seasoning.",
+        "price": "£11.50",
+        "image": "/assets/images/menu-items/habesha-food-bowl-2.jpeg",
+        "alt": "Bowl of Habesha vegetable stew with injera",
+        "diet": [
+          "veg",
+          "vegan",
+          "gf"
+        ],
+        "tag": "New"
       }
     ],
     "desserts": [
@@ -140,7 +219,9 @@
         "price": "£5.00",
         "image": "/assets/images/ambasha.jpeg",
         "alt": "Ambasha",
-        "diet": ["veg"]
+        "diet": [
+          "veg"
+        ]
       },
       {
         "id": "dabo-kolo-sweet-bites",
@@ -149,7 +230,10 @@
         "price": "£4.00",
         "image": "/assets/images/dabo-kollo.jpeg",
         "alt": "Dabo Kolo Sweet Bites",
-        "diet": ["veg", "vegan"]
+        "diet": [
+          "veg",
+          "vegan"
+        ]
       }
     ],
     "drinks": [
@@ -168,16 +252,40 @@
         "price": "£8.00",
         "image": "/assets/images/coffee-pot.jpg",
         "alt": "Ethiopian Coffee Ceremony",
-        "diet": ["veg", "vegan"],
+        "diet": [
+          "veg",
+          "vegan"
+        ],
         "tag": "Popular"
       }
     ]
   },
-  "featuredItemIds": ["sambusa", "doro-wat", "injera-platter-main", "beyaynetu-menu"],
+  "featuredItemIds": [
+    "sambusa",
+    "doro-wat",
+    "injera-platter-main",
+    "beyaynetu-menu"
+  ],
   "dietLegend": [
-    { "flag": "veg", "label": "Vegetarian", "chipLabel": "V" },
-    { "flag": "vegan", "label": "Vegan", "chipLabel": "VG" },
-    { "flag": "gf", "label": "Gluten-Free", "chipLabel": "GF" },
-    { "flag": "spicy", "label": "Spicy", "chipLabel": "🌶" }
+    {
+      "flag": "veg",
+      "label": "Vegetarian",
+      "chipLabel": "V"
+    },
+    {
+      "flag": "vegan",
+      "label": "Vegan",
+      "chipLabel": "VG"
+    },
+    {
+      "flag": "gf",
+      "label": "Gluten-Free",
+      "chipLabel": "GF"
+    },
+    {
+      "flag": "spicy",
+      "label": "Spicy",
+      "chipLabel": "🌶"
+    }
   ]
 }

@@ -25,3 +25,15 @@ Same idea for menu items in `content/menu.json`.
 
 When CMS access is ready, set `CONTENTFUL_ENABLED=true` in `.env.local`.
 Until then, leave it `false` or unset — the app uses these JSON files only.
+
+## Placeholders (old catalogue)
+
+`products.json` keeps the previous 8 products under `_placeholderProducts`.
+The app only reads `products` + `featuredIds`, so placeholders are inactive.
+To restore one: copy it from `_placeholderProducts` into `products` and add its `id` to `featuredIds` if needed.
+
+Gallery / catering photo grids keep the old Pexels URLs in block comments inside:
+- `src/components/gallery/GalleryPhotoGrid/GalleryPhotoGrid.tsx`
+- `src/components/catering/EventGallerySection/EventGallerySection.tsx`
+- `src/lib/content/content.about.ts` (gallery images)
+

@@ -5,8 +5,8 @@ export function AboutHero() {
   return (
     <section className={styles.aboutHero} aria-label="About hero">
       <Image
-        src="/assets/images/habesha-sefed.avif"
-        alt="Habesha cultural heritage and identity"
+        src="/assets/images/hero-bg-images/hero-bg-image-1.jpeg"
+        alt="CultureGlow24, our story"
         fill
         sizes="100vw"
         quality={90}
