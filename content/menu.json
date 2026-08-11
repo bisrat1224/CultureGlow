@@ -92,29 +92,8 @@
           "spicy"
         ]
       },
-      {
-        "id": "injera-platter-main",
-        "name": "Injera Platter",
-        "description": "A generous platter of injera paired with a rotating selection of vegetable and lentil sides.",
-        "price": "£12.50",
-        "image": "/assets/images/injera-plate.jpg",
-        "alt": "Injera Platter",
-        "diet": [
-          "gf",
-          "veg"
-        ]
-      },
-      {
-        "id": "family-sharing-platter-main",
-        "name": "Family Sharing Platter",
-        "description": "Our signature spread of stews, injera, and sides, built for sharing around the table.",
-        "price": "£28.00",
-        "image": "/assets/images/family-platter.jpeg",
-        "alt": "Family Sharing Platter",
-        "diet": [
-          "spicy"
-        ]
-      },
+      
+      
       {
         "id": "habesha-feast-platter-main",
         "name": "Habesha Feast Platter",
@@ -156,11 +135,11 @@
     "veg-vegan": [
       {
         "id": "beyaynetu-menu",
-        "name": "Beyaynetu",
+        "name": "Vegan Combo",
         "description": "A colourful vegan combination platter of lentils, split peas, and seasonal vegetables served on injera.",
         "price": "£13.00",
-        "image": "/assets/images/platter-big.jpg",
-        "alt": "Beyaynetu",
+        "image": "/assets/images/menu-items/vegan-beyaynetu.jpeg",
+        "alt": "Ethiopian Vegan Combo",
         "diet": [
           "veg",
           "vegan",
@@ -209,6 +188,67 @@
           "gf"
         ],
         "tag": "New"
+      },
+      {
+        "id": "misir-wat",
+        "name": "Misir Wat",
+        "description": "Spiced red lentil stew simmered with berbere, garlic, and onion until thick and flavourful.",
+        "price": "£11.00",
+        "image": "/assets/images/menu-items/Misir-Wat.jpg",
+        "alt": "Misir Wat",
+        "diet": [
+          "veg",
+          "vegan",
+          "spicy"
+        ]
+      },
+      {
+        "id": "ater-kik-alicha",
+        "name": "Ater Kik Alicha",
+        "description": "Mild yellow pea stew gently cooked with turmeric, garlic, and onion for a soft, comforting flavour.",
+        "price": "£10.50",
+        "image": "assets/images/menu-items/ater-kik-alicha.jpg",
+        "alt": "Ater Kik Alicha",
+        "diet": [
+          "veg",
+          "vegan"
+        ]
+      },
+      {
+        "id": "tikil-gomen",
+        "name": "Tikil Gomen",
+        "description": "Cabbage, carrots, and potatoes slowly cooked with mild spices and a touch of turmeric.",
+        "price": "£10.50",
+        "image": "/assets/images/menu-items/tikil-gomen.jpeg",
+        "alt": "Tikil Gomen",
+        "diet": [
+          "veg",
+          "vegan"
+        ]
+      },
+      {
+        "id": "key-sir-alicha",
+        "name": "Key Sir Alicha",
+        "description": "Tender beetroot stew simmered with mild spices, onion, and a hint of garlic.",
+        "price": "£10.50",
+        "image": "assets/images/menu-items/key-sir-alicha.jpg",
+        "alt": "Key Sir Alicha",
+        "diet": [
+          "veg",
+          "vegan"
+        ]
+      },
+      {
+        "id": "combo",
+        "name": "Combo with Meat",
+        "description": "A colourful combination platter of traditional Ethiopian stews and and meat dishes served with injera.",
+        "price": "£20.00",
+        "image": "/assets/images/platter-big.jpg",
+        "alt": "Combo platter",
+        "diet": [
+          "veg",
+          "vegan"
+        ]
       }
     ],
     "desserts": [
