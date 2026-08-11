@@ -50,8 +50,8 @@ export function StorySection() {
             </div>
             <div className={styles.storyImgAccentWrap}>
               <Image
-                src="/assets/images/injera-plate.jpg"
-                alt="Injera platter"
+                src="/assets/images/coffee-in-traditional-cup.jpg"
+                alt="Ethiopian coffee in a traditional cup"
                 fill
                 loading="lazy"
                 sizes="(min-width: 768px) 24vw, 48vw"
