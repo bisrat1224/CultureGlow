@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { NAV_LINKS, SOCIAL_LINKS, CONTACT_EMAIL, buildWhatsAppLink } from "@/lib/constants";
+import { NAV_LINKS, SOCIAL_LINKS, CONTACT_EMAIL } from "@/lib/constants"; 
 import styles from "./Footer.module.css";
 
 const ADDRESS =
@@ -36,13 +36,16 @@ function SocialIcon({ label }: { label: string }) {
 export function Footer() {
   const year = new Date().getFullYear();
 
+
+  const footerNavLinks = NAV_LINKS.filter((link) => link.href !== "/");
+
   return (
     <footer className={styles.footer}>
       <div className={`${styles.footerInner} wrap`}>
 
         {/* Col 1: Brand */}
         <div className={styles.footerBrand}>
-          <div className={styles.footerBrandHeader}>
+          <Link href="/" className={styles.footerBrandHeader}> 
             <Image
               src="/assets/images/logo.png"
               alt="CultureGlow24"
@@ -52,26 +55,32 @@ export function Footer() {
               className={styles.footerLogo}
             />
             <p className={styles.footerBrandName}>Culture Glow</p>
-          </div>
+          </Link> 
           <p className={styles.footerTagline}>
             Habesha food, beauty and lifestyle products, delivered across London.
           </p>
-          <a
-            href={buildWhatsAppLink()}
-            className={`${styles.footerWaBtn} cg-press`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/assets/images/img_whatsappicon.svg" alt="WhatsApp Icon" />
-            Order
-          </a>
+          
+          <p className={`${styles.footerColTitle} ${styles.footerAddressTitle}`}>Address</p> 
+          <ul className={`${styles.footerLinks} ${styles.footerItemText}`}> 
+            <li> 
+              <a
+                href={ADDRESS_MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.footerAddressLink}
+              > 
+                {ADDRESS}
+              </a> 
+            </li> 
+          </ul> 
         </div>
 
         {/* Col 2: Explore (2-column grid) */}
         <nav className={styles.footerExplore} aria-label="Footer navigation">
           <p className={styles.footerColTitle}>Explore</p>
-          <ul className={styles.footerExploreLinks}>
-            {NAV_LINKS.map((link) => (
+         
+          <ul className={`${styles.footerExploreLinks} ${styles.footerItemText}`}> 
+            {footerNavLinks.map((link) => (
               <li key={link.href}>
                 <Link href={link.href}>{link.label}</Link>
               </li>
@@ -82,31 +91,24 @@ export function Footer() {
         {/* Col 3: Contact + Address */}
         <div className={styles.footerContact}>
           <p className={styles.footerColTitle}>Contact</p>
-          <ul className={styles.footerLinks}>
+          
+          <ul className={`${styles.footerLinks} ${styles.footerItemText}`}> 
             <li>Delivering across London</li>
             <li>
               <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
             </li>
           </ul>
-          <p className={`${styles.footerColTitle} ${styles.footerAddressTitle}`}>Address</p>
-          <ul className={styles.footerLinks}>
-            <li>
-              <a
-                href={ADDRESS_MAPS_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.footerAddressLink}
-              >
-                {ADDRESS}
-              </a>
-            </li>
-          </ul>
+          
+          
+          
+          
         </div>
 
         {/* Col 4: Follow */}
         <div className={styles.footerFollow}>
           <p className={styles.footerColTitle}>Follow</p>
-          <ul className={`${styles.footerLinks} ${styles.footerSocialList}`}>
+          
+          <ul className={`${styles.footerLinks} ${styles.footerSocialList} ${styles.footerItemText}`}>
             {SOCIAL_LINKS.map((social) => (
               <li key={social.label}>
                 <a

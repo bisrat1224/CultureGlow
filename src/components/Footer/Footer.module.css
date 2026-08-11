@@ -15,14 +15,15 @@
   padding-bottom: calc(var(--cg-u) * 4);
 }
 
-/* Logo + WA button side by side on mobile */
+
 .footerBrand {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: calc(var(--cg-u) * 2);
-  flex-wrap: wrap;
+  flex-direction: column; 
+  align-items: flex-start; 
+  justify-content: flex-start; 
+  gap: calc(var(--cg-u) * 1.5); 
+  flex-wrap: nowrap; 
+  padding-bottom: 0.75rem;
 }
 
 /* Logo + brand name inline */
@@ -30,6 +31,9 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  
+  text-decoration: none; 
+  color: inherit; 
 }
 
 .footerLogo {
@@ -73,6 +77,19 @@
   color: rgba(250, 246, 240, 0.65);
 }
 
+
+.footerItemText {
+  font-size: 0.875rem; 
+  font-family: inherit; 
+  color: rgba(250, 246, 240, 0.65); 
+}
+
+.footerItemText a {
+  font-size: inherit; 
+  font-family: inherit; 
+  color: inherit; 
+}
+
 .footerExploreLinks a,
 .footerLinks a {
   transition: color 0.2s;
@@ -91,31 +108,6 @@
   gap: calc(var(--cg-u) * 1);
 }
 
-.footerWaBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--cg-gold);
-  color: var(--cg-gold-ink);
-  font-size: 0.875rem;
-  font-weight: 600;
-  padding: 10px 20px;
-  border-radius: 8px;
-  min-height: 44px;
-  transition:
-    background 0.2s,
-    transform 0.2s;
-}
-
-.footerWaBtn:hover {
-  background: var(--cg-gold-hover);
-  transform: translateY(-1px);
-}
-
-.footerWaBtn img {
-  width: 16px;
-  height: 16px;
-}
 
 .footerSocialList {
   flex-direction: row !important;
@@ -139,13 +131,15 @@
   line-height: 1.5;
 }
 
+
 .footerAddressTitle {
-  margin-top: calc(var(--cg-u) * 2);
+  margin-top: calc(var(--cg-u) * 0.5); 
 }
+
 
 .footerBottom {
   border-top: 1px solid rgba(250, 246, 240, 0.08);
-  padding: calc(var(--cg-u) * 3) 0 calc(var(--cg-u) * 4);
+  padding: 0.25rem 0; 
   text-align: center;
   font-size: 0.75rem;
   color: rgba(250, 246, 240, 0.4);
@@ -202,9 +196,10 @@
     margin-bottom: calc(var(--cg-u) * 2);
   }
 
+
   .footerAddressTitle {
-    margin-top: calc(var(--cg-u) * 3);
-    margin-bottom: calc(var(--cg-u) * 2);
+    margin-top: calc(var(--cg-u) * 1); 
+    margin-bottom: calc(var(--cg-u) * 1); 
   }
 
   /* Explore links: 2-column grid */
@@ -235,6 +230,6 @@
   }
 
   .footerBottom {
-    padding: calc(var(--cg-u) * 3.5) 0;
+    padding: 0.25rem 0; 
   }
 }
