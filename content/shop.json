@@ -1,8 +1,8 @@
 {
   "hero": {
-    "label": "Habesha Food · Beauty · Lifestyle",
-    "title": "Everything Habesha, Delivered to Your Door",
-    "desc": "Ethiopian food, beauty and lifestyle products. Order over WhatsApp in seconds, with no account and no checkout."
+    "label": "Beauty · Lifestyle",
+    "title": "Habesha Beauty & Lifestyle, Delivered to Your Door",
+    "desc": "Ethiopian beauty and lifestyle products. Order over WhatsApp in seconds, with no account and no checkout."
   },
   "scrollingBanner": {
     "items": [
@@ -21,7 +21,7 @@
   "bundles": {
     "label": "Gift Bundles",
     "title": "Gift Sets, Ready to Send",
-    "desc": "Each bundle pairs our most-ordered dishes, garments and beauty items, so you send one WhatsApp message instead of choosing item by item."
+    "desc": "Each bundle pairs our most-ordered garments and beauty items, so you send one WhatsApp message instead of choosing item by item."
   },
   "productsSection": {
     "label": "Our Products",
@@ -35,7 +35,7 @@
       {
         "number": 1,
         "title": "Browse & Pick",
-        "desc": "Look through the food, beauty and lifestyle products and choose what you want."
+        "desc": "Look through the beauty and lifestyle products and choose what you want."
       },
       {
         "number": 2,

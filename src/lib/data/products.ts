@@ -3,11 +3,10 @@ import productsData from "../../../content/products.json";
 
 export type { Product };
 
-export type ProductCategory = "HABESHA FOOD" | "LIFESTYLE" | "BEAUTY";
+export type ProductCategory = "LIFESTYLE" | "BEAUTY";
 
 export const SHOP_FILTERS: { value: ProductCategory | "all"; label: string }[] = [
   { value: "all", label: "All" },
-  { value: "HABESHA FOOD", label: "Habesha Food" },
   { value: "LIFESTYLE", label: "Lifestyle" },
   { value: "BEAUTY", label: "Beauty" },
 ];
