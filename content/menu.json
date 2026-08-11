@@ -71,17 +71,6 @@
     ],
     "mains": [
       {
-        "id": "doro-wat",
-        "name": "Doro Wat",
-        "description": "Slow-simmered chicken in a rich berbere sauce with hard-boiled egg, our most requested dish for a reason.",
-        "price": "£14.50",
-        "image": "/assets/images/Doro-wat.jpg",
-        "alt": "Doro Wat",
-        "diet": [
-          "spicy"
-        ]
-      },
-      {
         "id": "injera-with-tibs-main",
         "name": "Injera with Tibs",
         "description": "Pan-seared beef tibs tossed with onion, garlic, and rosemary, served over fresh injera.",
@@ -93,23 +82,9 @@
         ]
       },
       
-      
       {
-        "id": "habesha-feast-platter-main",
-        "name": "Habesha Feast Platter",
-        "description": "The full CultureGlow24 experience, doro wat, tibs, and a full round of traditional sides on one platter.",
-        "price": "£48.00",
-        "image": "/assets/images/sharing-hands.jpg",
-        "alt": "Habesha Feast Platter",
-        "diet": [
-          "spicy",
-          "gf"
-        ],
-        "tag": "Chef's Special"
-      },
-      {
-        "id": "habesha-plate-special",
-        "name": "Habesha Plate Special",
+        "id": "vegan-stew-dish",
+        "name": "Vegan Stew Dish",
         "description": "A composed plate of seasonal Habesha stews and sides, served with fresh injera.",
         "price": "£14.50",
         "image": "/assets/images/menu-items/habesha-food-plate.jpeg",
@@ -130,6 +105,17 @@
           "gf"
         ],
         "tag": "New"
+      },
+      {
+        "id": "combo",
+        "name": "Combo with Meat",
+        "description": "A colourful combination platter of traditional Ethiopian stews and and meat dishes served with injera.",
+        "price": "£20.00",
+        "image": "/assets/images/platter-big.jpg",
+        "alt": "Combo platter",
+        "diet": [
+          "spicy"
+        ]
       }
     ],
     "veg-vegan": [
@@ -207,7 +193,7 @@
         "name": "Ater Kik Alicha",
         "description": "Mild yellow pea stew gently cooked with turmeric, garlic, and onion for a soft, comforting flavour.",
         "price": "£10.50",
-        "image": "assets/images/menu-items/ater-kik-alicha.jpg",
+        "image": "/assets/images/menu-items/ater-kik-alicha.jpg",
         "alt": "Ater Kik Alicha",
         "diet": [
           "veg",
@@ -231,25 +217,14 @@
         "name": "Key Sir Alicha",
         "description": "Tender beetroot stew simmered with mild spices, onion, and a hint of garlic.",
         "price": "£10.50",
-        "image": "assets/images/menu-items/key-sir-alicha.jpg",
+        "image": "/assets/images/menu-items/key-sir-alicha.jpg",
         "alt": "Key Sir Alicha",
         "diet": [
           "veg",
           "vegan"
         ]
-      },
-      {
-        "id": "combo",
-        "name": "Combo with Meat",
-        "description": "A colourful combination platter of traditional Ethiopian stews and and meat dishes served with injera.",
-        "price": "£20.00",
-        "image": "/assets/images/platter-big.jpg",
-        "alt": "Combo platter",
-        "diet": [
-          "veg",
-          "vegan"
-        ]
       }
+      
     ],
     "desserts": [
       {
@@ -268,7 +243,7 @@
         "name": "Dabo Kolo Sweet Bites",
         "description": "Bite-sized roasted barley snacks with a hint of sugar and spice, perfect alongside coffee.",
         "price": "£4.00",
-        "image": "/assets/images/dabo-kollo.jpeg",
+        "image": "/assets/images/dabo-kollo.jpg",
         "alt": "Dabo Kolo Sweet Bites",
         "diet": [
           "veg",
