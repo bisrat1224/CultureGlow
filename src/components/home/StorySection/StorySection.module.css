@@ -108,6 +108,7 @@
 
 .storyImgAccentEl {
   object-fit: cover;
+  object-position: center;
 }
 
 .storyBadge {

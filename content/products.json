@@ -1,28 +1,137 @@
 {
   "featuredIds": [
-    "injera-platter",
-    "habesha-kemis",
-    "netela-dress",
-    "beyaynetu-platter"
+    "habesha-summer-dress",
+    "habesha-filigree-necklace",
+    "muday-basket",
+    "ethiopian-orthodox-cross"
   ],
   "products": [
     {
-      "id": "injera-platter",
-      "category": "HABESHA FOOD",
-      "name": "Injera Platter",
-      "price": "£12.50",
-      "image": "/assets/images/injera-plate.jpg",
-      "alt": "Traditional injera platter with assorted stews",
-      "description": "A generous injera platter with a rotating selection of stews, sized for one or shared as a starter.",
+      "id": "habesha-summer-dress",
+      "category": "LIFESTYLE",
+      "name": "Habesha Summer Dress",
+      "price": "£95.00",
+      "image": "/assets/images/shop-items/habesha-summer-dress.jpeg",
+      "alt": "Light Habesha summer dress with traditional accents",
+      "description": "A light, breathable summer dress with subtle traditional detailing. Easy to wear for everyday occasions and warm-weather occassions.",
       "gallery": [
-        "/assets/images/injera-plate.jpg",
-        "/assets/images/stew-pans.avif"
-      ],
-      "allergens": [
-        "Contains gluten (teff and wheat blends vary by batch)",
-        "May contain dairy from ghee-based sauces"
+        "/assets/images/shop-items/habesha-summer-dress.jpeg"
       ]
     },
+    {
+      "id": "habesha-filigree-necklace",
+      "category": "LIFESTYLE",
+      "name": "Habesha Filigree Necklace",
+      "price": "£35.00",
+      "image": "/assets/images/shop-items/habesha-necklace-1.jpeg",
+      "alt": "Traditional Habesha filigree necklace",
+      "description": "A handcrafted filigree necklace with classic Ethiopian motifs. A versatile piece for both everyday wear and special occasions.",
+      "gallery": [
+        "/assets/images/shop-items/habesha-necklace-1.jpeg",
+        "/assets/images/shop-items/habesha-necklace-2.jpeg",
+        "/assets/images/shop-items/habesha-necklace-3.jpeg"
+      ]
+    },
+    {
+      "id": "muday-basket",
+      "category": "LIFESTYLE",
+      "name": "Muday Basket",
+      "price": "£38.00",
+      "image": "/assets/images/shop-items/muday-1.jpeg",
+      "alt": "Traditional Ethiopian muday basket",
+      "description": "A traditional Ethiopian muday basket, handwoven and ideal for serving injera or as a decorative centrepiece at home.",
+      "gallery": [
+        "/assets/images/shop-items/muday-1.jpeg",
+        "/assets/images/shop-items/muday-2.jpeg"
+      ]
+    },
+    {
+      "id": "ethiopian-orthodox-cross",
+      "category": "LIFESTYLE",
+      "name": "Ethiopian Orthodox Cross",
+      "price": "£28.00",
+      "image": "/assets/images/shop-items/ethiopian-orthodox-cross-1.jpeg",
+      "alt": "Ethiopian Orthodox cross pendant",
+      "description": "A classic Ethiopian Orthodox cross with traditional design details. Suitable as a pendant or keepsake.",
+      "gallery": [
+        "/assets/images/shop-items/ethiopian-orthodox-cross-1.jpeg"
+      ]
+    },
+    {
+      "id": "habesha-scarf",
+      "category": "LIFESTYLE",
+      "name": "Habesha Scarf",
+      "price": "£32.00",
+      "image": "/assets/images/shop-items/habesha-scarf-1.jpeg",
+      "alt": "Traditional Habesha scarf with woven border",
+      "description": "A soft Habesha scarf with a woven border, easy to style for everyday wear or layered with traditional dress.",
+      "gallery": [
+        "/assets/images/shop-items/habesha-scarf-1.jpeg",
+        "/assets/images/shop-items/habesha-scarf-2.jpeg"
+      ]
+    },
+    {
+      "id": "habesha-shawl-new",
+      "category": "LIFESTYLE",
+      "name": "Habesha Shawl",
+      "price": "£48.00",
+      "image": "/assets/images/shop-items/habesha-shawl.jpeg",
+      "alt": "Hand-finished Habesha shawl with tibeb trim",
+      "description": "A hand-finished Habesha shawl with traditional tibeb trim. A versatile layering piece for ceremonies and cooler evenings.",
+      "gallery": [
+        "/assets/images/shop-items/habesha-shawl.jpeg"
+      ]
+    },
+    {
+      "id": "tsinatsil",
+      "category": "LIFESTYLE",
+      "name": "Tsinatsil (Sistrum)",
+      "price": "£45.00",
+      "image": "/assets/images/shop-items/tsinatsil.jpeg",
+      "alt": "Traditional Ethiopian tsinatsil sistrum",
+      "description": "A traditional Ethiopian tsinatsil (sistrum), used in religious and cultural settings. A distinctive piece for collectors and ceremony.",
+      "gallery": [
+        "/assets/images/shop-items/tsinatsil.jpeg"
+      ]
+    },
+    {
+      "id": "geez-letter-mug",
+      "category": "LIFESTYLE",
+      "name": "Geez Letter Mug",
+      "price": "£14.00",
+      "image": "/assets/images/shop-items/geez-letter-mug.jpeg",
+      "alt": "Ceramic mug printed with Geez script letters",
+      "description": "A ceramic mug featuring Geez lettering. A simple everyday piece that carries Habesha culture into your kitchen.",
+      "gallery": [
+        "/assets/images/shop-items/geez-letter-mug.jpeg"
+      ]
+    },
+    {
+      "id": "habesha-art-mug",
+      "category": "LIFESTYLE",
+      "name": "Habesha Art Mug",
+      "price": "£14.00",
+      "image": "/assets/images/shop-items/habesha-art-mug.jpeg",
+      "alt": "Ceramic mug with Habesha art print",
+      "description": "A ceramic mug with a Habesha art print. Practical and decorative for coffee, tea, or display.",
+      "gallery": [
+        "/assets/images/shop-items/habesha-art-mug.jpeg"
+      ]
+    },
+    {
+      "id": "lalibela-photo-mug",
+      "category": "LIFESTYLE",
+      "name": "Lalibela Photo Mug",
+      "price": "£14.00",
+      "image": "/assets/images/shop-items/lalibela-photo-mug.jpeg",
+      "alt": "Ceramic mug with Lalibela photo print",
+      "description": "A ceramic mug printed with a Lalibela scene. A small reminder of Ethiopia’s rock-hewn churches with every cup.",
+      "gallery": [
+        "/assets/images/shop-items/lalibela-photo-mug.jpeg"
+      ]
+    }
+  ],
+  "_placeholderProducts": [
     {
       "id": "habesha-kemis",
       "category": "LIFESTYLE",
@@ -50,31 +159,6 @@
       ]
     },
     {
-      "id": "beyaynetu-platter",
-      "category": "HABESHA FOOD",
-      "name": "Beyaynetu Platter",
-      "price": "£13.00",
-      "image": "/assets/images/platter-big.jpg",
-      "alt": "Beyaynetu vegetarian platter",
-      "description": "A vegan combination platter of lentils, split peas, and seasonal vegetables, generously portioned.",
-      "gallery": [
-        "/assets/images/platter-big.jpg",
-        "/assets/images/injera-plate.jpg"
-      ],
-      "allergens": ["Contains legumes"]
-    },
-    {
-      "id": "product-5",
-      "category": "HABESHA FOOD",
-      "name": "Spiced Lentil Stew",
-      "price": "£9.50",
-      "image": "/assets/images/stew-pans.avif",
-      "alt": "Bowl of spiced red lentil stew with injera",
-      "description": "A warming stew of red lentils simmered with berbere and garlic, served with injera on the side.",
-      "gallery": ["/assets/images/stew-pans.avif"],
-      "allergens": ["Contains legumes"]
-    },
-    {
       "id": "product-6",
       "category": "LIFESTYLE",
       "name": "Embroidered Shawl",
@@ -82,7 +166,9 @@
       "image": "/assets/images/habesha-shawl.jpeg",
       "alt": "Hand-embroidered shawl with tibeb trim",
       "description": "A hand-embroidered shawl with traditional tibeb trim, a versatile layering piece for any occasion.",
-      "gallery": ["/assets/images/habesha-shawl.jpeg"]
+      "gallery": [
+        "/assets/images/habesha-shawl.jpeg"
+      ]
     },
     {
       "id": "product-7",
@@ -92,22 +178,13 @@
       "image": "/assets/images/Frankincense-Body-Oil.avif",
       "alt": "Bottle of shea and frankincense body oil",
       "description": "A nourishing body oil blending shea butter with frankincense, inspired by traditional Habesha skincare.",
-      "gallery": ["/assets/images/Frankincense-Body-Oil.avif"],
+      "gallery": [
+        "/assets/images/Frankincense-Body-Oil.avif"
+      ],
       "allergens": [
         "May contain nut derivatives",
         "Patch test recommended"
       ]
-    },
-    {
-      "id": "product-8",
-      "category": "HABESHA FOOD",
-      "name": "Mixed Stew Sampler",
-      "price": "£15.00",
-      "image": "/assets/images/platter-big.jpg",
-      "alt": "Sampler platter of three seasonal stews with injera",
-      "description": "A sampler of three seasonal stews with injera, ideal for trying a bit of everything.",
-      "gallery": ["/assets/images/platter-big.jpg"],
-      "allergens": ["Contains legumes"]
     }
   ]
 }

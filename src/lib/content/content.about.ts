@@ -11,7 +11,7 @@ export const aboutContent = {
     headingBeforeEm: "About ",
     headingEm: "CultureGlow24",
     headingAfterEm: "",
-    body: "Habesha culture belongs in everyday life, not saved for holidays. We started by cooking family recipes for neighbours, and we now deliver Habesha food, beauty and lifestyle products across London. You order over WhatsApp and we bring it to your door.",
+    body: "CultureGlow24 was born from a vibrant, unstoppable idea: Habesha culture shouldn’t just come out for special occasions. It deserves to pulse through your everyday life! What started as soulful family recipes passed from kitchen to kitchen among neighbors back in The Homeland has erupted into a full-scale celebration of Habesha food, beauty, and lifestyle. And the best part? We bring that electric energy straight to your doorstep, one WhatsApp order at a time! Let’s live the culture, every single day.",
     amharic: "Our culture is our pride. Food, Fashion, Life!",
     badge: "Est. 2024",
     stats: [
@@ -59,28 +59,28 @@ export const aboutContent = {
     headingEm: "Cherish",
     images: [
       {
-        src: "https://images.pexels.com/photos/35976293/pexels-photo-35976293.png?auto=compress&cs=tinysrgb&w=700",
-        alt: "Ethiopian wedding celebration at night",
+        src: "/assets/images/gallery/wedding.jpeg",
+        alt: "Wedding celebration with CultureGlow24 catering",
       },
       {
-        src: "https://images.pexels.com/photos/3376765/pexels-photo-3376765.jpeg?auto=compress&cs=tinysrgb&w=700",
-        alt: "Banquet hall set up with round tables and floral centerpieces",
+        src: "/assets/images/gallery/aau-event.jpeg",
+        alt: "CultureGlow24 at an AAU event",
       },
       {
-        src: "https://images.pexels.com/photos/30844787/pexels-photo-30844787.jpeg?auto=compress&cs=tinysrgb&w=700",
-        alt: "Elegant birthday celebration with balloons and cake",
+        src: "/assets/images/gallery/booth-3.jpeg",
+        alt: "CultureGlow24 market booth",
       },
       {
-        src: "https://images.pexels.com/photos/20865956/pexels-photo-20865956.jpeg?auto=compress&cs=tinysrgb&w=700",
-        alt: "Women in colorful traditional dress at Meskel festival, Addis Ababa",
+        src: "/assets/images/gallery/booth-4.jpeg",
+        alt: "CultureGlow24 booth close-up",
       },
       {
-        src: "https://images.pexels.com/photos/17272177/pexels-photo-17272177.jpeg?auto=compress&cs=tinysrgb&w=700",
-        alt: "Traditional parade during a religious festival in Addis Ababa",
+        src: "/assets/images/gallery/happy-customers-2.jpeg",
+        alt: "Customers at a CultureGlow24 event",
       },
       {
-        src: "https://images.pexels.com/photos/6405679/pexels-photo-6405679.jpeg?auto=compress&cs=tinysrgb&w=700",
-        alt: "Team celebrating together at a festive office party",
+        src: "/assets/images/gallery/happy-customers-4.jpeg",
+        alt: "Happy customers with CultureGlow24 dishes",
       },
     ],
   },

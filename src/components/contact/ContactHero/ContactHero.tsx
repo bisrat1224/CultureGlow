@@ -21,8 +21,8 @@ export function ContactHero() {
   return (
     <section className={styles.contactHero} aria-label="Contact hero">
       <Image
-        src="/assets/images/sharing-hands.jpg"
-        alt="Hands sharing an injera platter"
+        src="/assets/images/hero-bg-images/hero-bg-image-2.jpeg"
+        alt="CultureGlow24, Get in touch!"
         fill
         sizes="100vw"
         quality={90}
