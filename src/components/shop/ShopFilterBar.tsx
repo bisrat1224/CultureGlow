@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { Sparkles } from "lucide-react";
 import {
   SHOP_FILTERS,
   type ProductCategory,
@@ -33,6 +34,10 @@ export function ShopFilterBar({
     [activeFilter, products]
   );
 
+  const activeFilterLabel = SHOP_FILTERS.find(
+    (filter) => filter.value === activeFilter
+  )?.label;
+
   return (
     <>
       <section className={styles.filterBar}>
@@ -63,11 +68,25 @@ export function ShopFilterBar({
           <h2 className={styles.sectionTitle}>{title}</h2>
         </div>
 
-        <div className={styles.productsGrid}>
-          {filtered.map((product) => (
-            <ShopProductCard key={product.id} product={product} />
-          ))}
-        </div>
+        {filtered.length > 0 ? (
+          <div className={styles.productsGrid}>
+            {filtered.map((product) => (
+              <ShopProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        ) : (
+          <div className={styles.emptyState}>
+            <div className={styles.emptyStateIcon}>
+              <Sparkles size={22} strokeWidth={1.75} />
+            </div>
+            <p className={styles.emptyStateText}>
+              {activeFilterLabel ?? "These"} items coming soon.
+            </p>
+            <p className={styles.emptyStateSubtext}>
+              Please check back soon.
+            </p>
+          </div>
+        )}
       </section>
     </>
   );
