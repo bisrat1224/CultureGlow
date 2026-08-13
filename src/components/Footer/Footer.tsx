@@ -3,10 +3,9 @@ import Link from "next/link";
 import { NAV_LINKS, SOCIAL_LINKS, CONTACT_EMAIL } from "@/lib/constants"; 
 import styles from "./Footer.module.css";
 
-const ADDRESS =
-  "156 Battersea High Street Putney high street SW15 1NS, London SW11 3JR, United Kingdom";
+const ADDRESS = "Putney High St, London SW15 1SN";
 const ADDRESS_MAPS_URL =
-  "https://www.google.com/maps/place/Cultureglow24/@51.4702081,-0.1720105,17z/data=!3m1!4b1!4m6!3m5!1s0x4876050041cfcabd:0xd52dc7647d223753!8m2!3d51.4702081!4d-0.1720105!16s%2Fg%2F11yzsf9ww8!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDcyNy4wIKXMDSoASAFQAw%3D%3D";
+  "https://www.google.com/maps/search/?api=1&query=Putney+High+St%2C+London+SW15+1SN";
 
 function InstagramIcon() {
   return (
