@@ -6,11 +6,12 @@ export interface MenuItem {
   id: string;
   name: string;
   description: string;
-  price: string;
+  price?: string;
   image: string;
   alt: string;
   diet?: DietFlag[];
   tag?: string;
+  visible?: boolean;
 }
 
 export interface CategoryMeta {
@@ -24,16 +25,33 @@ export interface CategoryMeta {
   countLabel?: string;
 }
 
+export interface ComboPriceTier {
+  label: string;
+  price: string;
+  dishes: number;
+}
+
+function isVisible(item: MenuItem): boolean {
+  return item.visible !== false;
+}
+
 /** Loaded from content/menu.json — edit that file to change the menu. */
 export const CATEGORIES: CategoryMeta[] = menuData.categories as CategoryMeta[];
 
-export const STARTERS_ITEMS: MenuItem[] = menuData.items.starters as MenuItem[];
-export const MAINS_ITEMS: MenuItem[] = menuData.items.mains as MenuItem[];
-export const VEG_VEGAN_ITEMS: MenuItem[] = menuData.items[
-  "veg-vegan"
-] as MenuItem[];
-export const DESSERTS_ITEMS: MenuItem[] = menuData.items.desserts as MenuItem[];
-export const DRINKS_ITEMS: MenuItem[] = menuData.items.drinks as MenuItem[];
+const rawStarters = menuData.items.starters as MenuItem[];
+const rawMains = menuData.items.mains as MenuItem[];
+const rawVegVegan = (menuData.items["veg-vegan"] ?? []) as MenuItem[];
+const rawDesserts = menuData.items.desserts as MenuItem[];
+const rawDrinks = menuData.items.drinks as MenuItem[];
+
+export const STARTERS_ITEMS: MenuItem[] = rawStarters.filter(isVisible);
+export const MAINS_ITEMS: MenuItem[] = rawMains.filter(isVisible);
+export const VEG_VEGAN_ITEMS: MenuItem[] = rawVegVegan.filter(isVisible);
+export const DESSERTS_ITEMS: MenuItem[] = rawDesserts.filter(isVisible);
+export const DRINKS_ITEMS: MenuItem[] = rawDrinks.filter(isVisible);
+
+export const COMBO_PRICING: ComboPriceTier[] =
+  (menuData as { comboPricing?: ComboPriceTier[] }).comboPricing ?? [];
 
 export const DIET_LEGEND: {
   flag: DietFlag;

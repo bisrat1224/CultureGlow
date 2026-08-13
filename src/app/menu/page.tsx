@@ -6,7 +6,9 @@ import { MenuRowList } from "@/components/menu/MenuRowList";
 import { FeatureBanner } from "@/components/menu/FeatureBanner";
 import { HowToOrderSection } from "@/components/menu/HowToOrderSection";
 import { PdfCtaSection } from "@/components/menu/PdfCtaSection";
+import { PricingStrip } from "@/components/menu/PricingStrip";
 import { getAllMenuItems, getMenuContent } from "@/lib/contentful/queries";
+import { COMBO_PRICING } from "@/lib/data/menu";
 
 export default async function MenuPage() {
   const [sections, menu] = await Promise.all([getAllMenuItems(), getMenuContent()]);
@@ -38,6 +40,9 @@ export default async function MenuPage() {
           countLabel={category.countLabel}
           variant={category.variant}
         >
+          {category.id === "mains" && COMBO_PRICING.length > 0 && (
+            <PricingStrip tiers={COMBO_PRICING} variant={category.variant} />
+          )}
           <MenuRowList items={items} />
         </CategoryBlock>
       ))}

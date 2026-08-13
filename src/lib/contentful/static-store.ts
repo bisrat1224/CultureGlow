@@ -27,6 +27,11 @@ const MENU_FALLBACK_BY_CAT: Record<string, typeof STARTERS_ITEMS> = {
   drinks: DRINKS_ITEMS,
 };
 
+/** Only categories that currently have at least one visible item. */
+const liveCategories = categoriesFallback.filter(
+  (c) => (MENU_FALLBACK_BY_CAT[c.id] ?? []).length > 0
+);
+
 export const staticStore: ContentStore = {
   getProducts: async () => productsFallback,
 
@@ -37,12 +42,12 @@ export const staticStore: ContentStore = {
   getRelatedProducts: async (product, limit = 3) =>
     getRelatedProductsFallback(product, limit),
 
-  getMenuCategories: async () => categoriesFallback,
+  getMenuCategories: async () => liveCategories,
 
   getMenuItemsByCategory: async (slug) => MENU_FALLBACK_BY_CAT[slug] ?? [],
 
   getAllMenuItems: async () =>
-    categoriesFallback.map((category) => ({
+    liveCategories.map((category) => ({
       category,
       items: MENU_FALLBACK_BY_CAT[category.id] ?? [],
     })),

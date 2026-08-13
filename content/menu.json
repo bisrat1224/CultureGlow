@@ -17,14 +17,6 @@
       "variant": "dark"
     },
     {
-      "id": "veg-vegan",
-      "navLabel": "Veg & Vegan",
-      "eyebrow": "Plant-Forward Favourites",
-      "titleBeforeEm": "Veg & ",
-      "titleEm": "Vegan",
-      "variant": "cream"
-    },
-    {
       "id": "desserts",
       "navLabel": "Desserts",
       "eyebrow": "Something Sweet",
@@ -50,10 +42,7 @@
         "price": "£5.50",
         "image": "/assets/images/sambusajpg.jpg",
         "alt": "Sambusa",
-        "diet": [
-          "veg",
-          "vegan"
-        ],
+        "diet": ["veg", "vegan"],
         "tag": "Popular"
       },
       {
@@ -63,10 +52,7 @@
         "price": "£4.50",
         "image": "/assets/images/Kategna.jpeg",
         "alt": "Kategna",
-        "diet": [
-          "veg",
-          "spicy"
-        ]
+        "diet": ["veg", "spicy"]
       }
     ],
     "mains": [
@@ -77,11 +63,9 @@
         "price": "£13.50",
         "image": "/assets/images/tibs-skillet.jpg",
         "alt": "Injera with Tibs",
-        "diet": [
-          "spicy"
-        ]
+        "diet": ["spicy"],
+        "visible": false
       },
-      
       {
         "id": "vegan-stew-dish",
         "name": "Vegan Stew Dish",
@@ -89,10 +73,9 @@
         "price": "£14.50",
         "image": "/assets/images/menu-items/habesha-food-plate.jpeg",
         "alt": "Habesha plate with assorted stews and injera",
-        "diet": [
-          "gf"
-        ],
-        "tag": "New"
+        "diet": ["gf"],
+        "tag": "New",
+        "visible": false
       },
       {
         "id": "habesha-sharing-platter-new",
@@ -101,10 +84,9 @@
         "price": "£22.00",
         "image": "/assets/images/menu-items/habesha-food-platter.jpeg",
         "alt": "Habesha sharing platter with mixed dishes",
-        "diet": [
-          "gf"
-        ],
-        "tag": "New"
+        "diet": ["gf"],
+        "tag": "New",
+        "visible": false
       },
       {
         "id": "combo",
@@ -113,9 +95,57 @@
         "price": "£20.00",
         "image": "/assets/images/platter-big.jpg",
         "alt": "Combo platter",
-        "diet": [
-          "spicy"
-        ]
+        "diet": ["spicy"],
+        "visible": false
+      },
+      {
+        "id": "shiro-wat",
+        "name": "Shiro Wat",
+        "description": "A savory stew made from ground chickpeas or broad beans, often considered a staple.",
+        "image": "/assets/images/stew-pans.avif",
+        "alt": "Shiro Wat",
+        "diet": ["veg", "vegan", "gf", "spicy"],
+        "tag": "Popular"
+      },
+      {
+        "id": "gomen",
+        "name": "Gomen",
+        "description": "Collard greens cooked with garlic, onions, and spices.",
+        "image": "/assets/images/menu-items/gomen.jpeg",
+        "alt": "Gomen — photo coming soon",
+        "diet": ["veg", "vegan"]
+      },
+      {
+        "id": "misir-wat",
+        "name": "Misir Wat",
+        "description": "A spicy, berbere-based red lentil stew.",
+        "image": "/assets/images/menu-items/Misir-Wat.jpg",
+        "alt": "Misir Wat",
+        "diet": ["veg", "vegan", "spicy"]
+      },
+      {
+        "id": "key-sir-alicha",
+        "name": "Key Sir Alicha",
+        "description": "A combination of cooked beetroots, carrots, and potatoes.",
+        "image": "/assets/images/menu-items/key-sir-alicha.jpg",
+        "alt": "Key Sir Alicha",
+        "diet": ["veg", "vegan"]
+      },
+      {
+        "id": "ater-kik-alicha",
+        "name": "Ater Kik Alicha",
+        "description": "A mild, creamy yellow split pea stew.",
+        "image": "/assets/images/menu-items/ater-kik-alicha.jpg",
+        "alt": "Ater Kik Alicha",
+        "diet": ["veg", "vegan"]
+      },
+      {
+        "id": "tikil-gomen",
+        "name": "Tikil Gomen",
+        "description": "A variation of cabbage and carrots simmered with turmeric, garlic, and ginger.",
+        "image": "/assets/images/menu-items/tikil-gomen.jpeg",
+        "alt": "Tikil Gomen",
+        "diet": ["veg", "vegan"]
       }
     ],
     "veg-vegan": [
@@ -126,26 +156,8 @@
         "price": "£13.00",
         "image": "/assets/images/menu-items/vegan-beyaynetu.jpeg",
         "alt": "Ethiopian Vegan Combo",
-        "diet": [
-          "veg",
-          "vegan",
-          "gf"
-        ]
-      },
-      {
-        "id": "shiro-wat",
-        "name": "Shiro Wat",
-        "description": "Ground chickpea stew simmered with garlic, onion, and berbere, warm, hearty, and naturally vegan.",
-        "price": "£11.00",
-        "image": "/assets/images/stew-pans.avif",
-        "alt": "Shiro Wat",
-        "diet": [
-          "veg",
-          "vegan",
-          "gf",
-          "spicy"
-        ],
-        "tag": "Popular"
+        "diet": ["veg", "vegan", "gf"],
+        "visible": false
       },
       {
         "id": "lentil-bowl-one",
@@ -154,12 +166,9 @@
         "price": "£11.50",
         "image": "/assets/images/menu-items/habesha-food-bowl-1.jpeg",
         "alt": "Bowl of spiced Habesha lentils and vegetables",
-        "diet": [
-          "veg",
-          "vegan",
-          "gf"
-        ],
-        "tag": "New"
+        "diet": ["veg", "vegan", "gf"],
+        "tag": "New",
+        "visible": false
       },
       {
         "id": "vegetable-stew-bowl",
@@ -168,63 +177,10 @@
         "price": "£11.50",
         "image": "/assets/images/menu-items/habesha-food-bowl-2.jpeg",
         "alt": "Bowl of Habesha vegetable stew with injera",
-        "diet": [
-          "veg",
-          "vegan",
-          "gf"
-        ],
-        "tag": "New"
-      },
-      {
-        "id": "misir-wat",
-        "name": "Misir Wat",
-        "description": "Spiced red lentil stew simmered with berbere, garlic, and onion until thick and flavourful.",
-        "price": "£11.00",
-        "image": "/assets/images/menu-items/Misir-Wat.jpg",
-        "alt": "Misir Wat",
-        "diet": [
-          "veg",
-          "vegan",
-          "spicy"
-        ]
-      },
-      {
-        "id": "ater-kik-alicha",
-        "name": "Ater Kik Alicha",
-        "description": "Mild yellow pea stew gently cooked with turmeric, garlic, and onion for a soft, comforting flavour.",
-        "price": "£10.50",
-        "image": "/assets/images/menu-items/ater-kik-alicha.jpg",
-        "alt": "Ater Kik Alicha",
-        "diet": [
-          "veg",
-          "vegan"
-        ]
-      },
-      {
-        "id": "tikil-gomen",
-        "name": "Tikil Gomen",
-        "description": "Cabbage, carrots, and potatoes slowly cooked with mild spices and a touch of turmeric.",
-        "price": "£10.50",
-        "image": "/assets/images/menu-items/tikil-gomen.jpeg",
-        "alt": "Tikil Gomen",
-        "diet": [
-          "veg",
-          "vegan"
-        ]
-      },
-      {
-        "id": "key-sir-alicha",
-        "name": "Key Sir Alicha",
-        "description": "Tender beetroot stew simmered with mild spices, onion, and a hint of garlic.",
-        "price": "£10.50",
-        "image": "/assets/images/menu-items/key-sir-alicha.jpg",
-        "alt": "Key Sir Alicha",
-        "diet": [
-          "veg",
-          "vegan"
-        ]
+        "diet": ["veg", "vegan", "gf"],
+        "tag": "New",
+        "visible": false
       }
-      
     ],
     "desserts": [
       {
@@ -234,9 +190,7 @@
         "price": "£5.00",
         "image": "/assets/images/ambasha.jpeg",
         "alt": "Ambasha",
-        "diet": [
-          "veg"
-        ]
+        "diet": ["veg"]
       },
       {
         "id": "dabo-kolo-sweet-bites",
@@ -245,10 +199,7 @@
         "price": "£4.00",
         "image": "/assets/images/dabo-kollo.jpg",
         "alt": "Dabo Kolo Sweet Bites",
-        "diet": [
-          "veg",
-          "vegan"
-        ]
+        "diet": ["veg", "vegan"]
       }
     ],
     "drinks": [
@@ -267,19 +218,22 @@
         "price": "£8.00",
         "image": "/assets/images/coffee-pot.jpg",
         "alt": "Ethiopian Coffee Ceremony",
-        "diet": [
-          "veg",
-          "vegan"
-        ],
+        "diet": ["veg", "vegan"],
         "tag": "Popular"
       }
     ]
   },
+  "comboPricing": [
+    { "label": "Any 1 Dish", "price": "£7", "dishes": 1 },
+    { "label": "Any 2 Dishes", "price": "£8", "dishes": 2 },
+    { "label": "Any 3 Dishes", "price": "£9", "dishes": 3 },
+    { "label": "Combo (All 6)", "price": "£12", "dishes": 6 }
+  ],
   "featuredItemIds": [
-    "sambusa",
-    "doro-wat",
-    "injera-platter-main",
-    "beyaynetu-menu"
+    "shiro-wat",
+    "gomen",
+    "misir-wat",
+    "tikil-gomen"
   ],
   "dietLegend": [
     {

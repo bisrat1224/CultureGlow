@@ -43,7 +43,11 @@ export function MainsCard({ item }: MainsCardProps) {
           </div>
         )}
         <div className={styles.mainsCardFooter}>
-          <span className={styles.mainsCardPrice}>{price}</span>
+          {price ? (
+            <span className={styles.mainsCardPrice}>{price}</span>
+          ) : (
+            <span className={styles.mainsCardPrice} style={{ opacity: 0.7, fontSize: "0.85rem" }}>See pricing above</span>
+          )}
           <a
             href={buildWhatsAppLink(`I'd like to order ${name}`)}
             className={`${styles.mainsCardBtn} cg-press`}
