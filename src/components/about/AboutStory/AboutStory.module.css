@@ -41,6 +41,14 @@
   margin-bottom: calc(var(--cg-u) * 4);
 }
 
+.storyBody p {
+  margin-bottom: 1em;
+}
+
+.storyBody p:last-child {
+  margin-bottom: 0;
+}
+
 .storyAmharic {
   font-size: 1.125rem;
   color: var(--cg-text);

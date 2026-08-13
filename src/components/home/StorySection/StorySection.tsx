@@ -23,7 +23,11 @@ export function StorySection() {
               <br />
               {headingSecondLine}
             </h2>
-            <p className={styles.storyBody}>{body}</p>
+            {body.split("\n\n").map((paragraph, i) => (
+              <p key={i} className={styles.storyBody}>
+                {paragraph}
+              </p>
+            ))}
             <p className={`${styles.storyAmharic} font-ethiopic`}>{amharic}</p>
             <div className={styles.storyStats}>
               {stats.map((stat) => (
@@ -50,7 +54,7 @@ export function StorySection() {
             </div>
             <div className={styles.storyImgAccentWrap}>
               <Image
-                src="/assets/images/coffee-in-traditional-cup.jpg"
+                src="/assets/images/coffee-in-traditional-cup.webp"
                 alt="Ethiopian coffee in a traditional cup"
                 fill
                 loading="lazy"

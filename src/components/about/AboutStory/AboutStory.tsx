@@ -3,7 +3,7 @@ import { aboutContent } from "@/lib/content/content.about";
 import styles from "./AboutStory.module.css";
 
 export function AboutStory() {
-  const { eyebrow, headingBeforeEm, headingEm, headingAfterEm, body, amharic, badge, stats } =
+  const { eyebrow, headingBeforeEm, headingEm, headingAfterEm, paragraphs, badge, stats } =
     aboutContent.story;
 
   return (
@@ -17,8 +17,11 @@ export function AboutStory() {
               <em>{headingEm}</em>
               {headingAfterEm}
             </h2>
-            <p className={styles.storyBody}>{body}</p>
-            <p className={`${styles.storyAmharic} font-ethiopic`}>{amharic}</p>
+            <div className={styles.storyBody}>
+              {paragraphs.map((paragraph) => (
+                <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+              ))}
+            </div>
             <div className={styles.storyStats}>
               {stats.map((stat) => (
                 <div key={stat.label} className={styles.statItem}>

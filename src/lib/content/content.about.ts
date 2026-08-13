@@ -8,11 +8,17 @@
 export const aboutContent = {
   story: {
     eyebrow: "Our Story",
-    headingBeforeEm: "About ",
-    headingEm: "CultureGlow24",
+    headingBeforeEm: "A Heritage ",
+    headingEm: "Reimagined",
     headingAfterEm: "",
-    body: "CultureGlow24 was born from a vibrant, unstoppable idea: Habesha culture shouldn’t just come out for special occasions. It deserves to pulse through your everyday life! What started as soulful family recipes passed from kitchen to kitchen among neighbors back in The Homeland has erupted into a full-scale celebration of Habesha food, beauty, and lifestyle. And the best part? We bring that electric energy straight to your doorstep, one WhatsApp order at a time! Let’s live the culture, every single day.",
-    amharic: "Our culture is our pride. Food, Fashion, Life!",
+    paragraphs: [
+      "Cultureglow24 is more than a restaurant; it is the story of our family, of tables gathered around, of laughter shared, of recipes treasured and passed lovingly from one generation to the next. Our name, culture, carries the weight of memory, tradition, and the quiet pride of craftsmanship.",
+      "Our cuisine is born from these roots. Each dish begins with ingredients chosen for their purity and character, sourced from the landscapes of Ethiopia and the hands of local artisans who share our devotion to quality. What arrives at the table is not simply food, but a reflection of where we come from, flavours shaped by history, refined with care, and presented with elegance.",
+      "Our coffee has been assembled with the same intention. Every cup tells a story of its own, of kissed by sun, of families who pour their life into their craft. Each selection is made to deepen the experience, to harmonise with our dishes, and to elevate the moment.",
+      "Our service embodies the warmth of Ethiopia hospitality. Here, you are not just a guest, you are part of our family.",
+      "As we open our doors, we welcome you into our story. A place where time slows, where the table becomes a gathering place for connection, where tradition and elegance meet.",
+      "Welcome to cultureglow24. This is where our new chapter begins, and we are honoured to share it with you.",
+    ],
     badge: "Est. 2024",
     stats: [
       { value: "500+", label: "Orders Delivered" },

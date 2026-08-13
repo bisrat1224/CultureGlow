@@ -1,9 +1,9 @@
 {
   "hero": {
     "eyebrow": "Handmade · Cultural · Sustainable",
-    "headingBeforeEm": "Crafted with ",
-    "headingEm": "Love",
-    "headingAfterEm": ", Shared with Pride",
+    "headingBeforeEm": "Welcome to the ",
+    "headingEm": "Heart",
+    "headingAfterEm": " of Ethiopia Cuisine",
     "body": "Slow-cooked Habesha stews, fresh injera, and traditional dress. Send us a message on WhatsApp and we deliver.",
     "primaryCta": "Order Now",
     "secondaryCta": "Explore the Menu"
@@ -20,12 +20,12 @@
   },
   "story": {
     "eyebrow": "Our Story",
-    "headingBeforeEm": "Where ",
-    "headingEm": "Culture",
+    "headingBeforeEm": "A ",
+    "headingEm": "Heritage",
     "headingAfterEm": "",
-    "headingSecondLine": "Meets the Table",
-    "body": "CultureGlow24 was born from a vibrant, unstoppable idea: Habesha culture shouldn’t just come out for special occasions. It deserves to pulse through your everyday life! What started as soulful family recipes passed from kitchen to kitchen among neighbors back in The Homeland has erupted into a full-scale celebration of Habesha food, beauty, and lifestyle. And the best part? We bring that electric energy straight to your doorstep, one WhatsApp order at a time! Let’s live the culture, every single day.",
-    "amharic": "Every dish tells a story of home.",
+    "headingSecondLine": "Reimagined",
+    "body": "Cultureglow24 is more than a restaurant; it is the story of our family, of tables gathered around, of laughter shared, of recipes treasured and passed lovingly from one generation to the next. Our name, Culture, carries the weight of memory, tradition, and the quiet pride of craftsmanship.\n\nOur cuisine is born from these roots. Each dish begins with ingredients chosen for their purity and character, sourced from the landscapes of Ethiopia and the hands of local artisans who share our devotion to quality. What arrives at the table is not simply food, but a reflection of where we come from. Flavours shaped by history, refined with care, and presented with elegance.\n\nOur coffee has been assembled with the same intention. Every cup tells a story of its own, of beans kissed by sun, of families who pour their life into their craft. Each selection is made to deepen the experience, to harmonise with our dishes, and to elevate the moment.\n\nOur service embodies the warmth of Ethiopian hospitality. Here, you are not just a guest; you are part of our family.\n\nAs we open our doors, we welcome you into our story. A place where time slows, where the table becomes a gathering place for connection, where tradition and elegance meet.",
+    "amharic": "Welcome to Cultureglow24! This is where our new chapter begins, and we are honoured to share it with you.",
     "badge": "Since 2024",
     "stats": [
       { "value": "500+", "label": "Orders Delivered" },
