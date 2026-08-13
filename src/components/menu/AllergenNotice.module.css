@@ -1,0 +1,35 @@
+.allergenNotice {
+  background: var(--cg-cream);
+  padding: 0 0 calc(var(--cg-u) * 8);
+}
+
+.allergenNoticeInner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: calc(var(--cg-u) * 1.5);
+  max-width: 640px;
+  margin: 0 auto;
+  padding: calc(var(--cg-u) * 2.5) calc(var(--cg-u) * 3);
+  background: var(--cg-gold-light);
+  border: 1px solid var(--cg-border);
+  border-radius: 10px;
+  text-align: left;
+}
+
+.allergenIcon {
+  flex: none;
+  color: var(--cg-gold-fg);
+  margin-top: 2px;
+}
+
+.allergenText {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--cg-text);
+}
+
+.allergenText strong {
+  color: var(--cg-charcoal);
+  font-weight: 700;
+}
