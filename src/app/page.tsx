@@ -28,8 +28,8 @@ export default async function Home() {
       <Hero />
       <MarqueeBand />
       <StorySection />
-      <ProductsSection home={home.products} products={products} />
       <KitchenSection home={home.kitchen} items={kitchenItems} />
+      <ProductsSection home={home.products} products={products} />
       <SocialSection home={home.social} tiktoks={tiktoks} reels={reels} />
       <CateringSection />
       <TestimonialsSection />

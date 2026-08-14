@@ -1,9 +1,5 @@
 .productsSection {
   padding: calc(var(--cg-u) * 10) 0;
-  background: var(--cg-charcoal);
-
-  /* Dark ground: gold reads as gold here (6.58:1). */
-  --cg-gold-fg: var(--cg-gold);
 }
 
 .productsHeader {
@@ -21,7 +17,7 @@
   line-height: var(--cg-text-h2-lh);
   letter-spacing: var(--cg-text-h2-ls);
   font-weight: 700;
-  color: var(--cg-cream);
+  color: var(--cg-charcoal);
 }
 
 .sectionH2Light em {

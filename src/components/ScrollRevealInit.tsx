@@ -92,9 +92,6 @@ export function ScrollRevealInit() {
 
     const timeoutId = window.setTimeout(() => {
       observeAll();
-      // After a short grace period we can stop watching mutations;
-      // further reveals will still be handled by the IntersectionObserver.
-      mutationObserver.disconnect();
     }, 1500);
 
     return () => {

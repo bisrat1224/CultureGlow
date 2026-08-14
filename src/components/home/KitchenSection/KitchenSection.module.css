@@ -1,5 +1,8 @@
 .kitchenSection {
   padding: calc(var(--cg-u) * 10) 0;
+  background: var(--cg-charcoal);
+
+  --cg-gold-fg: var(--cg-gold);
 }
 
 .kitchenLayout {
@@ -23,7 +26,7 @@
   line-height: var(--cg-text-h2-lh);
   letter-spacing: var(--cg-text-h2-ls);
   font-weight: 700;
-  color: var(--cg-charcoal);
+  color: var(--cg-cream);
   margin-top: calc(var(--cg-u) * 1.5);
   margin-bottom: calc(var(--cg-u) * 3);
 }
@@ -36,7 +39,7 @@
 .kitchenDesc {
   font-size: 1rem;
   line-height: 1.7;
-  color: var(--cg-text);
+  color: rgba(250, 246, 240, 0.75);
   margin-bottom: calc(var(--cg-u) * 4);
 }
 

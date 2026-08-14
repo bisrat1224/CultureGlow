@@ -18,7 +18,7 @@
   border-radius: 100px;
   border: 1.5px solid rgba(200, 151, 58, 0.35);
   background: transparent;
-  color: rgba(250, 246, 240, 0.55);
+  color: rgba(43, 36, 28, 0.55);
   font-size: 0.8125rem;
   font-weight: 600;
   letter-spacing: 0.05em;
@@ -54,4 +54,61 @@
   .bentoGrid {
     grid-template-columns: repeat(4, 1fr);
   }
+}
+
+.emptyState {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  min-height: 240px;
+  padding: calc(var(--cg-u) * 6) calc(var(--cg-u) * 3);
+  background-color: var(--cg-gold-light);
+  border: 1px solid rgba(200, 151, 58, 0.4);
+  border-radius: 12px;
+  overflow: hidden;
+
+  /* Light ground: gold-as-text needs the darkened value. */
+  --cg-gold-fg: var(--cg-gold-text);
+}
+
+/* Same gold accent bar used on product/method cards, so this reads as
+   a card in the collection rather than an error or broken state. */
+.emptyState::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--cg-gold);
+}
+
+.emptyStateIcon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--cg-gold-fg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.emptyStateText {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--cg-charcoal);
+}
+
+.emptyStateSubtext {
+  font-size: 0.8125rem;
+  color: var(--cg-text);
+  line-height: 1.5;
+  max-width: 320px;
 }
