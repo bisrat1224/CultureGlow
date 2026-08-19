@@ -7,6 +7,7 @@ import {
   UK_PHONE_TEL,
 } from "@/lib/constants";
 import { contactContent } from "@/lib/content/content.contact";
+import { LocationMap } from "../LocationMap/LocationMap";
 import styles from "./ContactSection.module.css";
 import shared from "../shared.module.css";
 
@@ -23,7 +24,7 @@ function InstagramIcon() {
 function TikTokIcon() {
   return (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.88-2.88 2.89 2.89 0 0 1 2.88-2.88c.28 0 .56.04.82.1v-3.5a6.37 6.37 0 0 0-.82-.05A6.34 6.34 0 0 0 3.15 15.3a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V9.18a8.16 8.16 0 0 0 4.76 1.52V7.25a4.85 4.85 0 0 1-1-.56z" />
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.88-2.88 2.89 2.89 0 0 1 2.88-2.88c.28 0 .56.04.82.1v-3.5a6.37 6.37 0 0 0-.82-.05A6.34 6.34 0 0 0 3.15 15.3a6.34 6.34 0 0 0 6.34 6.34 6.34 0 0 0 6.34-6.34V9.18a8.16 8.16 0 0 0 4.76 1.52V7.25a4.85 4.85 0 0 1-1-.56z" />
     </svg>
   );
 }
@@ -36,8 +37,17 @@ function SocialIcon({ label }: { label: string }) {
 }
 
 export function ContactSection() {
-  const { eyebrow, headingBeforeEm, headingEm, headingAfterEm, desc, whatsapp, phone, email, social } =
-    contactContent.methods;
+  const {
+    eyebrow,
+    headingBeforeEm,
+    headingEm,
+    headingAfterEm,
+    desc,
+    whatsapp,
+    phone,
+    email,
+    social,
+  } = contactContent.methods;
 
   return (
     <section
@@ -56,8 +66,12 @@ export function ContactSection() {
             <em>{headingEm}</em>
             {headingAfterEm}
           </h2>
-          <p className={`${shared.sectionDesc} ${shared.sectionDescLight}`}>{desc}</p>
+          <p className={`${shared.sectionDesc} ${shared.sectionDescLight}`}>
+            {desc}
+          </p>
         </div>
+
+        <LocationMap />
 
         <div className={styles.methodsGrid}>
           <a
@@ -73,7 +87,10 @@ export function ContactSection() {
             <span className={styles.methodValue}>{whatsapp.value}</span>
           </a>
 
-          <a href={`tel:${UK_PHONE_TEL}`} className={`${styles.methodCard} cg-press-card`}>
+          <a
+            href={`tel:${UK_PHONE_TEL}`}
+            className={`${styles.methodCard} cg-press-card`}
+          >
             <span className={styles.methodIcon} aria-hidden="true">
               <Phone size={22} strokeWidth={1.75} />
             </span>
@@ -81,7 +98,10 @@ export function ContactSection() {
             <span className={styles.methodValue}>{UK_PHONE_DISPLAY}</span>
           </a>
 
-          <a href={`mailto:${CONTACT_EMAIL}`} className={`${styles.methodCard} cg-press-card`}>
+          <a
+            href={`mailto:${CONTACT_EMAIL}`}
+            className={`${styles.methodCard} cg-press-card`}
+          >
             <span className={styles.methodIcon} aria-hidden="true">
               <Mail size={22} strokeWidth={1.75} />
             </span>
