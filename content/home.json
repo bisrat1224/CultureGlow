@@ -75,6 +75,29 @@
     "eyebrow": "Kind Words",
     "headingBeforeEm": "What Our ",
     "headingEm": "Guests",
-    "headingAfterEm": " Say"
+    "headingAfterEm": " Say",
+    "items": [
+      {
+        "id": "cindy-liang",
+        "quote": "Fresh warm Ethiopian food, I love the combination, healthy and delicious.  I ordered the injera set and coffee. The owner is a lovely lady.",
+        "rating": 5,
+        "name": "Cindy Liang",
+        "source": "Google"
+      },
+      {
+        "id": "nareeza-abdulla",
+        "quote": "I felt like eating something new and healthy and no regrets! Food so good and tasty at the same time!",
+        "rating": 5,
+        "name": "Nareeza Abdulla",
+        "source": "Google"
+      },
+      {
+        "id": "hana-tefera",
+        "quote": "The food is delicious the customer service is 100%",
+        "rating": 5,
+        "name": "Hana Tefera",
+        "source": "Google"
+      }
+    ]
   }
 }

@@ -408,6 +408,9 @@ button {
 .reveal-delay-4 {
   transition-delay: 0.4s;
 }
+.reveal-delay-5 {
+  transition-delay: 0.5s;
+}
 
 /* ─── DIRECTIONAL REVEAL VARIANTS ───────────────────────────
    Use reveal-left / reveal-right on side-by-side columns so

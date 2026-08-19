@@ -144,6 +144,7 @@ export function mapHomePage(entry: Entry<EntrySkeletonType>): HomeContent {
       headingBeforeEm: f(fields, "testimonialsHeadingBeforeEm", ""),
       headingEm: f(fields, "testimonialsHeadingEm", ""),
       headingAfterEm: f(fields, "testimonialsHeadingAfterEm", ""),
+      items: f(fields, "testimonialsItems", []),
     },
   } as HomeContent;
 }

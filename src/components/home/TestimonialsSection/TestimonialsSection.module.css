@@ -93,6 +93,10 @@
   font-size: 1rem;
 }
 
+.tcardStarEmpty {
+  opacity: 0.25;
+}
+
 .tcardQuote {
   font-size: 1rem;
   line-height: 1.7;
@@ -146,4 +150,4 @@
   .testimonialsGrid {
     grid-template-columns: repeat(3, 1fr);
   }
-} 
+}

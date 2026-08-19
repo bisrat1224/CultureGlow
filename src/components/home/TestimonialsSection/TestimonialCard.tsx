@@ -3,9 +3,9 @@ import styles from "./TestimonialsSection.module.css";
 export interface Testimonial {
   id: string;
   quote: string;
-  initial: string;
+  rating: number; 
   name: string;
-  location: string;
+  source: string; // e.g. "Google"
 }
 
 interface TestimonialCardProps {
@@ -14,16 +14,17 @@ interface TestimonialCardProps {
 }
 
 export function TestimonialCard({ testimonial, revealDelayClass }: TestimonialCardProps) {
-  const { quote, initial, name, location } = testimonial;
+  const { quote, rating, name, source } = testimonial;
+  const initial = name.trim().charAt(0).toUpperCase();
 
   return (
     <article className={`${styles.tcard} reveal ${revealDelayClass ?? ""}`}>
       <div className={styles.tcardStars} aria-hidden="true">
-        <span>★</span>
-        <span>★</span>
-        <span>★</span>
-        <span>★</span>
-        <span>★</span>
+        {Array.from({ length: 5 }, (_, i) => (
+          <span key={i} className={i < rating ? undefined : styles.tcardStarEmpty}>
+            ★
+          </span>
+        ))}
       </div>
       <p className={styles.tcardQuote}>&quot;{quote}&quot;</p>
       <div className={styles.tcardAuthor}>
@@ -32,7 +33,7 @@ export function TestimonialCard({ testimonial, revealDelayClass }: TestimonialCa
         </div>
         <div>
           <p className={styles.tcardName}>{name}</p>
-          <p className={styles.tcardLoc}>{location}</p>
+          <p className={styles.tcardLoc}>via {source}</p>
         </div>
       </div>
     </article>
