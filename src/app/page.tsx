@@ -11,7 +11,6 @@ import { StorySection } from "@/components/home/StorySection/StorySection";
 import { ProductsSection } from "@/components/home/ProductsSection/ProductsSection";
 import { KitchenSection } from "@/components/home/KitchenSection/KitchenSection";
 import { SocialSection } from "@/components/home/SocialSection/SocialSection";
-import { CateringSection } from "@/components/home/CateringSection/CateringSection";
 import { TestimonialsSection } from "@/components/home/TestimonialsSection/TestimonialsSection";
 
 export default async function Home() {
@@ -31,7 +30,6 @@ export default async function Home() {
       <KitchenSection home={home.kitchen} items={kitchenItems} />
       <ProductsSection home={home.products} products={products} />
       <SocialSection home={home.social} tiktoks={tiktoks} reels={reels} />
-      <CateringSection />
       <TestimonialsSection />
     </>
   );

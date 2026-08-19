@@ -1,7 +1,5 @@
 import { ShopHero } from "@/components/shop/ShopHero";
 import { ShopFilterBar } from "@/components/shop/ShopFilterBar";
-import { FeatureBanner } from "@/components/shop/FeatureBanner";
-import { BundlesSection } from "@/components/shop/BundlesSection";
 import { HowToOrderSection } from "@/components/shop/HowToOrderSection";
 import { getProducts, getShopContent } from "@/lib/contentful/queries";
 
@@ -21,8 +19,6 @@ export default async function ShopPage() {
           title={shop.productsSection.title}
         />
       </div>
-      <FeatureBanner {...shop.featureBanner} />
-      <BundlesSection />
       <HowToOrderSection {...shop.howToOrder} />
     </>
   );
