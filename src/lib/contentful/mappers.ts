@@ -101,6 +101,7 @@ export function mapHomePage(entry: Entry<EntrySkeletonType>): HomeContent {
       headingAfterEm: f(fields, "storyHeadingAfterEm", ""),
       headingSecondLine: f(fields, "storyHeadingSecondLine", ""),
       body: richTextToPlain(fields.storyBody) || "",
+      readMoreCta: f(fields, "storyReadMoreCta", ""),
       amharic: f(fields, "storyAmharic", ""),
       badge: f(fields, "storyBadge", ""),
       stats: f(fields, "storyStats", []),
