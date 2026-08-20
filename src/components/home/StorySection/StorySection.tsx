@@ -1,11 +1,16 @@
 import Image from "next/image";
+import Link from "next/link";
 import { homeContent } from "@/lib/content/content.home";
-import { StatCounter } from "./StatCounter";
 import styles from "./StorySection.module.css";
+import shared from "../shared.module.css";
 
 export function StorySection() {
-  const { eyebrow, headingBeforeEm, headingEm, headingSecondLine, body, amharic, badge, stats } =
+  const { eyebrow, headingBeforeEm, headingEm, headingSecondLine, body, badge } =
     homeContent.story;
+
+  // Homepage teaser: just the opening paragraph of the real story copy.
+  // The full story (all paragraphs, stats, Amharic line) lives on /about.
+  const intro = body.split("\n\n")[0];
 
   return (
     <section
@@ -23,22 +28,10 @@ export function StorySection() {
               <br />
               {headingSecondLine}
             </h2>
-            {body.split("\n\n").map((paragraph, i) => (
-              <p key={i} className={styles.storyBody}>
-                {paragraph}
-              </p>
-            ))}
-            <p className={`${styles.storyAmharic} font-ethiopic`}>{amharic}</p>
-            <div className={styles.storyStats}>
-              {stats.map((stat) => (
-                <div key={stat.label} className={styles.statItem}>
-                  <p className={styles.statNum}>
-                    <StatCounter value={stat.value} />
-                  </p>
-                  <p className={styles.statLabel}>{stat.label}</p>
-                </div>
-              ))}
-            </div>
+            <p className={styles.storyBody}>{intro}</p>
+            <Link href="/about" className={`${shared.btnPrimary} cg-press`}>
+              Read More
+            </Link>
           </div>
 
           <div className={`${styles.storyVisual} reveal-right reveal-delay-2`}>
@@ -48,7 +41,7 @@ export function StorySection() {
                 alt="Traditional Habesha stews in dark pans"
                 fill
                 loading="lazy"
-                sizes="(min-width: 768px) 50vw, 100vw"
+                sizes="(min-width: 768px) 42vw, 100vw"
                 className={styles.storyImgMainEl}
               />
             </div>
@@ -58,7 +51,7 @@ export function StorySection() {
                 alt="Ethiopian coffee in a traditional cup"
                 fill
                 loading="lazy"
-                sizes="(min-width: 768px) 24vw, 48vw"
+                sizes="(min-width: 768px) 18vw, 40vw"
                 className={styles.storyImgAccentEl}
               />
             </div>
