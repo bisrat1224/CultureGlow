@@ -23,8 +23,14 @@ WORKDIR /app
 ENV CI=true
 ENV NEXT_TELEMETRY_DISABLED=1
 
-COPY package.json package-lock.json ./
-RUN npm ci
+# This is a pnpm project (pnpm-lock.yaml / pnpm-workspace.yaml), not npm -
+# there is no package-lock.json. Use corepack so the pnpm version matches
+# whatever `packageManager` pins, rather than whatever pnpm happens to be
+# latest when the image is built.
+RUN corepack enable
+
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+RUN pnpm install --frozen-lockfile
 
 COPY . .
 
@@ -57,7 +63,7 @@ ENV NEXT_PUBLIC_WHATSAPP_NUMBER=$NEXT_PUBLIC_WHATSAPP_NUMBER \
     CONTENTFUL_MANAGEMENT_TOKEN=$CONTENTFUL_MANAGEMENT_TOKEN \
     SOURCE_REVISION=$SOURCE_REVISION
 
-RUN npm run build
+RUN pnpm run build
 
 # ---- Runtime ----------------------------------------------------------------
 FROM node:22-alpine AS runtime
