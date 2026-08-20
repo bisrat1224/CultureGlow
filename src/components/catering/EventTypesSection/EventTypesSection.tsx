@@ -10,7 +10,7 @@ const EVENT_TYPES: EventType[] = [
     title: "Weddings",
     desc: "Full-service catering for your big day - from intimate ceremonies to large receptions, plated or buffet-style.",
     image:
-      "/assets/images/gallery/wedding.jpeg",
+      "/assets/images/gallery/wedding.webp",
     alt: "Ethiopian wedding celebration at night",
   },
   {
