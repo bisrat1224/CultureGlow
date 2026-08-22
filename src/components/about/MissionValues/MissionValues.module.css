@@ -1,101 +1,129 @@
-
-
 .missionSection {
-  padding: calc(var(--cg-u) * 10) 0;
-  background: var(--cg-cream);
-
-  /* Light ground: gold-as-text needs the darkened value. Declared even
-     inside dark sections, since a light card there would otherwise
-     inherit the bright gold and drop to 2.4:1. */
-  --cg-gold-fg: var(--cg-gold-text);
-}
-
-.missionHeader {
-  text-align: center;
-  margin-bottom: calc(var(--cg-u) * 6);
-  max-width: 640px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.missionEyebrow {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--cg-gold-fg);
-  margin-bottom: calc(var(--cg-u) * 1.5);
-}
-
-.missionH2 {
-  font-family: var(--font-serif);
-  font-size: var(--cg-text-h2);
-  line-height: var(--cg-text-h2-lh);
-  letter-spacing: var(--cg-text-h2-ls);
-  font-weight: 700;
-  color: var(--cg-charcoal);
-}
-
-.missionH2 em {
-  font-style: italic;
-  color: var(--cg-gold-fg);
+  padding: calc(var(--cg-u) * 8) 0 calc(var(--cg-u) * 6) 0;
+  background: var(--cg-cream, #faf6f0);
 }
 
 .missionGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: calc(var(--cg-u) * 4);
-}
-
-.missionCard {
-  text-align: center;
-  padding: calc(var(--cg-u) * 4) calc(var(--cg-u) * 3);
-  background: #fff;
-  border: 1px solid var(--cg-border);
-  border-radius: 12px;
-  transition:
-    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.3s;
-
-  /* Light ground: gold-as-text needs the darkened value. Declared even
-     inside dark sections, since a light card there would otherwise
-     inherit the bright gold and drop to 2.4:1. */
-  --cg-gold-fg: var(--cg-gold-text);
-}
-
-.missionCard:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
-}
-
-.missionIconWrap {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: var(--cg-gold-light);
-  color: var(--cg-gold-fg);
-  display: flex;
+  gap: calc(var(--cg-u) * 6);
   align-items: center;
-  justify-content: center;
-  margin: 0 auto calc(var(--cg-u) * 2.5);
 }
 
-.missionCardTitle {
+.missionTextCol {
+  max-width: 580px;
+}
+
+.missionEyebrow {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cg-gold, #c8973a);
+  margin-bottom: calc(var(--cg-u) * 1.5);
+}
+
+.missionH2 {
   font-family: var(--font-serif);
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--cg-charcoal);
-  margin-bottom: var(--cg-u);
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--cg-charcoal, #1a1714);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: calc(var(--cg-u) * 3);
 }
 
-.missionCardBody {
+.missionH2 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--cg-gold, #c8973a);
+}
+
+.valuesList {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--cg-u) * 2.5);
+}
+
+.valuePlacard {
+  padding: calc(var(--cg-u) * 2) 0;
+  border-top: 1px solid rgba(200, 151, 58, 0.18);
+}
+
+.placardHeader {
+  display: flex;
+  align-items: baseline;
+  gap: calc(var(--cg-u) * 1.5);
+  margin-bottom: calc(var(--cg-u) * 0.75);
+}
+
+.valueNumber {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--cg-gold, #c8973a);
+  line-height: 1;
+}
+
+.valueTitle {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--cg-charcoal, #1a1714);
+}
+
+.valueBody {
   font-size: 0.9375rem;
   line-height: 1.7;
-  color: var(--cg-text);
+  color: var(--cg-text, #3d352e);
+  margin: 0;
+  padding-left: calc(var(--cg-u) * 3.5);
 }
 
-@media (min-width: 768px) {
+.missionVisual {
+  position: relative;
+}
+
+.pedestalCard {
+  position: relative;
+  background: #ffffff;
+  padding: calc(var(--cg-u) * 1.5);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(26, 23, 20, 0.06);
+  border: 1px solid rgba(200, 151, 58, 0.12);
+}
+
+.imageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.imageEl {
+  object-fit: cover;
+  object-position: center 25%;
+  transition: transform 0.5s ease;
+}
+
+.pedestalCard:hover .imageEl {
+  transform: scale(1.02);
+}
+
+@media (min-width: 900px) {
+  .missionSection {
+    padding: calc(var(--cg-u) * 10) 0 calc(var(--cg-u) * 8) 0;
+  }
+
   .missionGrid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: calc(var(--cg-u) * 8);
+  }
+}
+
+@media (max-width: 640px) {
+  .valueBody {
+    padding-left: 0;
   }
 }
