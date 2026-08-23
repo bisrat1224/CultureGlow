@@ -3,57 +3,75 @@ import { aboutContent } from "@/lib/content/content.about";
 import styles from "./AboutStory.module.css";
 
 export function AboutStory() {
-  const { eyebrow, headingBeforeEm, headingEm, headingAfterEm, paragraphs, badge, stats } =
-    aboutContent.story;
+  const { paragraphs } = aboutContent.story;
 
   return (
     <section className={styles.storySection} aria-labelledby="about-story-h2">
       <div className="wrap">
-        <div className={styles.storyInner}>
-          <div className={`${styles.storyTextCol} reveal`}>
-            <p className={styles.storyEyebrow}>{eyebrow}</p>
-            <h2 className={styles.storyH2} id="about-story-h2">
-              {headingBeforeEm}
-              <em>{headingEm}</em>
-              {headingAfterEm}
+        {/* Chapter 01 */}
+        <div className={styles.chapterRow}>
+          <div className={`${styles.chapterTextCol} reveal`}>
+            <p className={styles.chapterPlacard}>Chapter I · Memory and Hearth</p>
+            <h2 className={styles.chapterH2} id="about-story-h2">
+              Recipes Treasured Across <br />
+              <em>Generations</em>
             </h2>
-            <div className={styles.storyBody}>
-              {paragraphs.map((paragraph) => (
-                <p key={paragraph.slice(0, 40)}>{paragraph}</p>
-              ))}
+            <div className={styles.chapterBody}>
+              <p>{paragraphs[0]}</p>
+              <p>{paragraphs[1]}</p>
             </div>
-            <div className={styles.storyStats}>
-              {stats.map((stat) => (
-                <div key={stat.label} className={styles.statItem}>
-                  <p className={styles.statNum}>{stat.value}</p>
-                  <p className={styles.statLabel}>{stat.label}</p>
-                </div>
-              ))}
+            <div className={styles.milestoneNote}>
+              <span className={styles.milestoneYear}>2024</span>
+              <p className={styles.milestoneDesc}>
+                CultureGlow24 founded on family recipes and communal Habesha hospitality.
+              </p>
             </div>
           </div>
 
-          <div className={`${styles.storyVisual} reveal reveal-delay-2`}>
-            <div className={styles.storyImgMainWrap}>
-              <Image
-                src="/assets/images/stew-pans.avif"
-                alt="Traditional Habesha stews in dark pans"
-                fill
-                loading="lazy"
-                sizes="(min-width: 768px) 50vw, 100vw"
-                className={styles.storyImgMainEl}
-              />
+          <div className={`${styles.chapterVisual} reveal reveal-delay-2`}>
+            <div className={styles.pedestalCard}>
+              <div className={styles.imageWrap}>
+                <Image
+                  src="/assets/images/injera-plate.jpg"
+                  alt="Habesha communal injera plate"
+                  fill
+                  loading="lazy"
+                  sizes="(min-width: 1024px) 40vw, 90vw"
+                  className={styles.imageEl}
+                />
+              </div>
             </div>
-            <div className={styles.storyImgAccentWrap}>
-              <Image
-                src="/assets/images/injera-plate.jpg"
-                alt="Injera platter"
-                fill
-                loading="lazy"
-                sizes="(min-width: 768px) 24vw, 48vw"
-                className={styles.storyImgAccentEl}
-              />
+          </div>
+        </div>
+
+        {/* Chapter 02 - Asymmetric Staggered Flow */}
+        <div className={`${styles.chapterRow} ${styles.chapterRowInverted}`}>
+          <div className={`${styles.chapterVisual} reveal`}>
+            <div className={styles.pedestalCard}>
+              <div className={styles.imageWrap}>
+                <Image
+                  src="/assets/images/stew-pans.avif"
+                  alt="Habesha stews simmered with authentic berbere spices"
+                  fill
+                  loading="lazy"
+                  sizes="(min-width: 1024px) 40vw, 90vw"
+                  className={styles.imageEl}
+                />
+              </div>
             </div>
-            <span className={styles.storyBadge}>{badge}</span>
+          </div>
+
+          <div className={`${styles.chapterTextCol} reveal reveal-delay-2`}>
+            <p className={styles.chapterPlacard}>Chapter II · Landscapes and Flavours</p>
+            <h3 className={styles.chapterH2}>
+              Devotion in Every <br />
+              <em>Handcrafted Ingredient</em>
+            </h3>
+            <div className={styles.chapterBody}>
+              <p>{paragraphs[2]}</p>
+              <p>{paragraphs[3]}</p>
+              <p>{paragraphs[4]}</p>
+            </div>
           </div>
         </div>
       </div>

@@ -1,146 +1,140 @@
 .storySection {
-  padding: calc(var(--cg-u) * 10) 0;
+  padding: calc(var(--cg-u) * 6) 0 calc(var(--cg-u) * 8) 0;
+  background: var(--cg-cream, #faf6f0);
 }
 
-.storyInner {
+.chapterRow {
   display: grid;
   grid-template-columns: 1fr;
   gap: calc(var(--cg-u) * 6);
   align-items: center;
+  margin-bottom: calc(var(--cg-u) * 8);
 }
 
-.storyEyebrow {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--cg-gold-fg);
-  margin-bottom: calc(var(--cg-u) * 2);
-}
-
-.storyH2 {
-  font-family: var(--font-serif);
-  font-size: var(--cg-text-h2);
-  line-height: var(--cg-text-h2-lh);
-  letter-spacing: var(--cg-text-h2-ls);
-  font-weight: 700;
-  color: var(--cg-charcoal);
-  margin-bottom: calc(var(--cg-u) * 3);
-}
-
-.storyH2 em {
-  font-style: italic;
-  color: var(--cg-gold-fg);
-}
-
-.storyBody {
-  font-size: 1.0625rem;
-  line-height: 1.75;
-  color: var(--cg-text);
-  max-width: 540px;
-  margin-bottom: calc(var(--cg-u) * 4);
-}
-
-.storyBody p {
-  margin-bottom: 1em;
-}
-
-.storyBody p:last-child {
+.chapterRow:last-child {
   margin-bottom: 0;
 }
 
-.storyAmharic {
-  font-size: 1.125rem;
-  color: var(--cg-text);
-  line-height: 1.8;
-  border-left: 3px solid var(--cg-gold);
-  padding-left: calc(var(--cg-u) * 2);
-  margin-bottom: calc(var(--cg-u) * 4);
+.chapterTextCol {
+  max-width: 540px;
 }
 
-.storyStats {
-  display: flex;
-  gap: calc(var(--cg-u) * 5);
-  flex-wrap: wrap;
-}
-
-.statNum {
-  font-family: var(--font-serif);
-  font-size: 2.5rem;
+.chapterPlacard {
+  font-size: 0.6875rem;
   font-weight: 700;
-  color: var(--cg-charcoal);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cg-gold, #c8973a);
+  margin-bottom: calc(var(--cg-u) * 1.5);
+}
+
+.chapterH2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--cg-charcoal, #1a1714);
+  letter-spacing: -0.01em;
+  margin-bottom: calc(var(--cg-u) * 2.5);
+}
+
+.chapterH2 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--cg-gold, #c8973a);
+}
+
+.chapterBody {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--cg-text, #3d352e);
+  margin-bottom: calc(var(--cg-u) * 3);
+}
+
+.chapterBody p {
+  margin-bottom: 1em;
+}
+
+.chapterBody p:last-child {
+  margin-bottom: 0;
+}
+
+.milestoneNote {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--cg-u) * 2);
+  padding: calc(var(--cg-u) * 1.5) calc(var(--cg-u) * 2.5);
+  background: rgba(200, 151, 58, 0.08);
+  border-left: 3px solid var(--cg-gold, #c8973a);
+  border-radius: 0 8px 8px 0;
+}
+
+.milestoneYear {
+  font-family: var(--font-serif);
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--cg-charcoal, #1a1714);
   line-height: 1;
 }
 
-.statLabel {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--cg-text);
-  margin-top: 4px;
+.milestoneDesc {
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: rgba(61, 53, 46, 0.85);
+  margin: 0;
 }
 
-.storyVisual {
+.chapterVisual {
   position: relative;
 }
 
-.storyImgMainWrap {
+.pedestalCard {
+  position: relative;
+  background: #ffffff;
+  padding: calc(var(--cg-u) * 1.5);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(26, 23, 20, 0.06);
+  border: 1px solid rgba(200, 151, 58, 0.12);
+}
+
+.imageWrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 5;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.storyImgMainEl {
-  object-fit: cover;
-}
-
-.storyImgAccentWrap {
-  position: absolute;
-  bottom: calc(var(--cg-u) * -2);
-  left: calc(var(--cg-u) * -1);
-  width: 44%;
-  aspect-ratio: 1;
-  border-radius: 12px;
-  border: 6px solid var(--cg-cream);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
-}
-
-.storyImgAccentEl {
-  object-fit: cover;
-}
-
-.storyBadge {
-  position: absolute;
-  top: 24px;
-  right: calc(var(--cg-u) * -1);
-  background: var(--cg-gold);
-  color: var(--cg-gold-ink);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 10px 16px;
+  aspect-ratio: 16 / 11;
   border-radius: 8px;
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
+  overflow: hidden;
 }
 
-@media (min-width: 768px) {
-  .storyInner {
+.imageEl {
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+.pedestalCard:hover .imageEl {
+  transform: scale(1.02);
+}
+
+@media (min-width: 900px) {
+  .storySection {
+    padding: calc(var(--cg-u) * 6) 0 calc(var(--cg-u) * 10) 0;
+  }
+
+  .chapterRow {
     grid-template-columns: 1fr 1fr;
+    gap: calc(var(--cg-u) * 8);
+    margin-bottom: calc(var(--cg-u) * 10);
   }
 
-  .storyImgAccentWrap {
-    bottom: calc(var(--cg-u) * -4);
-    left: calc(var(--cg-u) * -3);
-    width: 48%;
+  .chapterRowInverted {
+    direction: ltr;
   }
 
-  .storyBadge {
-    right: calc(var(--cg-u) * -2);
+  .chapterRowInverted .chapterVisual {
+    order: 1;
+  }
+
+  .chapterRowInverted .chapterTextCol {
+    order: 2;
   }
 }

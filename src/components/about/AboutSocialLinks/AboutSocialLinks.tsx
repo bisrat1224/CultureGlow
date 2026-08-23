@@ -31,7 +31,7 @@ export function AboutSocialLinks() {
   const { heading } = aboutContent.social;
 
   return (
-    <section className={styles.socialLinksSection} aria-labelledby="about-social-h2">
+    <section className={`${styles.socialLinksSection} reveal`} aria-labelledby="about-social-h2">
       <div className="wrap">
         <h2 className={styles.socialLinksH2} id="about-social-h2">
           {heading}
