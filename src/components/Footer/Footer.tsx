@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { NAV_LINKS, SOCIAL_LINKS, CONTACT_EMAIL } from "@/lib/constants"; 
+import { contactContent } from "@/lib/content/content.contact";
 import styles from "./Footer.module.css";
 
 const ADDRESS = "Putney High St, London SW15 1SN";
 const ADDRESS_MAPS_URL =
-  "https://www.google.com/maps/search/?api=1&query=Putney+High+St%2C+London+SW15+1SN";
+  "https://www.openstreetmap.org/?mlat=51.4613&mlon=-0.2159#map=17/51.4613/-0.2159";
 
 function InstagramIcon() {
   return (
@@ -72,6 +73,16 @@ export function Footer() {
               </a> 
             </li> 
           </ul> 
+
+          <p className={`${styles.footerColTitle} ${styles.footerHoursTitle}`}>Opening Hours</p>
+          <ul className={`${styles.footerHoursList} ${styles.footerItemText}`}>
+            {contactContent.hours.schedule.map((item) => (
+              <li key={item.days} className={styles.footerHoursItem}>
+                <span className={styles.footerHoursDays}>{item.days}:</span>{" "}
+                <span className={styles.footerHoursTime}>{item.hours}</span>
+              </li>
+            ))}
+          </ul>
         </div>
 
         {/* Col 2: Explore (2-column grid) */}

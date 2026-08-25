@@ -24,6 +24,22 @@ export const UK_PHONE_TEL = "+447310452605";
 
 export const CONTACT_EMAIL = "cultureglow24@gmail.com";
 
+/**
+ * Approximate centroid for the confirmed business address,
+ * "Putney High St, London SW15 1SN". Street-level precision — swap for a
+ * verified shopfront pin if the client provides a precise dropped-pin
+ * location later.
+ *
+ * Lives here (not in LocationMap.tsx) because LocationMap is a "use client"
+ * module: importing plain constants from a client module into a Server
+ * Component doesn't give you the real value across that boundary, only a
+ * client reference. ContactSection (server) and LocationMap (client) both
+ * need the actual numbers, so they're defined in this boundary-free module
+ * instead.
+ */
+export const BUSINESS_LAT = 51.4613;
+export const BUSINESS_LNG = -0.2159;
+
 export type NavLink = {
   href: string;
   label: string;

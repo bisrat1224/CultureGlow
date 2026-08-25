@@ -32,6 +32,46 @@ export const contactContent = {
     social: {
       label: "Follow Us",
     },
+    directions: {
+      label: "Get Directions",
+      value: "Open in OpenStreetMap",
+    },
+  },
+
+  /**
+   * TODO(PLACEHOLDER): Opening hours are client-approved placeholders per 2026-08-22 instruction
+   * ("can be changed later, just assume for now"). Replace with verified trading hours once confirmed.
+   */
+  hours: {
+    eyebrow: "Opening Hours",
+    headingBeforeEm: "When We're ",
+    headingEm: "Open",
+    headingAfterEm: "",
+    desc: "Join us in Putney for authentic Habesha coffee, cuisine, and cultural treasures.",
+    schedule: [
+      {
+        days: "Monday – Friday",
+        hours: "08:00 – 20:00",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "08:00",
+        closes: "20:00",
+      },
+      {
+        days: "Saturday",
+        hours: "09:00 – 20:00",
+        dayOfWeek: ["Saturday"],
+        opens: "09:00",
+        closes: "20:00",
+      },
+      {
+        days: "Sunday",
+        hours: "10:00 – 18:00",
+        dayOfWeek: ["Sunday"],
+        opens: "10:00",
+        closes: "18:00",
+      },
+    ],
+    note: "Kitchen service closes 30 minutes before closing time.",
   },
 
   map: {

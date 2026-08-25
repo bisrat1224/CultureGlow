@@ -1,15 +1,19 @@
-import { MessageCircle, Phone, Mail } from "lucide-react";
+import { MessageCircle, Phone, Mail, Navigation, Clock } from "lucide-react";
 import {
   SOCIAL_LINKS,
   CONTACT_EMAIL,
   buildWhatsAppLink,
   UK_PHONE_DISPLAY,
   UK_PHONE_TEL,
+  BUSINESS_LAT,
+  BUSINESS_LNG,
 } from "@/lib/constants";
 import { contactContent } from "@/lib/content/content.contact";
 import { LocationMap } from "../LocationMap/LocationMap";
-import styles from "./ContactSection.module.css";
+import styles from "./ContactSectionOriginal.module.css";
 import shared from "../shared.module.css";
+
+const DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${BUSINESS_LAT},${BUSINESS_LNG}`;
 
 function InstagramIcon() {
   return (
@@ -36,7 +40,7 @@ function SocialIcon({ label }: { label: string }) {
   return null;
 }
 
-export function ContactSection() {
+export function ContactSectionOriginal() {
   const {
     eyebrow,
     headingBeforeEm,
@@ -47,7 +51,10 @@ export function ContactSection() {
     phone,
     email,
     social,
+    directions,
   } = contactContent.methods;
+
+  const { hours } = contactContent;
 
   return (
     <section
@@ -109,6 +116,19 @@ export function ContactSection() {
             <span className={styles.methodValue}>{CONTACT_EMAIL}</span>
           </a>
 
+          <a
+            href={DIRECTIONS_URL}
+            className={`${styles.methodCard} cg-press-card`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className={styles.methodIcon} aria-hidden="true">
+              <Navigation size={22} strokeWidth={1.75} />
+            </span>
+            <span className={styles.methodLabel}>{directions.label}</span>
+            <span className={styles.methodValue}>{directions.value}</span>
+          </a>
+
           <div className={`${styles.methodCard} ${styles.socialCard}`}>
             <span className={styles.methodLabel}>{social.label}</span>
             <ul className={styles.socialList}>
@@ -129,6 +149,36 @@ export function ContactSection() {
                 </li>
               ))}
             </ul>
+          </div>
+        </div>
+
+        {/* Opening Hours */}
+        <div className={styles.hoursWrapper}>
+          <div className={styles.hoursCard}>
+            <div className={styles.hoursHeader}>
+              <span className={styles.methodIcon} aria-hidden="true">
+                <Clock size={22} strokeWidth={1.75} />
+              </span>
+              <div>
+                <span className={styles.methodLabel}>{hours.eyebrow}</span>
+                <h3 className={styles.hoursHeading}>
+                  {hours.headingBeforeEm}
+                  <em>{hours.headingEm}</em>
+                  {hours.headingAfterEm}
+                </h3>
+              </div>
+            </div>
+            <p className={styles.hoursDesc}>{hours.desc}</p>
+            <div className={styles.hoursSchedule}>
+              {hours.schedule.map((item) => (
+                <div key={item.days} className={styles.scheduleRow}>
+                  <span className={styles.scheduleDays}>{item.days}</span>
+                  <span className={styles.scheduleDots} aria-hidden="true" />
+                  <span className={styles.scheduleHours}>{item.hours}</span>
+                </div>
+              ))}
+            </div>
+            {hours.note && <p className={styles.hoursNote}>{hours.note}</p>}
           </div>
         </div>
       </div>

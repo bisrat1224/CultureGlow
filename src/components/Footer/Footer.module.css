@@ -136,6 +136,38 @@
   margin-top: calc(var(--cg-u) * 0.5); 
 }
 
+.footerHoursTitle {
+  margin-top: calc(var(--cg-u) * 1.5);
+  margin-bottom: calc(var(--cg-u) * 0.5);
+}
+
+.footerHoursList {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footerHoursItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: rgba(250, 246, 240, 0.7);
+}
+
+.footerHoursDays {
+  color: rgba(250, 246, 240, 0.85);
+  font-weight: 500;
+}
+
+.footerHoursTime {
+  color: var(--cg-gold-fg);
+  font-weight: 600;
+}
 
 .footerBottom {
   border-top: 1px solid rgba(250, 246, 240, 0.08);
@@ -196,10 +228,14 @@
     margin-bottom: calc(var(--cg-u) * 2);
   }
 
-
   .footerAddressTitle {
     margin-top: calc(var(--cg-u) * 1); 
     margin-bottom: calc(var(--cg-u) * 1); 
+  }
+
+  .footerHoursTitle {
+    margin-top: calc(var(--cg-u) * 1.5);
+    margin-bottom: calc(var(--cg-u) * 0.75);
   }
 
   /* Explore links: 2-column grid */
@@ -233,3 +269,4 @@
     padding: 0.25rem 0; 
   }
 }
+
