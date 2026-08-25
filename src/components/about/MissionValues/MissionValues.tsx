@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { aboutContent } from "@/lib/content/content.about";
-import styles from "./MissionValuesOriginal.module.css";
+import styles from "./MissionValues.module.css";
 
-export function MissionValuesOriginal() {
+export function MissionValues() {
   const { eyebrow, headingBeforeEm, headingEm, values } = aboutContent.mission;
 
   return (
