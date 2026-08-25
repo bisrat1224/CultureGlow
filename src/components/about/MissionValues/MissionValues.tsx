@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { aboutContent } from "@/lib/content/content.about";
-import styles from "./MissionValues.module.css";
+import styles from "./MissionValuesOriginal.module.css";
 
-export function MissionValues() {
+export function MissionValuesOriginal() {
   const { eyebrow, headingBeforeEm, headingEm, values } = aboutContent.mission;
 
   return (
@@ -36,7 +36,7 @@ export function MissionValues() {
             <div className={styles.pedestalCard}>
               <div className={styles.imageWrap}>
                 <Image
-                  src="/assets/images/gallery/wedding.jpeg"
+                  src="/assets/images/logo.png"
                   alt="Habesha wedding banqueting and cultural celebration"
                   fill
                   loading="lazy"
