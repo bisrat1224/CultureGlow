@@ -1,4 +1,4 @@
-/* Two columns, taller frames — solid rectangle */
+/* Two columns, taller frames, solid rectangle */
 .photoGrid {
   display: grid;
   grid-template-columns: 1fr;
@@ -9,7 +9,7 @@
   position: relative;
   width: 100%;
   /* Half the previous height: was 3/4 (tall), now 3/2 (shorter landscape-leaning).
-     object-fit: cover keeps image proportions — no stretch/squash. */
+     object-fit: cover keeps image proportions. No stretch/squash. */
   aspect-ratio: 3 / 2;
   border-radius: 12px;
   overflow: hidden;

@@ -89,7 +89,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
 ];
 
 /*
- * PLACEHOLDER / STOCK GALLERY (commented out — restore if needed)
+ * PLACEHOLDER / STOCK GALLERY (commented out, restore if needed)
  *
  * const GALLERY_ITEMS_PLACEHOLDER: GalleryItem[] = [
  *   { id: "wedding-1", image: "https://images.pexels.com/photos/35976293/pexels-photo-35976293.png?auto=compress&cs=tinysrgb&w=700", alt: "Ethiopian wedding celebration at night", caption: "Wedding" },

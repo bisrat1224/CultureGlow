@@ -31,7 +31,7 @@
 
 /* Single merged row: a fixed-width track holding two copies of the post
    list, animated with translateX(-50%) so it loops seamlessly. The
-   viewport just clips the overflow — it never scrolls itself. */
+   viewport just clips the overflow. It never scrolls itself. */
 .socialMarqueeViewport {
   overflow: hidden;
   /* Bleed to the viewport edges so tiles can scroll under the wrap's
@@ -239,7 +239,7 @@
     flex: 0 0 240px;
   }
 
-  /* Tiles fit the row on desktop — center for layout balance */
+  /* Tiles fit the row on desktop, center for layout balance */
   .socialGrid {
     justify-content: center;
   }

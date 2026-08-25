@@ -10,7 +10,7 @@
  * maplibre-gl, which mapcn itself wraps. If you have network access to
  * mapcn.dev, running the real install command will replace this file with
  * the upstream version (which additionally offers popups, tooltips, routes,
- * and controls) — this file is written to be a safe drop-in in the meantime.
+ * and controls), this file is written to be a safe drop-in in the meantime.
  *
  * Tiles: OpenStreetMap raster tiles, not CARTO. mapcn's default CARTO
  * basemaps require a commercial license for non-grantee use; OSM's raw

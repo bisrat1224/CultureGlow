@@ -8,7 +8,7 @@ import styles from "./LocationMap.module.css";
  * TODO(BLOCKED): placeholder coordinates only.
  *
  * These are an approximate centroid for "Putney High St, London SW15 1SN"
- * (the same fuzzy street-level query the old <MapEmbed /> iframe used) —
+ * (the same fuzzy street-level query the old <MapEmbed /> iframe used),
  * NOT a verified pin for the actual storefront. A hand-placed marker needs
  * the precise address/unit or a dropped-pin Google Maps link from the
  * client; until then this will likely be off by one or more buildings.

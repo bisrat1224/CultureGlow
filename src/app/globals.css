@@ -414,7 +414,7 @@ button {
 
 /* ─── DIRECTIONAL REVEAL VARIANTS ───────────────────────────
    Use reveal-left / reveal-right on side-by-side columns so
-   the animation direction mirrors the visual layout — text
+   the animation direction mirrors the visual layout, text
    enters from the left, images from the right.
 */
 .reveal-left,

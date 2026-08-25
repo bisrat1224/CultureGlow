@@ -35,7 +35,7 @@ function isVisible(item: MenuItem): boolean {
   return item.visible !== false;
 }
 
-/** Loaded from content/menu.json — edit that file to change the menu. */
+/** Loaded from content/menu.json. Edit that file to change the menu. */
 export const CATEGORIES: CategoryMeta[] = menuData.categories as CategoryMeta[];
 
 const rawStarters = menuData.items.starters as MenuItem[];

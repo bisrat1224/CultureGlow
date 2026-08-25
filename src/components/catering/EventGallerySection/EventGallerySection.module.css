@@ -1,4 +1,4 @@
-/* Uniform rectangular grid — no masonry spans, no empty bottom-right cell */
+/* Uniform rectangular grid, no masonry spans, no empty bottom-right cell */
 .galleryGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
