@@ -1,9 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import heroBg from "../../../../public/assets/images/stew-pans.avif";
 import { buildWhatsAppLink } from "@/lib/constants";
 import { homeContent } from "@/lib/content/content.home";
-import styles from "./Hero.module.css";
+import styles from "./HeroOriginal.module.css";
 import shared from "../shared.module.css";
 
 export function Hero() {
@@ -12,17 +11,18 @@ export function Hero() {
 
   return (
     <section className={styles.hero} aria-label="Hero">
-      <Image
-        src={heroBg}
-        alt="Traditional Habesha stews"
-        fill
-        sizes="100vw"
-        quality={90}
-        priority
-        placeholder="blur"
-        className={styles.heroImgFallback}
-      />
-      <div className={styles.heroGrain} />
+      <div className={styles.heroBgWrapper}>
+        <Image
+          src="/assets/images/multiple-plates.jpg"
+          alt="Traditional Habesha plates"
+          fill
+          sizes="100vw"
+          quality={90}
+          priority
+          className={styles.heroImgFallback}
+        />
+        <div className={styles.heroGrain} />
+      </div>
 
       <div className={`${styles.heroBody} wrap`}>
         <p className={styles.heroEyebrow}>{eyebrow}</p>

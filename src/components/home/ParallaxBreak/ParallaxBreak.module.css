@@ -1,0 +1,56 @@
+.parallax {
+  position: relative;
+  z-index: 1;
+  height: 340px;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fallback for mobile - iOS doesn't support background-attachment: fixed */
+@supports not (background-attachment: fixed) {
+  .parallax {
+    background-attachment: scroll;
+  }
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(18, 16, 14, 0.6);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 calc(var(--cg-u) * 3);
+}
+
+.eyebrow {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cg-gold);
+  margin-bottom: calc(var(--cg-u) * 1.5);
+}
+
+.heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 700;
+  color: var(--cg-cream);
+  line-height: 1.15;
+}
+
+@media (min-width: 768px) {
+  .parallax {
+    height: 420px;
+  }
+}

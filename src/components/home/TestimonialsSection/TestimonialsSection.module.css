@@ -1,16 +1,19 @@
 .testimonialsSection {
-  padding: calc(var(--cg-u) * 10) 0;
+  position: relative;
+  z-index: 1;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: calc(var(--cg-u) * 8) 0;
   background: var(--cg-gold-light);
 
-  /* Light ground: gold-as-text needs the darkened value. Declared even
-     inside dark sections, since a light card there would otherwise
-     inherit the bright gold and drop to 2.4:1. */
   --cg-gold-fg: var(--cg-gold-text);
 }
 
 .testimonialsHeader {
   text-align: center;
-  margin-bottom: calc(var(--cg-u) * 6);
+  margin-bottom: calc(var(--cg-u) * 8);
 }
 
 .testimonialsH2 {
@@ -28,126 +31,103 @@
   color: var(--cg-gold-fg);
 }
 
-.testimonialsGrid {
+.sliderContainer {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  padding: 0 calc(var(--cg-u) * 2);
+}
+
+.slidesWrapper {
   display: grid;
   grid-template-columns: 1fr;
-  gap: calc(var(--cg-u) * 3);
+  grid-template-rows: 1fr;
 }
 
-.tcard {
-  position: relative;
-  background: #fff;
-  border: 1px solid rgba(200, 151, 58, 0.4);
-  border-radius: 12px;
-  padding: calc(var(--cg-u) * 4);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-  /* Equal-height cards; author row sticks to the bottom so names align across the grid */
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  overflow: hidden;
-  transition:
-    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.3s,
-    border-color 0.3s;
-
-  /* Light ground: gold-as-text needs the darkened value. Declared even
-     inside dark sections, since a light card there would otherwise
-     inherit the bright gold and drop to 2.4:1. */
-  --cg-gold-fg: var(--cg-gold-text);
+.slide {
+  grid-column: 1;
+  grid-row: 1;
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.tcard::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--cg-gold) 0%, #e8b84b 50%, var(--cg-gold) 100%);
-  background-size: 200% 100%;
-  background-position: 100% 0;
-  transition: background-position 0.6s ease;
+.activeSlide {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
   z-index: 2;
+}
+
+.inactiveSlide {
+  opacity: 0;
+  transform: translateY(10px);
   pointer-events: none;
+  z-index: 1;
 }
 
-.tcard:hover::before {
-  background-position: 0% 0;
+.quoteWrapper {
+  position: relative;
+  margin-bottom: calc(var(--cg-u) * 4);
 }
 
-.tcard:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-  border-color: rgba(200, 151, 58, 0.7);
-}
-
-.tcardStars {
-  display: flex;
-  gap: 3px;
-  margin-bottom: calc(var(--cg-u) * 2);
-}
-
-.tcardStars span {
-  color: var(--cg-gold-fg);
-  font-size: 1rem;
-}
-
-.tcardStarEmpty {
-  opacity: 0.25;
-}
-
-.tcardQuote {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: var(--cg-text);
-  margin-bottom: calc(var(--cg-u) * 3);
-  font-style: italic;
-  flex: 1 1 auto;
-}
-
-.tcardAuthor {
-  display: flex;
-  align-items: center;
-  gap: calc(var(--cg-u) * 1.5);
-  margin-top: auto;
-}
-
-.tcardAvatar {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--cg-gold-light);
-  border: 2px solid var(--cg-gold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.quoteMark {
+  display: block;
   font-family: var(--font-serif);
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: var(--cg-gold-fg);
-  flex-shrink: 0;
+  font-size: 6rem;
+  line-height: 1;
+  color: var(--cg-gold);
+  opacity: 0.3;
+  margin-bottom: -1.5rem;
 }
 
-.tcardName {
-  font-size: 0.9375rem;
+.quoteText {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  line-height: 1.4;
+  color: var(--cg-charcoal);
+  font-style: italic;
+  font-weight: 300;
+}
+
+.authorInfo {
+  margin-bottom: calc(var(--cg-u) * 6);
+}
+
+.authorName {
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
   font-weight: 600;
   color: var(--cg-charcoal);
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.tcardLoc {
-  font-size: 0.8125rem;
+.authorSource {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
   color: var(--cg-text);
+  opacity: 0.8;
 }
 
-@media (min-width: 640px) {
-  .testimonialsGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
 }
 
-@media (min-width: 1024px) {
-  .testimonialsGrid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(18, 16, 14, 0.15);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.activeDot {
+  background: var(--cg-charcoal);
+  transform: scale(1.2);
 }
