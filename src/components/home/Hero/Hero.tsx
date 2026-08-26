@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { buildWhatsAppLink } from "@/lib/constants";
 import { homeContent } from "@/lib/content/content.home";
-import styles from "./HeroOriginal.module.css";
+import styles from "./Hero.module.css";
 import shared from "../shared.module.css";
 
 export function Hero() {

@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { HomeContent } from "@/lib/content/content.home";
 import type { Product } from "./ProductCard";
 import { ProductsGrid } from "./ProductsGrid";
-import styles from "./ProductsOriginal.module.css";
+import styles from "./ProductsSection.module.css";
 import shared from "../shared.module.css";
 
 interface Props {

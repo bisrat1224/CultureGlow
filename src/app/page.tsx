@@ -3,11 +3,11 @@ import {
   getFeaturedProducts,
   getTiktokPosts,
   getInstagramReels,
-  getFeaturedMenuItems,
+  getMenuItemsByCategory,
 } from "@/lib/contentful/queries";
 import { Hero } from "@/components/home/Hero/Hero";
-import { MarqueeBand } from "@/components/home/MarqueeBand/MarqueeBand";
 import { StorySection } from "@/components/home/StorySection/StorySection";
+import { ParallaxBreak } from "@/components/home/ParallaxBreak/ParallaxBreak";
 import { ProductsSection } from "@/components/home/ProductsSection/ProductsSection";
 import { KitchenSection } from "@/components/home/KitchenSection/KitchenSection";
 import { SocialSection } from "@/components/home/SocialSection/SocialSection";
@@ -17,24 +17,28 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "CultureGlow24 | Habesha Food, Coffee & Lifestyle",
   description:
-    "Authentic Habesha food, Ethiopian coffee, beauty and lifestyle products. Order via WhatsApp — CultureGlow24 brings Habesha culture to you.",
+    "Authentic Habesha food, Ethiopian coffee, beauty and lifestyle products. Order via WhatsApp - CultureGlow24 brings Habesha culture to you.",
 };
 
 export default async function Home() {
-  const [home, products, tiktoks, reels, kitchenItems] = await Promise.all([
+  const [home, products, tiktoks, reels, mainItems] = await Promise.all([
     getHomeContent(),
     getFeaturedProducts(),
     getTiktokPosts({ homeOnly: true }),
     getInstagramReels({ homeOnly: true }),
-    getFeaturedMenuItems(),
+    getMenuItemsByCategory("mains"),
   ]);
 
   return (
     <>
       <Hero />
-      <MarqueeBand />
       <StorySection />
-      <KitchenSection home={home.kitchen} items={kitchenItems} />
+      <ParallaxBreak
+        imageSrc="/assets/images/stew-pans.avif"
+        eyebrow="Discover"
+        heading="From Our Kitchen"
+      />
+      <KitchenSection home={home.kitchen} items={mainItems} />
       <ProductsSection home={home.products} products={products} />
       <SocialSection home={home.social} tiktoks={tiktoks} reels={reels} />
       <TestimonialsSection />
