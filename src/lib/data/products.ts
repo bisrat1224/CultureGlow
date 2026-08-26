@@ -11,7 +11,7 @@ export const SHOP_FILTERS: { value: ProductCategory | "all"; label: string }[] =
   { value: "BEAUTY", label: "Beauty" },
 ];
 
-/** Loaded from content/products.json. Edit that file to change the catalogue. */
+/** Loaded from content/products.json - edit that file to change the catalogue. */
 export const PRODUCTS: Product[] = productsData.products as Product[];
 
 const FEATURED_PRODUCT_IDS: string[] = productsData.featuredIds;

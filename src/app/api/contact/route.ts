@@ -1,9 +1,7 @@
-﻿import { NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { createRateLimit, getClientIP } from "@/lib/rate-limit";
 import { logger } from "@/lib/logger";
 import { Resend } from "resend";
-
-
 
 interface ContactPayload {
   name: string;
@@ -72,9 +70,8 @@ export async function POST(request: Request) {
 
   try {
     await resend.emails.send({
-      // NOTE: replace with a verified sending domain once one exists -
-      // resend.dev's onboarding address is a placeholder for local/dev use.
-      from: "CultureGlow24 <cultureglow24@gmail.com>", // TODO: Verify domain with Resend before going live
+      // Verified domain: cultureglow24.com (Resend dashboard)
+      from: "CultureGlow24 <noreply@cultureglow24.com>",
       to: recipient,
       replyTo: email,
       subject: `New contact form submission from ${name}`,
