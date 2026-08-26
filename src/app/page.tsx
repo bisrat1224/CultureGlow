@@ -12,6 +12,13 @@ import { ProductsSection } from "@/components/home/ProductsSection/ProductsSecti
 import { KitchenSection } from "@/components/home/KitchenSection/KitchenSection";
 import { SocialSection } from "@/components/home/SocialSection/SocialSection";
 import { TestimonialsSection } from "@/components/home/TestimonialsSection/TestimonialsSection";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "CultureGlow24 | Habesha Food, Coffee & Lifestyle",
+  description:
+    "Authentic Habesha food, Ethiopian coffee, beauty and lifestyle products. Order via WhatsApp — CultureGlow24 brings Habesha culture to you.",
+};
 
 export default async function Home() {
   const [home, products, tiktoks, reels, kitchenItems] = await Promise.all([

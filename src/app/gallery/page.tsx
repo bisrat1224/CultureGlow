@@ -1,7 +1,6 @@
 ﻿import type { Metadata } from "next";
 import { GalleryHero } from "@/components/gallery/GalleryHero/GalleryHero";
 import { GalleryPhotoGrid } from "@/components/gallery/GalleryPhotoGrid/GalleryPhotoGrid";
-import { GalleryTikTokSection } from "@/components/gallery/GalleryTikTokSection/GalleryTikTokSection";
 
 export const metadata: Metadata = {
   title: "Gallery | CultureGlow24 - Photos & Videos",
@@ -14,7 +13,6 @@ export default function GalleryPage() {
     <>
       <GalleryHero />
       <GalleryPhotoGrid />
-      <GalleryTikTokSection />
     </>
   );
 }

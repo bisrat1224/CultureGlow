@@ -10,6 +10,13 @@ import { PdfCtaSection } from "@/components/menu/PdfCtaSection";
 import { PricingStrip } from "@/components/menu/PricingStrip";
 import { getAllMenuItems, getMenuContent } from "@/lib/contentful/queries";
 import { COMBO_PRICING } from "@/lib/data/menu";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Menu | CultureGlow24 - Habesha Dishes & Ethiopian Coffee",
+  description:
+    "Browse our digital menu of authentic Habesha dishes, injera platters, vegetarian options, and Ethiopian coffee. Order via WhatsApp.",
+};
 
 export default async function MenuPage() {
   const [sections, menu] = await Promise.all([getAllMenuItems(), getMenuContent()]);
