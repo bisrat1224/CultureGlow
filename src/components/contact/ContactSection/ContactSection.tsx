@@ -10,7 +10,7 @@ import {
 } from "@/lib/constants";
 import { contactContent } from "@/lib/content/content.contact";
 import { LocationMap } from "../LocationMap/LocationMap";
-import styles from "./ContactSectionOriginal.module.css";
+import styles from "./ContactSection.module.css";
 import shared from "../shared.module.css";
 
 const DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${BUSINESS_LAT},${BUSINESS_LNG}`;
@@ -40,7 +40,7 @@ function SocialIcon({ label }: { label: string }) {
   return null;
 }
 
-export function ContactSectionOriginal() {
+export function ContactSection() {
   const {
     eyebrow,
     headingBeforeEm,
