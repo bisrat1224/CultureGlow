@@ -4,7 +4,7 @@
   overflow: hidden;
   border-top: 1px solid rgba(200, 151, 58, 0.2);
   border-bottom: 1px solid rgba(200, 151, 58, 0.2);
-  /* Diagonal bottom edge — left side exits early into the cream section below */
+  /* Diagonal bottom edge. Left side exits early into the cream section below */
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 78%);
 
   /* Dark ground: gold reads as gold here (6.58:1). */

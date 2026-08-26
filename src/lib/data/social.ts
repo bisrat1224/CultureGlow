@@ -1,5 +1,5 @@
 /**
- * Social posts (TikTok + Instagram Reels) — local fallback from content/social.json.
+ * Social posts (TikTok + Instagram Reels), local fallback from content/social.json.
  * Contentful is preferred when CONTENTFUL_ENABLED=true.
  */
 import socialJson from "../../../content/social.json";
