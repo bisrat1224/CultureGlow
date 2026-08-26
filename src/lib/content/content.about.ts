@@ -2,7 +2,7 @@
  * Centralized sitewide copy for the ABOUT PAGE.
  * Mirrors content.home.ts's shape/rationale (see that file's header comment).
  * Structured/repeatable data stays out of this file per the CMS scoping
- * doc — this is copy only (headings, body text, eyebrows, alt text).
+ * doc, this is copy only (headings, body text, eyebrows, alt text).
  */
 
 export const aboutContent = {

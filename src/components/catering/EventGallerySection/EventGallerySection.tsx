@@ -15,37 +15,37 @@ const GALLERY_ITEMS: GalleryItem[] = [
   // Real client photos (allowed set)
   {
     id: "wedding",
-    image: "/assets/images/gallery/wedding.jpeg",
+    image: "/assets/images/gallery/wedding.webp",
     alt: "Wedding celebration with CultureGlow24 catering",
     caption: "Wedding",
   },
   {
     id: "aau-event",
-    image: "/assets/images/gallery/aau-event.jpeg",
+    image: "/assets/images/gallery/aau-event.webp",
     alt: "CultureGlow24 at an AAU event",
     caption: "Event",
   },
   {
     id: "booth-3",
-    image: "/assets/images/gallery/booth-3.jpeg",
+    image: "/assets/images/gallery/booth-3.webp",
     alt: "CultureGlow24 market booth",
     caption: "Booth",
   },
   {
     id: "booth-4",
-    image: "/assets/images/gallery/booth-4.jpeg",
+    image: "/assets/images/gallery/booth-4.webp",
     alt: "CultureGlow24 booth close-up",
     caption: "Booth",
   },
   {
     id: "happy-customers-2",
-    image: "/assets/images/gallery/happy-customers-2.jpeg",
+    image: "/assets/images/gallery/happy-customers-2.webp",
     alt: "Customers at a CultureGlow24 event",
     caption: "Customers",
   },
   {
     id: "happy-customers-4",
-    image: "/assets/images/gallery/happy-customers-4.jpeg",
+    image: "/assets/images/gallery/happy-customers-4.webp",
     alt: "Happy customers with CultureGlow24 dishes",
     caption: "Customers",
   },
@@ -89,7 +89,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
 ];
 
 /*
- * PLACEHOLDER / STOCK GALLERY (commented out — restore if needed)
+ * PLACEHOLDER / STOCK GALLERY (commented out, restore if needed)
  *
  * const GALLERY_ITEMS_PLACEHOLDER: GalleryItem[] = [
  *   { id: "wedding-1", image: "https://images.pexels.com/photos/35976293/pexels-photo-35976293.png?auto=compress&cs=tinysrgb&w=700", alt: "Ethiopian wedding celebration at night", caption: "Wedding" },
