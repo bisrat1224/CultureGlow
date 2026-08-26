@@ -50,22 +50,22 @@ export const contactContent = {
     desc: "Join us in Putney for authentic Habesha coffee, cuisine, and cultural treasures.",
     schedule: [
       {
-        days: "Monday – Friday",
-        hours: "08:00 – 20:00",
+        days: "Monday - Friday",
+        hours: "08:00 - 20:00",
         dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
         opens: "08:00",
         closes: "20:00",
       },
       {
         days: "Saturday",
-        hours: "09:00 – 20:00",
+        hours: "09:00 - 20:00",
         dayOfWeek: ["Saturday"],
         opens: "09:00",
         closes: "20:00",
       },
       {
         days: "Sunday",
-        hours: "10:00 – 18:00",
+        hours: "10:00 - 18:00",
         dayOfWeek: ["Sunday"],
         opens: "10:00",
         closes: "18:00",
