@@ -24,32 +24,32 @@ export interface GalleryPhoto {
 const PHOTOS: GalleryPhoto[] = [
   {
     id: "wedding",
-    image: "/assets/images/gallery/wedding.jpeg",
+    image: "/assets/images/gallery/wedding.webp",
     alt: "Wedding celebration with CultureGlow24 catering",
   },
   {
     id: "aau-event",
-    image: "/assets/images/gallery/aau-event.jpeg",
+    image: "/assets/images/gallery/aau-event.webp",
     alt: "CultureGlow24 at an AAU event",
   },
   {
     id: "booth-3",
-    image: "/assets/images/gallery/booth-3.jpeg",
+    image: "/assets/images/gallery/booth-3.webp",
     alt: "CultureGlow24 market booth",
   },
   {
     id: "booth-4",
-    image: "/assets/images/gallery/booth-4.jpeg",
+    image: "/assets/images/gallery/booth-4.webp",
     alt: "CultureGlow24 booth close-up",
   },
   {
     id: "happy-customers-2",
-    image: "/assets/images/gallery/happy-customers-2.jpeg",
+    image: "/assets/images/gallery/happy-customers-2.webp",
     alt: "Customers at a CultureGlow24 event",
   },
   {
     id: "happy-customers-4",
-    image: "/assets/images/gallery/happy-customers-4.jpeg",
+    image: "/assets/images/gallery/happy-customers-4.webp",
     alt: "Happy customers with CultureGlow24 dishes",
   },
 ];

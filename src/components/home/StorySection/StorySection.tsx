@@ -1,62 +1,86 @@
+'use client';
+
 import Image from "next/image";
 import Link from "next/link";
 import { homeContent } from "@/lib/content/content.home";
 import styles from "./StorySection.module.css";
-import shared from "../shared.module.css";
+
+const COLLAGE_IMAGES = [
+  {
+    src: "/assets/images/menu-items/habesha-food-platter.webp",
+    alt: "Habesha food platter with injera and stews",
+    className: styles.image1,
+  },
+  {
+    src: "/assets/images/gallery/wedding.webp",
+    alt: "Traditional Ethiopian wedding ceremony",
+    className: styles.image2,
+  },
+  {
+    src: "/assets/images/gallery/happy-customers-4.webp",
+    alt: "Happy customers enjoying traditional food",
+    className: styles.image3,
+  },
+];
 
 export function StorySection() {
-  const { eyebrow, headingBeforeEm, headingEm, headingSecondLine, body, badge } =
+  const { eyebrow, headingBeforeEm, headingEm, headingSecondLine, body, stats } =
     homeContent.story;
 
-  // Homepage teaser: just the opening paragraph of the real story copy.
-  // The full story (all paragraphs, stats, Amharic line) lives on /about.
   const intro = body.split("\n\n")[0];
 
   return (
     <section
-      className={styles.storySection}
+      className={styles.section}
       id="about"
       aria-labelledby="story-h2"
     >
       <div className="wrap">
-        <div className={styles.storyInner}>
-          <div className={`${styles.storyTextCol} reveal reveal-left`}>
-            <p className={styles.storyEyebrow}>{eyebrow}</p>
-            <h2 className={styles.storyH2} id="story-h2">
+        <div className={styles.layout}>
+          <div className={`${styles.textCol} reveal reveal-left`}>
+            <p className={styles.eyebrow}>{eyebrow}</p>
+            <h2 className={styles.heading} id="story-h2">
               {headingBeforeEm}
               <em>{headingEm}</em>
               <br />
               {headingSecondLine}
             </h2>
-            <p className={styles.storyBody}>{intro}</p>
-            <Link href="/about" className={`${shared.btnPrimary} cg-press`}>
-              Read More
+            <p className={styles.body}>{intro}</p>
+            <Link href="/about" className={`${styles.link} cg-press`}>
+              Read Our Story
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
             </Link>
           </div>
 
-          <div className={`${styles.storyVisual} reveal-right reveal-delay-2`}>
-            <div className={styles.storyImgMainWrap}>
-              <Image
-                src="/assets/images/stew-pans.avif"
-                alt="Traditional Habesha stews in dark pans"
-                fill
-                loading="lazy"
-                sizes="(min-width: 768px) 42vw, 100vw"
-                className={styles.storyImgMainEl}
-              />
+          <div className={`${styles.imageCol} reveal reveal-right reveal-delay-2`}>
+            <div className={styles.collage}>
+              {COLLAGE_IMAGES.map((img, idx) => (
+                <div key={img.src} className={`${styles.imageWrapper} ${img.className}`}>
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    loading={idx === 0 ? "eager" : "lazy"}
+                    sizes="(min-width: 900px) 30vw, 80vw"
+                    className={styles.image}
+                  />
+                </div>
+              ))}
             </div>
-            <div className={styles.storyImgAccentWrap}>
-              <Image
-                src="/assets/images/coffee-in-traditional-cup.webp"
-                alt="Ethiopian coffee in a traditional cup"
-                fill
-                loading="lazy"
-                sizes="(min-width: 768px) 18vw, 40vw"
-                className={styles.storyImgAccentEl}
-              />
-            </div>
-            <span className={styles.storyBadge}>{badge}</span>
           </div>
+        </div>
+
+        {/* Stats strip - inspired by Feliciano's counter band */}
+        <div className={`${styles.statsStrip} reveal`}>
+          {stats.map((stat) => (
+            <div key={stat.label} className={styles.statItem}>
+              <span className={styles.statValue}>{stat.value}</span>
+              <span className={styles.statLabel}>{stat.label}</span>
+            </div>
+          ))}
         </div>
       </div>
     </section>
