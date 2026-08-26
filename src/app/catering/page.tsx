@@ -1,9 +1,6 @@
 ﻿import type { Metadata } from "next";
 import { CateringHero } from "@/components/catering/CateringHero/CateringHero";
-import { EventTypesSection } from "@/components/catering/EventTypesSection/EventTypesSection";
 import { PackagesSection } from "@/components/catering/PackagesSection/PackagesSection";
-import { EventGallerySection } from "@/components/catering/EventGallerySection/EventGallerySection";
-import { CateringTestimonialsSection } from "@/components/catering/CateringTerminalsSection/CateringTestimonialsSection";
 import { CateringContactCTA } from "@/components/catering/CateringContactCTA/CateringContactCTA";
 
 export const metadata: Metadata = {
@@ -16,10 +13,7 @@ export default function CateringPage() {
   return (
     <>
       <CateringHero />
-      <EventTypesSection />
       <PackagesSection />
-      <EventGallerySection />
-      <CateringTestimonialsSection />
       <CateringContactCTA />
     </>
   );

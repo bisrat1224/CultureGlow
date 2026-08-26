@@ -36,7 +36,7 @@ export function MissionValues() {
             <div className={styles.pedestalCard}>
               <div className={styles.imageWrap}>
                 <Image
-                  src="/assets/images/gallery/wedding.jpeg"
+                  src="/assets/images/logo.png"
                   alt="Habesha wedding banqueting and cultural celebration"
                   fill
                   loading="lazy"
