@@ -1,6 +1,5 @@
 .shopHero {
-  background-image: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.85)),
-    url("/assets/images/stew-pans.avif");
+  background-image: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.8)), url("/assets/images/shop-page-hero-image.webp");
   background-size: cover;
   background-position: center;
   padding: calc(var(--cg-u) * 12.5) calc(var(--cg-u) * 3) calc(var(--cg-u) * 10);
