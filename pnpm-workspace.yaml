@@ -3,5 +3,5 @@ packages:
 
 allowBuilds:
   esbuild: true
-  sharp: false
-  unrs-resolver: false
+  sharp: true
+  unrs-resolver: true
