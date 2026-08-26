@@ -9,7 +9,7 @@ export function MarqueeBand() {
       <div className={styles.marqueeTrack}>
         {items.map((item, i) => (
           <span key={`${item}-${i}`} className={styles.marqueeItem}>
-            {item} <span className={styles.dot} />
+            {item} <span className={styles.diamond} aria-hidden="true">✦</span>
           </span>
         ))}
       </div>

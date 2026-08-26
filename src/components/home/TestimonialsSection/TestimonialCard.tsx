@@ -19,9 +19,10 @@ export function TestimonialCard({ testimonial, revealDelayClass }: TestimonialCa
 
   return (
     <article className={`${styles.tcard} reveal ${revealDelayClass ?? ""}`}>
+      <span className={styles.tcardQuoteIcon} aria-hidden="true">“</span>
       <div className={styles.tcardStars} aria-hidden="true">
         {Array.from({ length: 5 }, (_, i) => (
-          <span key={i} className={i < rating ? undefined : styles.tcardStarEmpty}>
+          <span key={i} className={i < rating ? styles.tcardStarFilled : styles.tcardStarEmpty}>
             ★
           </span>
         ))}
@@ -33,7 +34,7 @@ export function TestimonialCard({ testimonial, revealDelayClass }: TestimonialCa
         </div>
         <div>
           <p className={styles.tcardName}>{name}</p>
-          <p className={styles.tcardLoc}>via {source}</p>
+          <p className={styles.tcardLoc}>Verified {source} Review</p>
         </div>
       </div>
     </article>

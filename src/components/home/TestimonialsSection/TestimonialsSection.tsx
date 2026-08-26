@@ -1,12 +1,21 @@
-import { TestimonialCard } from "./TestimonialCard";
+"use client";
+
+import { useState, useEffect } from "react";
 import { homeContent } from "@/lib/content/content.home";
 import styles from "./TestimonialsSection.module.css";
 import shared from "../shared.module.css";
 
-const REVEAL_DELAYS = ["reveal-delay-1", "reveal-delay-2", "reveal-delay-3", "reveal-delay-4", "reveal-delay-5"];
-
 export function TestimonialsSection() {
   const { eyebrow, headingBeforeEm, headingEm, headingAfterEm, items } = homeContent.testimonials;
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  // Auto-play the slider every 5 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIndex((current) => (current + 1) % items.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [items.length]);
 
   return (
     <section
@@ -24,14 +33,37 @@ export function TestimonialsSection() {
           </h2>
         </div>
 
-        <div className={styles.testimonialsGrid}>
-          {items.map((t, i) => (
-            <TestimonialCard
-              key={t.id}
-              testimonial={t}
-              revealDelayClass={REVEAL_DELAYS[i]}
-            />
-          ))}
+        <div className={`${styles.sliderContainer} reveal reveal-delay-1`}>
+          <div className={styles.slidesWrapper}>
+            {items.map((item, index) => (
+              <div 
+                key={index} 
+                className={`${styles.slide} ${index === activeIndex ? styles.activeSlide : styles.inactiveSlide}`}
+                aria-hidden={index !== activeIndex}
+              >
+                <div className={styles.quoteWrapper}>
+                  <span className={styles.quoteMark} aria-hidden="true">“</span>
+                  <p className={styles.quoteText}>{item.quote}</p>
+                </div>
+                
+                <div className={styles.authorInfo}>
+                  <p className={styles.authorName}>{item.name}</p>
+                  <p className={styles.authorSource}>Verified {item.source} Review</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className={styles.dots}>
+            {items.map((_, i) => (
+              <button
+                key={i}
+                className={`${styles.dot} ${i === activeIndex ? styles.activeDot : ""}`}
+                onClick={() => setActiveIndex(i)}
+                aria-label={`Go to slide ${i + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

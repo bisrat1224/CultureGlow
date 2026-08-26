@@ -1,65 +1,128 @@
-.kitchenSection {
+.section {
+  position: relative;
+  z-index: 1;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: calc(var(--cg-u) * 10) 0;
   background: var(--cg-charcoal);
 
   --cg-gold-fg: var(--cg-gold);
 }
 
-.kitchenLayout {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--cg-u) * 6);
+/* ── Header ─────────────────────────────────────────────── */
+
+.header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto calc(var(--cg-u) * 6);
 }
 
-.kitchenHeaderCol {
-  flex: 1 1 auto;
-}
-
-.kitchenItemsCol {
-  flex: 1 1 auto;
-  min-width: 0;
-}
-
-.sectionH2Dark {
+.heading {
   font-family: var(--font-serif);
   font-size: var(--cg-text-h2);
   line-height: var(--cg-text-h2-lh);
   letter-spacing: var(--cg-text-h2-ls);
   font-weight: 700;
   color: var(--cg-cream);
-  margin-top: calc(var(--cg-u) * 1.5);
-  margin-bottom: calc(var(--cg-u) * 3);
+  margin-top: calc(var(--cg-u) * 1);
+  margin-bottom: calc(var(--cg-u) * 2);
 }
 
-.sectionH2Dark em {
+.heading em {
   font-style: italic;
-  color: var(--cg-gold-fg);
+  color: var(--cg-gold);
 }
 
-.kitchenDesc {
+.desc {
   font-size: 1rem;
   line-height: 1.7;
-  color: rgba(250, 246, 240, 0.75);
-  margin-bottom: calc(var(--cg-u) * 4);
+  color: rgba(250, 246, 240, 0.7);
 }
 
-.menuList {
+/* ── Grid ───────────────────────────────────────────────── */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: calc(var(--cg-u) * 3);
+  margin-bottom: calc(var(--cg-u) * 5);
+}
+
+/* ── Combo pricing strip ────────────────────────────────── */
+
+.comboStrip {
+  display: flex;
+  justify-content: center;
+  gap: calc(var(--cg-u) * 4);
+  flex-wrap: wrap;
+  padding: calc(var(--cg-u) * 3) 0;
+  margin-bottom: calc(var(--cg-u) * 4);
+  border-top: 1px solid rgba(201, 151, 66, 0.2);
+  border-bottom: 1px solid rgba(201, 151, 66, 0.2);
+}
+
+.comboItem {
   display: flex;
   flex-direction: column;
-  gap: calc(var(--cg-u) * 2);
+  align-items: center;
+  gap: 2px;
+  min-width: 100px;
 }
 
-@media (min-width: 768px) {
-  .kitchenLayout {
-    flex-direction: row;
-    align-items: flex-start;
-  }
+.comboLabel {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(250, 246, 240, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
 
-  .kitchenHeaderCol {
-    flex: 0 0 38%;
-  }
+.comboPrice {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--cg-gold);
+}
 
-  .kitchenItemsCol {
-    flex: 0 0 62%;
+/* ── CTA row ────────────────────────────────────────────── */
+
+.ctaRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: calc(var(--cg-u) * 4);
+  flex-wrap: wrap;
+}
+
+.menuLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--cg-gold);
+  text-decoration: none;
+  transition: gap 0.3s ease;
+}
+
+.menuLink:hover {
+  gap: 14px;
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    gap: calc(var(--cg-u) * 4);
   }
 }

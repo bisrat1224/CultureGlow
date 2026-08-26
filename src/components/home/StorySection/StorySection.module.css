@@ -1,24 +1,38 @@
-.storySection {
-  padding: calc(var(--cg-u) * 10) 0;
+.section {
+  position: relative;
+  z-index: 1;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: calc(var(--cg-u) * 4) 0 calc(var(--cg-u) * 6);
+  background: var(--cg-cream);
 }
 
-.storyInner {
+/* ── Two-column layout ──────────────────────────────────── */
+
+.layout {
   display: grid;
   grid-template-columns: 1fr;
   gap: calc(var(--cg-u) * 6);
   align-items: center;
+  margin-bottom: calc(var(--cg-u) * 8);
 }
 
-.storyEyebrow {
+.textCol {
+  max-width: 520px;
+}
+
+.eyebrow {
   font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--cg-gold-fg);
+  color: var(--cg-gold-text);
   margin-bottom: calc(var(--cg-u) * 2);
 }
 
-.storyH2 {
+.heading {
   font-family: var(--font-serif);
   font-size: var(--cg-text-h2);
   line-height: var(--cg-text-h2-lh);
@@ -28,96 +42,124 @@
   margin-bottom: calc(var(--cg-u) * 3);
 }
 
-.storyH2 em {
+.heading em {
   font-style: italic;
-  color: var(--cg-gold-fg);
+  color: var(--cg-gold-text);
 }
 
-.storyBody {
+.body {
   font-size: 1.0625rem;
-  line-height: 1.75;
+  line-height: 1.8;
   color: var(--cg-text);
-  max-width: 480px;
   margin-bottom: calc(var(--cg-u) * 4);
 }
 
-/* Photos are sized to match the shorter text column now that the
-   homepage only shows a one-paragraph teaser (full story lives on
-   /about): a squarer, smaller main image instead of the tall 4/5
-   crop that used to balance the full multi-paragraph story. */
-.storyVisual {
-  position: relative;
-  max-width: 420px;
-  width: 100%;
-  margin-inline: auto;
-}
-
-.storyImgMainWrap {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.storyImgMainEl {
-  object-fit: cover;
-  transition: transform 0.6s ease;
-}
-
-.storyImgMainWrap:hover .storyImgMainEl {
-  transform: scale(1.04);
-}
-
-.storyImgAccentWrap {
-  position: absolute;
-  bottom: calc(var(--cg-u) * -2);
-  left: calc(var(--cg-u) * -1);
-  width: 36%;
-  aspect-ratio: 1;
-  border-radius: 12px;
-  border: 6px solid var(--cg-cream);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
-}
-
-.storyImgAccentEl {
-  object-fit: cover;
-  object-position: center;
-}
-
-.storyBadge {
-  position: absolute;
-  top: 20px;
-  right: calc(var(--cg-u) * -1);
-  background: var(--cg-gold);
-  color: var(--cg-gold-ink);
-  font-size: 0.75rem;
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 8px 14px;
-  border-radius: 8px;
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
+  color: var(--cg-gold-text);
+  text-decoration: none;
+  transition: gap 0.3s ease;
 }
 
-@media (min-width: 768px) {
-  .storyInner {
-    grid-template-columns: 1.15fr 0.85fr;
-  }
+.link:hover {
+  gap: 14px;
+}
 
-  .storyVisual {
-    margin-inline: 0;
-  }
+/* ── Image Collage ──────────────────────────────────────── */
 
-  .storyImgAccentWrap {
-    bottom: calc(var(--cg-u) * -3);
-    left: calc(var(--cg-u) * -2);
-    width: 40%;
-  }
+.imageCol {
+  width: 100%;
+}
 
-  .storyBadge {
-    right: calc(var(--cg-u) * -2);
+.collage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 4.5;
+}
+
+.imageWrapper {
+  position: absolute;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(18, 16, 14, 0.1);
+  border: 6px solid var(--cg-cream);
+  background: var(--cg-gold-light);
+}
+
+.image {
+  object-fit: cover;
+}
+
+.image1 {
+  top: 0;
+  right: 0;
+  width: 75%;
+  height: 75%;
+  z-index: 1;
+}
+
+.image2 {
+  bottom: 0;
+  left: 0;
+  width: 65%;
+  height: 50%;
+  z-index: 3;
+}
+
+.image3 {
+  top: 15%;
+  left: -5%;
+  width: 40%;
+  height: 40%;
+  z-index: 2;
+}
+
+/* ── Stats strip ────────────────────────────────────────── */
+
+.statsStrip {
+  display: flex;
+  justify-content: center;
+  gap: calc(var(--cg-u) * 6);
+  padding-top: calc(var(--cg-u) * 6);
+  border-top: 1px solid rgba(18, 16, 14, 0.08);
+  flex-wrap: wrap;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 120px;
+}
+
+.statValue {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--cg-charcoal);
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.8125rem;
+  color: var(--cg-text);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+/* ── Desktop ────────────────────────────────────────────── */
+
+@media (min-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr 1fr;
+    gap: calc(var(--cg-u) * 10);
   }
 }

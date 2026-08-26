@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { NAV_LINKS, SOCIAL_LINKS, CONTACT_EMAIL } from "@/lib/constants"; 
+import { SOCIAL_LINKS, CONTACT_EMAIL } from "@/lib/constants"; 
 import { contactContent } from "@/lib/content/content.contact";
 import styles from "./Footer.module.css";
 
 const ADDRESS = "Putney High St, London SW15 1SN";
 const ADDRESS_MAPS_URL =
-  "https://www.openstreetmap.org/?mlat=51.4613&mlon=-0.2159#map=17/51.4613/-0.2159";
+  "https://www.google.com/maps/dir/?api=1&destination=51.4613,-0.2159";
 
 function InstagramIcon() {
   return (
@@ -36,14 +36,11 @@ function SocialIcon({ label }: { label: string }) {
 export function Footer() {
   const year = new Date().getFullYear();
 
-
-  const footerNavLinks = NAV_LINKS.filter((link) => link.href !== "/");
-
   return (
     <footer className={styles.footer}>
       <div className={`${styles.footerInner} wrap`}>
 
-        {/* Col 1: Brand */}
+        {/* Col 1: Brand & Social */}
         <div className={styles.footerBrand}>
           <Link href="/" className={styles.footerBrandHeader}> 
             <Image
@@ -59,10 +56,27 @@ export function Footer() {
           <p className={styles.footerTagline}>
             Habesha food, beauty and lifestyle products, delivered across London.
           </p>
-          
-          <p className={`${styles.footerColTitle} ${styles.footerAddressTitle}`}>Address</p> 
+          <div className={styles.footerSocials}>
+            {SOCIAL_LINKS.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Follow us on ${social.label}`}
+                className={styles.footerSocialIconOnly}
+              >
+                <SocialIcon label={social.label} />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Col 2: Contact & Location */}
+        <div className={styles.footerCol}>
+          <p className={styles.footerColTitle}>Location & Contact</p>
           <ul className={`${styles.footerLinks} ${styles.footerItemText}`}> 
-            <li> 
+            <li>
               <a
                 href={ADDRESS_MAPS_URL}
                 target="_blank"
@@ -70,77 +84,38 @@ export function Footer() {
                 className={styles.footerAddressLink}
               > 
                 {ADDRESS}
-              </a> 
-            </li> 
-          </ul> 
-
-          <p className={`${styles.footerColTitle} ${styles.footerHoursTitle}`}>Opening Hours</p>
-          <ul className={`${styles.footerHoursList} ${styles.footerItemText}`}>
-            {contactContent.hours.schedule.map((item) => (
-              <li key={item.days} className={styles.footerHoursItem}>
-                <span className={styles.footerHoursDays}>{item.days}:</span>{" "}
-                <span className={styles.footerHoursTime}>{item.hours}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Col 2: Explore (2-column grid) */}
-        <nav className={styles.footerExplore} aria-label="Footer navigation">
-          <p className={styles.footerColTitle}>Explore</p>
-         
-          <ul className={`${styles.footerExploreLinks} ${styles.footerItemText}`}> 
-            {footerNavLinks.map((link) => (
-              <li key={link.href}>
-                <Link href={link.href}>{link.label}</Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        {/* Col 3: Contact + Address */}
-        <div className={styles.footerContact}>
-          <p className={styles.footerColTitle}>Contact</p>
-          
-          <ul className={`${styles.footerLinks} ${styles.footerItemText}`}> 
+              </a>
+            </li>
+            <li className={styles.footerSpacer} />
             <li>Delivering across London</li>
             <li>
-              <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+              <a href={`mailto:${CONTACT_EMAIL}`} className={styles.footerEmail}>{CONTACT_EMAIL}</a>
             </li>
-          </ul>
-          
-          
-          
-          
+          </ul> 
         </div>
 
-        {/* Col 4: Follow */}
-        <div className={styles.footerFollow}>
-          <p className={styles.footerColTitle}>Follow</p>
-          
-          <ul className={`${styles.footerLinks} ${styles.footerSocialList} ${styles.footerItemText}`}>
-            {SOCIAL_LINKS.map((social) => (
-              <li key={social.label}>
-                <a
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.footerSocialLink}
-                >
-                  <span className={styles.footerSocialIcon}>
-                    <SocialIcon label={social.label} />
-                  </span>
-                  {social.label}
-                </a>
+        {/* Col 3: Opening Hours */}
+        <div className={styles.footerCol}>
+          <p className={styles.footerColTitle}>Opening Hours</p>
+          <ul className={`${styles.footerLinks} ${styles.footerItemText}`}> 
+            {contactContent.hours.schedule.map((item) => (
+              <li key={item.days} className={styles.footerHourRow}>
+                <span>{item.days}</span>
+                <span>{item.hours}</span>
               </li>
             ))}
           </ul>
         </div>
+
+        
 
       </div>
 
       <div className={styles.footerBottom}>
-        <p>© {year} CULTURE GLOW24. All rights reserved. Designed by <a href="https://www.techallyconsult.com" target="_blank" rel="noopener noreferrer">Techally Consult</a></p>
+        <div className={`wrap ${styles.footerBottomInner}`}>
+          <p>© {year} CULTURE GLOW24. All rights reserved.</p>
+          <p>Designed by <a href="https://www.techallyconsult.com" target="_blank" rel="noopener noreferrer">Techally Consult</a></p>
+        </div>
       </div>
     </footer>
   );
