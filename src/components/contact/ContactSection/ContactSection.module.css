@@ -1,58 +1,78 @@
-.methodsGrid {
+.contactLayout {
   display: grid;
   grid-template-columns: 1fr;
-  gap: calc(var(--cg-u) * 3);
-  padding-top: 1.5rem;
+  gap: calc(var(--cg-u) * 6);
+  padding-top: calc(var(--cg-u) * 4);
 }
 
-.methodCard {
-  position: relative;
+@media (min-width: 900px) {
+  .contactLayout {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+.mapWrapper {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.infoCol {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 8px;
-  background: #fff;
-  border: 1px solid rgba(200, 151, 58, 0.4);
-  border-radius: 12px;
-  padding: calc(var(--cg-u) * 4) calc(var(--cg-u) * 3);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-
-  /* Light ground: gold-as-text needs the darkened value. Declared even
-     inside dark sections, since a light card there would otherwise
-     inherit the bright gold and drop to 2.4:1. */
-  --cg-gold-fg: var(--cg-gold-text);
+  gap: calc(var(--cg-u) * 5);
 }
 
-.methodCard::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--cg-gold);
-  z-index: 2;
-  pointer-events: none;
+.infoBlock {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--cg-u) * 2);
 }
 
-a.methodCard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
-  border-color: rgba(200, 151, 58, 0.75);
+.blockTitle {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--cg-charcoal);
+  margin: 0;
+}
+
+.blockList {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--cg-u) * 2);
+}
+
+.methodItem {
+  display: flex;
+  align-items: flex-start;
+  gap: calc(var(--cg-u) * 2);
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+
+a.methodItem:hover {
+  transform: translateX(4px);
 }
 
 .methodIcon {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: var(--cg-gold-light);
-  color: var(--cg-gold-fg);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 4px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--cg-gold-light);
+  color: var(--cg-gold-text);
+  flex-shrink: 0;
+}
+
+.methodText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 4px;
 }
 
 .methodLabel {
@@ -60,148 +80,13 @@ a.methodCard:hover {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--cg-gold-fg);
-}
-
-.methodValue {
-  font-size: 0.9375rem;
-  font-weight: 500;
-  color: var(--cg-charcoal);
-}
-
-.socialCard {
-  /* Match the vertical stack of WhatsApp / Phone / Email cards */
-  justify-content: flex-start;
-}
-
-.socialList {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: calc(var(--cg-u) * 1.5);
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-}
-
-.socialLink {
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  font-size: 0.9375rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  text-transform: none;
-  color: var(--cg-charcoal);
-  transition: color 0.2s;
-}
-
-.socialLink:hover {
-  color: var(--cg-gold-fg);
-}
-
-.socialIcon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: var(--cg-gold-light);
-  color: var(--cg-gold-fg);
-  flex-shrink: 0;
-}
-
-.socialIcon svg {
-  width: 16px;
-  height: 16px;
-}
-
-@media (min-width: 640px) {
-  .methodsGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .methodsGrid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-/* ── Opening Hours Card ── */
-.hoursWrapper {
-  margin-top: calc(var(--cg-u) * 4);
-  display: flex;
-  justify-content: center;
-}
-
-.hoursCard {
-  position: relative;
-  width: 100%;
-  max-width: 680px;
-  background: #fff;
-  border: 1px solid rgba(200, 151, 58, 0.4);
-  border-radius: 12px;
-  padding: calc(var(--cg-u) * 4) calc(var(--cg-u) * 4);
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-
-  --cg-gold-fg: var(--cg-gold-text);
-}
-
-.hoursCard::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--cg-gold);
-  z-index: 2;
-  pointer-events: none;
-}
-
-.hoursHeader {
-  display: flex;
-  align-items: center;
-  gap: calc(var(--cg-u) * 2);
-  margin-bottom: calc(var(--cg-u) * 1.5);
-}
-
-.hoursHeading {
-  font-family: var(--font-serif);
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--cg-charcoal);
-  margin: 2px 0 0 0;
-}
-
-.hoursHeading em {
-  font-style: italic;
   color: var(--cg-gold-text);
 }
 
-.hoursDesc {
-  font-size: 0.9375rem;
+.methodValue {
+  font-size: 1rem;
+  font-weight: 500;
   color: var(--cg-charcoal);
-  opacity: 0.85;
-  margin: 0 0 calc(var(--cg-u) * 3) 0;
-  line-height: 1.5;
-}
-
-.hoursSchedule {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--cg-u) * 1.5);
-  background: var(--cg-cream, #faf6f0);
-  border: 1px solid rgba(200, 151, 58, 0.2);
-  border-radius: 8px;
-  padding: calc(var(--cg-u) * 2.5) calc(var(--cg-u) * 3);
 }
 
 .scheduleRow {
@@ -210,26 +95,18 @@ a.methodCard:hover {
   justify-content: space-between;
   gap: 12px;
   font-size: 0.9375rem;
+  padding-bottom: 8px;
+  border-bottom: 1px dotted rgba(200, 151, 58, 0.4);
 }
 
 .scheduleDays {
   font-weight: 600;
   color: var(--cg-charcoal);
-  white-space: nowrap;
-}
-
-.scheduleDots {
-  flex: 1;
-  border-bottom: 1px dotted rgba(200, 151, 58, 0.4);
-  height: 1px;
-  margin: 0 4px;
 }
 
 .scheduleHours {
   font-weight: 600;
   color: var(--cg-gold-text);
-  white-space: nowrap;
-  letter-spacing: 0.02em;
 }
 
 .hoursNote {
@@ -237,7 +114,28 @@ a.methodCard:hover {
   color: var(--cg-charcoal);
   opacity: 0.7;
   font-style: italic;
-  margin: calc(var(--cg-u) * 2) 0 0 0;
-  text-align: center;
+  margin: calc(var(--cg-u) * 1) 0 0 0;
 }
 
+.socialList {
+  display: flex;
+  gap: calc(var(--cg-u) * 2);
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--cg-gold-light);
+  color: var(--cg-gold-text);
+  transition: transform 0.2s, background 0.2s;
+}
+
+.socialLink:hover {
+  transform: translateY(-2px);
+  background: var(--cg-gold);
+  color: #fff;
+}

@@ -1,4 +1,4 @@
-import { MessageCircle, Phone, Mail, Navigation, Clock } from "lucide-react";
+import { MessageCircle, Phone, Mail, Navigation } from "lucide-react";
 import {
   SOCIAL_LINKS,
   CONTACT_EMAIL,
@@ -17,7 +17,7 @@ const DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${BUS
 
 function InstagramIcon() {
   return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" strokeWidth="1.75" />
       <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.75" />
       <circle cx="17.5" cy="6.5" r="1.25" fill="currentColor" />
@@ -27,7 +27,7 @@ function InstagramIcon() {
 
 function TikTokIcon() {
   return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.88-2.88 2.89 2.89 0 0 1 2.88-2.88c.28 0 .56.04.82.1v-3.5a6.37 6.37 0 0 0-.82-.05A6.34 6.34 0 0 0 3.15 15.3a6.34 6.34 0 0 0 6.34 6.34 6.34 0 0 0 6.34-6.34V9.18a8.16 8.16 0 0 0 4.76 1.52V7.25a4.85 4.85 0 0 1-1-.56z" />
     </svg>
   );
@@ -50,8 +50,8 @@ export function ContactSection() {
     whatsapp,
     phone,
     email,
-    social,
     directions,
+    social,
   } = contactContent.methods;
 
   const { hours } = contactContent;
@@ -78,107 +78,104 @@ export function ContactSection() {
           </p>
         </div>
 
-        <LocationMap />
+        <div className={`${styles.contactLayout} reveal reveal-delay-1`}>
+          {/* Left Col: Map */}
+          <div className={styles.mapWrapper}>
+            <LocationMap />
+          </div>
 
-        <div className={styles.methodsGrid}>
-          <a
-            href={buildWhatsAppLink()}
-            className={`${styles.methodCard} cg-press-card`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span className={styles.methodIcon} aria-hidden="true">
-              <MessageCircle size={22} strokeWidth={1.75} />
-            </span>
-            <span className={styles.methodLabel}>{whatsapp.label}</span>
-            <span className={styles.methodValue}>{whatsapp.value}</span>
-          </a>
+          {/* Right Col: Info */}
+          <div className={styles.infoCol}>
+            
+            {/* Contact Methods */}
+            <div className={styles.infoBlock}>
+              <h3 className={styles.blockTitle}>Get in Touch</h3>
+              <div className={styles.blockList}>
+                <a
+                  href={buildWhatsAppLink()}
+                  className={styles.methodItem}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className={styles.methodIcon} aria-hidden="true">
+                    <MessageCircle size={22} strokeWidth={1.75} />
+                  </span>
+                  <div className={styles.methodText}>
+                    <span className={styles.methodLabel}>{whatsapp.label}</span>
+                    <span className={styles.methodValue}>{whatsapp.value}</span>
+                  </div>
+                </a>
 
-          <a
-            href={`tel:${UK_PHONE_TEL}`}
-            className={`${styles.methodCard} cg-press-card`}
-          >
-            <span className={styles.methodIcon} aria-hidden="true">
-              <Phone size={22} strokeWidth={1.75} />
-            </span>
-            <span className={styles.methodLabel}>{phone.label}</span>
-            <span className={styles.methodValue}>{UK_PHONE_DISPLAY}</span>
-          </a>
+                <a href={`tel:${UK_PHONE_TEL}`} className={styles.methodItem}>
+                  <span className={styles.methodIcon} aria-hidden="true">
+                    <Phone size={22} strokeWidth={1.75} />
+                  </span>
+                  <div className={styles.methodText}>
+                    <span className={styles.methodLabel}>{phone.label}</span>
+                    <span className={styles.methodValue}>{UK_PHONE_DISPLAY}</span>
+                  </div>
+                </a>
 
-          <a
-            href={`mailto:${CONTACT_EMAIL}`}
-            className={`${styles.methodCard} cg-press-card`}
-          >
-            <span className={styles.methodIcon} aria-hidden="true">
-              <Mail size={22} strokeWidth={1.75} />
-            </span>
-            <span className={styles.methodLabel}>{email.label}</span>
-            <span className={styles.methodValue}>{CONTACT_EMAIL}</span>
-          </a>
+                <a href={`mailto:${CONTACT_EMAIL}`} className={styles.methodItem}>
+                  <span className={styles.methodIcon} aria-hidden="true">
+                    <Mail size={22} strokeWidth={1.75} />
+                  </span>
+                  <div className={styles.methodText}>
+                    <span className={styles.methodLabel}>{email.label}</span>
+                    <span className={styles.methodValue}>{CONTACT_EMAIL}</span>
+                  </div>
+                </a>
 
-          <a
-            href={DIRECTIONS_URL}
-            className={`${styles.methodCard} cg-press-card`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span className={styles.methodIcon} aria-hidden="true">
-              <Navigation size={22} strokeWidth={1.75} />
-            </span>
-            <span className={styles.methodLabel}>{directions.label}</span>
-            <span className={styles.methodValue}>{directions.value}</span>
-          </a>
+                <a
+                  href={DIRECTIONS_URL}
+                  className={styles.methodItem}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className={styles.methodIcon} aria-hidden="true">
+                    <Navigation size={22} strokeWidth={1.75} />
+                  </span>
+                  <div className={styles.methodText}>
+                    <span className={styles.methodLabel}>{directions.label}</span>
+                    <span className={styles.methodValue}>{directions.value}</span>
+                  </div>
+                </a>
+              </div>
+            </div>
 
-          <div className={`${styles.methodCard} ${styles.socialCard}`}>
-            <span className={styles.methodLabel}>{social.label}</span>
-            <ul className={styles.socialList}>
-              {SOCIAL_LINKS.map((s) => (
-                <li key={s.label}>
+            {/* Opening Hours */}
+            <div className={styles.infoBlock}>
+              <h3 className={styles.blockTitle}>Opening Hours</h3>
+              <div className={styles.blockList}>
+                {hours.schedule.map((item) => (
+                  <div key={item.days} className={styles.scheduleRow}>
+                    <span className={styles.scheduleDays}>{item.days}</span>
+                    <span className={styles.scheduleHours}>{item.hours}</span>
+                  </div>
+                ))}
+              </div>
+              {hours.note && <p className={styles.hoursNote}>{hours.note}</p>}
+            </div>
+
+            {/* Socials */}
+            <div className={styles.infoBlock}>
+              <h3 className={styles.blockTitle}>{social.label}</h3>
+              <div className={styles.socialList}>
+                {SOCIAL_LINKS.map((s) => (
                   <a
+                    key={s.label}
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={styles.socialLink}
                     aria-label={s.label}
                   >
-                    <span className={styles.socialIcon}>
-                      <SocialIcon label={s.label} />
-                    </span>
-                    <span>{s.label}</span>
+                    <SocialIcon label={s.label} />
                   </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Opening Hours */}
-        <div className={styles.hoursWrapper}>
-          <div className={styles.hoursCard}>
-            <div className={styles.hoursHeader}>
-              <span className={styles.methodIcon} aria-hidden="true">
-                <Clock size={22} strokeWidth={1.75} />
-              </span>
-              <div>
-                <span className={styles.methodLabel}>{hours.eyebrow}</span>
-                <h3 className={styles.hoursHeading}>
-                  {hours.headingBeforeEm}
-                  <em>{hours.headingEm}</em>
-                  {hours.headingAfterEm}
-                </h3>
+                ))}
               </div>
             </div>
-            <p className={styles.hoursDesc}>{hours.desc}</p>
-            <div className={styles.hoursSchedule}>
-              {hours.schedule.map((item) => (
-                <div key={item.days} className={styles.scheduleRow}>
-                  <span className={styles.scheduleDays}>{item.days}</span>
-                  <span className={styles.scheduleDots} aria-hidden="true" />
-                  <span className={styles.scheduleHours}>{item.hours}</span>
-                </div>
-              ))}
-            </div>
-            {hours.note && <p className={styles.hoursNote}>{hours.note}</p>}
+
           </div>
         </div>
       </div>

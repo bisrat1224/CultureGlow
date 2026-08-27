@@ -51,21 +51,21 @@ export const contactContent = {
     schedule: [
       {
         days: "Monday - Friday",
-        hours: "08:00 - 20:00",
+        hours: "8:00 AM - 8:00 PM",
         dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
         opens: "08:00",
         closes: "20:00",
       },
       {
         days: "Saturday",
-        hours: "09:00 - 20:00",
+        hours: "9:00 AM - 8:00 PM",
         dayOfWeek: ["Saturday"],
         opens: "09:00",
         closes: "20:00",
       },
       {
         days: "Sunday",
-        hours: "10:00 - 18:00",
+        hours: "10:00 AM - 6:00 PM",
         dayOfWeek: ["Sunday"],
         opens: "10:00",
         closes: "18:00",
