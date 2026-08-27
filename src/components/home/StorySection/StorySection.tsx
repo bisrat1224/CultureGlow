@@ -12,8 +12,8 @@ const COLLAGE_IMAGES = [
     className: styles.image1,
   },
   {
-    src: "/assets/images/gallery/wedding.webp",
-    alt: "Traditional Ethiopian wedding ceremony",
+    src: "/assets/images/coffee-in-traditional-cup.webp",
+    alt: "Traditional Ethiopian coffee in a traditional cup",
     className: styles.image2,
   },
   {

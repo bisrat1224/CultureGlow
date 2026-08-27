@@ -3,7 +3,6 @@ import { CategoryNav } from "@/components/menu/CategoryNav";
 import { DietLegend } from "@/components/menu/DietLegend";
 import { CategoryBlock } from "@/components/menu/CategoryBlock";
 import { MenuRowList } from "@/components/menu/MenuRowList";
-import { FeatureBanner } from "@/components/menu/FeatureBanner";
 import { AllergenNotice } from "@/components/menu/AllergenNotice";
 import { HowToOrderSection } from "@/components/menu/HowToOrderSection";
 import { PdfCtaSection } from "@/components/menu/PdfCtaSection";
@@ -57,7 +56,6 @@ export default async function MenuPage() {
 
       <AllergenNotice />
 
-      <FeatureBanner {...menu.featureBanner} />
       <HowToOrderSection {...menu.howToOrder} />
       <PdfCtaSection />
     </>
