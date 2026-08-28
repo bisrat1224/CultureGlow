@@ -12,8 +12,8 @@ const COLLAGE_IMAGES = [
     className: styles.image1,
   },
   {
-    src: "/assets/images/stew-pans.avif",
-    alt: "Stews cooking",
+    src: "/assets/images/menu-items/coffee-pot-and-beans.webp",
+    alt: "Traditional Ethiopian coffee pot and beans",
     className: styles.image2,
   },
   {

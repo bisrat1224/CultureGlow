@@ -112,6 +112,10 @@
   z-index: 3;
 }
 
+.image2 .image {
+  object-position: center 35%;
+}
+
 .image3 {
   top: 15%;
   left: -5%;
