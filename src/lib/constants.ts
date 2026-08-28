@@ -1,4 +1,4 @@
-﻿/**
+/**
  * CultureGlow24 site-wide constants.
  *
  * WHATSAPP_NUMBER reads from NEXT_PUBLIC_WHATSAPP_NUMBER (see
@@ -63,6 +63,7 @@ export type SocialLink = {
 export const SOCIAL_LINKS: SocialLink[] = [
   { label: "TikTok", href: "https://www.tiktok.com/@cultureglow24" },
   { label: "Instagram", href: "https://www.instagram.com/cultureglow24/" },
+  { label: "Etsy", href: "https://www.etsy.com/shop/Etsycultureglow24" },
 ];
 
 /**

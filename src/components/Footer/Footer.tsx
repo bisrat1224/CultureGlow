@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { SOCIAL_LINKS, CONTACT_EMAIL } from "@/lib/constants"; 
+import { SOCIAL_LINKS, CONTACT_EMAIL, buildWhatsAppLink } from "@/lib/constants"; 
 import { contactContent } from "@/lib/content/content.contact";
 import styles from "./Footer.module.css";
 
@@ -26,10 +26,20 @@ function TikTokIcon() {
   );
 }
 
+function EtsyIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" strokeWidth="1.75" />
+      <path d="M8.5 7.5h7v1.5h-5v2.5h4v1.5h-4v3h5v1.5h-7v-10z" fill="currentColor" />
+    </svg>
+  );
+}
+
 function SocialIcon({ label }: { label: string }) {
   const key = label.toLowerCase();
   if (key.includes("instagram")) return <InstagramIcon />;
   if (key.includes("tiktok")) return <TikTokIcon />;
+  if (key.includes("etsy")) return <EtsyIcon />;
   return null;
 }
 
@@ -88,6 +98,9 @@ export function Footer() {
             </li>
             <li className={styles.footerSpacer} />
             <li>Delivering across London</li>
+            <li>
+              <a href={buildWhatsAppLink()} className={styles.footerEmail} target="_blank" rel="noopener noreferrer">Order via WhatsApp</a>
+            </li>
             <li>
               <a href={`mailto:${CONTACT_EMAIL}`} className={styles.footerEmail}>{CONTACT_EMAIL}</a>
             </li>
