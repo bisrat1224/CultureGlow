@@ -33,17 +33,25 @@
 }
 
 .etsyOption {
-  margin: calc(var(--cg-u) * 4) auto 0;
+  margin: calc(var(--cg-u) * 6) auto 0;
   max-width: 600px;
-  padding: 24px;
+  padding: 32px;
   background-color: rgba(250, 246, 240, 0.05);
   border-radius: 8px;
   border: 1px solid rgba(250, 246, 240, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.etsyLogoSvg {
+  display: block;
 }
 
 .etsyOption p {
   color: var(--cg-cream);
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   font-size: 1rem;
 }
 
