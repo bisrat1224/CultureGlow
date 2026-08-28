@@ -7,13 +7,13 @@ import styles from "./StorySection.module.css";
 
 const COLLAGE_IMAGES = [
   {
-    src: "/assets/images/menu-items/habesha-food-platter.webp",
-    alt: "Habesha food platter with injera and stews",
+    src: "/assets/images/menu-items/vegan-beyaynetu.webp",
+    alt: "Habesha vegan food platter",
     className: styles.image1,
   },
   {
-    src: "/assets/images/coffee-in-traditional-cup.webp",
-    alt: "Traditional Ethiopian coffee in a traditional cup",
+    src: "/assets/images/stew-pans.avif",
+    alt: "Stews cooking",
     className: styles.image2,
   },
   {
