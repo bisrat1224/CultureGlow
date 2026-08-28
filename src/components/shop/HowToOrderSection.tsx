@@ -14,6 +14,12 @@ export function HowToOrderSection({ label, title, desc, steps }: HowToOrderProps
       <p className={styles.sectionLabel}>{label}</p>
       <h2 className={styles.sectionTitle}>{title}</h2>
       <p className={styles.howToOrderDesc}>{desc}</p>
+      
+      <div className={styles.etsyOption}>
+        <p>Prefer to shop directly? Browse our full catalogue on Etsy.</p>
+        <a href="https://www.etsy.com/shop/Etsycultureglow24" target="_blank" rel="noopener noreferrer" className={styles.etsyLink}>Visit our Etsy Shop</a>
+      </div>
+
       <div className={styles.stepsRow}>
         {steps.map((step) => (
           <div key={step.number} className={styles.stepItem}>

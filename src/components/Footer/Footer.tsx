@@ -97,7 +97,6 @@ export function Footer() {
               </a>
             </li>
             <li className={styles.footerSpacer} />
-            <li>Delivering across London</li>
             <li>
               <a href={buildWhatsAppLink()} className={styles.footerEmail} target="_blank" rel="noopener noreferrer">Order via WhatsApp</a>
             </li>
