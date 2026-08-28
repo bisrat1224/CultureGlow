@@ -102,7 +102,7 @@
         "id": "shiro-wat",
         "name": "Shiro Wat",
         "description": "A savory stew made from ground chickpeas or broad beans, often considered a staple.",
-        "image": "/assets/images/stew-pans.avif",
+        "image": "/assets/images/menu-items/shiro-wat.webp",
         "alt": "Shiro Wat",
         "diet": ["veg", "vegan", "gf", "spicy"],
         "tag": "Popular"
