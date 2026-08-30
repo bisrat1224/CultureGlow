@@ -48,7 +48,15 @@ export function TestimonialsSection() {
                 
                 <div className={styles.authorInfo}>
                   <p className={styles.authorName}>{item.name}</p>
-                  <p className={styles.authorSource}>Verified {item.source} Review</p>
+                  <a 
+                    href={(item as any).link || "#"} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className={styles.authorSource}
+                    style={{ textDecoration: 'underline', color: 'inherit' }}
+                  >
+                    Verified {item.source} Review
+                  </a>
                 </div>
               </div>
             ))}

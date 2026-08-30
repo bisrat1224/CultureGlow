@@ -33,10 +33,20 @@ function TikTokIcon() {
   );
 }
 
+function EtsyIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" strokeWidth="1.75" />
+      <path d="M8.5 7.5h7v1.5h-5v2.5h4v1.5h-4v3h5v1.5h-7v-10z" fill="currentColor" />
+    </svg>
+  );
+}
+
 function SocialIcon({ label }: { label: string }) {
   const key = label.toLowerCase();
   if (key.includes("instagram")) return <InstagramIcon />;
   if (key.includes("tiktok")) return <TikTokIcon />;
+  if (key.includes("etsy")) return <EtsyIcon />;
   return null;
 }
 
