@@ -15,8 +15,16 @@ export function MenuRow({ item, revealDelayClass }: MenuRowProps) {
 
   return (
     <article
+      id={item.id}
       className={`${styles.menuRow}${revealDelayClass ? ` reveal ${revealDelayClass}` : ""}`}
     >
+      <a 
+        href={buildWhatsAppLink(`I'd like to order ${name}`)}
+        className={styles.cardLinkOverlay}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Order ${name} via WhatsApp`}
+      />
       <div className={styles.menuRowImgWrap}>
         <Image
           src={image}

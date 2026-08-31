@@ -21,7 +21,8 @@ export function ShopProductCard({ product }: ShopProductCardProps) {
 
   return (
     <article className={styles.productCard} data-category={product.category}>
-      <Link href={`/shop/${id}`} className={`${styles.productImage} cg-press-card`}>
+      <Link href={`/shop/${id}`} className={styles.cardLinkOverlay} aria-label={`View ${name}`} />
+      <div className={`${styles.productImage} cg-press-card`}>
         <Image
           src={image}
           alt={alt}
@@ -34,10 +35,8 @@ export function ShopProductCard({ product }: ShopProductCardProps) {
             {badge}
           </span>
         )}
-      </Link>
-      <Link href={`/shop/${id}`}>
-        <h3 className={styles.productTitle}>{name}</h3>
-      </Link>
+      </div>
+      <h3 className={styles.productTitle}>{name}</h3>
       <p className={styles.productDesc}>{description}</p>
       <div className={styles.productFooter}>
         <span className={styles.productPrice}>{price}</span>

@@ -52,7 +52,7 @@ export function Footer() {
 
         {/* Col 1: Brand & Social */}
         <div className={styles.footerBrand}>
-          <Link href="/" className={styles.footerBrandHeader}> 
+          <a href="/" className={styles.footerBrandHeader}> 
             <Image
               src="/assets/images/logo.png"
               alt="CultureGlow24"
@@ -62,7 +62,7 @@ export function Footer() {
               className={styles.footerLogo}
             />
             <p className={styles.footerBrandName}>Culture Glow</p>
-          </Link> 
+          </a> 
           <p className={styles.footerTagline}>
             Habesha food, beauty and lifestyle products, delivered across London.
           </p>

@@ -49,6 +49,8 @@
   grid-column: 1;
   grid-row: 1;
   transition: opacity 0.8s ease, transform 0.8s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .activeSlide {
@@ -90,6 +92,7 @@
 }
 
 .authorInfo {
+  margin-top: auto;
   margin-bottom: calc(var(--cg-u) * 6);
 }
 
@@ -104,10 +107,26 @@
 }
 
 .authorSource {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
   font-family: var(--font-sans);
-  font-size: 0.875rem;
-  color: var(--cg-text);
-  opacity: 0.8;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--cg-gold-ink);
+  background: var(--cg-gold);
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.authorSource:hover {
+  background: var(--cg-gold-hover);
+  transform: translateY(-2px);
 }
 
 .dots {

@@ -17,6 +17,11 @@ export function KitchenCard({ item, revealDelayClass }: KitchenCardProps) {
     <article
       className={`${styles.kitchenCard}${revealDelayClass ? ` reveal ${revealDelayClass}` : ""}`}
     >
+      <a 
+        href={`/menu#${item.id}`}
+        className={styles.cardLinkOverlay}
+        aria-label={`View ${name} on menu page`}
+      />
       <div className={styles.imgWrap}>
         <Image
           src={image}

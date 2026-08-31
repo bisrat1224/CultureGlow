@@ -29,12 +29,12 @@ export function ProductsSection({ home, products }: Props) {
               {headingAfterEm}
             </h2>
           </div>
-          <Link
+          <a
             href="/shop"
             className={`${styles.btnOutlineGold} reveal reveal-delay-2 cg-press`}
           >
             {viewAllCta}
-          </Link>
+          </a>
         </div>
 
         <ProductsGrid products={products} />
