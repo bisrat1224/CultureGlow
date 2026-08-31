@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { buildWhatsAppLink } from "@/lib/constants";
 import styles from "./ProductCard.module.css";
 
@@ -25,6 +26,8 @@ export function ProductCard({ product, revealDelayClass }: ProductCardProps) {
 
   return (
     <article className={`${styles.bentoCard} reveal ${revealDelayClass ?? ""}`}>
+      <Link href={`/shop/${product.id}`} className={styles.cardLinkOverlay} aria-label={`View ${name}`} />
+      
       <div className={styles.bentoCardImgWrap}>
         <Image
           src={image}
@@ -38,16 +41,19 @@ export function ProductCard({ product, revealDelayClass }: ProductCardProps) {
       <div className={styles.bentoCardBody}>
         <p className={styles.bentoCardCat}>{category}</p>
         <h3 className={styles.bentoCardName}>{name}</h3>
-        <p className={styles.bentoCardPrice}>{price}</p>
-        <a
-          href={buildWhatsAppLink(`I'd like to order ${name}`)}
-          className={`${styles.btnWaCard} cg-press`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image src="/assets/images/img_whatsappicon.svg" alt="" width={14} height={14} />
-          Order
-        </a>
+        
+        <div className={styles.bentoCardFooter}>
+          <p className={styles.bentoCardPrice}>{price}</p>
+          <a
+            href={buildWhatsAppLink(`I'd like to order ${name}`)}
+            className={`${styles.btnWaCard} cg-press`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image src="/assets/images/img_whatsappicon.svg" alt="" width={14} height={14} />
+            Order
+          </a>
+        </div>
       </div>
     </article>
   );

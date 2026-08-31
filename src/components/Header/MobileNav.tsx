@@ -79,7 +79,7 @@ export function MobileNav({ isOpen, onClose, links }: MobileNavProps) {
         const isActive =
           link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
         return (
-          <Link
+          <a
             key={link.href}
             href={link.href}
             onClick={onClose}
@@ -87,7 +87,7 @@ export function MobileNav({ isOpen, onClose, links }: MobileNavProps) {
             aria-current={isActive ? "page" : undefined}
           >
             {link.label}
-          </Link>
+          </a>
         );
       })}
     </div>

@@ -7,6 +7,7 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  height: 100%;
   transition:
     transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.35s ease,
@@ -58,6 +59,9 @@
 }
 
 .bentoCardBody {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   padding: calc(var(--cg-u) * 2.5) calc(var(--cg-u) * 2.5) calc(var(--cg-u) * 3);
 }
 
@@ -86,7 +90,20 @@
   margin-bottom: calc(var(--cg-u) * 2);
 }
 
+.bentoCardFooter {
+  margin-top: auto;
+  position: relative;
+  z-index: 2; /* Keep above overlay */
+}
+
+.cardLinkOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
 .btnWaCard {
+  align-self: flex-start;
   display: inline-flex;
   align-items: center;
   gap: 8px;

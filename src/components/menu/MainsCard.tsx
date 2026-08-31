@@ -14,6 +14,13 @@ export function MainsCard({ item }: MainsCardProps) {
 
   return (
     <article className={styles.mainsCard}>
+      <a 
+        href={buildWhatsAppLink(`I'd like to order ${name}`)}
+        className={styles.cardLinkOverlay}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Order ${name} via WhatsApp`}
+      />
       <div className={styles.mainsCardImage}>
         {tag && <span className={styles.mainsRibbon}>{tag}</span>}
         <Image

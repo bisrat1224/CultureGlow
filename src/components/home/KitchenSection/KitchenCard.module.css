@@ -73,9 +73,18 @@
 
 .footer {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
-  gap: 8px;
+  margin-top: auto;
+  gap: calc(var(--cg-u) * 2);
+  position: relative;
+  z-index: 2;
+}
+
+.cardLinkOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 }
 
 .dietList {

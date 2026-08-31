@@ -88,6 +88,14 @@
   justify-content: space-between;
   gap: 12px;
   margin-top: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.cardLinkOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 }
 
 .mainsCardPrice {

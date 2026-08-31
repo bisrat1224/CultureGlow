@@ -20,6 +20,13 @@ export function BundleCard({ bundle }: BundleCardProps) {
 
   return (
     <div className={styles.bundleCard}>
+      <a 
+        href={buildWhatsAppLink(`I'd like to order ${title} bundle`)}
+        className={styles.cardLinkOverlay}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Order ${title} bundle via WhatsApp`}
+      />
       <Image
         src={image}
         alt={alt}

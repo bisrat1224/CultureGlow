@@ -53,9 +53,8 @@ export function TestimonialsSection() {
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className={styles.authorSource}
-                    style={{ textDecoration: 'underline', color: 'inherit' }}
                   >
-                    Verified {item.source} Review
+                    Read on {item.source}
                   </a>
                 </div>
               </div>

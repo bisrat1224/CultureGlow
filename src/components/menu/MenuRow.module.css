@@ -98,12 +98,20 @@
   flex-wrap: wrap;
 }
 
+.cardLinkOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
 .menuRowRight {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 8px;
   flex-shrink: 0;
+  position: relative;
+  z-index: 2;
 }
 
 .menuRowPrice {

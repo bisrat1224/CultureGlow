@@ -20,7 +20,7 @@ export function Header() {
         className={`${styles.siteHeader} ${scrolled ? styles.scrolled : ""} cg-scroll-edge`}
       >
         <div className={styles.headerLogo}>
-          <Link href="/">
+          <a href="/">
             <Image
               src="/assets/images/logo.png"
               alt="CultureGlow24"
@@ -29,20 +29,20 @@ export function Header() {
               height={48}
             />
             <span className={styles.logoName}>Culture Glow</span>
-          </Link>
+          </a>
         </div>
 
         <nav aria-label="Main navigation">
           <ul className={styles.headerNav}>
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
-                <Link
+                <a
                   href={link.href}
                   className={pathname === link.href ? styles.active : ""}
                   aria-current={pathname === link.href ? "page" : undefined}
                 >
                   {link.label}
-                </Link>
+                </a>
               </li>
             ))}
           </ul>
