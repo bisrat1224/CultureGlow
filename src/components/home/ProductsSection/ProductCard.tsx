@@ -22,12 +22,16 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product, revealDelayClass }: ProductCardProps) {
-  const { category, name, price, image, alt } = product;
+  const { category, name, price, image, alt, description } = product;
 
   return (
     <article className={`${styles.bentoCard} reveal ${revealDelayClass ?? ""}`}>
-      <Link href={`/shop/${product.id}`} className={styles.cardLinkOverlay} aria-label={`View ${name}`} />
-      
+      <Link
+        href={`/shop/${product.id}`}
+        className={styles.cardLinkOverlay}
+        aria-label={`View ${name}`}
+      />
+
       <div className={styles.bentoCardImgWrap}>
         <Image
           src={image}
@@ -37,11 +41,17 @@ export function ProductCard({ product, revealDelayClass }: ProductCardProps) {
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           className={styles.bentoCardImgEl}
         />
+        {category ? (
+          <span className={styles.bentoCardBadge}>{category}</span>
+        ) : null}
       </div>
+
       <div className={styles.bentoCardBody}>
-        <p className={styles.bentoCardCat}>{category}</p>
         <h3 className={styles.bentoCardName}>{name}</h3>
-        
+        {description ? (
+          <p className={styles.bentoCardDesc}>{description}</p>
+        ) : null}
+
         <div className={styles.bentoCardFooter}>
           <p className={styles.bentoCardPrice}>{price}</p>
           <a
@@ -49,9 +59,14 @@ export function ProductCard({ product, revealDelayClass }: ProductCardProps) {
             className={`${styles.btnWaCard} cg-press`}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`Order ${name} on WhatsApp`}
           >
-            <Image src="/assets/images/img_whatsappicon.svg" alt="" width={14} height={14} />
-            Order
+            <Image
+              src="/assets/images/img_whatsappicon.svg"
+              alt=""
+              width={18}
+              height={18}
+            />
           </a>
         </div>
       </div>

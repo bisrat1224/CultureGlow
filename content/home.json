@@ -39,7 +39,7 @@
     "headingBeforeEm": "Our Most ",
     "headingEm": "Ordered",
     "headingAfterEm": "",
-    "viewAllCta": "View All"
+    "viewAllCta": "Shop our full collection on Etsy"
   },
   "accentBand": {
     "items": [
@@ -77,6 +77,11 @@
     "headingBeforeEm": "What Our ",
     "headingEm": "Guests",
     "headingAfterEm": " Say",
+    "reviewCta": {
+      "heading": "Leave a Review",
+      "body": "Enjoyed your order? Let others know on Google.",
+      "button": "Write a Review"
+    },
     "items": [
       {
         "id": "cindy-liang",

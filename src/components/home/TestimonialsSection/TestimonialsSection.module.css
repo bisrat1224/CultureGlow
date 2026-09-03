@@ -106,29 +106,6 @@
   letter-spacing: 0.05em;
 }
 
-.authorSource {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 12px;
-  font-family: var(--font-sans);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: var(--cg-gold-ink);
-  background: var(--cg-gold);
-  padding: 8px 16px;
-  border-radius: 8px;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  transition: transform 0.2s, background 0.2s;
-}
-
-.authorSource:hover {
-  background: var(--cg-gold-hover);
-  transform: translateY(-2px);
-}
-
 .dots {
   display: flex;
   justify-content: center;
@@ -149,4 +126,79 @@
 .activeDot {
   background: var(--cg-charcoal);
   transform: scale(1.2);
+}
+
+.reviewBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: calc(var(--cg-u) * 4);
+  margin-top: calc(var(--cg-u) * 8);
+  padding: calc(var(--cg-u) * 4) calc(var(--cg-u) * 5);
+  background: var(--cg-charcoal);
+  border-radius: 16px;
+}
+
+.reviewBannerText {
+  min-width: 0;
+}
+
+.reviewBannerHeading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 0.35rem;
+}
+
+.reviewBannerBody {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+}
+
+.reviewBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  background: #fff;
+  color: var(--cg-charcoal);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 12px 22px;
+  border-radius: 9999px;
+  text-decoration: none;
+  min-height: 44px;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.reviewBtn:hover {
+  background: var(--cg-gold-light);
+}
+
+.reviewBtnIcon {
+  color: var(--cg-gold);
+  flex-shrink: 0;
+}
+
+.reviewBtnExternal {
+  color: rgba(26, 26, 26, 0.45);
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .reviewBanner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: calc(var(--cg-u) * 4);
+  }
+
+  .reviewBtn {
+    width: 100%;
+    justify-content: center;
+  }
 }

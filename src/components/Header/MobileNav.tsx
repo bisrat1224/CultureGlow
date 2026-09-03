@@ -77,7 +77,10 @@ export function MobileNav({ isOpen, onClose, links }: MobileNavProps) {
 
       {links.map((link) => {
         const isActive =
-          link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
+          !link.external &&
+          (link.href === "/"
+            ? pathname === "/"
+            : pathname.startsWith(link.href));
         return (
           <a
             key={link.href}
@@ -85,6 +88,9 @@ export function MobileNav({ isOpen, onClose, links }: MobileNavProps) {
             onClick={onClose}
             className={isActive ? styles.active : undefined}
             aria-current={isActive ? "page" : undefined}
+            {...(link.external
+              ? { target: "_blank", rel: "noopener noreferrer" }
+              : {})}
           >
             {link.label}
           </a>

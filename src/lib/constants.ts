@@ -43,6 +43,7 @@ export const BUSINESS_LNG = -0.2159;
 export type NavLink = {
   href: string;
   label: string;
+  external?: boolean;
 };
 
 export const NAV_LINKS: NavLink[] = [
@@ -53,6 +54,11 @@ export const NAV_LINKS: NavLink[] = [
   { href: "/gallery", label: "Gallery" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
+  {
+    href: "https://www.etsy.com/shop/cultureglow24",
+    label: "Etsy",
+    external: true,
+  },
 ];
 
 export type SocialLink = {
@@ -65,6 +71,10 @@ export const SOCIAL_LINKS: SocialLink[] = [
   { label: "Instagram", href: "https://www.instagram.com/cultureglow24/" },
   { label: "Etsy", href: "https://www.etsy.com/shop/cultureglow24" },
 ];
+
+/** Google Maps place page (reviews tab) — write / read reviews. */
+export const GOOGLE_REVIEW_URL =
+  "https://www.google.com/maps/place/Cultureglow24/@51.4697812,-0.1741321,20z/data=!4m8!3m7!1s0x4876050041cfcabd:0xd52dc7647d223753!8m2!3d51.4702081!4d-0.1720105!9m1!1b1!16s%2Fg%2F11yzsf9ww8!18m1!1e1?entry=ttu";
 
 /**
  * Builds a wa.me link, optionally pre-filling a message.
