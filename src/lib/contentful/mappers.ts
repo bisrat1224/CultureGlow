@@ -1,6 +1,7 @@
 import type { Entry, Asset, EntrySkeletonType } from "contentful";
 import type { Product } from "@/components/home/ProductsSection/ProductCard";
 import type { MenuItem, CategoryMeta } from "@/lib/data/menu";
+import { homeContent } from "@/lib/content/content.home";
 import type { HomeContent } from "@/lib/content/content.home";
 import type { ShopContent } from "@/lib/content/content.shop";
 import type { MenuContent } from "@/lib/content/content.menu";
@@ -12,6 +13,12 @@ type Fields = Record<string, unknown>;
 function f<T>(fields: Fields, key: string, fallback?: T): T {
   const v = fields[key];
   return (v === undefined || v === null ? fallback : v) as T;
+}
+
+/** Prefer non-empty CMS string; else static fallback. */
+function str(fields: Fields, key: string, fallback: string): string {
+  const v = fields[key];
+  return typeof v === "string" && v.trim() ? v : fallback;
 }
 
 function assetUrl(asset: Asset | undefined | null): string {
@@ -107,11 +114,23 @@ export function mapHomePage(entry: Entry<EntrySkeletonType>): HomeContent {
       stats: f(fields, "storyStats", []),
     },
     products: {
-      eyebrow: f(fields, "productsEyebrow", ""),
-      headingBeforeEm: f(fields, "productsHeadingBeforeEm", ""),
-      headingEm: f(fields, "productsHeadingEm", ""),
-      headingAfterEm: f(fields, "productsHeadingAfterEm", ""),
-      viewAllCta: f(fields, "productsViewAllCta", ""),
+      eyebrow: str(fields, "productsEyebrow", homeContent.products.eyebrow),
+      headingBeforeEm: str(
+        fields,
+        "productsHeadingBeforeEm",
+        homeContent.products.headingBeforeEm,
+      ),
+      headingEm: str(fields, "productsHeadingEm", homeContent.products.headingEm),
+      headingAfterEm: str(
+        fields,
+        "productsHeadingAfterEm",
+        homeContent.products.headingAfterEm,
+      ),
+      viewAllCta: str(
+        fields,
+        "productsViewAllCta",
+        homeContent.products.viewAllCta,
+      ),
     },
     accentBand: {
       items: f(fields, "accentBandItems", []),
@@ -145,6 +164,15 @@ export function mapHomePage(entry: Entry<EntrySkeletonType>): HomeContent {
       headingBeforeEm: f(fields, "testimonialsHeadingBeforeEm", ""),
       headingEm: f(fields, "testimonialsHeadingEm", ""),
       headingAfterEm: f(fields, "testimonialsHeadingAfterEm", ""),
+      reviewCta: {
+        heading: f(fields, "testimonialsReviewHeading", "Leave a Review"),
+        body: f(
+          fields,
+          "testimonialsReviewBody",
+          "Enjoyed your order? Let others know on Google.",
+        ),
+        button: f(fields, "testimonialsReviewButton", "Write a Review"),
+      },
       items: f(fields, "testimonialsItems", []),
     },
   } as HomeContent;

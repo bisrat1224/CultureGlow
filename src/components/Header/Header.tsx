@@ -39,7 +39,12 @@ export function Header() {
                 <a
                   href={link.href}
                   className={pathname === link.href ? styles.active : ""}
-                  aria-current={pathname === link.href ? "page" : undefined}
+                  aria-current={
+                    !link.external && pathname === link.href ? "page" : undefined
+                  }
+                  {...(link.external
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
                 >
                   {link.label}
                 </a>

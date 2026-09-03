@@ -14,22 +14,29 @@
 
 .tab {
   flex-shrink: 0;
-  padding: 8px 20px;
-  border-radius: 100px;
-  border: 1.5px solid rgba(200, 151, 58, 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  border-radius: 9999px;
+  border: 1.5px solid var(--cg-gold);
   background: transparent;
-  color: rgba(43, 36, 28, 0.55);
-  font-size: 0.8125rem;
+  color: var(--cg-gold-fg);
+  font-size: 0.875rem;
   font-weight: 600;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
-  min-height: 40px;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+  min-height: 44px;
 }
 
 .tab:hover {
+  background: var(--cg-gold);
   border-color: var(--cg-gold);
-  color: var(--cg-gold-fg);
+  color: var(--cg-gold-ink);
 }
 
 .tabActive {
