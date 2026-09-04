@@ -1,190 +1,153 @@
 {
   "featuredIds": [
-    "habesha-summer-dress",
-    "habesha-filigree-necklace",
-    "muday-basket",
-    "ethiopian-orthodox-cross"
+    "embroidered-white-dress",
+    "ruffled-colorful-scarf",
+    "round-leather-bag",
+    "beaded-ornament"
   ],
   "products": [
     {
-      "id": "habesha-summer-dress",
+      "id": "amber-prayer-beads",
       "category": "LIFESTYLE",
-      "name": "Habesha Summer Dress",
-      "price": "£95.00",
-      "image": "/assets/images/shop-items/habesha-summer-dress.webp",
-      "alt": "Light Habesha summer dress with traditional accents",
-      "description": "A light, breathable summer dress with subtle traditional detailing. Easy to wear for everyday occasions and warm-weather occassions.",
+      "name": "Farmhouse Wood Bead Garland",
+      "price": "\u00a324.00",
+      "image": "/assets/images/shop-items/amber-prayer-beads.webp",
+      "alt": "Farmhouse Wood Bead Garland",
+      "description": "A beautiful amber-colored wooden bead garland, ideal for daily use or as a decorative cultural keepsake.",
       "gallery": [
-        "/assets/images/shop-items/habesha-summer-dress.webp"
-      ]
-    },
-    {
-      "id": "habesha-filigree-necklace",
-      "category": "LIFESTYLE",
-      "name": "Habesha Filigree Necklace",
-      "price": "£35.00",
-      "image": "/assets/images/shop-items/habesha-necklace-1.webp",
-      "alt": "Traditional Habesha filigree necklace",
-      "description": "A handcrafted filigree necklace with classic Ethiopian motifs. A versatile piece for both everyday wear and special occasions.",
-      "gallery": [
-        "/assets/images/shop-items/habesha-necklace-1.webp",
-        "/assets/images/shop-items/habesha-necklace-2.webp",
-        "/assets/images/shop-items/habesha-necklace-3.webp"
-      ]
-    },
-    {
-      "id": "muday-basket",
-      "category": "LIFESTYLE",
-      "name": "Muday Basket",
-      "price": "£38.00",
-      "image": "/assets/images/shop-items/muday-1.webp",
-      "alt": "Traditional Ethiopian muday basket",
-      "description": "A traditional Ethiopian muday basket, handwoven and ideal for serving injera or as a decorative centrepiece at home.",
-      "gallery": [
-        "/assets/images/shop-items/muday-1.webp",
-        "/assets/images/shop-items/muday-2.webp"
-      ]
-    },
-    {
-      "id": "ethiopian-orthodox-cross",
-      "category": "LIFESTYLE",
-      "name": "Ethiopian Orthodox Cross",
-      "price": "£28.00",
-      "image": "/assets/images/shop-items/ethiopian-orthodox-cross-1.webp",
-      "alt": "Ethiopian Orthodox cross pendant",
-      "description": "A classic Ethiopian Orthodox cross with traditional design details. Suitable as a pendant or keepsake.",
-      "gallery": [
-        "/assets/images/shop-items/ethiopian-orthodox-cross-1.webp"
-      ]
-    },
-    {
-      "id": "habesha-scarf",
-      "category": "LIFESTYLE",
-      "name": "Habesha Scarf",
-      "price": "£32.00",
-      "image": "/assets/images/shop-items/habesha-scarf-1.webp",
-      "alt": "Traditional Habesha scarf with woven border",
-      "description": "A soft Habesha scarf with a woven border, easy to style for everyday wear or layered with traditional dress.",
-      "gallery": [
-        "/assets/images/shop-items/habesha-scarf-1.webp",
-        "/assets/images/shop-items/habesha-scarf-2.webp"
-      ]
-    },
-    {
-      "id": "habesha-shawl-new",
-      "category": "LIFESTYLE",
-      "name": "Habesha Shawl",
-      "price": "£48.00",
-      "image": "/assets/images/shop-items/habesha-shawl.webp",
-      "alt": "Hand-finished Habesha shawl with tibeb trim",
-      "description": "A hand-finished Habesha shawl with traditional tibeb trim. A versatile layering piece for ceremonies and cooler evenings.",
-      "gallery": [
-        "/assets/images/shop-items/habesha-shawl.webp"
-      ]
-    },
-    {
-      "id": "tsinatsil",
-      "category": "LIFESTYLE",
-      "name": "Tsinatsil (Sistrum)",
-      "price": "£45.00",
-      "image": "/assets/images/shop-items/tsinatsil.webp",
-      "alt": "Traditional Ethiopian tsinatsil sistrum",
-      "description": "A traditional Ethiopian tsinatsil (sistrum), used in religious and cultural settings. A distinctive piece for collectors and ceremony.",
-      "gallery": [
-        "/assets/images/shop-items/tsinatsil.webp"
-      ]
-    },
-    {
-      "id": "geez-letter-mug",
-      "category": "LIFESTYLE",
-      "name": "Geez Letter Mug",
-      "price": "£14.00",
-      "image": "/assets/images/shop-items/geez-letter-mug.webp",
-      "alt": "Ceramic mug printed with Geez script letters",
-      "description": "A ceramic mug featuring Geez lettering. A simple everyday piece that carries Habesha culture into your kitchen.",
-      "gallery": [
-        "/assets/images/shop-items/geez-letter-mug.webp"
-      ]
-    },
-    {
-      "id": "habesha-art-mug",
-      "category": "LIFESTYLE",
-      "name": "Habesha Art Mug",
-      "price": "£14.00",
-      "image": "/assets/images/shop-items/habesha-art-mug.webp",
-      "alt": "Ceramic mug with Habesha art print",
-      "description": "A ceramic mug with a Habesha art print. Practical and decorative for coffee, tea, or display.",
-      "gallery": [
-        "/assets/images/shop-items/habesha-art-mug.webp"
-      ]
-    },
-    {
-      "id": "lalibela-photo-mug",
-      "category": "LIFESTYLE",
-      "name": "Lalibela Photo Mug",
-      "price": "£14.00",
-      "image": "/assets/images/shop-items/lalibela-photo-mug.webp",
-      "alt": "Ceramic mug with Lalibela photo print",
-      "description": "A ceramic mug printed with a Lalibela scene. A small reminder of Ethiopia’s rock-hewn churches with every cup.",
-      "gallery": [
-        "/assets/images/shop-items/lalibela-photo-mug.webp"
-      ]
-    }
-  ],
-  "_placeholderProducts": [
-    {
-      "id": "habesha-kemis",
-      "category": "LIFESTYLE",
-      "name": "Habesha Kemis",
-      "price": "£185.00",
-      "image": "/assets/images/dress-green.jpg",
-      "alt": "Traditional Habesha dress with intricate embroidery",
-      "description": "A handwoven Habesha kemis with traditional tibeb border embroidery, made for weddings and special occasions.",
-      "gallery": [
-        "/assets/images/dress-green.jpg",
-        "/assets/images/dress-burgundy.jpg"
-      ]
-    },
-    {
-      "id": "netela-dress",
-      "category": "BEAUTY",
-      "name": "Netela Dress",
-      "price": "£145.00",
-      "image": "/assets/images/dress-burgundy.jpg",
-      "alt": "Elegant Habesha cultural dress",
-      "description": "A lightweight, hand-finished netela with a woven tibeb edge, worn for ceremonies and everyday elegance alike.",
-      "gallery": [
-        "/assets/images/dress-burgundy.jpg",
-        "/assets/images/dress-green.jpg"
-      ]
-    },
-    {
-      "id": "product-6",
-      "category": "LIFESTYLE",
-      "name": "Embroidered Shawl",
-      "price": "£42.00",
-      "image": "/assets/images/habesha-shawl.jpeg",
-      "alt": "Hand-embroidered shawl with tibeb trim",
-      "description": "A hand-embroidered shawl with traditional tibeb trim, a versatile layering piece for any occasion.",
-      "gallery": [
-        "/assets/images/habesha-shawl.jpeg"
-      ]
-    },
-    {
-      "id": "product-7",
-      "category": "BEAUTY",
-      "name": "Shea & Frankincense Body Oil",
-      "price": "£18.00",
-      "image": "/assets/images/Frankincense-Body-Oil.avif",
-      "alt": "Bottle of shea and frankincense body oil",
-      "description": "A nourishing body oil blending shea butter with frankincense, inspired by traditional Habesha skincare.",
-      "gallery": [
-        "/assets/images/Frankincense-Body-Oil.avif"
+        "/assets/images/shop-items/amber-prayer-beads.webp"
       ],
-      "allergens": [
-        "May contain nut derivatives",
-        "Patch test recommended"
-      ]
+      "etsyUrl": "https://www.etsy.com/uk/listing/1872450056/farmhouse-wood-bead-garland-boho-rustic"
+    },
+    {
+      "id": "gold-bangles",
+      "category": "LIFESTYLE",
+      "name": "Brass Stackable Bangle Bracelet",
+      "price": "\u00a310.00",
+      "image": "/assets/images/shop-items/gold-bangles.webp",
+      "alt": "Brass Stackable Bangle Bracelet",
+      "description": "A beautiful set of textured brass stackable bangles, perfect for adding a touch of traditional elegance to any outfit.",
+      "gallery": [
+        "/assets/images/shop-items/gold-bangles.webp"
+      ],
+      "etsyUrl": "https://www.etsy.com/uk/listing/4296579744/brass-stackable-bangle-bracelet"
+    },
+    {
+      "id": "beaded-ornament",
+      "category": "LIFESTYLE",
+      "name": "Handmade Oromo Cultural Headrest",
+      "price": "\u00a355.00",
+      "image": "/assets/images/shop-items/beaded-ornament.webp",
+      "alt": "Handmade Oromo Cultural Headrest",
+      "description": "A beautifully hand-crafted Oromo cultural headrest, intricately decorated with vibrant red, black, and white beads and a cascading fringe.",
+      "gallery": [
+        "/assets/images/shop-items/beaded-ornament.webp"
+      ],
+      "etsyUrl": "https://www.etsy.com/uk/listing/1849322423/handmade-oromo-cultural-head-rest"
+    },
+    {
+      "id": "traditional-scarf",
+      "category": "LIFESTYLE",
+      "name": "Ethiopian Traditional Cotton Scarf Rasta",
+      "price": "\u00a329.50",
+      "image": "/assets/images/shop-items/traditional-scarf.webp",
+      "alt": "Ethiopian Traditional Cotton Scarf Rasta",
+      "description": "A classic white cotton scarf featuring a vibrant, intricately woven border in traditional red, gold, and green Rasta colors.",
+      "gallery": [
+        "/assets/images/shop-items/traditional-scarf.webp"
+      ],
+      "etsyUrl": "https://www.etsy.com/uk/listing/1849324154/ethiopian-traditional-cotton-scarf-rasta"
+    },
+    {
+      "id": "beaded-necklace-red-green",
+      "category": "LIFESTYLE",
+      "name": "Women's Traditional Jewellery",
+      "price": "\u00a353.54",
+      "image": "/assets/images/shop-items/beaded-necklace-red-green.webp",
+      "alt": "Women's Traditional Jewellery",
+      "description": "An elegant, wide-collar beaded necklace and matching accessory, featuring a striking geometric pattern in traditional red, green, and white.",
+      "gallery": [
+        "/assets/images/shop-items/beaded-necklace-red-green.webp"
+      ],
+      "etsyUrl": "https://www.etsy.com/uk/listing/1855813120/woman-traditional-jewellery"
+    },
+    {
+      "id": "long-beaded-necklace",
+      "category": "LIFESTYLE",
+      "name": "Ethiopian Beaded Necklace: Traditional",
+      "price": "\u00a335.00",
+      "image": "/assets/images/shop-items/long-beaded-necklace.webp",
+      "alt": "Ethiopian Beaded Necklace: Traditional",
+      "description": "A striking long V-shaped beaded necklace crafted with rich red, black, and white beads in a traditional diamond pattern, finished with a delicate fringe.",
+      "gallery": [
+        "/assets/images/shop-items/long-beaded-necklace.webp"
+      ],
+      "etsyUrl": "https://www.etsy.com/uk/listing/1872868559/ethiopian-beaded-necklace-traditional"
+    },
+    {
+      "id": "beaded-necklace-blue",
+      "category": "LIFESTYLE",
+      "name": "Ethiopian Beaded Necklace: Traditional Blue",
+      "price": "\u00a338.00",
+      "image": "/assets/images/shop-items/beaded-necklace-blue.webp",
+      "alt": "Ethiopian Beaded Necklace: Traditional Blue",
+      "description": "A stunning blue and white beaded jewelry set including a wide collar necklace, featuring intricate zig-zag patterns for traditional elegance.",
+      "gallery": [
+        "/assets/images/shop-items/beaded-necklace-blue.webp"
+      ],
+      "etsyUrl": "https://www.etsy.com/uk/listing/1872876985/ethiopian-beaded-necklace-traditional"
+    },
+    {
+      "id": "round-leather-bag",
+      "category": "LIFESTYLE",
+      "name": "Leather Crossbody Bag: Brown",
+      "price": "\u00a335.00",
+      "image": "/assets/images/shop-items/round-leather-bag.webp",
+      "alt": "Leather Crossbody Bag: Brown",
+      "description": "A stylish round brown leather crossbody bag, featuring beautiful stitching and an embossed traditional Lion of Judah emblem.",
+      "gallery": [
+        "/assets/images/shop-items/round-leather-bag.webp"
+      ],
+      "etsyUrl": "https://www.etsy.com/uk/listing/1865651010/leather-crossbody-bag-brown-ethiopian"
+    },
+    {
+      "id": "embroidered-white-dress",
+      "category": "LIFESTYLE",
+      "name": "Ethiopian/Eritrean Habesha Clothes",
+      "price": "\u00a350.00",
+      "image": "/assets/images/shop-items/embroidered-white-dress.webp",
+      "alt": "Ethiopian/Eritrean Habesha Clothes",
+      "description": "A beautiful white Habesha dress adorned with intricate green and brown traditional embroidery on the neckline, pockets, and a large central motif.",
+      "gallery": [
+        "/assets/images/shop-items/embroidered-white-dress.webp"
+      ],
+      "etsyUrl": "https://www.etsy.com/uk/listing/4370082456/ethiopianeritrean-habesha-clothes"
+    },
+    {
+      "id": "i-love-ethiopia-shirt",
+      "category": "LIFESTYLE",
+      "name": "Ethiopian Traditional Clothes",
+      "price": "\u00a345.00",
+      "image": "/assets/images/shop-items/i-love-ethiopia-shirt.webp",
+      "alt": "Ethiopian Traditional Clothes",
+      "description": "A comfortable white short-sleeve shirt featuring a colorful traditional woven trim and a bold 'I Love Ethiopia' embroidered design.",
+      "gallery": [
+        "/assets/images/shop-items/i-love-ethiopia-shirt.webp"
+      ],
+      "etsyUrl": "https://www.etsy.com/uk/listing/4370110025/ethiopian-traditional-clothes"
+    },
+    {
+      "id": "ruffled-colorful-scarf",
+      "category": "LIFESTYLE",
+      "name": "Handmade Cotton Netela",
+      "price": "\u00a345.00",
+      "image": "/assets/images/shop-items/ruffled-colorful-scarf.webp",
+      "alt": "Handmade Cotton Netela",
+      "description": "A softly crinkled white cotton Netela shawl, beautifully finished with a vivid, multi-colored metallic woven border.",
+      "gallery": [
+        "/assets/images/shop-items/ruffled-colorful-scarf.webp"
+      ],
+      "etsyUrl": "https://www.etsy.com/uk/listing/4370116100/handmade-cotton-netela-ethiopian-scarf"
     }
   ]
 }
