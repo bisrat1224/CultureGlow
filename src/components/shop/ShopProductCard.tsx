@@ -40,15 +40,34 @@ export function ShopProductCard({ product }: ShopProductCardProps) {
       <p className={styles.productDesc}>{description}</p>
       <div className={styles.productFooter}>
         <span className={styles.productPrice}>{price}</span>
-        <a
-          href={buildWhatsAppLink(`I'd like to order ${name}`)}
-          className={`${styles.productOrderBtn} cg-press`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="/assets/images/img_whatsappicon.svg" alt="" />
-          Order
-        </a>
+        <div className={styles.productButtons}>
+          <a
+            href={buildWhatsAppLink(`I'd like to order ${name}`)}
+            className={`${styles.btnWaCard} cg-press`}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Order ${name} on WhatsApp`}
+          >
+            <Image
+              src="/assets/images/img_whatsappicon.svg"
+              alt=""
+              width={18}
+              height={18}
+            />
+          </a>
+          <a
+            href={product.etsyUrl || "https://www.etsy.com/shop/cultureglow24"}
+            className={`${styles.btnEtsyCard} cg-press`}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Order ${name} on Etsy`}
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M8.5 7.5h7v1.5h-5v2.5h4v1.5h-4v3h5v1.5h-7v-10z" fill="currentColor" stroke="none" />
+              <rect x="2" y="2" width="20" height="20" rx="5" strokeWidth="1.75" />
+            </svg>
+          </a>
+        </div>
       </div>
     </article>
   );
