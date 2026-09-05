@@ -125,27 +125,56 @@
   color: var(--cg-gold-fg);
 }
 
-.productOrderBtn {
-  background-color: var(--cg-gold);
-  color: var(--cg-gold-ink);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  padding: 9px 18px;
-  border-radius: 8px;
+.productButtons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+
+.btnWaCard {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  transition: background 0.3s ease, transform 0.3s ease;
-  min-height: 44px;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  background: var(--cg-charcoal);
+  border-radius: 50%;
+  transition: background 0.2s, transform 0.2s;
 }
 
-.productOrderBtn:hover {
-  background-color: var(--cg-gold-hover);
-  transform: scale(1.04);
+.btnWaCard:hover {
+  background: var(--cg-gold);
+  transform: scale(1.06);
 }
 
-.productOrderBtn img {
-  width: 14px;
-  height: 14px;
+.btnWaCard img {
+  width: 18px;
+  height: 18px;
   filter: brightness(0) invert(1);
+}
+
+.btnEtsyCard {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  background: var(--cg-charcoal);
+  color: #fff;
+  border-radius: 50%;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.btnEtsyCard:hover {
+  background: var(--cg-gold);
+  transform: scale(1.06);
+}
+
+.btnEtsyCard svg {
+  width: 20px;
+  height: 20px;
 }

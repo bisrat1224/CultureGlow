@@ -8,6 +8,7 @@
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
 
   --cg-gold-fg: var(--cg-gold-text);
+  height: 100%;
 }
 
 .kitchenCard:hover {
