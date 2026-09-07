@@ -14,7 +14,7 @@
   border: none;
   padding: 0;
   cursor: zoom-in;
-  background: var(--cg-gold-light);
+  background: transparent;
 
   /* Light ground: gold-as-text needs the darkened value. Declared even
      inside dark sections, since a light card there would otherwise
