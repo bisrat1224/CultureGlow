@@ -5,10 +5,6 @@ import {
   mapGlobalSettings,
   mapProduct,
   mapMenuItem,
-  mapMenuCategory,
-  mapHomePage,
-  mapShopPage,
-  mapMenuPage,
   mapTiktokPost,
   mapInstagramReel,
 } from "./mappers";
