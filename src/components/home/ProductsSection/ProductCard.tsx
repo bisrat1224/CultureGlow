@@ -15,6 +15,9 @@ export interface Product {
   gallery?: string[];
   allergens?: string[];
   etsyUrl?: string;
+  seoTitle?: string;
+  seoDescription?: string;
+  seoImage?: string;
 }
 
 interface ProductCardProps {

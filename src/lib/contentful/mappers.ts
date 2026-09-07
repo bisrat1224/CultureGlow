@@ -47,6 +47,7 @@ export function mapProduct(entry: Entry<EntrySkeletonType>): Product {
   const fields = entry.fields as Fields;
   const image = fields.image as Asset | undefined;
   const gallery = (fields.gallery as Asset[] | undefined) ?? [];
+  const seoImage = fields.seoImage as Asset | undefined;
 
   return {
     id: f(fields, "slug", entry.sys.id),
@@ -58,13 +59,16 @@ export function mapProduct(entry: Entry<EntrySkeletonType>): Product {
     description: richTextToPlain(fields.description) || undefined,
     badge: f(fields, "badge") || undefined,
     gallery: gallery.map(assetUrl).filter(Boolean),
-    allergens: f(fields, "allergens") || undefined,
+    seoTitle: f(fields, "seoTitle") || undefined,
+    seoDescription: f(fields, "seoDescription") || undefined,
+    seoImage: assetUrl(seoImage) || undefined,
   };
 }
 
 export function mapMenuItem(entry: Entry<EntrySkeletonType>): MenuItem {
   const fields = entry.fields as Fields;
   const image = fields.image as Asset | undefined;
+  const seoImage = fields.seoImage as Asset | undefined;
 
   return {
     id: f(fields, "slug", entry.sys.id),
@@ -73,8 +77,12 @@ export function mapMenuItem(entry: Entry<EntrySkeletonType>): MenuItem {
     price: f(fields, "price", ""),
     image: assetUrl(image) || "/assets/images/injera-plate.jpg",
     alt: f(fields, "alt", f(fields, "name", "")),
-    diet: f(fields, "diet") || undefined,
+    diet: f(fields, "dietaryTags") || undefined,
+    allergens: f(fields, "allergens") || undefined,
     tag: f(fields, "tag") || undefined,
+    seoTitle: f(fields, "seoTitle") || undefined,
+    seoDescription: f(fields, "seoDescription") || undefined,
+    seoImage: assetUrl(seoImage) || undefined,
   };
 }
 
