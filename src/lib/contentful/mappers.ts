@@ -50,7 +50,7 @@ export function mapProduct(entry: Entry<EntrySkeletonType>): Product {
     category: f(fields, "category", ""),
     name: f(fields, "name", ""),
     price: f(fields, "price", ""),
-    image: assetUrl(image) || "/assets/images/injera-plate.jpg",
+    image: assetUrl(image) || "/assets/images/logo.png",
     alt: f(fields, "alt", f(fields, "name", "")),
     description: richTextToPlain(fields.description) || undefined,
     badge: f(fields, "badge") || undefined,
