@@ -72,7 +72,7 @@ export function ProductGallery({ images, alt }: ProductGalleryProps) {
                 alt=""
                 fill
                 sizes="80px"
-                style={{ objectFit: "cover", objectPosition: "top center" }}
+                style={{ objectFit: "contain", objectPosition: "center" }}
                 loading="lazy"
               />
             </button>
