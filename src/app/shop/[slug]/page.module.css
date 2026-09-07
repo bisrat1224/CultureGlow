@@ -1,14 +1,3 @@
-.breadcrumb {
-  font-size: 0.8125rem;
-  color: var(--cg-text);
-  margin-bottom: calc(var(--cg-u) * 4);
-}
-
-.breadcrumb a {
-  color: var(--cg-gold-fg);
-  font-weight: 600;
-}
-
 .productLayout {
   display: grid;
   grid-template-columns: 1fr;

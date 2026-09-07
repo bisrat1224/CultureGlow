@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import { ShopProductCard } from "@/components/shop/ShopProductCard";
 import { ProductGallery } from "@/components/shop/ProductGallery";
 import { buildWhatsAppLink } from "@/lib/constants";
@@ -55,12 +54,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
         className="wrap"
         style={{ paddingTop: "calc(96px + var(--cg-u) * 4)" }}
       >
-        <nav aria-label="Breadcrumb" className={styles.breadcrumb}>
-          <Link href="/shop">Shop</Link>
-          <span aria-hidden="true"> / </span>
-          <span aria-current="page">{product.name}</span>
-        </nav>
-
         <div className={styles.productLayout}>
           <ProductGallery images={galleryImages} alt={product.alt} />
 
