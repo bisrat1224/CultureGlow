@@ -118,9 +118,18 @@
 }
 
 .relatedGrid {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
   gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  /* Hide scrollbar for cleaner look if desired, or let it show */
+}
+
+.relatedGrid > * {
+  flex: 0 0 85%;
+  scroll-snap-align: start;
 }
 
 @media (min-width: 768px) {
@@ -130,7 +139,7 @@
 }
 
 @media (min-width: 640px) {
-  .relatedGrid {
-    grid-template-columns: repeat(2, 1fr);
+  .relatedGrid > * {
+    flex: 0 0 calc(50% - 10px); /* 2 items per view roughly */
   }
 }
