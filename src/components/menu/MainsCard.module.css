@@ -139,3 +139,10 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+.mainsCardAllergens {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--cg-body-muted, #737373);
+  font-style: italic;
+}

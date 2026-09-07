@@ -55,6 +55,11 @@ export function MenuRow({ item, revealDelayClass }: MenuRowProps) {
             })}
           </div>
         )}
+        {item.allergens && item.allergens.length > 0 && (
+          <p className={styles.menuRowAllergens}>
+            <strong>Allergens:</strong> {item.allergens.join(", ")}
+          </p>
+        )}
       </div>
 
       <div className={styles.menuRowRight}>
