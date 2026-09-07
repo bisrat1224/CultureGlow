@@ -2,6 +2,7 @@ import type { ContentStore } from "./store";
 import { staticStore } from "./static-store";
 import { getDeliveryClient } from "./client";
 import {
+  mapGlobalSettings,
   mapProduct,
   mapMenuItem,
   mapMenuCategory,
@@ -21,6 +22,17 @@ function slug(entry: Entry<EntrySkeletonType>): string {
 }
 
 export const contentfulStore: ContentStore = {
+  async getGlobalSettings() {
+    try {
+      const client = getDeliveryClient()!;
+      const res = await client.getEntries({ content_type: "globalSettings", limit: 1 });
+      if (!res.items.length) return staticStore.getGlobalSettings();
+      return mapGlobalSettings(res.items[0]);
+    } catch {
+      return staticStore.getGlobalSettings();
+    }
+  },
+
   async getProducts() {
     try {
       const client = getDeliveryClient()!;

@@ -5,10 +5,24 @@ import { homeContent } from "@/lib/content/content.home";
 import type { HomeContent } from "@/lib/content/content.home";
 import type { ShopContent } from "@/lib/content/content.shop";
 import type { MenuContent } from "@/lib/content/content.menu";
+import type { GlobalSettings } from "@/lib/content/content.global";
 import type { SocialPost, SocialPlatform } from "@/lib/data/social";
 import { richTextToPlain } from "./richText";
 
 type Fields = Record<string, unknown>;
+
+export function mapGlobalSettings(entry: Entry<EntrySkeletonType>): GlobalSettings {
+  const fields = entry.fields as Fields;
+  return {
+    email: f(fields, "email", ""),
+    whatsappNumber: f(fields, "whatsappNumber", ""),
+    physicalAddress: f(fields, "physicalAddress", ""),
+    openingHours: f(fields, "openingHours", ""),
+    instagramUrl: f(fields, "instagramUrl", ""),
+    tiktokUrl: f(fields, "tiktokUrl", ""),
+    etsyUrl: f(fields, "etsyUrl", ""),
+  };
+}
 
 function f<T>(fields: Fields, key: string, fallback?: T): T {
   const v = fields[key];

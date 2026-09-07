@@ -1,10 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { SOCIAL_LINKS, CONTACT_EMAIL, buildWhatsAppLink } from "@/lib/constants"; 
-import { contactContent } from "@/lib/content/content.contact";
 import styles from "./Footer.module.css";
 
-const ADDRESS = "Putney High St, London SW15 1SN";
 const ADDRESS_MAPS_URL =
   "https://www.google.com/maps/dir/?api=1&destination=51.4613,-0.2159";
 
@@ -43,8 +40,16 @@ function SocialIcon({ label }: { label: string }) {
   return null;
 }
 
-export function Footer() {
+import { getGlobalSettings } from "@/lib/contentful/queries";
+
+export async function Footer() {
   const year = new Date().getFullYear();
+  const settings = await getGlobalSettings();
+  const socialLinks = [
+    { label: "TikTok", href: settings.tiktokUrl },
+    { label: "Instagram", href: settings.instagramUrl },
+    { label: "Etsy", href: settings.etsyUrl },
+  ].filter(link => !!link.href);
 
   return (
     <footer className={styles.footer}>
@@ -67,16 +72,16 @@ export function Footer() {
             Habesha food, beauty and lifestyle products, delivered across London.
           </p>
           <div className={styles.footerSocials}>
-            {SOCIAL_LINKS.map((social) => (
+            {socialLinks.map((link) => (
               <a
-                key={social.label}
-                href={social.href}
+                key={link.label}
+                href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`Follow us on ${social.label}`}
                 className={styles.footerSocialIconOnly}
+                aria-label={link.label}
               >
-                <SocialIcon label={social.label} />
+                <SocialIcon label={link.label} />
               </a>
             ))}
           </div>
@@ -93,15 +98,15 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className={styles.footerAddressLink}
               > 
-                {ADDRESS}
+                {settings.physicalAddress}
               </a>
             </li>
             <li className={styles.footerSpacer} />
             <li>
-              <a href={buildWhatsAppLink()} className={styles.footerEmail} target="_blank" rel="noopener noreferrer">Order via WhatsApp</a>
+              <a href={`https://wa.me/${settings.whatsappNumber}`} className={styles.footerEmail} target="_blank" rel="noopener noreferrer">Order via WhatsApp</a>
             </li>
             <li>
-              <a href={`mailto:${CONTACT_EMAIL}`} className={styles.footerEmail}>{CONTACT_EMAIL}</a>
+              <a href={`mailto:${settings.email}`} className={styles.footerEmail}>{settings.email}</a>
             </li>
           </ul> 
         </div>
@@ -109,14 +114,9 @@ export function Footer() {
         {/* Col 3: Opening Hours */}
         <div className={styles.footerCol}>
           <p className={styles.footerColTitle}>Opening Hours</p>
-          <ul className={`${styles.footerLinks} ${styles.footerItemText}`}> 
-            {contactContent.hours.schedule.map((item) => (
-              <li key={item.days} className={styles.footerHourRow}>
-                <span>{item.days}</span>
-                <span>{item.hours}</span>
-              </li>
-            ))}
-          </ul>
+          <div className={`${styles.footerLinks} ${styles.footerItemText}`} style={{ whiteSpace: "pre-line" }}> 
+            {settings.openingHours}
+          </div>
         </div>
 
         
