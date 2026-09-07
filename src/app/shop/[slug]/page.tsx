@@ -85,24 +85,25 @@ export default async function ProductPage({ params }: ProductPageProps) {
               <img src="/assets/images/img_whatsappicon.svg" alt="" />
               Order via WhatsApp
             </a>
+
+            {related.length > 0 && (
+              <section
+                className={styles.relatedSection}
+                aria-labelledby="related-h2"
+                style={{ marginTop: 'calc(var(--cg-u) * 8)' }}
+              >
+                <h2 className={styles.relatedH2} id="related-h2">
+                  You Might Also <em>Like</em>
+                </h2>
+                <div className={styles.relatedGrid}>
+                  {related.map((p) => (
+                    <ShopProductCard key={p.id} product={p} />
+                  ))}
+                </div>
+              </section>
+            )}
           </div>
         </div>
-
-        {related.length > 0 && (
-          <section
-            className={styles.relatedSection}
-            aria-labelledby="related-h2"
-          >
-            <h2 className={styles.relatedH2} id="related-h2">
-              You Might Also <em>Like</em>
-            </h2>
-            <div className={styles.relatedGrid}>
-              {related.map((p) => (
-                <ShopProductCard key={p.id} product={p} />
-              ))}
-            </div>
-          </section>
-        )}
       </div>
     </>
   );
