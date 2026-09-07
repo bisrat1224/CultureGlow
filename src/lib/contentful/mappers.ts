@@ -82,39 +82,7 @@ export function mapMenuItem(entry: Entry<EntrySkeletonType>): MenuItem {
   };
 }
 
-export function mapMenuPage(entry: Entry<EntrySkeletonType>): MenuContent {
-  const fields = entry.fields as Fields;
 
-  return {
-    hero: {
-      eyebrow: f(fields, "heroEyebrow", ""),
-      headingBeforeEm: f(fields, "heroHeadingBeforeEm", ""),
-      headingEm: f(fields, "heroHeadingEm", ""),
-      headingAfterEm: f(fields, "heroHeadingAfterEm", ""),
-      desc: f(fields, "heroDesc", ""),
-      primaryCta: f(fields, "heroPrimaryCta", ""),
-      secondaryCta: f(fields, "heroSecondaryCta", ""),
-    },
-    featureBanner: {
-      label: f(fields, "featureBannerLabel", ""),
-      title: f(fields, "featureBannerTitle", ""),
-      desc: f(fields, "featureBannerDesc", ""),
-      cta: f(fields, "featureBannerCta", ""),
-    },
-    howToOrder: {
-      label: f(fields, "howToOrderLabel", ""),
-      title: f(fields, "howToOrderTitle", ""),
-      desc: f(fields, "howToOrderDesc", ""),
-      steps: f(fields, "howToOrderSteps", []),
-    },
-    pdfCta: {
-      eyebrow: f(fields, "pdfCtaEyebrow", ""),
-      title: f(fields, "pdfCtaTitle", ""),
-      desc: f(fields, "pdfCtaDesc", ""),
-      cta: f(fields, "pdfCtaCta", ""),
-    },
-  } as MenuContent;
-}
 
 function dateField(value: unknown): string {
   if (!value) return "";
