@@ -9,10 +9,14 @@ import { useMobileNav } from "@/hooks/useMobileNav";
 import { MobileNav } from "./MobileNav";
 import styles from "./Header.module.css";
 
-export function Header() {
+export function Header({ etsyUrl }: { etsyUrl?: string }) {
   const scrolled = useScrolledHeader();
   const { isOpen, open, close } = useMobileNav();
   const pathname = usePathname();
+
+  const links = NAV_LINKS.map(link => 
+    link.label === "Etsy" && etsyUrl ? { ...link, href: etsyUrl } : link
+  );
 
   return (
     <>
@@ -34,7 +38,7 @@ export function Header() {
 
         <nav aria-label="Main navigation">
           <ul className={styles.headerNav}>
-            {NAV_LINKS.map((link) => (
+            {links.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
@@ -76,7 +80,7 @@ export function Header() {
         </div>
       </header>
 
-      <MobileNav isOpen={isOpen} onClose={close} links={NAV_LINKS} />
+      <MobileNav isOpen={isOpen} onClose={close} links={links} />
     </>
   );
 }
