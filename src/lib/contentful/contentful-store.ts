@@ -107,9 +107,7 @@ export const contentfulStore: ContentStore = {
     return staticStore.getMenuContent();
   },
 
-  async getTestimonials() {
-    return staticStore.getTestimonials();
-  },
+
 
   async getTiktokPosts(opts) {
     try {
