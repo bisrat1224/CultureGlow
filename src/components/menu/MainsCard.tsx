@@ -49,6 +49,11 @@ export function MainsCard({ item }: MainsCardProps) {
             })}
           </div>
         )}
+        {item.allergens && item.allergens.length > 0 && (
+          <p className={styles.mainsCardAllergens}>
+            <strong>Allergens:</strong> {item.allergens.join(", ")}
+          </p>
+        )}
         <div className={styles.mainsCardFooter}>
           {price ? (
             <span className={styles.mainsCardPrice}>{price}</span>

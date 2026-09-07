@@ -119,6 +119,7 @@ a.methodItem:hover {
 
 .socialList {
   display: flex;
+  flex-wrap: wrap;
   gap: calc(var(--cg-u) * 2);
 }
 
@@ -128,6 +129,7 @@ a.methodItem:hover {
   justify-content: center;
   width: 40px;
   height: 40px;
+  flex-shrink: 0;
   border-radius: 50%;
   background: var(--cg-gold-light);
   color: var(--cg-gold-text);

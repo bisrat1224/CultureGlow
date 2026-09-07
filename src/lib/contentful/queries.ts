@@ -11,6 +11,7 @@ export { SHOP_FILTERS, DIET_LEGEND };
 
 const store: ContentStore = isContentfulEnabled() ? contentfulStore : staticStore;
 
+export const getGlobalSettings = () => store.getGlobalSettings();
 export const getProducts = () => store.getProducts();
 export const getFeaturedProducts = () => store.getFeaturedProducts();
 export const getProductBySlug = (slug: string) => store.getProductBySlug(slug);

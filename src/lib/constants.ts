@@ -82,6 +82,6 @@ export const GOOGLE_REVIEW_URL =
  * wa.me/[country][number]?text=Hi, I would like to order: [product name]
  */
 export function buildWhatsAppLink(message?: string): string {
-  const base = `https://wa.me/${WHATSAPP_NUMBER}`;
+  const base = `/api/whatsapp`;
   return message ? `${base}?text=${encodeURIComponent(message)}` : base;
 }
