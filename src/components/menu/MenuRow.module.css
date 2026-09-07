@@ -185,3 +185,9 @@
   opacity: 0.7;
   letter-spacing: 0.02em;
 }
+.menuRowAllergens {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--cg-body-muted, #737373);
+  font-style: italic;
+}

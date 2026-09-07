@@ -1,10 +1,6 @@
 import { MessageCircle, Phone, Mail, Navigation } from "lucide-react";
 import {
-  SOCIAL_LINKS,
-  CONTACT_EMAIL,
   buildWhatsAppLink,
-  UK_PHONE_DISPLAY,
-  UK_PHONE_TEL,
   BUSINESS_LAT,
   BUSINESS_LNG,
 } from "@/lib/constants";
@@ -50,7 +46,9 @@ function SocialIcon({ label }: { label: string }) {
   return null;
 }
 
-export function ContactSection() {
+import { getGlobalSettings } from "@/lib/contentful/queries";
+
+export async function ContactSection() {
   const {
     eyebrow,
     headingBeforeEm,
@@ -64,7 +62,13 @@ export function ContactSection() {
     social,
   } = contactContent.methods;
 
-  const { hours } = contactContent;
+  const settings = await getGlobalSettings();
+  
+  const socialLinks = [
+    { label: "TikTok", href: settings.tiktokUrl },
+    { label: "Instagram", href: settings.instagramUrl },
+    { label: "Etsy", href: settings.etsyUrl },
+  ].filter(link => !!link.href);
 
   return (
     <section
@@ -116,23 +120,23 @@ export function ContactSection() {
                   </div>
                 </a>
 
-                <a href={`tel:${UK_PHONE_TEL}`} className={styles.methodItem}>
+                <a href={`tel:${settings.whatsappNumber}`} className={styles.methodItem}>
                   <span className={styles.methodIcon} aria-hidden="true">
                     <Phone size={22} strokeWidth={1.75} />
                   </span>
                   <div className={styles.methodText}>
                     <span className={styles.methodLabel}>{phone.label}</span>
-                    <span className={styles.methodValue}>{UK_PHONE_DISPLAY}</span>
+                    <span className={styles.methodValue}>{settings.whatsappNumber}</span>
                   </div>
                 </a>
 
-                <a href={`mailto:${CONTACT_EMAIL}`} className={styles.methodItem}>
+                <a href={`mailto:${settings.email}`} className={styles.methodItem}>
                   <span className={styles.methodIcon} aria-hidden="true">
                     <Mail size={22} strokeWidth={1.75} />
                   </span>
                   <div className={styles.methodText}>
                     <span className={styles.methodLabel}>{email.label}</span>
-                    <span className={styles.methodValue}>{CONTACT_EMAIL}</span>
+                    <span className={styles.methodValue}>{settings.email}</span>
                   </div>
                 </a>
 
@@ -156,22 +160,16 @@ export function ContactSection() {
             {/* Opening Hours */}
             <div className={styles.infoBlock}>
               <h3 className={styles.blockTitle}>Opening Hours</h3>
-              <div className={styles.blockList}>
-                {hours.schedule.map((item) => (
-                  <div key={item.days} className={styles.scheduleRow}>
-                    <span className={styles.scheduleDays}>{item.days}</span>
-                    <span className={styles.scheduleHours}>{item.hours}</span>
-                  </div>
-                ))}
+              <div className={styles.blockList} style={{ whiteSpace: "pre-line" }}>
+                {settings.openingHours}
               </div>
-              {hours.note && <p className={styles.hoursNote}>{hours.note}</p>}
             </div>
 
             {/* Socials */}
             <div className={styles.infoBlock}>
               <h3 className={styles.blockTitle}>{social.label}</h3>
               <div className={styles.socialList}>
-                {SOCIAL_LINKS.map((s) => (
+                {socialLinks.map((s) => (
                   <a
                     key={s.label}
                     href={s.href}

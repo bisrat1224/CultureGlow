@@ -30,8 +30,13 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${product.name} | CultureGlow24 Shop`,
-    description: product.description,
+    title: product.seoTitle || `${product.name} | CultureGlow24 Shop`,
+    description: product.seoDescription || product.description,
+    openGraph: {
+      title: product.seoTitle || `${product.name} | CultureGlow24 Shop`,
+      description: product.seoDescription || product.description,
+      images: product.seoImage ? [{ url: product.seoImage }] : [],
+    },
   };
 }
 

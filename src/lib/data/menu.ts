@@ -10,8 +10,12 @@ export interface MenuItem {
   image: string;
   alt: string;
   diet?: DietFlag[];
+  allergens?: string[];
   tag?: string;
   visible?: boolean;
+  seoTitle?: string;
+  seoDescription?: string;
+  seoImage?: string;
 }
 
 export interface CategoryMeta {
