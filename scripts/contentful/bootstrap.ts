@@ -72,6 +72,40 @@ async function run() {
     dietaryTags: "These automatically add the visual colored tags (e.g. 'VG', 'GF') next to the dish.",
   });
 
+  // 4. TIKTOK POST
+  await createOrUpdateContentType(environment, "tiktokPost", "[Social] TikTok Video", "Embedded TikTok videos.", [
+    { id: "title", name: "Internal Title", type: "Symbol", required: true },
+    { id: "url", name: "TikTok Video URL", type: "Symbol", required: true },
+    { id: "caption", name: "Caption", type: "Text" },
+    { id: "thumbnail", name: "Video Thumbnail Image", type: "Link", linkType: "Asset" },
+    { id: "showOnHome", name: "Show On Home Page", type: "Boolean" },
+    { id: "showOnGallery", name: "Show On Gallery Page", type: "Boolean" },
+    { id: "sortOrder", name: "Sort Order", type: "Integer" },
+  ], "title", {
+    title: "For your reference only.",
+    url: "The direct link to the TikTok video.",
+    showOnHome: "Check this box to display the video on the homepage.",
+    showOnGallery: "Check this box to display the video in the Gallery.",
+    sortOrder: "Use numbers (1, 2, 3) to order them. Lower numbers show up first."
+  });
+
+  // 5. INSTAGRAM REEL
+  await createOrUpdateContentType(environment, "instagramReel", "[Social] Instagram Reel", "Embedded Instagram Reels.", [
+    { id: "title", name: "Internal Title", type: "Symbol", required: true },
+    { id: "url", name: "Instagram Reel URL", type: "Symbol", required: true },
+    { id: "caption", name: "Caption", type: "Text" },
+    { id: "thumbnail", name: "Video Thumbnail Image", type: "Link", linkType: "Asset" },
+    { id: "showOnHome", name: "Show On Home Page", type: "Boolean" },
+    { id: "showOnGallery", name: "Show On Gallery Page", type: "Boolean" },
+    { id: "sortOrder", name: "Sort Order", type: "Integer" },
+  ], "title", {
+    title: "For your reference only.",
+    url: "The direct link to the Instagram Reel.",
+    showOnHome: "Check this box to display the reel on the homepage.",
+    showOnGallery: "Check this box to display the reel in the Gallery.",
+    sortOrder: "Use numbers (1, 2, 3) to order them. Lower numbers show up first."
+  });
+
   console.log("Bootstrap complete!");
 }
 
