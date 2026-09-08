@@ -105,7 +105,6 @@ async function run() {
     showOnGallery: "Check this box to display the reel in the Gallery.",
     sortOrder: "Use numbers (1, 2, 3) to order them. Lower numbers show up first."
   });
-
   console.log("Bootstrap complete!");
 }
 
