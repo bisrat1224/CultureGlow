@@ -49,7 +49,7 @@ export function ProductGallery({ images, alt }: ProductGalleryProps) {
           fill
           sizes="(min-width: 1024px) 50vw, 100vw"
           className={styles.mainImage}
-          style={{ objectFit: "cover", objectPosition: "top center" }}
+          style={{ objectFit: "contain", objectPosition: "center" }}
           priority
         />
       </button>
@@ -72,7 +72,7 @@ export function ProductGallery({ images, alt }: ProductGalleryProps) {
                 alt=""
                 fill
                 sizes="80px"
-                style={{ objectFit: "cover", objectPosition: "top center" }}
+                style={{ objectFit: "contain", objectPosition: "center" }}
                 loading="lazy"
               />
             </button>

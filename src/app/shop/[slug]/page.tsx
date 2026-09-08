@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import { ShopProductCard } from "@/components/shop/ShopProductCard";
 import { ProductGallery } from "@/components/shop/ProductGallery";
 import { buildWhatsAppLink } from "@/lib/constants";
@@ -31,8 +30,13 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${product.name} | CultureGlow24 Shop`,
-    description: product.description,
+    title: product.seoTitle || `${product.name} | CultureGlow24 Shop`,
+    description: product.seoDescription || product.description,
+    openGraph: {
+      title: product.seoTitle || `${product.name} | CultureGlow24 Shop`,
+      description: product.seoDescription || product.description,
+      images: product.seoImage ? [{ url: product.seoImage }] : [],
+    },
   };
 }
 
@@ -55,12 +59,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
         className="wrap"
         style={{ paddingTop: "calc(96px + var(--cg-u) * 4)" }}
       >
-        <nav aria-label="Breadcrumb" className={styles.breadcrumb}>
-          <Link href="/shop">Shop</Link>
-          <span aria-hidden="true"> / </span>
-          <span aria-current="page">{product.name}</span>
-        </nav>
-
         <div className={styles.productLayout}>
           <ProductGallery images={galleryImages} alt={product.alt} />
 
@@ -92,24 +90,25 @@ export default async function ProductPage({ params }: ProductPageProps) {
               <img src="/assets/images/img_whatsappicon.svg" alt="" />
               Order via WhatsApp
             </a>
+
+            {related.length > 0 && (
+              <section
+                className={styles.relatedSection}
+                aria-labelledby="related-h2"
+                style={{ marginTop: 'calc(var(--cg-u) * 8)' }}
+              >
+                <h2 className={styles.relatedH2} id="related-h2">
+                  You Might Also <em>Like</em>
+                </h2>
+                <div className={styles.relatedGrid}>
+                  {related.map((p) => (
+                    <ShopProductCard key={p.id} product={p} />
+                  ))}
+                </div>
+              </section>
+            )}
           </div>
         </div>
-
-        {related.length > 0 && (
-          <section
-            className={styles.relatedSection}
-            aria-labelledby="related-h2"
-          >
-            <h2 className={styles.relatedH2} id="related-h2">
-              You Might Also <em>Like</em>
-            </h2>
-            <div className={styles.relatedGrid}>
-              {related.map((p) => (
-                <ShopProductCard key={p.id} product={p} />
-              ))}
-            </div>
-          </section>
-        )}
       </div>
     </>
   );

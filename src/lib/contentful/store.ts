@@ -3,11 +3,13 @@ import type { MenuItem, CategoryMeta } from "@/lib/data/menu";
 import type { HomeContent } from "@/lib/content/content.home";
 import type { ShopContent } from "@/lib/content/content.shop";
 import type { MenuContent } from "@/lib/content/content.menu";
+import type { GlobalSettings } from "@/lib/content/content.global";
 import type { SocialPost } from "@/lib/data/social";
 
 export type SocialOpts = { homeOnly?: boolean; galleryOnly?: boolean };
 
 export interface ContentStore {
+  getGlobalSettings(): Promise<GlobalSettings>;
   getProducts(): Promise<Product[]>;
   getFeaturedProducts(): Promise<Product[]>;
   getProductBySlug(slug: string): Promise<Product | undefined>;

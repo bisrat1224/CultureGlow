@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { Playfair_Display, Inter, Noto_Serif_Ethiopic } from "next/font/google";
 import { Header } from "@/components/Header/Header";
 import { Footer } from "@/components/Footer/Footer";
@@ -63,11 +63,15 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+import { getGlobalSettings } from "@/lib/contentful/queries";
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const settings = await getGlobalSettings();
+
   return (
     <html lang="en" className={`h-full antialiased ${playfair.variable} ${inter.variable} ${notoSerif.variable}`}>
       <body className="min-h-full flex flex-col">
@@ -77,7 +81,7 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        <Header />
+        <Header etsyUrl={settings.etsyUrl} />
         <main id="main-content">{children}</main>
         <Footer />
         <ScrollRevealInit />
