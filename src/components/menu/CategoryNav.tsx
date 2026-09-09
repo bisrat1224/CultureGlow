@@ -34,7 +34,7 @@ export function CategoryNav({ categories = CATEGORIES }: CategoryNavProps) {
   }, [categories]);
 
   return (
-    <nav className={`${styles.categoryNav} cg-scroll-edge`} aria-label="Menu categories">
+    <nav className={styles.categoryNav} aria-label="Menu categories">
       <div className="wrap">
         <div className={`${styles.categoryNavScroll} cg-hscroll`} ref={navRef}>
           {categories.map((cat) => (
