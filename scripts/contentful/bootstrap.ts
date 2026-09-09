@@ -40,17 +40,20 @@ async function run() {
   // 2. SHOP PRODUCT
   await createOrUpdateContentType(environment, "shopProduct", "[Collection] Shop Product", "Inventory items for the Shop page.", [
     { id: "name", name: "Product Name", type: "Symbol", required: true },
+    { id: "slug", name: "URL Slug", type: "Symbol", required: true },
     { id: "category", name: "Category", type: "Symbol", validations: [{ in: ["HABESHA FOOD", "LIFESTYLE", "BEAUTY"] }] },
     { id: "price", name: "Price", type: "Symbol" },
     { id: "badge", name: "Badge (Optional)", type: "Symbol" },
     { id: "description", name: "Description", type: "Text" },
     { id: "image", name: "Main Thumbnail Image", type: "Link", linkType: "Asset" },
     { id: "gallery", name: "Product Gallery (Additional Angles)", type: "Array", items: { type: "Link", linkType: "Asset" } },
-    { id: "seoTitle", name: "Social Media Title", type: "Symbol" },
-    { id: "seoImage", name: "Social Media Sharing Image", type: "Link", linkType: "Asset" },
+    { id: "seoTitle", name: "SEO: Custom Title", type: "Symbol" },
+    { id: "seoDescription", name: "SEO: Custom Description", type: "Text" },
+    { id: "seoImage", name: "SEO: Social Share Image", type: "Link", linkType: "Asset" },
   ], "name", {
     name: "The main name of the product as it appears to customers.",
     badge: "Optional text that overlays the image. e.g. 'Best Seller', 'New', 'Gift'",
+    description: "Maximum 180 characters to keep cards even.",
     image: "The primary square image shown on the shop grid.",
     gallery: "Upload multiple images here to create a scrolling gallery on the individual product page.",
     seoTitle: "(Optional) How the title appears in Google Search and link previews. If left blank, defaults to Product Name.",
@@ -60,14 +63,19 @@ async function run() {
   // 3. MENU ITEM
   await createOrUpdateContentType(environment, "menuItem", "[Collection] Menu Item", "Food and drink items for the Menu.", [
     { id: "name", name: "Dish Name", type: "Symbol", required: true },
+    { id: "slug", name: "URL Slug", type: "Symbol", required: true },
     { id: "category", name: "Menu Section (Category)", type: "Symbol", validations: [{ in: ["starters", "mains", "veg-vegan", "desserts", "drinks"] }], required: true },
     { id: "price", name: "Price", type: "Symbol" },
     { id: "description", name: "Description", type: "Text" },
     { id: "dietaryTags", name: "Dietary Tags", type: "Array", items: { type: "Symbol", validations: [{ in: ["veg", "vegan", "gf", "spicy"] }] } },
     { id: "allergens", name: "Allergens", type: "Array", items: { type: "Symbol" } },
     { id: "image", name: "Dish Image", type: "Link", linkType: "Asset" },
+    { id: "seoTitle", name: "SEO Title", type: "Symbol" },
+    { id: "seoDescription", name: "SEO Description", type: "Text" },
+    { id: "seoImage", name: "SEO Image (OG)", type: "Link", linkType: "Asset" },
   ], "name", {
     category: "Which section of the Menu page should this dish appear in?",
+    description: "Maximum 180 characters to keep cards even.",
     allergens: "Add any allergens here (e.g. 'Contains Nuts', 'Contains Dairy').",
     dietaryTags: "These automatically add the visual colored tags (e.g. 'VG', 'GF') next to the dish.",
   });
