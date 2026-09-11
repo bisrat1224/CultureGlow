@@ -141,3 +141,32 @@ a.methodItem:hover {
   background: var(--cg-gold);
   color: #fff;
 }
+
+.faqList {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--cg-u) * 3);
+}
+
+.faqItem {
+  padding-bottom: calc(var(--cg-u) * 3);
+  border-bottom: 1px solid var(--cg-border);
+}
+
+.faqQ {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--cg-charcoal);
+  margin: 0 0 8px;
+}
+
+.faqA {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--cg-charcoal);
+  opacity: 0.85;
+}

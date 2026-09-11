@@ -24,11 +24,15 @@ export const UK_PHONE_TEL = "+447310452605";
 
 export const CONTACT_EMAIL = "cultureglow24@gmail.com";
 
+/** Canonical brand spelling for UI + structured data. */
+export const BUSINESS_NAME = "CultureGlow24";
+
+/** Confirmed street address — keep in sync with footer, contact, JSON-LD. */
+export const BUSINESS_ADDRESS = "Putney High St, London SW15 1SN";
+
 /**
- * Approximate centroid for the confirmed business address,
- * "Putney High St, London SW15 1SN". Street-level precision — swap for a
- * verified shopfront pin if the client provides a precise dropped-pin
- * location later.
+ * Approximate centroid for BUSINESS_ADDRESS. Street-level precision — swap
+ * for a verified shopfront pin if the client provides a precise dropped-pin.
  *
  * Lives here (not in LocationMap.tsx) because LocationMap is a "use client"
  * module: importing plain constants from a client module into a Server
@@ -36,6 +40,8 @@ export const CONTACT_EMAIL = "cultureglow24@gmail.com";
  * client reference. ContactSection (server) and LocationMap (client) both
  * need the actual numbers, so they're defined in this boundary-free module
  * instead.
+ *
+ * Align Google Business Profile to these coords (GBP pin currently differs).
  */
 export const BUSINESS_LAT = 51.4613;
 export const BUSINESS_LNG = -0.2159;

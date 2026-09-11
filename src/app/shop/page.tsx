@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Shop | CultureGlow24 - Habesha Fashion, Crafts & Gifts",
   description:
     "Shop Habesha fashion, jewellery, mugs, and traditional crafts from CultureGlow24. Authentic Ethiopian lifestyle products. Order via WhatsApp.",
+  alternates: { canonical: "/shop" },
 };
 
 export default async function ShopPage() {

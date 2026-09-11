@@ -12,12 +12,12 @@ export const aboutContent = {
     headingEm: "Reimagined",
     headingAfterEm: "",
     paragraphs: [
-      "Cultureglow24 is more than a restaurant; it is the story of our family, of tables gathered around, of laughter shared, of recipes treasured and passed lovingly from one generation to the next. Our name, culture, carries the weight of memory, tradition, and the quiet pride of craftsmanship.",
+      "CultureGlow24 is more than a restaurant; it is the story of our family, of tables gathered around, of laughter shared, of recipes treasured and passed lovingly from one generation to the next. Our name, culture, carries the weight of memory, tradition, and the quiet pride of craftsmanship.",
       "Our cuisine is born from these roots. Each dish begins with ingredients chosen for their purity and character, sourced from the landscapes of Ethiopia and the hands of local artisans who share our devotion to quality. What arrives at the table is not simply food, but a reflection of where we come from, flavours shaped by history, refined with care, and presented with elegance.",
       "Our coffee has been assembled with the same intention. Every cup tells a story of its own, of kissed by sun, of families who pour their life into their craft. Each selection is made to deepen the experience, to harmonise with our dishes, and to elevate the moment.",
       "Our service embodies the warmth of Ethiopia hospitality. Here, you are not just a guest, you are part of our family.",
       "As we open our doors, we welcome you into our story. A place where time slows, where the table becomes a gathering place for connection, where tradition and elegance meet.",
-      "Welcome to cultureglow24. This is where our new chapter begins, and we are honoured to share it with you.",
+      "Welcome to CultureGlow24. This is where our new chapter begins, and we are honoured to share it with you.",
     ],
     badge: "Est. 2024",
     stats: [
@@ -86,6 +86,17 @@ export const aboutContent = {
         body: "Our stews simmer for hours and our textiles are embroidered by hand. We choose suppliers who work at that pace.",
       },
     ],
+  },
+
+  visit: {
+    eyebrow: "Visit & Order",
+    headingBeforeEm: "Find Us in ",
+    headingEm: "Putney",
+    headingAfterEm: "",
+    body: "CultureGlow24 serves authentic Habesha food, Ethiopian coffee, and cultural lifestyle products from Putney High Street, London SW15 1SN. Order via WhatsApp for delivery across South West London, or get in touch for catering and events.",
+    addressLabel: "Address",
+    hoursLabel: "Hours",
+    cta: "Contact & Map",
   },
 
   social: {

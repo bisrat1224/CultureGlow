@@ -29,13 +29,18 @@ export async function generateMetadata({
     return { title: "Product Not Found | CultureGlow24" };
   }
 
+  const title = product.seoTitle || `${product.name} | CultureGlow24 Shop`;
+  const description = product.seoDescription || product.description;
+  const image = product.seoImage || product.image;
+
   return {
-    title: product.seoTitle || `${product.name} | CultureGlow24 Shop`,
-    description: product.seoDescription || product.description,
+    title,
+    description,
+    alternates: { canonical: `/shop/${slug}` },
     openGraph: {
-      title: product.seoTitle || `${product.name} | CultureGlow24 Shop`,
-      description: product.seoDescription || product.description,
-      images: product.seoImage ? [{ url: product.seoImage }] : [],
+      title,
+      description,
+      images: image ? [{ url: image }] : [],
     },
   };
 }

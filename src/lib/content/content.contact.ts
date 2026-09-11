@@ -18,7 +18,7 @@ export const contactContent = {
     headingBeforeEm: "Ways to ",
     headingEm: "Reach Us",
     headingAfterEm: "",
-    desc: "No forms to fill out, pick whichever way suits you best.",
+    desc: "Find us in Putney, South West London (SW15). Order Habesha food and lifestyle products via WhatsApp for delivery across the SW London area.",
     whatsapp: {
       label: "WhatsApp",
       value: "Chat with us instantly",
@@ -29,18 +29,29 @@ export const contactContent = {
     email: {
       label: "Email",
     },
+    address: {
+      label: "Visit Us",
+    },
     social: {
       label: "Follow Us",
     },
     directions: {
       label: "Get Directions",
-      value: "Open in OpenStreetMap",
+      value: "Open in Google Maps",
     },
   },
 
+  serviceArea: {
+    eyebrow: "Delivery",
+    headingBeforeEm: "Where We ",
+    headingEm: "Deliver",
+    headingAfterEm: "",
+    body: "CultureGlow24 is based on Putney High Street, London SW15 1SN. We deliver fresh Habesha meals and lifestyle orders across Putney, Fulham, Wandsworth, Battersea, and neighbouring South West London postcodes. Message us on WhatsApp with your postcode to confirm coverage and lead times.",
+  },
+
   /**
-   * TODO(PLACEHOLDER): Opening hours are client-approved placeholders per 2026-08-22 instruction
-   * ("can be changed later, just assume for now"). Replace with verified trading hours once confirmed.
+   * Opening hours — client-approved placeholders per 2026-08-22.
+   * Confirm with Google Business Profile before treating as final.
    */
   hours: {
     eyebrow: "Opening Hours",
@@ -74,10 +85,34 @@ export const contactContent = {
     note: "Kitchen service closes 30 minutes before closing time.",
   },
 
+  faq: {
+    eyebrow: "FAQ",
+    headingBeforeEm: "Common ",
+    headingEm: "Questions",
+    headingAfterEm: "",
+    items: [
+      {
+        q: "How do I order?",
+        a: "Message us on WhatsApp with the dishes or products you want. We confirm availability, price, and delivery details before you pay.",
+      },
+      {
+        q: "What is the delivery lead time?",
+        a: "Most food orders for SW London are prepared fresh the same day when ordered early enough. Ask on WhatsApp for today's cut-off.",
+      },
+      {
+        q: "Is there a minimum order?",
+        a: "Minimums depend on distance and order type. Tell us your postcode and we will confirm before you commit.",
+      },
+      {
+        q: "Do you cater events?",
+        a: "Yes — weddings, corporate, birthdays, and cultural ceremonies. Visit the Catering page or WhatsApp us with your date and guest count.",
+      },
+    ],
+  },
+
   map: {
     title: "CultureGlow24 delivery area map",
   },
 } as const;
 
 export type ContactContent = typeof contactContent;
-

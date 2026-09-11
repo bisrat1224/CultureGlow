@@ -4,6 +4,8 @@ import { Header } from "@/components/Header/Header";
 import { Footer } from "@/components/Footer/Footer";
 import { ScrollRevealInit } from "@/components/ScrollRevealInit";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import { StructuredData } from "@/components/StructuredData";
+import { getGlobalSettings } from "@/lib/contentful/queries";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -27,6 +29,8 @@ const notoSerif = Noto_Serif_Ethiopic({
   display: "swap",
 });
 
+const OG_IMAGE = "/og-default.jpg";
+
 export const metadata: Metadata = {
   title: "CultureGlow24 Habesha Food, Beauty & Lifestyle",
   description:
@@ -36,6 +40,8 @@ export const metadata: Metadata = {
     "Habesha food",
     "Habesha",
     "injera",
+    "Ethiopian restaurant Putney",
+    "Ethiopian food London",
   ],
   icons: {
     icon: [
@@ -46,24 +52,22 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   manifest: "/site.webmanifest",
+  metadataBase: new URL("https://cultureglow24.com"),
   openGraph: {
     title: "CultureGlow24 Habesha Food, Beauty & Lifestyle",
     description:
       "Authentic Habesha food, beauty, and lifestyle products. Order via WhatsApp.",
     type: "website",
-  },
-  metadataBase: new URL("https://cultureglow24.com"),
-  alternates: {
-    canonical: "/",
+    url: "https://cultureglow24.com",
+    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: "CultureGlow24 Habesha food" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "CultureGlow24, Ethiopian Food, Beauty & Lifestyle",
     description: "Authentic Habesha food, beauty, and lifestyle products.",
+    images: [OG_IMAGE],
   },
 };
-
-import { getGlobalSettings } from "@/lib/contentful/queries";
 
 export default async function RootLayout({
   children,
@@ -75,6 +79,11 @@ export default async function RootLayout({
   return (
     <html lang="en" className={`h-full antialiased ${playfair.variable} ${inter.variable} ${notoSerif.variable}`}>
       <body className="min-h-full flex flex-col">
+        <StructuredData
+          telephone={settings.whatsappNumber}
+          email={settings.email}
+          address={settings.physicalAddress}
+        />
         <a
           href="#main-content"
           className="skip-link"

@@ -1,0 +1,28 @@
+.section {
+  padding: calc(var(--cg-u) * 5) 0 calc(var(--cg-u) * 2);
+  background: var(--cg-cream);
+  --cg-gold-fg: var(--cg-gold-text);
+}
+
+.inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.heading {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  line-height: 1.3;
+  font-weight: 700;
+  color: var(--cg-charcoal);
+  margin: 0 0 calc(var(--cg-u) * 2);
+}
+
+.body {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--cg-charcoal);
+  opacity: 0.9;
+}

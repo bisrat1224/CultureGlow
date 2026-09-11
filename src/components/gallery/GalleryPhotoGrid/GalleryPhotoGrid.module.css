@@ -35,6 +35,21 @@
   transform: scale(1.03);
 }
 
+.photoFigure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.photoCaption {
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--cg-charcoal);
+  opacity: 0.85;
+  padding: 0 2px;
+}
+
 @media (min-width: 640px) {
   .photoGrid {
     grid-template-columns: repeat(2, 1fr);

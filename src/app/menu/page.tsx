@@ -1,4 +1,5 @@
 import { MenuHero } from "@/components/menu/MenuHero";
+import { MenuIntro } from "@/components/menu/MenuIntro";
 import { CategoryNav } from "@/components/menu/CategoryNav";
 import { DietLegend } from "@/components/menu/DietLegend";
 import { CategoryBlock } from "@/components/menu/CategoryBlock";
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
   title: "Menu | CultureGlow24 - Habesha Dishes & Ethiopian Coffee",
   description:
     "Browse our digital menu of authentic Habesha dishes, injera platters, vegetarian options, and Ethiopian coffee. Order via WhatsApp.",
+  alternates: { canonical: "/menu" },
 };
 
 export default async function MenuPage() {
@@ -31,6 +33,7 @@ export default async function MenuPage() {
   return (
     <>
       <MenuHero />
+      <MenuIntro />
       <CategoryNav categories={sectionsWithCount.map((s) => s.category)} />
 
       <div className="wrap">

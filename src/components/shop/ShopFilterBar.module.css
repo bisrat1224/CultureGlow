@@ -81,6 +81,15 @@
   margin-bottom: 8px;
 }
 
+.categoryBlurb {
+  max-width: 560px;
+  margin: calc(var(--cg-u) * 2) auto 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--cg-charcoal);
+  opacity: 0.85;
+}
+
 .productsGrid {
   display: grid;
   grid-template-columns: 1fr;

@@ -22,7 +22,7 @@ export function AboutHero() {
           <em>Crafted with Reverence</em>
         </h1>
         <p className={styles.heroLead}>
-          CultureGlow24 is a living homage to Ethiopian and Eritrean culinary
+          CultureGlow24 is a living homage to Ethiopian culinary
           heritage, sacred rituals, and the quiet dignity of artisanal craft.
         </p>
       </div>

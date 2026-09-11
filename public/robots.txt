@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /admin-help
+Disallow: /api/
 
 Sitemap: https://cultureglow24.com/sitemap.xml

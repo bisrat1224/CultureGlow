@@ -25,7 +25,12 @@
   },
   "productsSection": {
     "label": "Our Products",
-    "title": "Shop the Full Collection"
+    "title": "Shop the Full Collection",
+    "categoryBlurbs": {
+      "all": "Browse Habesha fashion, jewellery, crafts, and lifestyle pieces from CultureGlow24 — authentic Ethiopian gifts and everyday wear.",
+      "LIFESTYLE": "Netela scarves, Habesha dress, beaded jewellery, leather bags, and cultural keepsakes made for everyday wear and gifting.",
+      "BEAUTY": "Habesha beauty favourites and care products — browse this filter when beauty stock is listed, or ask us on WhatsApp for current availability."
+    }
   },
   "howToOrder": {
     "label": "Simple Process",

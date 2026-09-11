@@ -15,6 +15,7 @@ export interface GalleryPhoto {
   id: string;
   image: string;
   alt: string;
+  caption: string;
 }
 
 /** Real CultureGlow24 gallery photos (client selection).
@@ -26,31 +27,37 @@ const PHOTOS: GalleryPhoto[] = [
     id: "wedding",
     image: "/assets/images/gallery/wedding.webp",
     alt: "Wedding celebration with CultureGlow24 catering",
+    caption: "Wedding catering — Habesha feast for the reception table",
   },
   {
     id: "aau-event",
     image: "/assets/images/gallery/aau-event.webp",
     alt: "CultureGlow24 at an AAU event",
+    caption: "Community event — serving guests at an AAU gathering",
   },
   {
     id: "booth-3",
     image: "/assets/images/gallery/booth-3.webp",
     alt: "CultureGlow24 market booth",
+    caption: "Market booth — food and lifestyle on display",
   },
   {
     id: "booth-4",
     image: "/assets/images/gallery/booth-4.webp",
     alt: "CultureGlow24 booth close-up",
+    caption: "Booth detail — plated dishes ready for visitors",
   },
   {
     id: "happy-customers-2",
     image: "/assets/images/gallery/happy-customers-2.webp",
     alt: "Customers at a CultureGlow24 event",
+    caption: "Guests enjoying CultureGlow24 dishes at an event",
   },
   {
     id: "happy-customers-4",
     image: "/assets/images/gallery/happy-customers-4.webp",
     alt: "Happy customers with CultureGlow24 dishes",
+    caption: "Shared table — customers with fresh Habesha plates",
   },
 ];
 
@@ -96,25 +103,27 @@ export function GalleryPhotoGrid() {
 
         <div className={styles.photoGrid}>
           {PHOTOS.map((photo, idx) => (
-            <button
-              key={photo.id}
-              className={`${styles.photoItem} cg-press-card`}
-              onClick={(e) => {
-                setOriginRect(e.currentTarget.getBoundingClientRect());
-                setLightboxIndex(idx);
-              }}
-              aria-label={`Open lightbox: ${photo.alt}`}
-            >
-              <Image
-                src={photo.image}
-                alt={photo.alt}
-                fill
-                loading="lazy"
-                className={styles.photoImg}
-                sizes="(min-width: 640px) 50vw, 100vw"
-                quality={85}
-              />
-            </button>
+            <figure key={photo.id} className={styles.photoFigure}>
+              <button
+                className={`${styles.photoItem} cg-press-card`}
+                onClick={(e) => {
+                  setOriginRect(e.currentTarget.getBoundingClientRect());
+                  setLightboxIndex(idx);
+                }}
+                aria-label={`Open lightbox: ${photo.alt}`}
+              >
+                <Image
+                  src={photo.image}
+                  alt={photo.alt}
+                  fill
+                  loading="lazy"
+                  className={styles.photoImg}
+                  sizes="(min-width: 640px) 50vw, 100vw"
+                  quality={85}
+                />
+              </button>
+              <figcaption className={styles.photoCaption}>{photo.caption}</figcaption>
+            </figure>
           ))}
         </div>
       </div>

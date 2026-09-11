@@ -38,6 +38,10 @@ export function ShopFilterBar({
     (filter) => filter.value === activeFilter
   )?.label;
 
+  const categoryBlurb =
+    shopContent.productsSection.categoryBlurbs?.[activeFilter] ??
+    shopContent.productsSection.categoryBlurbs?.all;
+
   return (
     <>
       <section className={styles.filterBar}>
@@ -66,6 +70,9 @@ export function ShopFilterBar({
         <div className={styles.productsHeader}>
           <p className={styles.sectionLabel}>{label}</p>
           <h2 className={styles.sectionTitle}>{title}</h2>
+          {categoryBlurb ? (
+            <p className={styles.categoryBlurb}>{categoryBlurb}</p>
+          ) : null}
         </div>
 
         {filtered.length > 0 ? (

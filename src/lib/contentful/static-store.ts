@@ -18,7 +18,11 @@ import { homeContent as homeFallback } from "@/lib/content/content.home";
 import { shopContent as shopFallback } from "@/lib/content/content.shop";
 import { menuContent as menuFallback } from "@/lib/content/content.menu";
 import { getLocalTiktoks, getLocalReels } from "@/lib/data/social";
-import { CONTACT_EMAIL, WHATSAPP_NUMBER } from "@/lib/constants";
+import {
+  BUSINESS_ADDRESS,
+  CONTACT_EMAIL,
+  WHATSAPP_NUMBER,
+} from "@/lib/constants";
 import { contactContent } from "@/lib/content/content.contact";
 
 const MENU_FALLBACK_BY_CAT: Record<string, typeof STARTERS_ITEMS> = {
@@ -38,7 +42,7 @@ export const staticStore: ContentStore = {
   getGlobalSettings: async () => ({
     email: CONTACT_EMAIL,
     whatsappNumber: WHATSAPP_NUMBER,
-    physicalAddress: "Putney High St, London SW15 1SN",
+    physicalAddress: BUSINESS_ADDRESS,
     openingHours: contactContent.hours.schedule.map((s) => `${s.days}: ${s.hours}`).join("\n"),
     instagramUrl: "https://www.instagram.com/cultureglow24/",
     tiktokUrl: "https://www.tiktok.com/@cultureglow24",

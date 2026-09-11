@@ -1,37 +1,53 @@
+import {
+  BUSINESS_ADDRESS,
+  BUSINESS_LAT,
+  BUSINESS_LNG,
+  BUSINESS_NAME,
+  CONTACT_EMAIL,
+  UK_PHONE_TEL,
+} from "@/lib/constants";
 import { contactContent } from "@/lib/content/content.contact";
-import { CONTACT_EMAIL, UK_PHONE_TEL } from "@/lib/constants";
+
+type StructuredDataProps = {
+  telephone?: string;
+  email?: string;
+  address?: string;
+};
 
 /**
- * Restaurant / LocalBusiness JSON-LD structured data for Google Rich Results.
- *
- * Address + coordinates use the confirmed business location
- * (Putney High St, London SW15 1SN).
- *
- * TODO(PLACEHOLDER): Opening hours specification uses client-approved placeholder
- * trading hours per 2026-08-22 instruction ("can be changed later, just assume for now").
- * Sourced directly from contactContent.hours.schedule.
+ * Restaurant / LocalBusiness JSON-LD for Google Rich Results.
+ * NAP should match footer + contact (pass CMS settings when available).
  */
-export function StructuredData() {
+export function StructuredData({
+  telephone,
+  email,
+  address = BUSINESS_ADDRESS,
+}: StructuredDataProps) {
+  const tel =
+    telephone && !telephone.startsWith("+")
+      ? `+${telephone}`
+      : telephone || UK_PHONE_TEL;
+
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Restaurant",
-    name: "CultureGlow24",
+    "@type": ["Restaurant", "LocalBusiness"],
+    name: BUSINESS_NAME,
     description:
-      "Authentic Habesha food, beauty, and lifestyle products delivered across London.",
+      "Authentic Habesha food, beauty, and lifestyle products delivered across London. Ethiopian restaurant and cultural shop in Putney, SW15.",
     url: "https://cultureglow24.com",
-    telephone: UK_PHONE_TEL,
-    email: CONTACT_EMAIL,
+    telephone: tel,
+    email: email || CONTACT_EMAIL,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Putney High St",
+      streetAddress: address.split(",")[0]?.trim() || "Putney High St",
       addressLocality: "London",
       postalCode: "SW15 1SN",
       addressCountry: "GB",
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: 51.4613,
-      longitude: -0.2159,
+      latitude: BUSINESS_LAT,
+      longitude: BUSINESS_LNG,
     },
     openingHoursSpecification: contactContent.hours.schedule.map((item) => ({
       "@type": "OpeningHoursSpecification",
@@ -39,9 +55,18 @@ export function StructuredData() {
       opens: item.opens,
       closes: item.closes,
     })),
-    servesCuisine: "Ethiopian",
+    servesCuisine: ["Ethiopian", "Habesha"],
     priceRange: "££",
-    image: "https://cultureglow24.com/assets/images/logo.png",
+    image: "https://cultureglow24.com/og-default.jpg",
+    areaServed: {
+      "@type": "GeoCircle",
+      geoMidpoint: {
+        "@type": "GeoCoordinates",
+        latitude: BUSINESS_LAT,
+        longitude: BUSINESS_LNG,
+      },
+      geoRadius: "15000",
+    },
   };
 
   return (

@@ -23,7 +23,7 @@ export const galleryContent = {
     headingBeforeEm: "Food, Fashion & ",
     headingEm: "Festivity",
     headingAfterEm: "",
-    desc: "Habesha celebrations, tables, and traditional dress. Photos from our own kitchen and events are coming as we shoot them.",
+    desc: "Weddings, market booths, and shared tables — moments from CultureGlow24 kitchen and events across London.",
   },
 
   tiktok: {

@@ -34,14 +34,25 @@ export const cateringContent = {
   },
 
   gallery: {
-    // Same reasoning as the gallery page: these are licensed stock images,
-    // so the copy describes the kinds of events we cater rather than
-    // presenting the photos as our own past work.
-    eyebrow: "Occasions We Cater",
+    eyebrow: "From Our Events",
     headingBeforeEm: "Built for the ",
     headingEm: "Occasion",
     headingAfterEm: "",
-    desc: "Weddings, corporate gatherings, birthdays, and ceremonies, the kinds of events our catering is built around.",
+    desc: "Weddings, markets, and community gatherings we have catered — real CultureGlow24 moments.",
+  },
+
+  process: {
+    eyebrow: "How It Works",
+    headingBeforeEm: "From Enquiry to ",
+    headingEm: "Event Day",
+    headingAfterEm: "",
+    body: "We cater across Greater London with a focus on South West London and neighbouring boroughs. Typical flow: WhatsApp enquiry with date and guest count → tailored menu and quote → optional tasting for larger events → prep, delivery or on-site service on the day. Sample menus draw from our full kitchen list — injera platters, vegetarian spreads, and coffee service available on request.",
+    steps: [
+      { title: "Enquire", desc: "Share your date, venue, and guest count on WhatsApp." },
+      { title: "Menu & quote", desc: "We propose a package sized to your budget and dietary needs." },
+      { title: "Confirm", desc: "Lock the menu, deposit, and service style (delivery or on-site)." },
+      { title: "Celebrate", desc: "We cook fresh and arrive ready to serve your guests." },
+    ],
   },
 
   testimonials: {

@@ -1,9 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
 import styles from "./Footer.module.css";
+import { BUSINESS_LAT, BUSINESS_LNG, BUSINESS_NAME } from "@/lib/constants";
+import { getGlobalSettings } from "@/lib/contentful/queries";
 
 const ADDRESS_MAPS_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=51.4613,-0.2159";
+  `https://www.google.com/maps/dir/?api=1&destination=${BUSINESS_LAT},${BUSINESS_LNG}`;
 
 function InstagramIcon() {
   return (
@@ -40,8 +41,6 @@ function SocialIcon({ label }: { label: string }) {
   return null;
 }
 
-import { getGlobalSettings } from "@/lib/contentful/queries";
-
 export async function Footer() {
   const year = new Date().getFullYear();
   const settings = await getGlobalSettings();
@@ -60,13 +59,13 @@ export async function Footer() {
           <a href="/" className={styles.footerBrandHeader}> 
             <Image
               src="/assets/images/logo.png"
-              alt="CultureGlow24"
+              alt={BUSINESS_NAME}
               width={160}
               height={40}
               loading="lazy"
               className={styles.footerLogo}
             />
-            <p className={styles.footerBrandName}>Culture Glow</p>
+            <p className={styles.footerBrandName}>{BUSINESS_NAME}</p>
           </a> 
           <p className={styles.footerTagline}>
             Habesha food, beauty and lifestyle products, delivered across London.
@@ -125,7 +124,7 @@ export async function Footer() {
 
       <div className={styles.footerBottom}>
         <div className={`wrap ${styles.footerBottomInner}`}>
-          <p>© {year} CULTURE GLOW24. All rights reserved.</p>
+          <p>© {year} {BUSINESS_NAME.toUpperCase()}. All rights reserved.</p>
           <p>Designed by <a href="https://www.techallyconsult.com" target="_blank" rel="noopener noreferrer">Techally Consult</a></p>
         </div>
       </div>
