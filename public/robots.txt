@@ -3,4 +3,5 @@ Allow: /
 Disallow: /admin-help
 Disallow: /api/
 
+# AI agents: curated site facts at /llms.txt
 Sitemap: https://cultureglow24.com/sitemap.xml

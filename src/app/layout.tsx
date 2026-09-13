@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter, Noto_Serif_Ethiopic } from "next/font/google";
+import { Playfair_Display, Inter } from "next/font/google";
 import { Header } from "@/components/Header/Header";
 import { Footer } from "@/components/Footer/Footer";
 import { ScrollRevealInit } from "@/components/ScrollRevealInit";
@@ -19,13 +19,6 @@ const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-inter",
-  display: "swap",
-});
-
-const notoSerif = Noto_Serif_Ethiopic({
-  subsets: ["ethiopic", "latin"],
-  weight: ["400", "700"],
-  variable: "--font-noto",
   display: "swap",
 });
 
@@ -77,7 +70,7 @@ export default async function RootLayout({
   const settings = await getGlobalSettings();
 
   return (
-    <html lang="en" className={`h-full antialiased ${playfair.variable} ${inter.variable} ${notoSerif.variable}`}>
+    <html lang="en" className={`h-full antialiased ${playfair.variable} ${inter.variable}`}>
       <body className="min-h-full flex flex-col">
         <StructuredData
           telephone={settings.whatsappNumber}

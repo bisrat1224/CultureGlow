@@ -5,6 +5,7 @@ import { CoffeeHeritage } from "@/components/about/CoffeeHeritage/CoffeeHeritage
 import { MissionValues } from "@/components/about/MissionValues/MissionValues";
 import { AboutVisitSection } from "@/components/about/AboutVisitSection/AboutVisitSection";
 import { AboutSocialLinks } from "@/components/about/AboutSocialLinks/AboutSocialLinks";
+import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "About | CultureGlow24 - Our Story & Mission",
@@ -16,6 +17,12 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", path: "/" },
+          { name: "About", path: "/about" },
+        ]}
+      />
       <AboutHero />
       <AboutStory />
       <CoffeeHeritage />

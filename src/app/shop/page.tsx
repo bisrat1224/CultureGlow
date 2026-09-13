@@ -1,6 +1,7 @@
 import { ShopHero } from "@/components/shop/ShopHero";
 import { ShopFilterBar } from "@/components/shop/ShopFilterBar";
 import { HowToOrderSection } from "@/components/shop/HowToOrderSection";
+import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 import { getProducts, getShopContent } from "@/lib/contentful/queries";
 import type { Metadata } from "next";
 
@@ -9,6 +10,12 @@ export const metadata: Metadata = {
   description:
     "Shop Habesha fashion, jewellery, mugs, and traditional crafts from CultureGlow24. Authentic Ethiopian lifestyle products. Order via WhatsApp.",
   alternates: { canonical: "/shop" },
+  openGraph: {
+    title: "Shop | CultureGlow24 - Habesha Fashion, Crafts & Gifts",
+    description:
+      "Shop Habesha fashion, jewellery, mugs, and traditional crafts from CultureGlow24.",
+    url: "/shop",
+  },
 };
 
 export default async function ShopPage() {
@@ -19,6 +26,12 @@ export default async function ShopPage() {
 
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Shop", path: "/shop" },
+        ]}
+      />
       <ShopHero />
       <div className="wrap">
         <ShopFilterBar

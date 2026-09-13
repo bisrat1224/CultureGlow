@@ -8,6 +8,7 @@ import { AllergenNotice } from "@/components/menu/AllergenNotice";
 import { HowToOrderSection } from "@/components/menu/HowToOrderSection";
 import { PdfCtaSection } from "@/components/menu/PdfCtaSection";
 import { PricingStrip } from "@/components/menu/PricingStrip";
+import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 import { getAllMenuItems, getMenuContent } from "@/lib/contentful/queries";
 import { COMBO_PRICING } from "@/lib/data/menu";
 import type { Metadata } from "next";
@@ -17,6 +18,12 @@ export const metadata: Metadata = {
   description:
     "Browse our digital menu of authentic Habesha dishes, injera platters, vegetarian options, and Ethiopian coffee. Order via WhatsApp.",
   alternates: { canonical: "/menu" },
+  openGraph: {
+    title: "Menu | CultureGlow24 - Habesha Dishes & Ethiopian Coffee",
+    description:
+      "Browse our digital menu of authentic Habesha dishes, injera platters, vegetarian options, and Ethiopian coffee.",
+    url: "/menu",
+  },
 };
 
 export default async function MenuPage() {
@@ -32,6 +39,12 @@ export default async function MenuPage() {
 
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Menu", path: "/menu" },
+        ]}
+      />
       <MenuHero />
       <MenuIntro />
       <CategoryNav categories={sectionsWithCount.map((s) => s.category)} />

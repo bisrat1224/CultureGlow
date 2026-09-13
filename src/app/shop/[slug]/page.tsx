@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ShopProductCard } from "@/components/shop/ShopProductCard";
 import { ProductGallery } from "@/components/shop/ProductGallery";
+import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+import { ProductJsonLd } from "@/components/ProductJsonLd";
 import { buildWhatsAppLink } from "@/lib/constants";
 import {
   getProducts,
@@ -60,6 +62,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   return (
     <>
+      <ProductJsonLd product={product} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Shop", path: "/shop" },
+          { name: product.name, path: `/shop/${product.id}` },
+        ]}
+      />
       <div
         className="wrap"
         style={{ paddingTop: "calc(96px + var(--cg-u) * 4)" }}
@@ -100,7 +110,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
               <section
                 className={styles.relatedSection}
                 aria-labelledby="related-h2"
-                style={{ marginTop: 'calc(var(--cg-u) * 8)' }}
+                style={{ marginTop: "calc(var(--cg-u) * 8)" }}
               >
                 <h2 className={styles.relatedH2} id="related-h2">
                   You Might Also <em>Like</em>

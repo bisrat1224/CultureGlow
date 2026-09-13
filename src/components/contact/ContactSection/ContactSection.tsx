@@ -9,7 +9,7 @@ import {
 } from "@/lib/constants";
 import { contactContent } from "@/lib/content/content.contact";
 import { getGlobalSettings } from "@/lib/contentful/queries";
-import { LocationMap } from "../LocationMap/LocationMap";
+import { LocationMapLazy } from "../LocationMap/LocationMapLazy";
 import styles from "./ContactSection.module.css";
 import shared from "../shared.module.css";
 
@@ -99,7 +99,7 @@ export async function ContactSection() {
 
           <div className={`${styles.contactLayout} reveal reveal-delay-1`}>
             <div className={styles.mapWrapper}>
-              <LocationMap />
+              <LocationMapLazy />
             </div>
 
             <div className={styles.infoCol}>

@@ -5,3 +5,7 @@
   margin-top: calc(var(--cg-u) * 4);
   height: 320px;
 }
+
+.locationMapPlaceholder {
+  background: var(--cg-border);
+}

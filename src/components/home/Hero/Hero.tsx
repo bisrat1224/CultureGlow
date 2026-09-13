@@ -13,7 +13,7 @@ export function Hero() {
     <section className={styles.hero} aria-label="Hero">
       <div className={styles.heroBgWrapper}>
         <Image
-          src="/assets/images/multiple-plates.jpg"
+          src="/assets/images/multiple-plates.webp"
           alt="Traditional Habesha plates"
           fill
           sizes="100vw"

@@ -28,7 +28,7 @@ export function Header({ etsyUrl }: { etsyUrl?: string }) {
             <Image
               src="/assets/images/logo.png"
               alt="CultureGlow24"
-              loading="lazy"
+              priority
               width={48}
               height={48}
             />

@@ -127,7 +127,6 @@
   --color-cg-text: var(--cg-text);
   --color-cg-border: var(--cg-border);
   --font-serif: var(--font-playfair), serif;
-  --font-ethiopic: var(--font-noto), serif;
 }
 
 :root {
@@ -254,10 +253,6 @@ button {
   font-family: var(--font-serif);
 }
 
-.f-ethiopic {
-  font-family: var(--font-ethiopic);
-}
-
 /* ─── LAYOUT ───────────────────────────────────────────── */
 .wrap {
   width: 100%;
@@ -376,6 +371,8 @@ button {
    behavior only switches on once JS confirms it can run the
    IntersectionObserver, via the .js-armed class added on <html>
 
+   Do not put .reveal on LCP candidates (hero images/H1). Above-fold
+   heroes stay visible without waiting for ScrollRevealInit.
 */
 .reveal {
   opacity: 1;
