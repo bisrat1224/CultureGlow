@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { aboutContent } from "@/lib/content/content.about";
 import styles from "./CoffeeHeritage.module.css";
 
@@ -11,7 +12,19 @@ export function CoffeeHeritage() {
       id="coffee-heritage"
       aria-labelledby="about-heritage-h2"
     >
-      <div className="wrap">
+      <Image
+        src="/assets/images/about/kaldi-kaffa-heritage-sketch.webp"
+        alt=""
+        fill
+        sizes="100vw"
+        quality={85}
+        aria-hidden="true"
+        className={styles.heritageBg}
+      />
+      <div className={styles.heritageOverlay} />
+      <div className={styles.heritageGrain} aria-hidden="true" />
+
+      <div className={`wrap ${styles.heritageContent}`}>
         <div className={`${styles.heritageHead} reveal`}>
           <p className={styles.heritageEyebrow}>Heritage and Origins</p>
           <h2 className={styles.heritageH2} id="about-heritage-h2">
