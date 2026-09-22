@@ -6,17 +6,29 @@ import { CateringProcessSection } from "@/components/catering/CateringProcessSec
 import { EventGallerySection } from "@/components/catering/EventGallerySection/EventGallerySection";
 import { CateringContactCTA } from "@/components/catering/CateringContactCTA/CateringContactCTA";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+import { OG_IMAGE } from "@/lib/constants";
+
+const TITLE = "Catering & Events | CultureGlow24, Authentic Habesha Catering";
+const DESCRIPTION =
+  "Bring authentic Habesha catering to your wedding, corporate event, birthday, or cultural ceremony. Packages, galleries, and enquiries - CultureGlow24.";
 
 export const metadata: Metadata = {
-  title: "Catering & Events | CultureGlow24, Authentic Habesha Catering",
-  description:
-    "Bring authentic Habesha catering to your wedding, corporate event, birthday, or cultural ceremony. Packages, galleries, and enquiries - CultureGlow24.",
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: "/catering" },
   openGraph: {
     title: "Catering & Events | CultureGlow24",
     description:
       "Authentic Habesha catering for weddings, corporate events, and ceremonies.",
     url: "/catering",
+    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: TITLE }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Catering & Events | CultureGlow24",
+    description:
+      "Authentic Habesha catering for weddings, corporate events, and ceremonies.",
+    images: [OG_IMAGE],
   },
 };
 

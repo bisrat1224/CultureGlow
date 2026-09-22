@@ -4,7 +4,7 @@ import { ShopProductCard } from "@/components/shop/ShopProductCard";
 import { ProductGallery } from "@/components/shop/ProductGallery";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 import { ProductJsonLd } from "@/components/ProductJsonLd";
-import { buildWhatsAppLink } from "@/lib/constants";
+import { buildWhatsAppLink, OG_IMAGE } from "@/lib/constants";
 import {
   getProducts,
   getProductBySlug,
@@ -33,7 +33,7 @@ export async function generateMetadata({
 
   const title = product.seoTitle || `${product.name} | CultureGlow24 Shop`;
   const description = product.seoDescription || product.description;
-  const image = product.seoImage || product.image;
+  const image = product.seoImage || product.image || OG_IMAGE;
 
   return {
     title,
@@ -42,7 +42,14 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      images: image ? [{ url: image }] : [],
+      url: `/shop/${slug}`,
+      images: [{ url: image, width: 1200, height: 630, alt: product.alt || title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
     },
   };
 }

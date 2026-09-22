@@ -6,6 +6,7 @@ import { ScrollRevealInit } from "@/components/ScrollRevealInit";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { StructuredData } from "@/components/StructuredData";
 import { getGlobalSettings } from "@/lib/contentful/queries";
+import { OG_IMAGE } from "@/lib/constants";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -22,8 +23,6 @@ const inter = Inter({
   display: "swap",
 });
 
-const OG_IMAGE = "/og-default.jpg";
-
 export const metadata: Metadata = {
   title: "CultureGlow24 Habesha Food, Beauty & Lifestyle",
   description:
@@ -36,6 +35,7 @@ export const metadata: Metadata = {
     "Ethiopian restaurant Putney",
     "Ethiopian food London",
   ],
+  alternates: { canonical: "/" },
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
