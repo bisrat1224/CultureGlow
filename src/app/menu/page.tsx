@@ -11,18 +11,29 @@ import { PricingStrip } from "@/components/menu/PricingStrip";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 import { getAllMenuItems, getMenuContent } from "@/lib/contentful/queries";
 import { COMBO_PRICING } from "@/lib/data/menu";
+import { OG_IMAGE } from "@/lib/constants";
 import type { Metadata } from "next";
 
+const TITLE = "Menu | CultureGlow24 - Habesha Dishes & Ethiopian Coffee";
+const DESCRIPTION =
+  "Browse our digital menu of authentic Habesha dishes, injera platters, vegetarian options, and Ethiopian coffee. Order via WhatsApp.";
+
 export const metadata: Metadata = {
-  title: "Menu | CultureGlow24 - Habesha Dishes & Ethiopian Coffee",
-  description:
-    "Browse our digital menu of authentic Habesha dishes, injera platters, vegetarian options, and Ethiopian coffee. Order via WhatsApp.",
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: "/menu" },
   openGraph: {
-    title: "Menu | CultureGlow24 - Habesha Dishes & Ethiopian Coffee",
+    title: TITLE,
     description:
       "Browse our digital menu of authentic Habesha dishes, injera platters, vegetarian options, and Ethiopian coffee.",
     url: "/menu",
+    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: TITLE }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: [OG_IMAGE],
   },
 };
 

@@ -24,6 +24,9 @@ export const UK_PHONE_TEL = "+447310452605";
 
 export const CONTACT_EMAIL = "cultureglow24@gmail.com";
 
+/** Default social share image — 1200x630, used as OG/Twitter fallback across pages. */
+export const OG_IMAGE = "/og-default.jpg";
+
 /** Canonical brand spelling for UI + structured data. */
 export const BUSINESS_NAME = "CultureGlow24";
 
