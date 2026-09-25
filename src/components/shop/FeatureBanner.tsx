@@ -25,7 +25,7 @@ export function FeatureBanner({ label, title, desc, cta }: FeatureBannerProps) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/assets/images/img_whatsappicon.svg" alt="" />
+            <img src="/assets/images/img_whatsappicon.svg" alt="" width={24} height={24} />
             {cta}
           </a>
         </div>

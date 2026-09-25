@@ -65,7 +65,7 @@ export function Header({ etsyUrl }: { etsyUrl?: string }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/assets/images/img_whatsappicon.svg" alt="WhatsApp Icon" />
+            <img src="/assets/images/img_whatsappicon.svg" alt="WhatsApp Icon" width={24} height={24} />
             Order
           </a>
           <button

@@ -65,7 +65,7 @@ export function KitchenSection({ home, items }: Props) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/assets/images/img_whatsappicon.svg" alt="" />
+            <img src="/assets/images/img_whatsappicon.svg" alt="" width={24} height={24} />
             {cta}
           </a>
           <Link href="/menu" className={styles.menuLink}>

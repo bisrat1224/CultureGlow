@@ -109,7 +109,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="/assets/images/img_whatsappicon.svg" alt="" />
+              <img src="/assets/images/img_whatsappicon.svg" alt="" width={24} height={24} />
               Order via WhatsApp
             </a>
 

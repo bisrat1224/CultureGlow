@@ -34,7 +34,7 @@ export function MenuHero() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="/assets/images/img_whatsappicon.svg" alt="" />
+              <img src="/assets/images/img_whatsappicon.svg" alt="" width={24} height={24} />
               {primaryCta}
             </a>
             <a href="#mains" className={`${styles.btnGhostLight} cg-press`}>
