@@ -8,13 +8,16 @@ import {
   mapTiktokPost,
   mapInstagramReel,
 } from "./mappers";
-import type { Entry, EntrySkeletonType } from "contentful";
+import productsData from "../../../content/products.json";
 
-type Fields = Record<string, unknown>;
+const FEATURED_PRODUCT_IDS: string[] = productsData.featuredIds;
 
-function slug(entry: Entry<EntrySkeletonType>): string {
-  const s = (entry.fields as Fields)?.slug;
-  return typeof s === "string" ? s : entry.sys.id;
+function warnFallback(method: string, reason: "empty" | "error", err?: unknown) {
+  if (reason === "error") {
+    console.warn(`[contentful] ${method} fell back`, err);
+  } else {
+    console.warn(`[contentful] ${method} fell back (empty)`);
+  }
 }
 
 export const contentfulStore: ContentStore = {
@@ -22,9 +25,13 @@ export const contentfulStore: ContentStore = {
     try {
       const client = getDeliveryClient()!;
       const res = await client.getEntries({ content_type: "globalSettings", limit: 1 });
-      if (!res.items.length) return staticStore.getGlobalSettings();
+      if (!res.items.length) {
+        warnFallback("getGlobalSettings", "empty");
+        return staticStore.getGlobalSettings();
+      }
       return mapGlobalSettings(res.items[0]);
-    } catch {
+    } catch (err) {
+      warnFallback("getGlobalSettings", "error", err);
       return staticStore.getGlobalSettings();
     }
   },
@@ -33,24 +40,51 @@ export const contentfulStore: ContentStore = {
     try {
       const client = getDeliveryClient()!;
       const res = await client.getEntries({ content_type: "shopProduct", include: 2, limit: 100, order: ["fields.name"] as any });
-      if (!res.items.length) return staticStore.getProducts();
+      if (!res.items.length) {
+        warnFallback("getProducts", "empty");
+        return staticStore.getProducts();
+      }
       return res.items.map(mapProduct);
-    } catch {
+    } catch (err) {
+      warnFallback("getProducts", "error", err);
       return staticStore.getProducts();
     }
   },
 
   async getFeaturedProducts() {
-    return staticStore.getFeaturedProducts();
+    try {
+      const products = await this.getProducts();
+      const featured = FEATURED_PRODUCT_IDS.map((id) =>
+        products.find((p) => p.id === id)
+      ).filter((p): p is NonNullable<typeof p> => Boolean(p));
+
+      if (!featured.length) {
+        warnFallback("getFeaturedProducts", "empty");
+        return staticStore.getFeaturedProducts();
+      }
+      return featured;
+    } catch (err) {
+      warnFallback("getFeaturedProducts", "error", err);
+      return staticStore.getFeaturedProducts();
+    }
   },
 
   async getProductBySlug(id) {
     try {
       const client = getDeliveryClient()!;
-      const res = await client.getEntries({ content_type: "shopProduct", "sys.id": id, include: 2, limit: 1 } as any);
-      if (!res.items[0]) return staticStore.getProductBySlug(id);
+      const res = await client.getEntries({
+        content_type: "shopProduct",
+        "fields.slug": id,
+        include: 2,
+        limit: 1,
+      } as any);
+      if (!res.items[0]) {
+        warnFallback("getProductBySlug", "empty");
+        return staticStore.getProductBySlug(id);
+      }
       return mapProduct(res.items[0]);
-    } catch {
+    } catch (err) {
+      warnFallback("getProductBySlug", "error", err);
       return staticStore.getProductBySlug(id);
     }
   },
@@ -59,8 +93,14 @@ export const contentfulStore: ContentStore = {
     try {
       const client = getDeliveryClient()!;
       const res = await client.getEntries({ content_type: "shopProduct", "fields.category": product.category, include: 2, limit: limit + 5 } as any);
-      return res.items.map(mapProduct).filter((p) => p.id !== product.id).slice(0, limit);
-    } catch {
+      const related = res.items.map(mapProduct).filter((p) => p.id !== product.id).slice(0, limit);
+      if (!related.length) {
+        warnFallback("getRelatedProducts", "empty");
+        return staticStore.getRelatedProducts(product, limit);
+      }
+      return related;
+    } catch (err) {
+      warnFallback("getRelatedProducts", "error", err);
       return staticStore.getRelatedProducts(product, limit);
     }
   },
@@ -74,9 +114,13 @@ export const contentfulStore: ContentStore = {
       const client = getDeliveryClient()!;
       // categorySlug maps to our hardcoded category ids: "starters", "mains", "veg-vegan", "desserts", "drinks"
       const res = await client.getEntries({ content_type: "menuItem", "fields.category": categorySlug, include: 2, limit: 50 } as any);
-      if (!res.items.length) return staticStore.getMenuItemsByCategory(categorySlug);
+      if (!res.items.length) {
+        warnFallback("getMenuItemsByCategory", "empty");
+        return staticStore.getMenuItemsByCategory(categorySlug);
+      }
       return res.items.map(mapMenuItem);
-    } catch {
+    } catch (err) {
+      warnFallback("getMenuItemsByCategory", "error", err);
       return staticStore.getMenuItemsByCategory(categorySlug);
     }
   },
@@ -107,18 +151,20 @@ export const contentfulStore: ContentStore = {
     return staticStore.getMenuContent();
   },
 
-
-
   async getTiktokPosts(opts) {
     try {
       const client = getDeliveryClient()!;
       const res = await client.getEntries({ content_type: "tiktokPost", limit: 50, order: ["fields.sortOrder"] as any });
-      if (!res.items.length) return staticStore.getTiktokPosts(opts);
+      if (!res.items.length) {
+        warnFallback("getTiktokPosts", "empty");
+        return staticStore.getTiktokPosts(opts);
+      }
       let posts = res.items.map(mapTiktokPost);
       if (opts?.homeOnly) posts = posts.filter((p) => p.showOnHome);
       if (opts?.galleryOnly) posts = posts.filter((p) => p.showOnGallery);
       return posts.sort((a, b) => a.sortOrder - b.sortOrder);
-    } catch {
+    } catch (err) {
+      warnFallback("getTiktokPosts", "error", err);
       return staticStore.getTiktokPosts(opts);
     }
   },
@@ -127,11 +173,15 @@ export const contentfulStore: ContentStore = {
     try {
       const client = getDeliveryClient()!;
       const res = await client.getEntries({ content_type: "instagramReel", limit: 50, order: ["fields.sortOrder"] as any });
-      if (!res.items.length) return staticStore.getInstagramReels(opts);
+      if (!res.items.length) {
+        warnFallback("getInstagramReels", "empty");
+        return staticStore.getInstagramReels(opts);
+      }
       let posts = res.items.map(mapInstagramReel);
       if (opts?.homeOnly) posts = posts.filter((p) => p.showOnHome);
       return posts.sort((a, b) => a.sortOrder - b.sortOrder);
-    } catch {
+    } catch (err) {
+      warnFallback("getInstagramReels", "error", err);
       return staticStore.getInstagramReels(opts);
     }
   },
