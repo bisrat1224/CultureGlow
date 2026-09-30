@@ -13,8 +13,7 @@
 .footerInner {
   display: flex;
   flex-direction: column;
-  gap: calc(var(--cg-u) * 5);
-  padding-bottom: calc(var(--cg-u) * 6);
+  gap: calc(var(--cg-u) * 8);
 }
 
 .footerBrand {
@@ -23,7 +22,6 @@
   align-items: flex-start; 
   justify-content: flex-start; 
   gap: calc(var(--cg-u) * 2); 
-  padding-bottom: 0.75rem;
 }
 
 .footerBrandHeader {
@@ -89,7 +87,6 @@
   font-weight: 600;
   color: var(--cg-cream);
   letter-spacing: 0.02em;
-  margin-bottom: calc(var(--cg-u) * 0.5);
 }
 
 .footerLinks {
@@ -172,16 +169,17 @@
 
 .footerBottom {
   border-top: 1px solid rgba(250, 246, 240, 0.08);
+  margin-top: calc(var(--cg-u) * 4); /* Significantly decreased gap */
   padding: 0.5rem 0; 
-  font-size: 0.75rem;
+  font-size: 0.6875rem; /* Smaller font size as requested */
   color: rgba(250, 246, 240, 0.4);
 }
 
 .footerBottomInner {
-    display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 0;
   text-align: center;
 }
 
@@ -206,7 +204,6 @@
     display: grid;
     grid-template-columns: 1.4fr 1fr 1.2fr;
     gap: calc(var(--cg-u) * 4);
-    padding-bottom: calc(var(--cg-u) * 8);
   }
 
   .footerBrandName {

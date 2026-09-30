@@ -17,7 +17,7 @@ export function Hero() {
           alt="Traditional Habesha plates"
           fill
           sizes="100vw"
-          quality={90}
+          quality={60}
           priority
           className={styles.heroImgFallback}
         />

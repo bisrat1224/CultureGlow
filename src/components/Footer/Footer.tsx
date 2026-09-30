@@ -100,7 +100,6 @@ export async function Footer() {
                 {settings.physicalAddress}
               </a>
             </li>
-            <li className={styles.footerSpacer} />
             <li>
               <a href={`https://wa.me/${settings.whatsappNumber}`} className={styles.footerEmail} target="_blank" rel="noopener noreferrer">Order via WhatsApp</a>
             </li>
@@ -113,8 +112,10 @@ export async function Footer() {
         {/* Col 3: Opening Hours */}
         <div className={styles.footerCol}>
           <p className={styles.footerColTitle}>Opening Hours</p>
-          <div className={`${styles.footerLinks} ${styles.footerItemText}`} style={{ whiteSpace: "pre-line" }}> 
-            {settings.openingHours}
+          <div className={styles.footerItemText} style={{ lineHeight: 1.8 }}> 
+            {settings.openingHours.split('\n').map((line, index) => (
+              <p key={index} style={{ margin: 0 }}>{line}</p>
+            ))}
           </div>
         </div>
 
@@ -124,8 +125,8 @@ export async function Footer() {
 
       <div className={styles.footerBottom}>
         <div className={`wrap ${styles.footerBottomInner}`}>
-          <p>© {year} {BUSINESS_NAME.toUpperCase()}. All rights reserved.</p>
-          <p>Designed by <a href="https://www.techallyconsult.com" target="_blank" rel="noopener noreferrer">Techally Consult</a></p>
+          <p style={{ margin: 0, paddingBottom: 4 }}>© {year} {BUSINESS_NAME.toUpperCase()}. All rights reserved.</p>
+          <p style={{ margin: 0 }}>Designed by <a href="https://www.techallyconsult.com" target="_blank" rel="noopener noreferrer">Techally Consult</a></p>
         </div>
       </div>
     </footer>
