@@ -99,15 +99,15 @@ jobs:
           #
           # NEXT_PUBLIC_* are not secrets (they ship to the browser), so they
           # live in repo Variables. The Contentful tokens are secrets.
-          # CONTENTFUL_ENABLED defaults to false, so the build falls back to
-          # the committed content until you set the DEV_CONTENTFUL_ENABLED
-          # variable to true. isContentfulEnabled() additionally requires a
+          # CONTENTFUL_ENABLED defaults to true. Set the DEV_CONTENTFUL_ENABLED
+          # variable to false to build from the committed content instead.
+          # isContentfulEnabled() additionally requires a
           # non-empty space id and delivery token, so flipping the variable
           # without the secrets present is a safe no-op.
           build-args: |
             NEXT_PUBLIC_WHATSAPP_NUMBER=${{ vars.DEV_WHATSAPP_NUMBER }}
             NEXT_PUBLIC_GA_MEASUREMENT_ID=${{ vars.DEV_GA_MEASUREMENT_ID }}
-            CONTENTFUL_ENABLED=${{ vars.DEV_CONTENTFUL_ENABLED || 'false' }}
+            CONTENTFUL_ENABLED=${{ vars.DEV_CONTENTFUL_ENABLED || 'true' }}
             CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID }}
             CONTENTFUL_ENVIRONMENT=${{ vars.DEV_CONTENTFUL_ENVIRONMENT || 'master' }}
             CONTENTFUL_DELIVERY_TOKEN=${{ secrets.CONTENTFUL_DELIVERY_TOKEN }}
