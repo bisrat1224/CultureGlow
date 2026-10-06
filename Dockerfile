@@ -1,7 +1,9 @@
 # syntax=docker/dockerfile:1
 # CultureGlow24 - Next.js standalone image.
 #
-#   docker build -t culture-glow-web:test --build-arg CONTENTFUL_ENABLED=false .
+#   docker build -t culture-glow-web:test \
+#     --build-arg CONTENTFUL_SPACE_ID=... \
+#     --build-arg CONTENTFUL_DELIVERY_TOKEN=... .
 #
 # NEXT_PUBLIC_* values and all Contentful content are baked in at `next build`,
 # so this image is environment-specific: a dev image and a prod image are
@@ -37,12 +39,10 @@ COPY . .
 # Inlined into the client bundle.
 ARG NEXT_PUBLIC_WHATSAPP_NUMBER=""
 ARG NEXT_PUBLIC_GA_MEASUREMENT_ID=""
-# Read during static generation. With CONTENTFUL_ENABLED=false the build falls
-# back to the committed content in src/lib/content and content/*.json, which
-# is what dev does today. Flipping this on is a CI change, not a Dockerfile one.
-ARG CONTENTFUL_ENABLED="false"
+# Read during static generation. App always pulls Contentful; missing/empty
+# responses fall back to committed content in src/lib/content and content/*.json.
 ARG CONTENTFUL_SPACE_ID=""
-ARG CONTENTFUL_ENVIRONMENT=""
+ARG CONTENTFUL_ENVIRONMENT="master"
 ARG CONTENTFUL_DELIVERY_TOKEN=""
 ARG CONTENTFUL_PREVIEW_TOKEN=""
 # Write-scoped. Passed for parity with the other Contentful vars by explicit
@@ -55,7 +55,6 @@ ARG SOURCE_REVISION=""
 
 ENV NEXT_PUBLIC_WHATSAPP_NUMBER=$NEXT_PUBLIC_WHATSAPP_NUMBER \
     NEXT_PUBLIC_GA_MEASUREMENT_ID=$NEXT_PUBLIC_GA_MEASUREMENT_ID \
-    CONTENTFUL_ENABLED=$CONTENTFUL_ENABLED \
     CONTENTFUL_SPACE_ID=$CONTENTFUL_SPACE_ID \
     CONTENTFUL_ENVIRONMENT=$CONTENTFUL_ENVIRONMENT \
     CONTENTFUL_DELIVERY_TOKEN=$CONTENTFUL_DELIVERY_TOKEN \

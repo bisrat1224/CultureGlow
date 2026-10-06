@@ -23,7 +23,7 @@ function warnFallback(method: string, reason: "empty" | "error", err?: unknown) 
 export const contentfulStore: ContentStore = {
   async getGlobalSettings() {
     try {
-      const client = getDeliveryClient()!;
+      const client = getDeliveryClient();
       const res = await client.getEntries({ content_type: "globalSettings", limit: 1 });
       if (!res.items.length) {
         warnFallback("getGlobalSettings", "empty");
@@ -38,7 +38,7 @@ export const contentfulStore: ContentStore = {
 
   async getProducts() {
     try {
-      const client = getDeliveryClient()!;
+      const client = getDeliveryClient();
       const res = await client.getEntries({ content_type: "shopProduct", include: 2, limit: 100, order: ["fields.name"] as any });
       if (!res.items.length) {
         warnFallback("getProducts", "empty");
@@ -71,7 +71,7 @@ export const contentfulStore: ContentStore = {
 
   async getProductBySlug(id) {
     try {
-      const client = getDeliveryClient()!;
+      const client = getDeliveryClient();
       const res = await client.getEntries({
         content_type: "shopProduct",
         "fields.slug": id,
@@ -91,7 +91,7 @@ export const contentfulStore: ContentStore = {
 
   async getRelatedProducts(product, limit = 3) {
     try {
-      const client = getDeliveryClient()!;
+      const client = getDeliveryClient();
       const res = await client.getEntries({ content_type: "shopProduct", "fields.category": product.category, include: 2, limit: limit + 5 } as any);
       const related = res.items.map(mapProduct).filter((p) => p.id !== product.id).slice(0, limit);
       if (!related.length) {
@@ -111,7 +111,7 @@ export const contentfulStore: ContentStore = {
 
   async getMenuItemsByCategory(categorySlug) {
     try {
-      const client = getDeliveryClient()!;
+      const client = getDeliveryClient();
       // categorySlug maps to our hardcoded category ids: "starters", "mains", "veg-vegan", "desserts", "drinks"
       const res = await client.getEntries({ content_type: "menuItem", "fields.category": categorySlug, include: 2, limit: 50 } as any);
       if (!res.items.length) {
@@ -153,7 +153,7 @@ export const contentfulStore: ContentStore = {
 
   async getTiktokPosts(opts) {
     try {
-      const client = getDeliveryClient()!;
+      const client = getDeliveryClient();
       const res = await client.getEntries({ content_type: "tiktokPost", limit: 50, order: ["fields.sortOrder"] as any });
       if (!res.items.length) {
         warnFallback("getTiktokPosts", "empty");
@@ -171,7 +171,7 @@ export const contentfulStore: ContentStore = {
 
   async getInstagramReels(opts) {
     try {
-      const client = getDeliveryClient()!;
+      const client = getDeliveryClient();
       const res = await client.getEntries({ content_type: "instagramReel", limit: 50, order: ["fields.sortOrder"] as any });
       if (!res.items.length) {
         warnFallback("getInstagramReels", "empty");

@@ -31,7 +31,6 @@ CONTENTFUL_ENVIRONMENT=master
 CONTENTFUL_DELIVERY_TOKEN=your_delivery_token
 CONTENTFUL_PREVIEW_TOKEN=your_preview_token
 CONTENTFUL_MANAGEMENT_TOKEN=your_cma_token
-CONTENTFUL_ENABLED=true
 ```
 
 Use the tokens you already created. **Do not commit `.env.local`.**
@@ -155,7 +154,7 @@ Hero, feature banner, how-to-order, PDF CTA.
 | `CONTENTFUL_MANAGEMENT_TOKEN is missing` | Check `.env.local` |
 | 401 / 403 on bootstrap | CMA token scopes: manage content types + entries + assets |
 | Images 404 on site | Add `images.ctfassets.net` to `next.config.ts` `images.remotePatterns` (already done in this branch) |
-| Still seeing old copy | Entry not **Published**, or `CONTENTFUL_ENABLED=false` |
+| Still seeing old copy | Entry not **Published**, or missing `CONTENTFUL_SPACE_ID` / `CONTENTFUL_DELIVERY_TOKEN` |
 | Fallback to TS | Expected if Contentful empty or network error |
 
 ---

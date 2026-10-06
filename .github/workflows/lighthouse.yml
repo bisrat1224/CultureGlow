@@ -26,8 +26,7 @@ jobs:
 
       - name: Build
         run: pnpm build
-        env:
-          CONTENTFUL_ENABLED: "false"
+        # No Contentful secrets in this job — store falls back to local JSON/TS.
 
       - name: Start server
         run: |

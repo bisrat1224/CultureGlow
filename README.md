@@ -38,18 +38,14 @@ Next.js app (App Router, standalone output)
         └─ Local fallback: content/*.json (client-editable) + src/lib/content, src/lib/data
 ```
 
-**Content layer.** The app can read marketing copy and catalogue data from two places:
+**Content layer.** The app always reads marketing copy and catalogue data from **Contentful**
+(`src/lib/contentful/`). Local JSON/TypeScript (`content/*.json`, `src/lib/content/`,
+`src/lib/data/`) is used only as a fallback when Contentful is empty or errors.
 
-- **Contentful** (a headless CMS), when `CONTENTFUL_ENABLED=true` and the space/token env vars
-  are present (`src/lib/contentful/`).
-- **Local JSON/TypeScript**, committed to the repo (`content/*.json` and `src/lib/content/`,
-  `src/lib/data/`), used whenever Contentful is disabled, empty, or errors.
-
-`src/lib/contentful/queries.ts` picks the store once at startup based on
-`isContentfulEnabled()`. This is a **build-time** decision for anything statically rendered:
-Contentful content and `NEXT_PUBLIC_*` values are baked into the Docker image at `next build`
-and cannot be changed by editing a running Deployment — see
-[CONTENTFUL.md](./CONTENTFUL.md) and the comments in `Dockerfile` and `.env.local.example`.
+`src/lib/contentful/queries.ts` always uses the Contentful store. Contentful content and
+`NEXT_PUBLIC_*` values are baked into the Docker image at `next build` and cannot be changed
+by editing a running Deployment — see [CONTENTFUL.md](./CONTENTFUL.md) and the comments in
+`Dockerfile` and `.env.local.example`.
 
 **External integrations:**
 
@@ -66,9 +62,8 @@ and cannot be changed by editing a running Deployment — see
 - **WhatsApp** — the primary ordering channel; the WhatsApp number is a public, build-time
   value (`NEXT_PUBLIC_WHATSAPP_NUMBER`).
 
-There is no database. Persistent state lives in Contentful (when enabled) and in the git
-history of `content/*.json`.
-
+There is no database. Persistent state lives in Contentful, with `content/*.json` as the
+offline/error fallback.
 ## Requirements
 
 | Tool | Version |
@@ -90,15 +85,13 @@ npm install
 npm run dev
 ```
 
-The app is now running at `http://localhost:3000`. With `CONTENTFUL_ENABLED` unset or `false`
-(the default), it reads content from `content/*.json` and `src/lib/content/*` — no external
-services are required to run it locally.
+The app is now running at `http://localhost:3000`. Set `CONTENTFUL_SPACE_ID` and
+`CONTENTFUL_DELIVERY_TOKEN` in `.env.local` so pages pull live CMS data. If those are
+missing or Contentful errors, the app falls back to `content/*.json` / `src/lib/content/*`.
 
-To also seed or edit content in Contentful, follow the separate walkthrough in
-[CONTENTFUL.md](./CONTENTFUL.md) (bootstrap the content model, then seed entries and assets).
-That guide must be run from your own machine — the sandbox this repo may be opened in cannot
-reach Contentful.
-
+To seed or edit content in Contentful, follow [CONTENTFUL.md](./CONTENTFUL.md) (bootstrap the
+content model, then seed entries and assets). That guide must be run from your own machine —
+the sandbox this repo may be opened in cannot reach Contentful.
 ## Environment variables
 
 All variables are documented inline in [`.env.local.example`](./.env.local.example); copy it to
@@ -111,10 +104,9 @@ All variables are documented inline in [`.env.local.example`](./.env.local.examp
 | `RESEND_API_KEY` | Yes, for the forms to work | Runtime, inside `/api/contact` and `/api/catering` | Resend API key used to send enquiry emails. |
 | `CONTACT_FORM_RECIPIENT_EMAIL` | Yes, for `/api/contact` | Runtime | Recipient address for the Contact form. |
 | `CATERING_FORM_RECIPIENT_EMAIL` | Yes, for `/api/catering` | Runtime | Recipient address for the Catering form. |
-| `CONTENTFUL_ENABLED` | No (defaults to `false`) | Build time | `true` = prefer Contentful, falling back to local JSON/TS on error or empty content. `false` = always use local content. |
-| `CONTENTFUL_SPACE_ID` | Only if `CONTENTFUL_ENABLED=true` | Build time | Contentful space to read from. |
+| `CONTENTFUL_SPACE_ID` | Yes (for live CMS) | Build time | Contentful space to read from. |
 | `CONTENTFUL_ENVIRONMENT` | No (defaults to `master`) | Build time | Contentful environment name. |
-| `CONTENTFUL_DELIVERY_TOKEN` | Only if `CONTENTFUL_ENABLED=true` | Build time | Read-only Content Delivery API token. |
+| `CONTENTFUL_DELIVERY_TOKEN` | Yes (for live CMS) | Build time | Read-only Content Delivery API token. |
 | `CONTENTFUL_PREVIEW_TOKEN` | No | Build/runtime | Preview API token, for draft content (Phase 2 preview mode). |
 | `CONTENTFUL_MANAGEMENT_TOKEN` | Only for `scripts/contentful/*` | Used only by the bootstrap/seed scripts, never by the Next.js app itself | Write-scoped Content Management API token. Rotate it in Contentful if it is ever exposed (e.g. pasted into chat). |
 
@@ -219,8 +211,8 @@ in [CONTENTFUL.md](./CONTENTFUL.md).
 
 | Symptom | Fix |
 | --- | --- |
-| Content edits in `content/*.json` don't show up | Make sure `CONTENTFUL_ENABLED` is unset or `false` in `.env.local`; when it's `true`, the app reads Contentful instead and ignores local JSON. Also confirm you saved and the dev server hot-reloaded. |
-| Contentful edits don't show up | The entry must be **Published**, not just saved as a draft. There is no on-demand revalidation yet (Phase 2), so also try a hard refresh or restart `next dev` / rebuild. |
+| Content edits in `content/*.json` don't show up | App always prefers Contentful. Local JSON only appears when Contentful is empty/errors or space/token env is missing. |
+| Contentful edits don't show up | The entry must be **Published**, not just saved as a draft. There is no on-demand revalidation yet (Phase 2), so also try a hard refresh or restart `next dev` / rebuild. Confirm `CONTENTFUL_SPACE_ID` + `CONTENTFUL_DELIVERY_TOKEN` are set. |
 | `/api/contact` or `/api/catering` returns 500 "Form is not fully configured yet" | `RESEND_API_KEY` or the relevant `*_RECIPIENT_EMAIL` variable is missing from `.env.local` (or from the Kubernetes Secret in a deployed environment). |
 | Images from Contentful 404 in the browser | Contentful image domains must be allow-listed in `next.config.ts` under `images.remotePatterns`; this is already set up for `images.ctfassets.net`, but check first if you've changed the image config. |
 | `npm run type-check` or `npm run lint` fails on a file you didn't touch | Run `npm install` again to make sure your local `node_modules` matches `package-lock.json`; divergence between the `npm` and `pnpm` lockfiles is a known rough edge (see [Requirements](#requirements)). |

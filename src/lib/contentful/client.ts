@@ -3,25 +3,24 @@ import { createClient, type ContentfulClientApi } from "contentful";
 let deliveryClient: ContentfulClientApi<undefined> | null = null;
 let previewClient: ContentfulClientApi<undefined> | null = null;
 
-/**
- * Contentful is OFF by default so local JSON in /content is the source of truth.
- * Set CONTENTFUL_ENABLED=true in .env.local only when you want live CMS data.
- */
-export function isContentfulEnabled(): boolean {
-  return (
-    process.env.CONTENTFUL_ENABLED === "true" &&
-    Boolean(process.env.CONTENTFUL_SPACE_ID) &&
-    Boolean(process.env.CONTENTFUL_DELIVERY_TOKEN)
-  );
+function requireDeliveryEnv() {
+  const space = process.env.CONTENTFUL_SPACE_ID;
+  const accessToken = process.env.CONTENTFUL_DELIVERY_TOKEN;
+  if (!space || !accessToken) {
+    throw new Error(
+      "CONTENTFUL_SPACE_ID and CONTENTFUL_DELIVERY_TOKEN are required"
+    );
+  }
+  return { space, accessToken };
 }
 
+/** Delivery API client — always used for published content. */
 export function getDeliveryClient() {
-  if (!isContentfulEnabled()) return null;
-
   if (!deliveryClient) {
+    const { space, accessToken } = requireDeliveryEnv();
     deliveryClient = createClient({
-      space: process.env.CONTENTFUL_SPACE_ID!,
-      accessToken: process.env.CONTENTFUL_DELIVERY_TOKEN!,
+      space,
+      accessToken,
       environment: process.env.CONTENTFUL_ENVIRONMENT || "master",
     });
   }

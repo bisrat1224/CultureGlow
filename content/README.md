@@ -1,8 +1,7 @@
 # Local content (JSON)
 
-**This is the source of truth for client review.** No Contentful, no backend.
-
-Edit any file below, save, refresh the browser (`npm run dev`).
+**Fallback / seed source** when Contentful is empty, errors, or env tokens are missing.
+The live site always prefers Contentful.
 
 | File | What it controls |
 |------|------------------|
@@ -12,19 +11,11 @@ Edit any file below, save, refresh the browser (`npm run dev`).
 | `shop.json` | Shop page marketing copy |
 | `menu-page.json` | Menu page marketing copy (hero, CTAs, how-to-order) |
 
-## Quick test for the client
+## Editing live content
 
-1. Open `content/products.json`
-2. Change a `"name"` or `"price"`
-3. Save
-4. Refresh `http://localhost:3000/shop`
+Use the Contentful web app (see [CONTENTFUL.md](../CONTENTFUL.md)). Publish entries after edits.
 
-Same idea for menu items in `content/menu.json`.
-
-## Contentful later
-
-When CMS access is ready, set `CONTENTFUL_ENABLED=true` in `.env.local`.
-Until then, leave it `false` or unset — the app uses these JSON files only.
+Local JSON is still used by the seed scripts and as the offline fallback.
 
 ## Placeholders (old catalogue)
 
@@ -36,4 +27,3 @@ Gallery / catering photo grids keep the old Pexels URLs in block comments inside
 - `src/components/gallery/GalleryPhotoGrid/GalleryPhotoGrid.tsx`
 - `src/components/catering/EventGallerySection/EventGallerySection.tsx`
 - `src/lib/content/content.about.ts` (gallery images)
-
